@@ -128,22 +128,59 @@ def foreign_hist(code):
     except Exception as e: print("foreign",code,e)
     return pd.DataFrame()
 
+def comex_copper_hist_usd_ton():
+    """Fallback for copper when the LME 3M history source is empty.
+
+    Eastmoney HG00Y is COMEX copper quoted in USD/lb. Convert to USD per
+    metric tonne so the website keeps the same unit as LME copper.
+    """
+    try:
+        df=ak.futures_global_hist_em(symbol="HG00Y")
+        if df is None or df.empty:
+            return pd.DataFrame()
+        out=pd.DataFrame({
+            "date":pd.to_datetime(df["日期"]),
+            "close":pd.to_numeric(df["最新价"],errors="coerce") * 2204.62262185
+        }).dropna()
+        return out
+    except Exception as e:
+        print("COMEX copper fallback failed:",e)
+        return pd.DataFrame()
+
 def fetch_metals(data):
     old=data.get("commodities",{})
     result={}
     for key,cfg in METALS.items():
         try:
             df=foreign_hist(cfg["code"])
+            data_source="LME/COMEX primary source"
+            if key=="copper":
+                data_source="LME 3个月铜"
+                if df is None or df.empty:
+                    df=comex_copper_hist_usd_ton()
+                    if df is not None and not df.empty:
+                        data_source="COMEX铜连续备用（HG00Y，已折算美元/吨）"
             cutoff=pd.Timestamp.now().normalize()-pd.Timedelta(days=35)
             df=df[df["date"]>=cutoff].tail(30)
             vals=df["close"].astype(float).tolist()
             if vals:
                 tr,out,pct,mom5=trend_text(vals)
                 series=[{"date":d.strftime("%Y-%m-%d"),"close":round(float(v),4)} for d,v in zip(df["date"],df["close"])]
-                item={**cfg,"latest":round(vals[-1],4),"month_change":round(pct,2),"trend":tr,"outlook":out,"series":series,"momentum_5d":round(mom5,2)}
+                item={**cfg,"latest":round(vals[-1],4),"month_change":round(pct,2),"trend":tr,"outlook":out,"series":series,"momentum_5d":round(mom5,2),"data_source":data_source}
+                if key=="copper" and data_source.startswith("COMEX"):
+                    item["symbol"]="COMEX铜连续（LME备用源）"
+                    item["source_note"]="LME 3个月铜历史接口无数据时，自动切换东方财富 COMEX 铜连续 HG00Y；原始美元/磅已按 1 吨=2204.6226 磅折算为美元/吨。"
+                elif key=="copper":
+                    item["source_note"]="当前使用LME 3个月铜历史行情；若该接口为空会自动切换COMEX铜连续备用源。"
             else:
                 item=old.get(key,{**cfg,"latest":None,"month_change":None,"trend":"数据不足","outlook":"等待行情源更新","series":[]})
-                item.update({"drivers":cfg["drivers"],"risks":cfg["risks"],"symbol":cfg["symbol"],"unit":cfg["unit"]})
+                item.update({"drivers":cfg["drivers"],"risks":cfg["risks"],"unit":cfg["unit"]})
+                if key=="copper":
+                    item["symbol"]=cfg["symbol"]
+                    item["data_source"]="LME主源与COMEX备用源本次均未返回数据"
+                    item["source_note"]="铜已启用双数据源容错；本次若仍为空，请检查Actions日志中的LME与COMEX接口错误。"
+                else:
+                    item["symbol"]=cfg["symbol"]
             result[key]=item
         except Exception as e:
             print("metal failed",key,e)
