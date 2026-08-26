@@ -3,28 +3,47 @@ name: Update market dashboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: '10 0,8 * * *'
+    # Beijing time: 07:35 / 07:50 / 08:05
+    - cron: '35,50 23 * * *'
+    - cron: '5 0 * * *'
+
+    # Beijing time: 16:20 / 16:40 / 17:00 / 17:30
+    - cron: '20,40 8 * * *'
+    - cron: '0,30 9 * * *'
 
 permissions:
   contents: write
 
+concurrency:
+  group: market-dashboard-update
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
-      - run: pip install -r requirements.txt
-      - run: python update_data.py
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Update market data
+        run: python update_data.py
+
       - name: Commit updated dashboard
         run: |
           git config user.name "market-dashboard-bot"
           git config user.email "actions@users.noreply.github.com"
+
           git add dashboard.json
+
           if git diff --cached --quiet; then
             echo "No data changes"
           else
