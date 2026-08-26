@@ -1,43 +1,153 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>每日投资简报</title>
-  <style>
-    :root{--bg:#f6f7f9;--card:#fff;--text:#15171a;--muted:#69707a;--line:#e7e9ed;--good:#15803d;--bad:#b42318;--tag:#eef2f7}
-    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
-    .wrap{max-width:1100px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:18px}
-    h1{font-size:30px;margin:0 0 6px}.sub{color:var(--muted);font-size:14px}.status{padding:7px 10px;border-radius:999px;background:#eefbf3;color:var(--good);font-weight:700;font-size:13px}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.metric,.card,.summary{background:var(--card);border:1px solid var(--line);border-radius:16px}.metric{padding:16px}.metric .k{font-size:13px;color:var(--muted)}.metric .v{font-size:24px;font-weight:800;margin-top:6px}
-    .section-title{font-size:18px;margin:24px 0 10px}.cards{display:grid;gap:14px}.card{padding:18px}.card-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}.rank{font-size:12px;color:var(--muted);font-weight:700}.title{font-size:20px;font-weight:800;margin:3px 0 8px}.stars{white-space:nowrap;font-weight:800}
-    .row{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--line)}.row:first-of-type{border-top:none}.label{font-size:13px;color:var(--muted);font-weight:700}
-    .tags{display:flex;flex-wrap:wrap;gap:7px}.tag{background:var(--tag);border-radius:999px;padding:5px 9px;font-size:12px}.tag.real{background:#ecfdf3;color:#067647}.tag.map{background:#eff8ff;color:#175cd3}.tag.mood{background:#fff4ed;color:#b54708}
-    .summary{padding:18px;margin-top:14px}table{width:100%;border-collapse:collapse}th,td{padding:11px 8px;border-bottom:1px solid var(--line);text-align:left;font-size:14px}th{color:var(--muted);font-size:12px}.risk{color:var(--bad);font-weight:700}footer{color:var(--muted);font-size:12px;padding:18px 2px}
-    @media(max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start;flex-direction:column}.row{grid-template-columns:1fr}.wrap{padding:14px}h1{font-size:25px}table{display:block;overflow:auto}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>每日投资简报 · 市场趋势仪表盘</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--text:#16181c;--muted:#6b7280;--line:#e6e8ec;--good:#067647;--bad:#b42318;--blue:#175cd3;--amber:#b54708}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
+.wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:16px;align-items:end}.top h1{font-size:30px;margin:0 0 6px}.sub{color:var(--muted);font-size:13px}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eefbf3;color:var(--good);font-weight:700;font-size:12px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.tab{border:1px solid var(--line);background:white;padding:8px 12px;border-radius:999px;cursor:pointer;font-size:13px}.tab.active{background:#111827;color:white;border-color:#111827}
+.section{margin-top:22px}.section h2{font-size:19px;margin:0 0 12px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px}.k{font-size:12px;color:var(--muted);font-weight:700}.v{font-size:24px;font-weight:800;margin-top:5px}.small{font-size:12px;color:var(--muted);margin-top:4px}
+.chartbox{height:320px}.chartbox canvas{max-height:100%}.good{color:var(--good)}.bad{color:var(--bad)}.neutral{color:var(--amber)}
+.mainline{margin-bottom:13px}.mainhead{display:flex;justify-content:space-between;gap:14px}.title{font-size:19px;font-weight:800}.stars{white-space:nowrap;font-weight:800}
+.row{display:grid;grid-template-columns:125px 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--line)}.row:first-of-type{border-top:none}.label{font-size:12px;color:var(--muted);font-weight:700}
+.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;padding:4px 8px;border-radius:999px;background:#eef2f7}.real{background:#ecfdf3;color:#067647}.map{background:#eff8ff;color:#175cd3}.mood{background:#fff4ed;color:#b54708}
+.metalbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.metalbtn{padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer}.metalbtn.active{background:#111827;color:#fff}
+.outlook{line-height:1.65}.drivers{margin:8px 0 0;padding-left:18px;color:#374151}.source{font-size:11px;color:var(--muted);margin-top:8px}
+table{width:100%;border-collapse:collapse}th,td{padding:10px 7px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}th{font-size:11px;color:var(--muted)}
+footer{padding:22px 2px;color:var(--muted);font-size:11px}
+@media(max-width:850px){.grid4,.grid3,.grid2{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr}.chartbox{height:270px}}
+@media(max-width:560px){.grid4,.grid3,.grid2{grid-template-columns:1fr}.wrap{padding:13px}.top{align-items:flex-start;flex-direction:column}.top h1{font-size:25px}}
+</style>
 </head>
 <body>
 <main class="wrap">
-  <header class="top"><div><h1>每日投资简报</h1><div class="sub" id="dateLine">读取中…</div></div><div class="status" id="marketStatus">盘前版</div></header>
-  <section class="grid" id="metrics"></section>
-  <h2 class="section-title">今日 5 条核心主线</h2><section class="cards" id="mainlines"></section>
-  <h2 class="section-title">今日最强 3 个方向</h2><section class="summary"><table><thead><tr><th>方向</th><th>持续性</th><th>次日验证信号</th></tr></thead><tbody id="top3"></tbody></table></section>
-  <h2 class="section-title">需要回避</h2><section class="summary" id="avoid"></section>
-  <footer>本页面用于市场研究与信息整理，不构成投资建议。事实与推演在正文中分开标注。</footer>
+<header class="top"><div><h1>每日投资简报</h1><div class="sub" id="dateLine">加载中…</div></div><span class="pill" id="marketStatus">数据更新中</span></header>
+
+<section class="section">
+<h2>市场流动性 · 近10个交易日</h2>
+<div class="grid4" id="liqCards"></div>
+<div class="card" style="margin-top:12px"><div class="chartbox"><canvas id="liqChart"></canvas></div><div class="source" id="liqSource"></div></div>
+</section>
+
+<section class="section">
+<h2>中国进出口 · 官方月度数据</h2>
+<div class="grid4" id="tradeCards"></div>
+<div class="grid2" style="margin-top:12px">
+  <div class="card"><div class="chartbox"><canvas id="tradeChart"></canvas></div></div>
+  <div class="card"><div class="k">怎么看</div><div id="tradeRead" class="outlook"></div><div class="source" id="tradeSource"></div></div>
+</div>
+</section>
+
+<section class="section">
+<h2>国际重要金属 · 近1个月</h2>
+<div class="metalbar" id="metalButtons"></div>
+<div class="grid2">
+  <div class="card"><div class="chartbox"><canvas id="metalChart"></canvas></div></div>
+  <div class="card">
+    <div class="grid3" id="metalStats"></div>
+    <div style="margin-top:14px"><div class="k">未来1–4周倾向</div><div id="metalOutlook" class="outlook"></div></div>
+    <div style="margin-top:14px"><div class="k">主要驱动</div><ul class="drivers" id="metalDrivers"></ul></div>
+    <div style="margin-top:14px"><div class="k">主要风险</div><ul class="drivers" id="metalRisks"></ul></div>
+    <div class="source">价格序列由公开国际期货行情自动抓取；趋势判断基于近20日涨跌、5日动量和均线关系，不是确定性预测。</div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<h2>今日盘面总览</h2><div class="grid4" id="metrics"></div>
+</section>
+
+<section class="section">
+<h2>今日 5 条核心主线</h2><div id="mainlines"></div>
+</section>
+
+<section class="section">
+<h2>今日最强 3 个方向</h2>
+<div class="card"><table><thead><tr><th>方向</th><th>持续性</th><th>次日验证信号</th></tr></thead><tbody id="top3"></tbody></table></div>
+</section>
+
+<section class="section">
+<h2>需要回避</h2><div class="card" id="avoid"></div>
+</section>
+<footer>市场数据用于研究与趋势观察，不构成投资建议。两融与成交额以交易所数据为准；进出口以官方发布为准；商品价格可能存在行情源延迟。</footer>
 </main>
 <script>
-async function loadBrief(){
-  const res=await fetch('./brief.json',{cache:'no-store'});
-  const d=await res.json();
-  document.getElementById('dateLine').textContent=`${d.date} · 更新时间 ${d.updated_at}`;
-  document.getElementById('marketStatus').textContent=d.market_status;
-  document.getElementById('metrics').innerHTML=d.metrics.map(x=>`<div class="metric"><div class="k">${x.label}</div><div class="v">${x.value}</div><div class="sub">${x.note||''}</div></div>`).join('');
-  document.getElementById('mainlines').innerHTML=d.mainlines.map((x,i)=>`<article class="card"><div class="card-head"><div><div class="rank">#${i+1}</div><div class="title">${x.title}</div></div><div class="stars">${'★'.repeat(x.stars)}${'☆'.repeat(5-x.stars)}</div></div><div class="row"><div class="label">核心事实 / 催化</div><div>${x.fact}</div></div><div class="row"><div class="label">价格确认</div><div>${x.market}</div></div><div class="row"><div class="label">短期影响</div><div>${x.short_term}</div></div><div class="row"><div class="label">中期逻辑</div><div>${x.mid_term}</div></div><div class="row"><div class="label">标的分层</div><div class="tags">${(x.real||[]).map(v=>`<span class="tag real">真实业务 · ${v}</span>`).join('')}${(x.mapping||[]).map(v=>`<span class="tag map">产业映射 · ${v}</span>`).join('')}${(x.sentiment||[]).map(v=>`<span class="tag mood">纯情绪 · ${v}</span>`).join('')}</div></div><div class="row"><div class="label">风险 / 不确定性</div><div class="risk">${x.risk}</div></div></article>`).join('');
-  document.getElementById('top3').innerHTML=d.top3.map(x=>`<tr><td><b>${x.name}</b></td><td>${'★'.repeat(x.stars)}${'☆'.repeat(5-x.stars)}</td><td>${x.verify}</td></tr>`).join('');
-  document.getElementById('avoid').innerHTML=`<ul>${d.avoid.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+let charts={}; const fmt=(v,d=2)=>v==null?'—':Number(v).toLocaleString('zh-CN',{maximumFractionDigits:d});
+const cls=v=>v>0?'good':v<0?'bad':'neutral';
+function destroy(name){if(charts[name]) charts[name].destroy();}
+async function load(){
+ const [b,d]=await Promise.all([fetch('./brief.json',{cache:'no-store'}).then(r=>r.json()),fetch('./dashboard.json',{cache:'no-store'}).then(r=>r.json())]);
+ document.getElementById('dateLine').textContent=`简报 ${b.date} ${b.updated_at} · 数据仪表盘 ${d.updated_at||'待更新'}`;
+ document.getElementById('marketStatus').textContent=b.market_status||'市场简报';
+ renderLiquidity(d.liquidity); renderTrade(d.trade); renderMetals(d.commodities);
+ document.getElementById('metrics').innerHTML=b.metrics.map(x=>`<div class="card"><div class="k">${x.label}</div><div class="v">${x.value}</div><div class="small">${x.note||''}</div></div>`).join('');
+ document.getElementById('mainlines').innerHTML=b.mainlines.map((x,i)=>`<article class="card mainline"><div class="mainhead"><div><div class="k">#${i+1}</div><div class="title">${x.title}</div></div><div class="stars">${'★'.repeat(x.stars)}${'☆'.repeat(5-x.stars)}</div></div><div class="row"><div class="label">核心事实 / 催化</div><div>${x.fact}</div></div><div class="row"><div class="label">价格确认</div><div>${x.market}</div></div><div class="row"><div class="label">短期影响</div><div>${x.short_term}</div></div><div class="row"><div class="label">中期逻辑</div><div>${x.mid_term}</div></div><div class="row"><div class="label">标的分层</div><div class="tags">${(x.real||[]).map(v=>`<span class="tag real">真实业务 · ${v}</span>`).join('')}${(x.mapping||[]).map(v=>`<span class="tag map">产业映射 · ${v}</span>`).join('')}${(x.sentiment||[]).map(v=>`<span class="tag mood">纯情绪 · ${v}</span>`).join('')}</div></div><div class="row"><div class="label">风险</div><div class="bad">${x.risk}</div></div></article>`).join('');
+ document.getElementById('top3').innerHTML=b.top3.map(x=>`<tr><td><b>${x.name}</b></td><td>${'★'.repeat(x.stars)}${'☆'.repeat(5-x.stars)}</td><td>${x.verify}</td></tr>`).join('');
+ document.getElementById('avoid').innerHTML=`<ul>${b.avoid.map(x=>`<li>${x}</li>`).join('')}</ul>`;
 }
-loadBrief().catch(err=>{document.getElementById('dateLine').textContent='简报数据加载失败，请稍后刷新';console.error(err);});
+function renderLiquidity(liq){
+ const s=liq.series||[], last=s.at(-1), first=s[0];
+ const marginChg=last&&first?(last.margin_balance-first.margin_balance)/first.margin_balance*100:null;
+ const turnoverChg=last&&first?(last.turnover-first.turnover)/first.turnover*100:null;
+ document.getElementById('liqCards').innerHTML=[
+  ['最新两融余额',last?fmt(last.margin_balance,1)+' 亿元':'等待更新',last?last.date:''],
+  ['10日两融变化',marginChg==null?'—':(marginChg>=0?'+':'')+fmt(marginChg,2)+'%', '观察杠杆资金趋势'],
+  ['最新沪深成交额',last?fmt(last.turnover,0)+' 亿元':'等待更新',last?last.date:''],
+  ['10日成交额变化',turnoverChg==null?'—':(turnoverChg>=0?'+':'')+fmt(turnoverChg,2)+'%', '观察活跃度趋势']
+ ].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');
+ document.getElementById('liqSource').textContent=`${liq.source||''} · ${liq.status||''}`;
+ destroy('liq');
+ charts.liq=new Chart(document.getElementById('liqChart'),{type:'line',data:{labels:s.map(x=>x.date.slice(5)),datasets:[
+  {label:'两融余额（亿元）',data:s.map(x=>x.margin_balance),yAxisID:'y'},
+  {label:'沪深A股成交额（亿元）',data:s.map(x=>x.turnover),yAxisID:'y1'}
+ ]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},scales:{y:{position:'left'},y1:{position:'right',grid:{drawOnChartArea:false}}}}});
+}
+function renderTrade(t){
+ const l=t.latest||{}, s=t.series||[];
+ document.getElementById('tradeCards').innerHTML=[
+  ['最新月份',t.latest_month||'—','官方月度'],
+  ['出口',fmt(l.exports,2)+' 亿美元',l.export_yoy!=null?'同比 '+fmt(l.export_yoy,1)+'%':''],
+  ['进口',fmt(l.imports,2)+' 亿美元',l.import_yoy!=null?'同比 '+fmt(l.import_yoy,1)+'%':''],
+  ['贸易差额',fmt(l.balance,2)+' 亿美元',l.balance>=0?'顺差':'逆差']
+ ].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');
+ destroy('trade');
+ charts.trade=new Chart(document.getElementById('tradeChart'),{type:'line',data:{labels:s.map(x=>x.month),datasets:[
+  {label:'出口（亿美元）',data:s.map(x=>x.exports)},
+  {label:'进口（亿美元）',data:s.map(x=>x.imports)},
+  {label:'顺差（亿美元）',data:s.map(x=>x.balance)}
+ ]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false}}});
+ const prev=s.length>1?s[s.length-2]:null;
+ let txt=`最新官方数据为 <b>${t.latest_month||''}</b>。`;
+ if(prev&&l.balance!=null){const delta=l.balance-prev.balance;txt+=`贸易顺差较上月${delta>=0?'扩大':'收窄'} <b>${fmt(Math.abs(delta),2)} 亿美元</b>。`;}
+ txt+=` 网站每日检查官方页面，但只有官方发布新月份后才更新，不用人为猜发布日期。`;
+ document.getElementById('tradeRead').innerHTML=txt;
+ document.getElementById('tradeSource').textContent=`${t.source||''} · ${t.release_note||''}`;
+}
+function renderMetals(m){
+ const keys=Object.keys(m||{}); const box=document.getElementById('metalButtons');
+ box.innerHTML=keys.map((k,i)=>`<button class="metalbtn ${i===0?'active':''}" data-k="${k}">${m[k].name}</button>`).join('');
+ box.querySelectorAll('button').forEach(btn=>btn.onclick=()=>{box.querySelectorAll('button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderMetal(m[btn.dataset.k]);});
+ if(keys.length) renderMetal(m[keys[0]]);
+}
+function renderMetal(x){
+ const s=x.series||[], ch=x.month_change;
+ document.getElementById('metalStats').innerHTML=[
+  ['最新价',x.latest==null?'等待自动更新':fmt(x.latest,2),x.unit||''],
+  ['近1月',(ch==null?'—':(ch>=0?'+':'')+fmt(ch,2)+'%'),''],
+  ['趋势',x.trend||'—','']
+ ].map(y=>`<div><div class="k">${y[0]}</div><div class="v ${y[0]=='近1月'?cls(ch):''}" style="font-size:20px">${y[1]}</div><div class="small">${y[2]}</div></div>`).join('');
+ document.getElementById('metalOutlook').textContent=x.outlook||'';
+ document.getElementById('metalDrivers').innerHTML=(x.drivers||[]).map(v=>`<li>${v}</li>`).join('');
+ document.getElementById('metalRisks').innerHTML=(x.risks||[]).map(v=>`<li>${v}</li>`).join('');
+ destroy('metal');
+ charts.metal=new Chart(document.getElementById('metalChart'),{type:'line',data:{labels:s.map(v=>v.date.slice(5)),datasets:[{label:`${x.symbol}（${x.unit}）`,data:s.map(v=>v.close)}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{title:{display:true,text:s.length?'近1个月价格走势':'等待自动任务首次运行后生成完整1个月曲线'}}}});
+}
+load().catch(e=>{document.getElementById('dateLine').textContent='数据加载失败，请刷新';console.error(e)});
 </script>
-</body>
-</html>
+</body></html>
