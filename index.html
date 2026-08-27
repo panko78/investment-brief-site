@@ -10,6 +10,8 @@
 *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text)}
 .wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:16px;align-items:end}.top h1{font-size:30px;margin:0 0 6px}.sub{color:var(--muted);font-size:13px}
 .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eefbf3;color:var(--good);font-weight:700;font-size:12px}
+.stale-banner{display:none;margin-top:14px;padding:11px 14px;border:1px solid #fecdca;border-radius:12px;background:#fef3f2;color:#b42318;font-size:13px;font-weight:700}
+.stale-banner.show{display:block}
 .tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}.tab{border:1px solid var(--line);background:white;padding:8px 12px;border-radius:999px;cursor:pointer;font-size:13px}.tab.active{background:#111827;color:white;border-color:#111827}
 .section{margin-top:22px}.section h2{font-size:19px;margin:0 0 12px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px}.k{font-size:12px;color:var(--muted);font-weight:700}.v{font-size:24px;font-weight:800;margin-top:5px}.small{font-size:12px;color:var(--muted);margin-top:4px}
@@ -28,6 +30,7 @@ footer{padding:22px 2px;color:var(--muted);font-size:11px}
 <body>
 <main class="wrap">
 <header class="top"><div><h1>每日投资简报</h1><div class="sub" id="dateLine">加载中…</div></div><span class="pill" id="marketStatus">数据更新中</span></header>
+<div class="stale-banner" id="staleBanner"></div>
 
 <section class="section">
 <h2>市场流动性 · 近10个交易日</h2>
@@ -81,10 +84,35 @@ footer{padding:22px 2px;color:var(--muted);font-size:11px}
 let charts={}; const fmt=(v,d=2)=>v==null?'—':Number(v).toLocaleString('zh-CN',{maximumFractionDigits:d});
 const cls=v=>v>0?'good':v<0?'bad':'neutral';
 function destroy(name){if(charts[name]) charts[name].destroy();}
+function dashboardUpdatedAtBeijing(s){
+ if(!s) return null;
+ const m=String(s).match(/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2})/);
+ if(!m) return null;
+ return new Date(`${m[1]}-${m[2]}-${m[3]}T${m[4]}:${m[5]}:00+08:00`);
+}
+function beijingTimeText(s){
+ return s||'待更新';
+}
+function updateFreshness(d){
+ const el=document.getElementById('staleBanner');
+ const dt=dashboardUpdatedAtBeijing(d&&d.updated_at);
+ if(!dt){
+   el.textContent='⚠ 数据更新时间无法识别，请检查 GitHub Actions 是否正常运行。';
+   el.classList.add('show'); return;
+ }
+ const hours=(Date.now()-dt.getTime())/3600000;
+ if(hours>24){
+   el.textContent=`⚠ 数据可能已过期：仪表盘最后更新于北京时间 ${beijingTimeText(d.updated_at)}，距现在约 ${Math.floor(hours)} 小时。请检查 GitHub Actions。`;
+   el.classList.add('show');
+ }else{
+   el.textContent=''; el.classList.remove('show');
+ }
+}
 async function load(){
  const [b,d]=await Promise.all([fetch('./brief.json',{cache:'no-store'}).then(r=>r.json()),fetch('./dashboard.json',{cache:'no-store'}).then(r=>r.json())]);
- document.getElementById('dateLine').textContent=`简报 ${b.date} ${b.updated_at} · 数据仪表盘 ${d.updated_at||'待更新'}`;
+ document.getElementById('dateLine').textContent=`简报 ${b.date} ${b.updated_at} · 数据仪表盘 北京时间 ${beijingTimeText(d.updated_at)}`;
  document.getElementById('marketStatus').textContent=b.market_status||'市场简报';
+ updateFreshness(d);
  renderLiquidity(d.liquidity); renderTrade(d.trade); renderMetals(d.commodities);
  document.getElementById('metrics').innerHTML=b.metrics.map(x=>`<div class="card"><div class="k">${x.label}</div><div class="v">${x.value}</div><div class="small">${x.note||''}</div></div>`).join('');
  document.getElementById('mainlines').innerHTML=b.mainlines.map((x,i)=>`<article class="card mainline"><div class="mainhead"><div><div class="k">#${i+1}</div><div class="title">${x.title}</div></div><div class="stars">${'★'.repeat(x.stars)}${'☆'.repeat(5-x.stars)}</div></div><div class="row"><div class="label">核心事实 / 催化</div><div>${x.fact}</div></div><div class="row"><div class="label">价格确认</div><div>${x.market}</div></div><div class="row"><div class="label">短期影响</div><div>${x.short_term}</div></div><div class="row"><div class="label">中期逻辑</div><div>${x.mid_term}</div></div><div class="row"><div class="label">标的分层</div><div class="tags">${(x.real||[]).map(v=>`<span class="tag real">真实业务 · ${v}</span>`).join('')}${(x.mapping||[]).map(v=>`<span class="tag map">产业映射 · ${v}</span>`).join('')}${(x.sentiment||[]).map(v=>`<span class="tag mood">纯情绪 · ${v}</span>`).join('')}</div></div><div class="row"><div class="label">风险</div><div class="bad">${x.risk}</div></div></article>`).join('');
