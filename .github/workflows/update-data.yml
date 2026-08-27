@@ -3,13 +3,15 @@ name: Update market dashboard
 on:
   workflow_dispatch:
   schedule:
-    # Beijing time: 07:35 / 07:50 / 08:05
-    - cron: '35,50 23 * * *'
-    - cron: '5 0 * * *'
+    # Beijing time: 06:30-08:30, every 15 minutes
+    - cron: '30,45 22 * * *'
+    - cron: '0,15,30,45 23 * * *'
+    - cron: '0,15,30 0 * * *'
 
-    # Beijing time: 16:20 / 16:40 / 17:00 / 17:30
-    - cron: '20,40 8 * * *'
-    - cron: '0,30 9 * * *'
+    # Beijing time: 15:30-17:30, every 15 minutes
+    - cron: '30,45 7 * * *'
+    - cron: '0,15,30,45 8 * * *'
+    - cron: '0,15,30 9 * * *'
 
 permissions:
   contents: write
@@ -21,6 +23,8 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
     timeout-minutes: 20
 
     steps:
