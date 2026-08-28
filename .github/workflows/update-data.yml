@@ -30,6 +30,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
@@ -53,5 +55,6 @@ jobs:
             echo "No data changes"
           else
             git commit -m "Update market dashboard data"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
