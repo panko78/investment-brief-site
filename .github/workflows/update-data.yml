@@ -3,15 +3,11 @@ name: Update market dashboard
 on:
   workflow_dispatch:
   schedule:
-    # Beijing time: 06:30-08:30, every 15 minutes
-    - cron: '30,45 22 * * *'
-    - cron: '0,15,30,45 23 * * *'
-    - cron: '0,15,30 0 * * *'
+    # Beijing time: 08:00
+    - cron: '0 0 * * *'
 
-    # Beijing time: 15:30-17:30, every 15 minutes
-    - cron: '30,45 7 * * *'
-    - cron: '0,15,30,45 8 * * *'
-    - cron: '0,15,30 9 * * *'
+    # Beijing time: 15:15
+    - cron: '15 7 * * *'
 
 permissions:
   contents: write
