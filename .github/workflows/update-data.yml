@@ -2,6 +2,11 @@ name: Update market dashboard
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'update_data.py'
+      - 'requirements.txt'
+      - '.github/workflows/update-data.yml'
   schedule:
     # Beijing time: 08:00
     - cron: '0 0 * * *'
