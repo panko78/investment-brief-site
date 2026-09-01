@@ -27,9 +27,10 @@
 <section class="section">
 <div class="section-head"><h2>市场流动性 · 近10个交易日</h2><div class="rangebar"><span class="rangehint">查看：</span><button class="rangebtn active" data-days="10">近10日</button><button class="rangebtn" data-days="30">近30日</button></div></div>
 <div class="grid6" id="liqCards"></div>
-<div class="grid2" style="margin-top:12px">
-  <div class="card"><div class="chartbox"><canvas id="marginChart"></canvas></div><div class="source" id="marginSource"></div></div>
-  <div class="card"><div class="chartbox"><canvas id="turnoverChart"></canvas></div><div class="source" id="turnoverSource"></div></div>
+<div class="card" style="margin-top:12px">
+  <div class="chartbox"><canvas id="liquidityChart"></canvas></div>
+  <div class="source" id="marginSource"></div>
+  <div class="source" id="turnoverSource"></div>
 </div>
 </section>
 
@@ -46,7 +47,7 @@
 <section class="section"><div class="section-head"><h2>今日最强 3 个方向</h2></div><div class="card"><table><thead><tr><th>方向</th><th>持续性</th><th>次日验证信号</th></tr></thead><tbody id="top3"></tbody></table></div></section>
 <section class="section" id="forecastSection" style="display:none"><div class="section-head"><h2>下一交易日最强板块预测</h2><div class="rangehint">基于盘面与资金的推演，不是事实</div></div><div id="forecast"></div></section>
 <section class="section"><div class="section-head"><h2>需要回避</h2></div><div class="card" id="avoid"></div></section>
-<footer>市场数据用于研究与趋势观察，不构成投资建议。两融余额按沪深京三交易所官方融资融券汇总口径；沪深成交额按上证指数与深证成指历史成交额口径，用于匹配市场常用“两市成交额”；进出口、GDP、社融、债务与外汇储备使用中国官方数据；商品价格可能存在行情源延迟。</footer>
+<footer>市场数据用于研究与趋势观察，不构成投资建议。两融余额按沪深京三交易所官方融资融券汇总口径；沪深成交额按上交所与深交所市场成交汇总口径；进出口、GDP、社融、债务与外汇储备使用中国官方数据；商品价格可能存在行情源延迟。</footer>
 </main>
 
 <script>
@@ -98,11 +99,29 @@ function renderLiquidity(liq){
 
 function drawLiquidityCharts(){
   const ms=marginSeries.slice(-liquidityRange),ts=turnoverSeries.slice(-liquidityRange);
-  destroy('margin');destroy('turnover');
-  charts.margin=new Chart(document.getElementById('marginChart'),{type:'line',data:{labels:ms.map(x=>x.date.slice(5)),datasets:[{label:'全A两融余额（亿元）',data:ms.map(x=>x.margin_balance),tension:.2,pointRadius:3}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{title:{display:true,text:`全A两融余额 · 近${liquidityRange}个交易日`}},scales:{y:{title:{display:true,text:'亿元'}}}}});
-  charts.turnover=new Chart(document.getElementById('turnoverChart'),{type:'line',data:{labels:ts.map(x=>x.date.slice(5)),datasets:[{label:'沪深两市成交额（亿元）',data:ts.map(x=>x.turnover),tension:.2,pointRadius:3}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{title:{display:true,text:`沪深两市成交额 · 近${liquidityRange}个交易日`}},scales:{y:{title:{display:true,text:'亿元'}}}}});
+  const mm=new Map(ms.map(x=>[x.date,x.margin_balance]));
+  const tm=new Map(ts.map(x=>[x.date,x.turnover]));
+  const dates=[...new Set([...ms.map(x=>x.date),...ts.map(x=>x.date)])].sort().slice(-liquidityRange);
+  destroy('margin');destroy('turnover');destroy('liquidity');
+  charts.liquidity=new Chart(document.getElementById('liquidityChart'),{
+    type:'line',
+    data:{
+      labels:dates.map(x=>x.slice(5)),
+      datasets:[
+        {label:'全A两融余额（亿元）',data:dates.map(d=>mm.has(d)?mm.get(d):null),yAxisID:'yMargin',tension:.2,pointRadius:3,spanGaps:false},
+        {label:'沪深两市成交额（亿元）',data:dates.map(d=>tm.has(d)?tm.get(d):null),yAxisID:'yTurnover',tension:.2,pointRadius:3,spanGaps:false}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{title:{display:true,text:`两融余额 vs 沪深成交额 · 近${liquidityRange}个交易日`}},
+      scales:{
+        yMargin:{type:'linear',position:'left',title:{display:true,text:'两融余额（亿元）'},grid:{drawOnChartArea:true}},
+        yTurnover:{type:'linear',position:'right',title:{display:true,text:'成交额（亿元）'},grid:{drawOnChartArea:false}}
+      }
+    }
+  });
 }
-
 function renderTrade(t){const l=t.latest||{},s=t.series||[];document.getElementById('tradeCards').innerHTML=[['最新月份',t.latest_month||'—','官方月度'],['出口',fmt(l.exports,2)+' 亿美元',l.export_yoy!=null?'同比 '+fmt(l.export_yoy,1)+'%':''],['进口',fmt(l.imports,2)+' 亿美元',l.import_yoy!=null?'同比 '+fmt(l.import_yoy,1)+'%':''],['贸易差额',fmt(l.balance,2)+' 亿美元',l.balance>=0?'顺差':'逆差']].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');destroy('trade');charts.trade=new Chart(document.getElementById('tradeChart'),{type:'line',data:{labels:s.map(x=>x.month),datasets:[{label:'出口（亿美元）',data:s.map(x=>x.exports)},{label:'进口（亿美元）',data:s.map(x=>x.imports)},{label:'顺差（亿美元）',data:s.map(x=>x.balance)}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false}}});const prev=s.length>1?s[s.length-2]:null;let txt=`最新官方数据为 <b>${t.latest_month||''}</b>。`;if(prev&&l.balance!=null){const delta=l.balance-prev.balance;txt+=`贸易顺差较上月${delta>=0?'扩大':'收窄'} <b>${fmt(Math.abs(delta),2)} 亿美元</b>。`}txt+=' 网站每日检查官方页面，仅在官方发布新月份后更新。';document.getElementById('tradeRead').innerHTML=txt;document.getElementById('tradeSource').textContent=`${t.source||''} · ${t.release_note||''}`}
 
 function renderMacro(m){document.getElementById('macroUpdated').textContent=`该模块最后更新：${m.last_updated||'—'} · 最新官方源：${m.last_source_update||'—'}`;const g=m.gdp||{},s=m.social_financing||{},l=m.local_government_debt||{},gd=m.government_debt_reference||{};document.getElementById('macroCards').innerHTML=[['GDP',g.nominal_trillion_yuan!=null?fmt(g.nominal_trillion_yuan,4)+' 万亿元':'—',`${g.latest_period||''} · 实际同比 ${g.real_yoy_pct==null?'—':fmt(g.real_yoy_pct,1)+'%'}`],['社融存量',s.stock_trillion_yuan!=null?fmt(s.stock_trillion_yuan,2)+' 万亿元':'—',`${s.latest_period||''} · 同比 ${s.yoy_pct==null?'—':fmt(s.yoy_pct,1)+'%'}`],['地方政府债务',l.balance_trillion_yuan!=null?fmt(l.balance_trillion_yuan,2)+' 万亿元':'—',`${l.latest_period||''} · 2025 GDP参考 ${l.reference_ratio_to_2025_gdp_pct||'—'}%`],['政府显性债务参考',gd.combined_trillion_yuan!=null?fmt(gd.combined_trillion_yuan,2)+' 万亿元':'—',`${gd.period||''} · 2025 GDP参考 ${gd.reference_ratio_to_2025_gdp_pct||'—'}%`]].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');document.getElementById('macroNote').innerHTML=`${m.methodology||''}<br><b>社融结构：</b>实体人民币贷款 ${fmt(s.rmb_loans_to_real_economy_trillion_yuan,2)} 万亿元；企业债券 ${fmt(s.corporate_bonds_trillion_yuan,2)} 万亿元；政府债券 ${fmt(s.government_bonds_trillion_yuan,2)} 万亿元。<br><b>来源：</b>${g.source||''}（${g.source_release_date||''}）、${s.source||''}（${s.source_release_date||''}）、${l.source||''}（${l.source_release_date||''}）。官方数据无变化时，本模块不改写、最后更新时间保持不变。`}
