@@ -47,7 +47,7 @@ def fetch_all_a_margin(start_date: str, end_date: str):
         d = date_key(row.get("信用交易日期"))
         v = safe_float(row.get("融资融券余额"))
         if d and v is not None:
-            sh_map[d] = v / 1e8  # 上交所：元 -> 亿元
+            sh_map[d] = v / 1e8
 
     result = []
     for d in sorted(sh_map.keys()):
@@ -57,12 +57,10 @@ def fetch_all_a_margin(start_date: str, end_date: str):
             bj = ak.stock_margin_bse(date=ds)
             if sz is None or sz.empty or bj is None or bj.empty:
                 continue
-
-            sz_bal = safe_float(sz.iloc[0].get("融资融券余额"))  # 深交所：亿元
-            bj_bal = safe_float(bj.iloc[0].get("融资融券余额"))  # 北交所：万元
+            sz_bal = safe_float(sz.iloc[0].get("融资融券余额"))
+            bj_bal = safe_float(bj.iloc[0].get("融资融券余额"))
             if sz_bal is None or bj_bal is None:
                 continue
-
             total = sh_map[d] + sz_bal + bj_bal / 10000.0
             result.append({"date": d, "margin_balance": round(total, 2)})
         except Exception as exc:
@@ -86,7 +84,6 @@ def fetch_hs_turnover():
             if hit.empty:
                 continue
             rr = hit.iloc[0]
-            # 上交所每日概况中的成交金额已经是亿元；只取主板A+科创板，排除B股、回购等。
             sh_amt = (safe_float(rr.get("主板A")) or 0) + (safe_float(rr.get("科创板")) or 0)
 
             sz = ak.stock_szse_summary(date=ds)
@@ -98,7 +95,7 @@ def fetch_hs_turnover():
                 if not z.empty:
                     v = safe_float(z.iloc[0].get("成交金额"))
                     if v is not None:
-                        sz_amt += v / 1e8  # 深交所：元 -> 亿元
+                        sz_amt += v / 1e8
 
             if sh_amt > 0 and sz_amt > 0:
                 rows.append({"date": d.isoformat(), "turnover": round(sh_amt + sz_amt, 2)})
@@ -146,13 +143,41 @@ def fetch_sh_index(start_date: str, end_date: str):
 
 def main():
     data = json.loads(DATA.read_text(encoding="utf-8")) if DATA.exists() else {}
+    old = data.get("liquidity", {})
     today = datetime.now().date()
     start = (today - timedelta(days=80)).strftime("%Y%m%d")
     end = today.strftime("%Y%m%d")
+    warnings = []
 
-    margin_series = fetch_all_a_margin(start, end)
-    turnover_series = fetch_hs_turnover()
-    sh_index_series = fetch_sh_index(start, end)
+    try:
+        margin_series = fetch_all_a_margin(start, end)
+    except Exception as exc:
+        print("margin update failed, keep previous series:", exc)
+        margin_series = old.get("margin_series") or [
+            {"date": x["date"], "margin_balance": x["margin_balance"]}
+            for x in old.get("series", []) if x.get("margin_balance") is not None
+        ]
+        warnings.append("两融接口本次失败，沿用上一成功数据")
+
+    try:
+        turnover_series = fetch_hs_turnover()
+    except Exception as exc:
+        print("turnover update failed, keep previous series:", exc)
+        turnover_series = old.get("turnover_series") or [
+            {"date": x["date"], "turnover": x["turnover"]}
+            for x in old.get("series", []) if x.get("turnover") is not None
+        ]
+        warnings.append("成交额接口本次失败，沿用上一成功数据")
+
+    try:
+        sh_index_series = fetch_sh_index(start, end)
+    except Exception as exc:
+        print("Shanghai Composite update failed, keep previous series:", exc)
+        sh_index_series = old.get("sh_index_series", [])
+        warnings.append("上证指数接口本次失败，沿用上一成功数据")
+
+    if not margin_series or not turnover_series:
+        raise RuntimeError("Liquidity data unavailable and no previous successful series exists")
 
     mm = {x["date"]: x["margin_balance"] for x in margin_series}
     tm = {x["date"]: x["turnover"] for x in turnover_series}
@@ -162,17 +187,20 @@ def main():
         for d in common
     ]
 
+    high_30d = {
+        "margin_balance": max(margin_series, key=lambda x: x["margin_balance"]),
+        "turnover": max(turnover_series, key=lambda x: x["turnover"]),
+    }
+    if sh_index_series:
+        high_30d["sh_index"] = max(sh_index_series, key=lambda x: x["sh_close"])
+
     data["liquidity"] = {
-        "status": "已按交易所官方口径校正",
-        "margin_series": margin_series,
-        "turnover_series": turnover_series,
-        "sh_index_series": sh_index_series,
+        "status": "已按交易所官方口径校正" if not warnings else "；".join(warnings),
+        "margin_series": margin_series[-30:],
+        "turnover_series": turnover_series[-30:],
+        "sh_index_series": sh_index_series[-30:],
         "series": legacy_series,
-        "high_30d": {
-            "margin_balance": max(margin_series, key=lambda x: x["margin_balance"]),
-            "turnover": max(turnover_series, key=lambda x: x["turnover"]),
-            "sh_index": max(sh_index_series, key=lambda x: x["sh_close"]),
-        },
+        "high_30d": high_30d,
         "margin_source": "上交所融资融券汇总 + 深交所融资融券汇总 + 北交所融资融券汇总（全A，统一为亿元）",
         "turnover_source": "上交所每日股票成交概况（主板A+科创板） + 深交所证券类别统计（主板A股+创业板A股），统一为亿元",
         "sh_index_source": "上证指数（000001）日收盘点位，AKShare公开指数行情接口",
