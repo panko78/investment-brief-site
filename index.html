@@ -31,6 +31,7 @@
   <div class="chartbox"><canvas id="liquidityChart"></canvas></div>
   <div class="source" id="marginSource"></div>
   <div class="source" id="turnoverSource"></div>
+  <div class="source" id="shIndexSource"></div>
 </div>
 </section>
 
@@ -47,11 +48,11 @@
 <section class="section"><div class="section-head"><h2>今日最强 3 个方向</h2></div><div class="card"><table><thead><tr><th>方向</th><th>持续性</th><th>次日验证信号</th></tr></thead><tbody id="top3"></tbody></table></div></section>
 <section class="section" id="forecastSection" style="display:none"><div class="section-head"><h2>下一交易日最强板块预测</h2><div class="rangehint">基于盘面与资金的推演，不是事实</div></div><div id="forecast"></div></section>
 <section class="section"><div class="section-head"><h2>需要回避</h2></div><div class="card" id="avoid"></div></section>
-<footer>市场数据用于研究与趋势观察，不构成投资建议。两融余额按沪深京三交易所官方融资融券汇总口径；沪深成交额按上交所与深交所市场成交汇总口径；进出口、GDP、社融、债务与外汇储备使用中国官方数据；商品价格可能存在行情源延迟。</footer>
+<footer>市场数据用于研究与趋势观察，不构成投资建议。两融余额按沪深京三交易所官方融资融券汇总口径；沪深成交额按上交所与深交所市场成交汇总口径；上证指数为000001日收盘点位；进出口、GDP、社融、债务与外汇储备使用中国官方数据；商品价格可能存在行情源延迟。</footer>
 </main>
 
 <script>
-let charts={};let marginSeries=[];let turnoverSeries=[];let liquidityRange=10;
+let charts={};let marginSeries=[];let turnoverSeries=[];let shIndexSeries=[];let liquidityRange=10;
 const fmt=(v,d=2)=>v==null?'—':Number(v).toLocaleString('zh-CN',{maximumFractionDigits:d});
 const cls=v=>v>0?'good':v<0?'bad':'neutral';
 function destroy(name){if(charts[name]){charts[name].destroy();delete charts[name]}}
@@ -78,6 +79,7 @@ function renderLiquidity(liq){
   const fallback=(liq.series||[]);
   marginSeries=(liq.margin_series||fallback.map(x=>({date:x.date,margin_balance:x.margin_balance}))).filter(x=>x.margin_balance!=null).slice(-30);
   turnoverSeries=(liq.turnover_series||fallback.map(x=>({date:x.date,turnover:x.turnover}))).filter(x=>x.turnover!=null).slice(-30);
+  shIndexSeries=(liq.sh_index_series||[]).filter(x=>x.sh_close!=null).slice(-30);
   const ml=marginSeries.at(-1),tl=turnoverSeries.at(-1),m10=marginSeries.slice(-10),t10=turnoverSeries.slice(-10);
   const mchg=ml&&m10.length>1?pct(ml.margin_balance,m10[0].margin_balance):null;
   const tchg=tl&&t10.length>1?pct(tl.turnover,t10[0].turnover):null;
@@ -93,31 +95,34 @@ function renderLiquidity(liq){
   ].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');
   document.getElementById('marginSource').textContent=(liq.margin_source||liq.source||'')+(liq.status?' · '+liq.status:'');
   document.getElementById('turnoverSource').textContent=(liq.turnover_source||liq.source||'')+(liq.status?' · '+liq.status:'');
+  document.getElementById('shIndexSource').textContent=liq.sh_index_source||'上证指数（000001）日收盘点位';
   document.querySelectorAll('.rangebtn').forEach(btn=>btn.onclick=()=>{document.querySelectorAll('.rangebtn').forEach(x=>x.classList.remove('active'));btn.classList.add('active');liquidityRange=Number(btn.dataset.days);drawLiquidityCharts()});
   drawLiquidityCharts();
 }
 
 function drawLiquidityCharts(){
-  const ms=marginSeries.slice(-liquidityRange),ts=turnoverSeries.slice(-liquidityRange);
+  const ms=marginSeries.slice(-liquidityRange),ts=turnoverSeries.slice(-liquidityRange),ss=shIndexSeries.slice(-liquidityRange);
   const mm=new Map(ms.map(x=>[x.date,x.margin_balance]));
   const tm=new Map(ts.map(x=>[x.date,x.turnover]));
-  const dates=[...new Set([...ms.map(x=>x.date),...ts.map(x=>x.date)])].sort().slice(-liquidityRange);
+  const sm=new Map(ss.map(x=>[x.date,x.sh_close]));
+  const dates=[...new Set([...ms.map(x=>x.date),...ts.map(x=>x.date),...ss.map(x=>x.date)])].sort().slice(-liquidityRange);
   destroy('margin');destroy('turnover');destroy('liquidity');
   charts.liquidity=new Chart(document.getElementById('liquidityChart'),{
     type:'line',
     data:{
       labels:dates.map(x=>x.slice(5)),
       datasets:[
-        {label:'全A两融余额（亿元）',data:dates.map(d=>mm.has(d)?mm.get(d):null),yAxisID:'yMargin',tension:.2,pointRadius:3,spanGaps:false},
-        {label:'沪深两市成交额（亿元）',data:dates.map(d=>tm.has(d)?tm.get(d):null),yAxisID:'yTurnover',tension:.2,pointRadius:3,spanGaps:false}
+        {label:'全A两融余额（亿元）',data:dates.map(d=>mm.has(d)?mm.get(d):null),yAxisID:'yAmount',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#2563eb',backgroundColor:'#2563eb'},
+        {label:'沪深两市成交额（亿元）',data:dates.map(d=>tm.has(d)?tm.get(d):null),yAxisID:'yAmount',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#f59e0b',backgroundColor:'#f59e0b'},
+        {label:'上证指数（点）',data:dates.map(d=>sm.has(d)?sm.get(d):null),yAxisID:'yIndex',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#dc2626',backgroundColor:'#dc2626'}
       ]
     },
     options:{
       responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
-      plugins:{title:{display:true,text:`两融余额 vs 沪深成交额 · 近${liquidityRange}个交易日`}},
+      plugins:{title:{display:true,text:`两融余额 / 沪深成交额 / 上证指数 · 近${liquidityRange}个交易日`}},
       scales:{
-        yMargin:{type:'linear',position:'left',title:{display:true,text:'两融余额（亿元）'},grid:{drawOnChartArea:true}},
-        yTurnover:{type:'linear',position:'right',title:{display:true,text:'成交额（亿元）'},grid:{drawOnChartArea:false}}
+        yAmount:{type:'linear',position:'left',title:{display:true,text:'两融余额 / 成交额（亿元）'},grid:{drawOnChartArea:true}},
+        yIndex:{type:'linear',position:'right',title:{display:true,text:'上证指数（点）'},grid:{drawOnChartArea:false}}
       }
     }
   });
