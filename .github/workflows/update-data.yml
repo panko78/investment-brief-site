@@ -6,6 +6,7 @@ on:
     paths:
       - 'update_data.py'
       - 'fix_liquidity.py'
+      - 'update_chart.py'
       - 'requirements.txt'
       - '.github/workflows/update-data.yml'
   schedule:
@@ -44,12 +45,15 @@ jobs:
       - name: Recalculate liquidity with corrected market-wide definitions
         run: python fix_liquidity.py
 
+      - name: Update liquidity comparison chart
+        run: python update_chart.py
+
       - name: Commit updated dashboard
         run: |
           git config user.name "market-dashboard-bot"
           git config user.email "actions@users.noreply.github.com"
 
-          git add dashboard.json
+          git add dashboard.json index.html
 
           if git diff --cached --quiet; then
             echo "No data changes"
