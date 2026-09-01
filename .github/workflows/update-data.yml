@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'update_data.py'
+      - 'fix_liquidity.py'
       - 'requirements.txt'
       - '.github/workflows/update-data.yml'
   schedule:
@@ -43,6 +44,9 @@ jobs:
 
       - name: Update market data
         run: python update_data.py
+
+      - name: Recalculate liquidity with corrected market-wide definitions
+        run: python fix_liquidity.py
 
       - name: Commit updated dashboard
         run: |
