@@ -110,6 +110,40 @@ def fetch_hs_turnover():
     return rows[-30:]
 
 
+def fetch_sh_index(start_date: str, end_date: str):
+    """上证指数（000001）日收盘点位，保留最近30个交易日。"""
+    df = None
+    try:
+        df = ak.stock_zh_index_daily_em(
+            symbol="sh000001", start_date=start_date, end_date=end_date
+        )
+    except Exception as exc:
+        print("Shanghai Composite EM source failed, fallback to Sina:", exc)
+
+    if df is None or df.empty:
+        df = ak.stock_zh_index_daily(symbol="sh000001")
+
+    if df is None or df.empty:
+        raise RuntimeError("Shanghai Composite data is empty")
+
+    date_col = next((c for c in df.columns if str(c).lower() == "date" or str(c) == "日期"), None)
+    close_col = next((c for c in df.columns if str(c).lower() == "close" or str(c) == "收盘"), None)
+    if date_col is None or close_col is None:
+        raise RuntimeError(f"Unexpected Shanghai Composite columns: {list(df.columns)}")
+
+    rows = []
+    for _, row in df.iterrows():
+        d = date_key(row.get(date_col))
+        v = safe_float(row.get(close_col))
+        if d and v is not None:
+            rows.append({"date": d, "sh_close": round(v, 2)})
+
+    rows = sorted(rows, key=lambda x: x["date"])
+    if not rows:
+        raise RuntimeError("No Shanghai Composite observations")
+    return rows[-30:]
+
+
 def main():
     data = json.loads(DATA.read_text(encoding="utf-8")) if DATA.exists() else {}
     today = datetime.now().date()
@@ -118,6 +152,7 @@ def main():
 
     margin_series = fetch_all_a_margin(start, end)
     turnover_series = fetch_hs_turnover()
+    sh_index_series = fetch_sh_index(start, end)
 
     mm = {x["date"]: x["margin_balance"] for x in margin_series}
     tm = {x["date"]: x["turnover"] for x in turnover_series}
@@ -131,14 +166,17 @@ def main():
         "status": "已按交易所官方口径校正",
         "margin_series": margin_series,
         "turnover_series": turnover_series,
+        "sh_index_series": sh_index_series,
         "series": legacy_series,
         "high_30d": {
             "margin_balance": max(margin_series, key=lambda x: x["margin_balance"]),
             "turnover": max(turnover_series, key=lambda x: x["turnover"]),
+            "sh_index": max(sh_index_series, key=lambda x: x["sh_close"]),
         },
         "margin_source": "上交所融资融券汇总 + 深交所融资融券汇总 + 北交所融资融券汇总（全A，统一为亿元）",
         "turnover_source": "上交所每日股票成交概况（主板A+科创板） + 深交所证券类别统计（主板A股+创业板A股），统一为亿元",
-        "source": "两融余额为沪深京三所合计；成交额为沪深A股交易所官方汇总口径",
+        "sh_index_source": "上证指数（000001）日收盘点位，AKShare公开指数行情接口",
+        "source": "两融余额为沪深京三所合计；成交额为沪深A股交易所官方汇总口径；上证指数为日收盘点位",
     }
     data["updated_at"] = datetime.now().strftime("%Y-%m-%d %H:%M")
     DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
