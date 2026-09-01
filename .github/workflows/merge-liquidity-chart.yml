@@ -16,57 +16,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Merge liquidity charts
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          p=Path('index.html')
-          s=p.read_text(encoding='utf-8')
-
-          old_html='''<div class="grid2" style="margin-top:12px">
-  <div class="card"><div class="chartbox"><canvas id="marginChart"></canvas></div><div class="source" id="marginSource"></div></div>
-  <div class="card"><div class="chartbox"><canvas id="turnoverChart"></canvas></div><div class="source" id="turnoverSource"></div></div>
-</div>'''
-          new_html='''<div class="card" style="margin-top:12px">
-  <div class="chartbox"><canvas id="liquidityChart"></canvas></div>
-  <div class="source" id="marginSource"></div>
-  <div class="source" id="turnoverSource"></div>
-</div>'''
-          if old_html not in s:
-              raise SystemExit('liquidity HTML block not found')
-          s=s.replace(old_html,new_html,1)
-
-          start=s.index('function drawLiquidityCharts(){')
-          end=s.index('\nfunction renderTrade',start)
-          new_js=r'''function drawLiquidityCharts(){
-  const ms=marginSeries.slice(-liquidityRange),ts=turnoverSeries.slice(-liquidityRange);
-  const mm=new Map(ms.map(x=>[x.date,x.margin_balance]));
-  const tm=new Map(ts.map(x=>[x.date,x.turnover]));
-  const dates=[...new Set([...ms.map(x=>x.date),...ts.map(x=>x.date)])].sort().slice(-liquidityRange);
-  destroy('margin');destroy('turnover');destroy('liquidity');
-  charts.liquidity=new Chart(document.getElementById('liquidityChart'),{
-    type:'line',
-    data:{
-      labels:dates.map(x=>x.slice(5)),
-      datasets:[
-        {label:'全A两融余额（亿元）',data:dates.map(d=>mm.has(d)?mm.get(d):null),yAxisID:'yMargin',tension:.2,pointRadius:3,spanGaps:false},
-        {label:'沪深两市成交额（亿元）',data:dates.map(d=>tm.has(d)?tm.get(d):null),yAxisID:'yTurnover',tension:.2,pointRadius:3,spanGaps:false}
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
-      plugins:{title:{display:true,text:`两融余额 vs 沪深成交额 · 近${liquidityRange}个交易日`}},
-      scales:{
-        yMargin:{type:'linear',position:'left',title:{display:true,text:'两融余额（亿元）'},grid:{drawOnChartArea:true}},
-        yTurnover:{type:'linear',position:'right',title:{display:true,text:'成交额（亿元）'},grid:{drawOnChartArea:false}}
-      }
-    }
-  });
-}'''
-          s=s[:start]+new_js+s[end:]
-
-          s=s.replace('沪深成交额按上证指数与深证成指历史成交额口径，用于匹配市场常用“两市成交额”','沪深成交额按上交所与深交所市场成交汇总口径',1)
-          p.write_text(s,encoding='utf-8')
-          PY
+        run: python merge_liquidity_chart.py
       - name: Commit merged chart
         run: |
           git config user.name "market-dashboard-bot"
