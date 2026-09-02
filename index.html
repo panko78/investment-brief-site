@@ -25,7 +25,7 @@
 <div class="stale-banner" id="staleBanner"></div>
 
 <section class="section">
-<div class="section-head"><h2>市场流动性 · 近10个交易日</h2><div class="rangebar"><span class="rangehint">查看：</span><button class="rangebtn active" data-days="10">近10日</button><button class="rangebtn" data-days="30">近30日</button></div></div>
+<div class="section-head"><h2 id="liquidityHeading">市场流动性 · 近10个交易日</h2><div class="rangebar"><span class="rangehint">查看：</span><button class="rangebtn active" data-days="10">近10日</button><button class="rangebtn" data-days="30">近30日</button></div></div>
 <div class="grid6" id="liqCards"></div>
 <div class="grid3" style="margin-top:12px">
   <div class="card trend-card"><div class="chartbox"><canvas id="marginChart"></canvas></div><div class="axis-note">纵轴按当前区间动态缩放，不从0开始</div><div class="source" id="marginSource"></div></div>
@@ -101,6 +101,7 @@ function renderLiquidity(liq){
 
 function drawLiquidityCharts(){
   const ms=marginSeries.slice(-liquidityRange),ts=turnoverSeries.slice(-liquidityRange),ss=shIndexSeries.slice(-liquidityRange);
+  document.getElementById('liquidityHeading').textContent=`市场流动性 · 近${liquidityRange}个交易日`;
   drawTrendChart('margin','marginChart',ms,'margin_balance','全A两融余额','亿元','#2563eb',1);
   drawTrendChart('turnover','turnoverChart',ts,'turnover','沪深两市成交额','亿元','#f59e0b',0);
   drawTrendChart('shIndex','shIndexChart',ss,'sh_close','上证指数','点','#dc2626',2);
