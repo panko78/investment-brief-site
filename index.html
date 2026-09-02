@@ -11,7 +11,7 @@
 .wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:16px;align-items:end}.top h1{font-size:30px;margin:0 0 6px}.sub{color:var(--muted);font-size:13px}
 .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#eefbf3;color:var(--good);font-weight:700;font-size:12px}.stale-banner{display:none;margin-top:14px;padding:11px 14px;border:1px solid #fecdca;border-radius:12px;background:#fef3f2;color:#b42318;font-size:13px;font-weight:700}.stale-banner.show{display:block}
 .section{margin-top:22px}.section h2{font-size:19px;margin:0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px}.k{font-size:12px;color:var(--muted);font-weight:700}.v{font-size:24px;font-weight:800;margin-top:5px}.small{font-size:12px;color:var(--muted);margin-top:4px}.chartbox{height:300px}.chartbox canvas{max-height:100%}.good{color:var(--good)}.bad{color:var(--bad)}.neutral{color:var(--amber)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:17px}.k{font-size:12px;color:var(--muted);font-weight:700}.v{font-size:24px;font-weight:800;margin-top:5px}.small{font-size:12px;color:var(--muted);margin-top:4px}.chartbox{height:300px}.chartbox canvas{max-height:100%}.trend-card .chartbox{height:250px}.axis-note{font-size:11px;color:var(--muted);margin-top:8px}.good{color:var(--good)}.bad{color:var(--bad)}.neutral{color:var(--amber)}
 .rangebar{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.rangebtn{border:1px solid var(--line);background:#fff;padding:7px 12px;border-radius:10px;cursor:pointer;font-size:12px;font-weight:700}.rangebtn.active{background:#111827;color:#fff;border-color:#111827}.rangehint{font-size:11px;color:var(--muted)}
 .mainline{margin-bottom:13px}.mainhead{display:flex;justify-content:space-between;gap:14px}.title{font-size:19px;font-weight:800}.stars{white-space:nowrap;font-weight:800}.row{display:grid;grid-template-columns:125px 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--line)}.row:first-of-type{border-top:none}.label{font-size:12px;color:var(--muted);font-weight:700}.tags{display:flex;flex-wrap:wrap;gap:6px}.tag{font-size:11px;padding:4px 8px;border-radius:999px;background:#eef2f7}.real{background:#ecfdf3;color:#067647}.map{background:#eff8ff;color:#175cd3}.mood{background:#fff4ed;color:#b54708}
 .metalbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}.metalbtn{padding:7px 10px;border-radius:10px;border:1px solid var(--line);background:#fff;cursor:pointer}.metalbtn.active{background:#111827;color:#fff}.outlook{line-height:1.65}.drivers{margin:8px 0 0;padding-left:18px;color:#374151}.source{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.6}.note{padding:12px 14px;border-radius:12px;background:#f8fafc;border:1px solid var(--line);font-size:12px;color:#475467;line-height:1.65}.forecast{margin-bottom:10px}.confidence{font-weight:800;color:var(--blue)}table{width:100%;border-collapse:collapse}th,td{padding:10px 7px;border-bottom:1px solid var(--line);text-align:left;font-size:13px}th{font-size:11px;color:var(--muted)}footer{padding:22px 2px;color:var(--muted);font-size:11px;line-height:1.6}
@@ -27,11 +27,10 @@
 <section class="section">
 <div class="section-head"><h2>市场流动性 · 近10个交易日</h2><div class="rangebar"><span class="rangehint">查看：</span><button class="rangebtn active" data-days="10">近10日</button><button class="rangebtn" data-days="30">近30日</button></div></div>
 <div class="grid6" id="liqCards"></div>
-<div class="card" style="margin-top:12px">
-  <div class="chartbox"><canvas id="liquidityChart"></canvas></div>
-  <div class="source" id="marginSource"></div>
-  <div class="source" id="turnoverSource"></div>
-  <div class="source" id="shIndexSource"></div>
+<div class="grid3" style="margin-top:12px">
+  <div class="card trend-card"><div class="chartbox"><canvas id="marginChart"></canvas></div><div class="axis-note">纵轴按当前区间动态缩放，不从0开始</div><div class="source" id="marginSource"></div></div>
+  <div class="card trend-card"><div class="chartbox"><canvas id="turnoverChart"></canvas></div><div class="axis-note">纵轴按当前区间动态缩放，不从0开始</div><div class="source" id="turnoverSource"></div></div>
+  <div class="card trend-card"><div class="chartbox"><canvas id="shIndexChart"></canvas></div><div class="axis-note">纵轴按当前区间动态缩放，不从0开始</div><div class="source" id="shIndexSource"></div></div>
 </div>
 </section>
 
@@ -102,28 +101,41 @@ function renderLiquidity(liq){
 
 function drawLiquidityCharts(){
   const ms=marginSeries.slice(-liquidityRange),ts=turnoverSeries.slice(-liquidityRange),ss=shIndexSeries.slice(-liquidityRange);
-  const mm=new Map(ms.map(x=>[x.date,x.margin_balance]));
-  const tm=new Map(ts.map(x=>[x.date,x.turnover]));
-  const sm=new Map(ss.map(x=>[x.date,x.sh_close]));
-  const dates=[...new Set([...ms.map(x=>x.date),...ts.map(x=>x.date),...ss.map(x=>x.date)])].sort().slice(-liquidityRange);
-  destroy('margin');destroy('turnover');destroy('liquidity');
-  charts.liquidity=new Chart(document.getElementById('liquidityChart'),{
+  drawTrendChart('margin','marginChart',ms,'margin_balance','全A两融余额','亿元','#2563eb',1);
+  drawTrendChart('turnover','turnoverChart',ts,'turnover','沪深两市成交额','亿元','#f59e0b',0);
+  drawTrendChart('shIndex','shIndexChart',ss,'sh_close','上证指数','点','#dc2626',2);
+}
+
+function dynamicBounds(values){
+  const nums=values.filter(Number.isFinite);
+  if(!nums.length)return{};
+  const low=Math.min(...nums),high=Math.max(...nums),mid=(low+high)/2;
+  const pad=Math.max((high-low)*.14,Math.abs(mid)*.001,1);
+  return{min:low-pad,max:high+pad};
+}
+
+function drawTrendChart(chartKey,canvasId,series,valueKey,title,unit,color,decimals){
+  destroy(chartKey);
+  const values=series.map(x=>Number(x[valueKey])).filter(Number.isFinite);
+  const bounds=dynamicBounds(values);
+  charts[chartKey]=new Chart(document.getElementById(canvasId),{
     type:'line',
-    data:{
-      labels:dates.map(x=>x.slice(5)),
-      datasets:[
-        {label:'全A两融余额（亿元）',data:dates.map(d=>mm.has(d)?mm.get(d):null),yAxisID:'yAmount',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#2563eb',backgroundColor:'#2563eb'},
-        {label:'沪深两市成交额（亿元）',data:dates.map(d=>tm.has(d)?tm.get(d):null),yAxisID:'yAmount',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#f59e0b',backgroundColor:'#f59e0b'},
-        {label:'上证指数（点）',data:dates.map(d=>sm.has(d)?sm.get(d):null),yAxisID:'yIndex',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#dc2626',backgroundColor:'#dc2626'}
-      ]
-    },
+    data:{labels:series.map(x=>x.date.slice(5)),datasets:[{
+      label:`${title}（${unit}）`,data:values,tension:.22,pointRadius:3,pointHoverRadius:5,
+      borderWidth:2.5,borderColor:color,backgroundColor:color,fill:false
+    }]},
     options:{
       responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
-      plugins:{title:{display:true,text:`两融余额 / 沪深成交额 / 上证指数 · 近${liquidityRange}个交易日`}},
-      scales:{
-        yAmount:{type:'linear',position:'left',title:{display:true,text:'两融余额 / 成交额（亿元）'},grid:{drawOnChartArea:true}},
-        yIndex:{type:'linear',position:'right',title:{display:true,text:'上证指数（点）'},grid:{drawOnChartArea:false}}
-      }
+      plugins:{
+        legend:{display:false},
+        title:{display:true,text:`${title} · 近${liquidityRange}个交易日`},
+        tooltip:{callbacks:{label:ctx=>{
+          const current=ctx.parsed.y,previous=ctx.dataIndex>0?ctx.dataset.data[ctx.dataIndex-1]:null;
+          const delta=previous==null?'':`（较前日 ${current-previous>=0?'+':''}${fmt(current-previous,decimals)}）`;
+          return`${title}：${fmt(current,decimals)} ${unit}${delta}`;
+        }}}
+      },
+      scales:{y:{...bounds,title:{display:true,text:`${title}（${unit}）`},ticks:{callback:v=>fmt(v,decimals)}}}
     }
   });
 }
