@@ -108,42 +108,28 @@ function renderLiquidity(liq){
 
 function drawLiquidityCharts(){
   const ms=marginSeries.slice(-liquidityRange),ts=turnoverSeries.slice(-liquidityRange),ss=shIndexSeries.slice(-liquidityRange);
-  document.getElementById('liquidityHeading').textContent=`市场流动性 · 近${liquidityRange}个交易日`;
-  drawTrendChart('margin','marginChart',ms,'margin_balance','全A两融余额','亿元','#2563eb',1);
-  drawTrendChart('turnover','turnoverChart',ts,'turnover','沪深两市成交额','亿元','#f59e0b',0);
-  drawTrendChart('shIndex','shIndexChart',ss,'sh_close','上证指数','点','#dc2626',2);
-}
-
-function dynamicBounds(values){
-  const nums=values.filter(Number.isFinite);
-  if(!nums.length)return{};
-  const low=Math.min(...nums),high=Math.max(...nums),mid=(low+high)/2;
-  const pad=Math.max((high-low)*.14,Math.abs(mid)*.001,1);
-  return{min:low-pad,max:high+pad};
-}
-
-function drawTrendChart(chartKey,canvasId,series,valueKey,title,unit,color,decimals){
-  destroy(chartKey);
-  const values=series.map(x=>Number(x[valueKey])).filter(Number.isFinite);
-  const bounds=dynamicBounds(values);
-  charts[chartKey]=new Chart(document.getElementById(canvasId),{
+  const mm=new Map(ms.map(x=>[x.date,x.margin_balance]));
+  const tm=new Map(ts.map(x=>[x.date,x.turnover]));
+  const sm=new Map(ss.map(x=>[x.date,x.sh_close]));
+  const dates=[...new Set([...ms.map(x=>x.date),...ts.map(x=>x.date),...ss.map(x=>x.date)])].sort().slice(-liquidityRange);
+  destroy('margin');destroy('turnover');destroy('liquidity');
+  charts.liquidity=new Chart(document.getElementById('liquidityChart'),{
     type:'line',
-    data:{labels:series.map(x=>x.date.slice(5)),datasets:[{
-      label:`${title}（${unit}）`,data:values,tension:.22,pointRadius:3,pointHoverRadius:5,
-      borderWidth:2.5,borderColor:color,backgroundColor:color,fill:false
-    }]},
+    data:{
+      labels:dates.map(x=>x.slice(5)),
+      datasets:[
+        {label:'全A两融余额（亿元）',data:dates.map(d=>mm.has(d)?mm.get(d):null),yAxisID:'yAmount',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#2563eb',backgroundColor:'#2563eb'},
+        {label:'沪深两市成交额（亿元）',data:dates.map(d=>tm.has(d)?tm.get(d):null),yAxisID:'yAmount',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#f59e0b',backgroundColor:'#f59e0b'},
+        {label:'上证指数（点）',data:dates.map(d=>sm.has(d)?sm.get(d):null),yAxisID:'yIndex',tension:.2,pointRadius:3,spanGaps:false,borderColor:'#dc2626',backgroundColor:'#dc2626'}
+      ]
+    },
     options:{
       responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
-      plugins:{
-        legend:{display:false},
-        title:{display:true,text:`${title} · 近${liquidityRange}个交易日`},
-        tooltip:{callbacks:{label:ctx=>{
-          const current=ctx.parsed.y,previous=ctx.dataIndex>0?ctx.dataset.data[ctx.dataIndex-1]:null;
-          const delta=previous==null?'':`（较前日 ${current-previous>=0?'+':''}${fmt(current-previous,decimals)}）`;
-          return`${title}：${fmt(current,decimals)} ${unit}${delta}`;
-        }}}
-      },
-      scales:{y:{...bounds,title:{display:true,text:`${title}（${unit}）`},ticks:{callback:v=>fmt(v,decimals)}}}
+      plugins:{title:{display:true,text:`两融余额 / 沪深成交额 / 上证指数 · 近${liquidityRange}个交易日`}},
+      scales:{
+        yAmount:{type:'linear',position:'left',title:{display:true,text:'两融余额 / 成交额（亿元）'},grid:{drawOnChartArea:true}},
+        yIndex:{type:'linear',position:'right',title:{display:true,text:'上证指数（点）'},grid:{drawOnChartArea:false}}
+      }
     }
   });
 }
