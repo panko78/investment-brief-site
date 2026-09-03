@@ -37,6 +37,8 @@
 
 <section class="section"><div class="section-head"><h2>中国进出口 · 官方月度数据</h2></div><div class="grid4" id="tradeCards"></div><div class="grid2" style="margin-top:12px"><div class="card"><div class="chartbox"><canvas id="tradeChart"></canvas></div></div><div class="card"><div class="k">怎么看</div><div id="tradeRead" class="outlook"></div><div class="source" id="tradeSource"></div></div></div></section>
 
+<section class="section"><div class="section-head"><h2>人民币汇率综合研判</h2><div class="rangehint" id="cnyUpdated"></div></div><div class="card oil-call"><div class="k" id="cnyHorizon"></div><div class="title" id="cnyHeadline"></div><div class="outlook" id="cnyConclusion" style="margin-top:10px"></div></div><div class="grid3" id="cnyMetrics" style="margin-top:12px"></div><div class="card oil-scenario" style="margin-top:12px"><div class="k">USD/CNY情景概率（数值下降代表人民币升值）</div><table><thead><tr><th>情景</th><th>概率</th><th>汇率区间</th><th>方向</th><th>触发条件</th></tr></thead><tbody id="cnyScenarios"></tbody></table></div><div id="cnyDrivers" style="margin-top:12px"></div><div class="grid2" style="margin-top:12px"><div class="card"><div class="k">接下来重点监测</div><ul class="drivers" id="cnyWatchlist"></ul></div><div class="card"><div class="k">方法与来源</div><div class="outlook" id="cnyMethod"></div><div class="source" id="cnySources"></div></div></div></section>
+
 <section class="section"><div class="section-head"><h2>中国债务与GDP · 官方数据汇总</h2><div class="rangehint" id="macroUpdated"></div></div><div class="grid4" id="macroCards"></div><div class="note" id="macroNote" style="margin-top:12px"></div></section>
 
 <section class="section"><div class="section-head"><h2>中国外汇储备 · 官方月度数据</h2></div><div class="grid4" id="fxCards"></div><div class="grid2" style="margin-top:12px"><div class="card"><div class="k">官方储备资产构成</div><div id="fxComposition" style="margin-top:8px"></div></div><div class="card"><div class="k">怎么看</div><div id="fxRead" class="outlook"></div><div class="source" id="fxSource"></div></div></div></section>
@@ -63,15 +65,16 @@ function dashboardUpdatedAtBeijing(s){if(!s)return null;const m=String(s).match(
 function updateFreshness(d){const el=document.getElementById('staleBanner');const dt=dashboardUpdatedAtBeijing(d&&d.updated_at);if(!dt){el.textContent='⚠ 数据更新时间无法识别，请检查 GitHub Actions 是否正常运行。';el.classList.add('show');return}const hours=(Date.now()-dt.getTime())/3600000;if(hours>24){el.textContent=`⚠ 数据可能已过期：仪表盘最后更新于北京时间 ${d.updated_at}，距现在约 ${Math.floor(hours)} 小时。`;el.classList.add('show')}else{el.textContent='';el.classList.remove('show')}}
 
 async function load(){
-  const [b,d,m,o]=await Promise.all([
+  const [b,d,m,o,f]=await Promise.all([
     fetch('./brief.json',{cache:'no-store'}).then(r=>r.json()),
     fetch('./dashboard.json',{cache:'no-store'}).then(r=>r.json()),
     fetch('./macro.json',{cache:'no-store'}).then(r=>r.json()),
-    fetch('./oil_outlook.json',{cache:'no-store'}).then(r=>r.json())
+    fetch('./oil_outlook.json',{cache:'no-store'}).then(r=>r.json()),
+    fetch('./fx_outlook.json',{cache:'no-store'}).then(r=>r.json())
   ]);
   document.getElementById('dateLine').textContent=`简报 ${b.date} ${b.updated_at} · 数据仪表盘 北京时间 ${d.updated_at||'待更新'}`;
   document.getElementById('marketStatus').textContent=b.market_status||'市场简报';
-  updateFreshness(d);renderLiquidity(d.liquidity||{});renderTrade(d.trade||{});renderMacro(m||{});renderFxReserves(m||{});renderMetals(d.commodities||{});renderOil(o||{});renderForecast(b.next_day_forecast||[]);
+  updateFreshness(d);renderLiquidity(d.liquidity||{});renderTrade(d.trade||{});renderCnyOutlook(f||{});renderMacro(m||{});renderFxReserves(m||{});renderMetals(d.commodities||{});renderOil(o||{});renderForecast(b.next_day_forecast||[]);
   document.getElementById('metrics').innerHTML=(b.metrics||[]).map(x=>`<div class="card"><div class="k">${x.label}</div><div class="v">${x.value}</div><div class="small">${x.note||''}</div></div>`).join('');
   document.getElementById('mainlines').innerHTML=(b.mainlines||[]).map((x,i)=>`<article class="card mainline"><div class="mainhead"><div><div class="k">#${i+1}</div><div class="title">${x.title}</div></div><div class="stars">${'★'.repeat(Number(x.stars)||0)}${'☆'.repeat(Math.max(0,5-(Number(x.stars)||0)))}</div></div><div class="row"><div class="label">核心事实 / 催化</div><div>${x.fact||''}</div></div><div class="row"><div class="label">价格确认</div><div>${x.market||''}</div></div><div class="row"><div class="label">短期影响</div><div>${x.short_term||''}</div></div><div class="row"><div class="label">中期逻辑</div><div>${x.mid_term||''}</div></div><div class="row"><div class="label">标的分层</div><div class="tags">${(x.real||[]).map(v=>`<span class="tag real">真实业务 · ${v}</span>`).join('')}${(x.mapping||[]).map(v=>`<span class="tag map">产业映射 · ${v}</span>`).join('')}${(x.sentiment||[]).map(v=>`<span class="tag mood">纯情绪 · ${v}</span>`).join('')}</div></div><div class="row"><div class="label">风险</div><div class="bad">${x.risk||''}</div></div></article>`).join('');
   document.getElementById('top3').innerHTML=(b.top3||[]).map(x=>`<tr><td><b>${x.name}</b></td><td>${'★'.repeat(Number(x.stars)||0)}${'☆'.repeat(Math.max(0,5-(Number(x.stars)||0)))}</td><td>${x.verify||''}</td></tr>`).join('');
@@ -145,6 +148,19 @@ function drawTrendChart(chartKey,canvasId,series,valueKey,title,unit,color,decim
   });
 }
 function renderTrade(t){const l=t.latest||{},s=t.series||[];document.getElementById('tradeCards').innerHTML=[['最新月份',t.latest_month||'—','官方月度'],['出口',fmt(l.exports,2)+' 亿美元',l.export_yoy!=null?'同比 '+fmt(l.export_yoy,1)+'%':''],['进口',fmt(l.imports,2)+' 亿美元',l.import_yoy!=null?'同比 '+fmt(l.import_yoy,1)+'%':''],['贸易差额',fmt(l.balance,2)+' 亿美元',l.balance>=0?'顺差':'逆差']].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');destroy('trade');charts.trade=new Chart(document.getElementById('tradeChart'),{type:'line',data:{labels:s.map(x=>x.month),datasets:[{label:'出口（亿美元）',data:s.map(x=>x.exports)},{label:'进口（亿美元）',data:s.map(x=>x.imports)},{label:'顺差（亿美元）',data:s.map(x=>x.balance)}]},options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false}}});const prev=s.length>1?s[s.length-2]:null;let txt=`最新官方数据为 <b>${t.latest_month||''}</b>。`;if(prev&&l.balance!=null){const delta=l.balance-prev.balance;txt+=`贸易顺差较上月${delta>=0?'扩大':'收窄'} <b>${fmt(Math.abs(delta),2)} 亿美元</b>。`}txt+=' 网站每日检查官方页面，仅在官方发布新月份后更新。';document.getElementById('tradeRead').innerHTML=txt;document.getElementById('tradeSource').textContent=`${t.source||''} · ${t.release_note||''}`}
+
+function renderCnyOutlook(f){
+  document.getElementById('cnyUpdated').textContent=`截至 ${f.as_of||'—'} · ${f.confidence||'—'}置信度`;
+  document.getElementById('cnyHorizon').textContent=`${f.horizon||''} · ${f.pair||'USD/CNY'}`;
+  document.getElementById('cnyHeadline').textContent=f.headline||'';
+  document.getElementById('cnyConclusion').textContent=f.conclusion||'';
+  document.getElementById('cnyMetrics').innerHTML=(f.metrics||[]).map(x=>`<div class="card"><div class="k">${x.label}</div><div class="v">${x.value}</div><div class="small">${x.note||''}</div></div>`).join('');
+  document.getElementById('cnyScenarios').innerHTML=(f.scenarios||[]).map(x=>`<tr><td><b>${x.name}</b></td><td><span class="prob">${x.probability}%</span></td><td>${x.range}</td><td class="signal">${x.direction}</td><td>${x.conditions}</td></tr>`).join('');
+  document.getElementById('cnyDrivers').innerHTML=(f.drivers||[]).map(x=>`<article class="card mainline"><div class="mainhead"><div class="title">${x.factor}</div><div class="signal">${x.effect} · ${x.weight}</div></div><div class="row"><div class="label">已核验事实</div><div>${x.fact}</div></div><div class="row"><div class="label">汇率含义</div><div>${x.interpretation}</div></div></article>`).join('');
+  document.getElementById('cnyWatchlist').innerHTML=(f.watchlist||[]).map(x=>`<li>${x}</li>`).join('');
+  document.getElementById('cnyMethod').textContent=f.methodology||'';
+  document.getElementById('cnySources').innerHTML=(f.sources||[]).map(x=>`<a href="${x.url}" target="_blank" rel="noopener noreferrer">${x.name}</a>`).join(' · ');
+}
 
 function renderMacro(m){document.getElementById('macroUpdated').textContent=`该模块最后更新：${m.last_updated||'—'} · 最新官方源：${m.last_source_update||'—'}`;const g=m.gdp||{},s=m.social_financing||{},l=m.local_government_debt||{},gd=m.government_debt_reference||{};document.getElementById('macroCards').innerHTML=[['GDP',g.nominal_trillion_yuan!=null?fmt(g.nominal_trillion_yuan,4)+' 万亿元':'—',`${g.latest_period||''} · 实际同比 ${g.real_yoy_pct==null?'—':fmt(g.real_yoy_pct,1)+'%'}`],['社融存量',s.stock_trillion_yuan!=null?fmt(s.stock_trillion_yuan,2)+' 万亿元':'—',`${s.latest_period||''} · 同比 ${s.yoy_pct==null?'—':fmt(s.yoy_pct,1)+'%'}`],['地方政府债务',l.balance_trillion_yuan!=null?fmt(l.balance_trillion_yuan,2)+' 万亿元':'—',`${l.latest_period||''} · 2025 GDP参考 ${l.reference_ratio_to_2025_gdp_pct||'—'}%`],['政府显性债务参考',gd.combined_trillion_yuan!=null?fmt(gd.combined_trillion_yuan,2)+' 万亿元':'—',`${gd.period||''} · 2025 GDP参考 ${gd.reference_ratio_to_2025_gdp_pct||'—'}%`]].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');document.getElementById('macroNote').innerHTML=`${m.methodology||''}<br><b>社融结构：</b>实体人民币贷款 ${fmt(s.rmb_loans_to_real_economy_trillion_yuan,2)} 万亿元；企业债券 ${fmt(s.corporate_bonds_trillion_yuan,2)} 万亿元；政府债券 ${fmt(s.government_bonds_trillion_yuan,2)} 万亿元。<br><b>来源：</b>${g.source||''}（${g.source_release_date||''}）、${s.source||''}（${s.source_release_date||''}）、${l.source||''}（${l.source_release_date||''}）。官方数据无变化时，本模块不改写、最后更新时间保持不变。`}
 
