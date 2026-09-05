@@ -50,7 +50,20 @@
 <section class="section"><div class="section-head"><h2>今日盘面总览</h2></div><div class="grid4" id="metrics"></div></section>
 <section class="section"><div class="section-head"><h2>今日 5 条核心主线</h2></div><div id="mainlines"></div></section>
 <section class="section"><div class="section-head"><h2>今日最强 3 个方向</h2></div><div class="card"><table><thead><tr><th>方向</th><th>持续性</th><th>次日验证信号</th></tr></thead><tbody id="top3"></tbody></table></div></section>
-<section class="section" id="forecastSection" style="display:none"><div class="section-head"><h2>下一交易日最强板块预测</h2><div class="rangehint">基于盘面与资金的推演，不是事实</div></div><div id="forecast"></div></section>
+<section class="section" id="forecastSection" style="display:none"><div class="section-head"><h2>下一交易日最强板块预测</h2><div class="rangehint">固定100分框架 · 概率推演，不是事实</div></div><div id="forecast"></div></section>
+
+<section class="section"><div class="section-head"><h2>板块资金集中榜</h2><div class="rangehint" id="capitalScope"></div></div><div class="card" style="overflow-x:auto"><table><thead><tr><th>行业</th><th>涨跌幅</th><th>成交额</th><th>市场占比</th><th>较20日均值</th><th>主力净流入</th><th>净流入/成交额</th></tr></thead><tbody id="capitalConcentration"></tbody></table><div class="note" id="capitalNote"></div></div></section>
+
+<section class="section"><div class="section-head"><h2>3/5/10日持续性</h2></div><div class="card" style="overflow-x:auto"><table><thead><tr><th>行业</th><th>当日净流入</th><th>3日</th><th>5日</th><th>10日</th><th>净流入天数</th><th>相对收益</th><th>成交占比趋势</th></tr></thead><tbody id="persistence"></tbody></table><div class="note" id="persistenceNote"></div></div></section>
+
+<section class="section"><div class="section-head"><h2>板块内部强弱</h2></div><div class="card" style="overflow-x:auto"><table><thead><tr><th>板块</th><th>上涨家数/分母</th><th>上涨比例</th><th>涨停/分母</th><th>涨停密度</th><th>中位数涨幅</th><th>前三成交占比</th><th>判断</th></tr></thead><tbody id="internalStrength"></tbody></table></div></section>
+
+<section class="section"><div class="section-head"><h2>独立涨停复盘</h2></div><div class="grid4" id="limitCards"></div><div class="card" style="margin-top:12px" id="limitDetail"></div></section>
+
+<section class="section"><div class="section-head"><h2>精选候选池</h2><div class="rangehint">趋势与连板分开；确认条件优先于分数</div></div><div id="candidatePool"></div></section>
+
+<section class="section"><div class="section-head"><h2>预测复盘与交叉验证</h2></div><div class="grid2"><div class="card" id="forecastReview"></div><div class="card" id="crossValidation"></div></div></section>
+
 <section class="section"><div class="section-head"><h2>需要回避</h2></div><div class="card" id="avoid"></div></section>
 <footer>市场数据用于研究与趋势观察，不构成投资建议。两融余额按沪深京三交易所官方融资融券汇总口径；沪深成交额按上交所与深交所市场成交汇总口径；上证指数为000001日收盘点位；进出口、GDP、社融、债务与外汇储备使用中国官方数据；商品价格可能存在行情源延迟。</footer>
 </main>
@@ -74,7 +87,7 @@ async function load(){
   ]);
   document.getElementById('dateLine').textContent=`简报 ${b.date} ${b.updated_at} · 数据仪表盘 北京时间 ${d.updated_at||'待更新'}`;
   document.getElementById('marketStatus').textContent=b.market_status||'市场简报';
-  updateFreshness(d);renderLiquidity(d.liquidity||{});renderTrade(d.trade||{});renderCnyOutlook(f||{});renderMacro(m||{});renderFxReserves(m||{});renderMetals(d.commodities||{});renderOil(o||{});renderForecast(b.next_day_forecast||[]);
+  updateFreshness(d);renderLiquidity(d.liquidity||{});renderTrade(d.trade||{});renderCnyOutlook(f||{});renderMacro(m||{});renderFxReserves(m||{});renderMetals(d.commodities||{});renderOil(o||{});renderForecast(b.next_day_forecast||[]);renderCloseModules(b);
   document.getElementById('metrics').innerHTML=(b.metrics||[]).map(x=>`<div class="card"><div class="k">${x.label}</div><div class="v">${x.value}</div><div class="small">${x.note||''}</div></div>`).join('');
   document.getElementById('mainlines').innerHTML=(b.mainlines||[]).map((x,i)=>`<article class="card mainline"><div class="mainhead"><div><div class="k">#${i+1}</div><div class="title">${x.title}</div></div><div class="stars">${'★'.repeat(Number(x.stars)||0)}${'☆'.repeat(Math.max(0,5-(Number(x.stars)||0)))}</div></div><div class="row"><div class="label">核心事实 / 催化</div><div>${x.fact||''}</div></div><div class="row"><div class="label">价格确认</div><div>${x.market||''}</div></div><div class="row"><div class="label">短期影响</div><div>${x.short_term||''}</div></div><div class="row"><div class="label">中期逻辑</div><div>${x.mid_term||''}</div></div><div class="row"><div class="label">标的分层</div><div class="tags">${(x.real||[]).map(v=>`<span class="tag real">真实业务 · ${v}</span>`).join('')}${(x.mapping||[]).map(v=>`<span class="tag map">产业映射 · ${v}</span>`).join('')}${(x.sentiment||[]).map(v=>`<span class="tag mood">纯情绪 · ${v}</span>`).join('')}</div></div><div class="row"><div class="label">风险</div><div class="bad">${x.risk||''}</div></div></article>`).join('');
   document.getElementById('top3').innerHTML=(b.top3||[]).map(x=>`<tr><td><b>${x.name}</b></td><td>${'★'.repeat(Number(x.stars)||0)}${'☆'.repeat(Math.max(0,5-(Number(x.stars)||0)))}</td><td>${x.verify||''}</td></tr>`).join('');
@@ -182,6 +195,26 @@ function renderFxReserves(m){
   document.getElementById('fxSource').textContent=`${fx.source||''}（${fx.source_release_date||''}）；${o.source||''}（${o.source_release_date||''}）`;
 }
 
+
+function val(v,suffix='',d=2){return v==null?'未取得':fmt(v,d)+suffix}
+function renderCloseModules(b){
+  const c=b.sector_capital_concentration||{},cr=document.getElementById('capitalConcentration');
+  document.getElementById('capitalScope').textContent=[c.as_of,c.classification].filter(Boolean).join(' · ');
+  cr.innerHTML=(c.rows||[]).map(x=>`<tr><td><b>${x.sector}</b></td><td class="${cls(x.return_pct)}">${val(x.return_pct,'%',2)}</td><td>${val(x.turnover_billion,'亿元',2)}</td><td>${val(x.market_share_pct,'%',2)}</td><td>${val(x.share_vs_20d_avg_pct_point,'pct',2)}</td><td class="${cls(x.main_net_inflow_billion)}">${val(x.main_net_inflow_billion,'亿元',3)}</td><td>${val(x.net_inflow_to_turnover_pct,'%',2)}</td></tr>`).join('');
+  document.getElementById('capitalNote').textContent=c.methodology||'';
+  const p=b.multi_day_persistence||{};
+  document.getElementById('persistence').innerHTML=(p.rows||[]).map(x=>`<tr><td><b>${x.sector}</b></td><td>${val(x.day1_net_inflow_billion,'亿元',3)}</td><td>${val(x.days3_net_inflow_billion,'亿元',3)}</td><td>${val(x.days5_net_inflow_billion,'亿元',3)}</td><td>${val(x.days10_net_inflow_billion,'亿元',3)}</td><td>3日 ${val(x.net_inflow_days_3,'天',0)} / 5日 ${val(x.net_inflow_days_5,'天',0)} / 10日 ${val(x.net_inflow_days_10,'天',0)}</td><td>3日 ${val(x.relative_return_3d,'%',2)} / 5日 ${val(x.relative_return_5d,'%',2)} / 10日 ${val(x.relative_return_10d,'%',2)}</td><td>${x.turnover_share_trend||'未取得'}</td></tr>`).join('');
+  document.getElementById('persistenceNote').textContent=p.note||'';
+  document.getElementById('internalStrength').innerHTML=(b.sector_internal_strength||[]).map(x=>`<tr><td><b>${x.sector}</b></td><td>${x.advancers==null?'未取得':x.advancers+'/'+x.component_count}</td><td>${val(x.advancer_ratio_pct,'%',2)}</td><td>${x.limit_up_count==null?'未取得':x.limit_up_count+'/'+x.component_count}</td><td>${val(x.limit_density_pct,'%',2)}</td><td>${val(x.median_return_pct,'%',2)}</td><td>${val(x.top3_turnover_share_pct,'%',2)}</td><td>${x.judgement||''}</td></tr>`).join('');
+  const l=b.limit_review||{};
+  document.getElementById('limitCards').innerHTML=[['收盘涨停',val(l.limit_up_total,'只',0),'统一收盘口径'],['跌停',val(l.limit_down_total,'只',0),'未取得时不硬填'],['封板率',val(l.seal_rate_pct,'%',2),l.seal_rate_formula||''],['炸板率',val(l.blast_rate_pct,'%',2),l.blast_rate_formula||'']].map(x=>`<div class="card"><div class="k">${x[0]}</div><div class="v">${x[1]}</div><div class="small">${x[2]}</div></div>`).join('');
+  document.getElementById('limitDetail').innerHTML=`<div class="row"><div class="label">连板梯队</div><div>最高 ${val(l.highest_board,'板',0)}；${(l.ladder||[]).map(x=>x.boards+'板：'+(x.names||[]).join('、')).join('；')||'未取得完整梯队'}</div></div><div class="row"><div class="label">10/20/30%</div><div>${l.categories&&l.categories.special_rules||'未取得'}</div></div><div class="row"><div class="label">逐笔数据</div><div>${l.intraday_detail?Object.values(l.intraday_detail).join('；'):'未取得'}</div></div><div class="row"><div class="label">次日验证</div><div>${l.sentiment_validation||''}</div></div>`;
+  document.getElementById('candidatePool').innerHTML=(b.candidate_pool||[]).map(x=>`<article class="card mainline"><div class="mainhead"><div><div class="k">${x.type||''} · ${x.code||''}</div><div class="title">${x.name||''}</div></div><div class="confidence">${x.sector_role||''}</div></div><div class="row"><div class="label">成交与资金</div><div>${x.price_fund_persistence||''}</div></div><div class="row"><div class="label">收入/利润验证</div><div>${x.business_validation||''}</div></div><div class="row"><div class="label">估值</div><div>${x.valuation||''}</div></div><div class="row"><div class="label">相对同行原因</div><div>${x.why||''}</div></div><div class="row"><div class="label">确认 / 失效</div><div><span class="good">${x.confirm||''}</span><br><span class="bad">${x.invalidate||''}</span></div></div><div class="row"><div class="label">风险事件</div><div>${x.risk_events||''}</div></div></article>`).join('');
+  const r=b.forecast_review||{},last=r.last_completed||{};
+  document.getElementById('forecastReview').innerHTML=`<div class="k">上一期已到期预测</div><div class="title">${last.target_trade_date||'待验证'}</div><div class="small">${last.benchmark||''}</div><table><tbody>${(last.items||[]).map(x=>`<tr><td>${x.name}</td><td>${x.published_score==null?'—':x.published_score+'分'}</td><td class="${x.hit?'good':'bad'}">${x.hit?'命中':'未命中'}</td><td>${x.actual||''}</td></tr>`).join('')}</tbody></table><div class="note">${last.calibration||r.market_note||''}</div>`;
+  const x=b.cross_validation||{},fi=x.financing||{},lh=x.dragon_tiger||{};
+  document.getElementById('crossValidation').innerHTML=`<div class="k">交叉验证</div><div class="row"><div class="label">行业融资</div><div>${fi.data_period||'未取得'}：${(fi.items||[]).map(v=>v.sector+' '+(v.net_financing_buy_billion>=0?'+':'')+v.net_financing_buy_billion+'亿元').join('；')}<div class="small">${fi.note||''}</div></div></div><div class="row"><div class="label">ETF份额</div><div>${x.etf_share&&x.etf_share.status||'未取得'}</div></div><div class="row"><div class="label">龙虎榜机构席位</div><div>${lh.coverage||'未取得'}<div class="small">${lh.note||''}</div></div></div>`;
+}
 function renderForecast(arr){const sec=document.getElementById('forecastSection'),box=document.getElementById('forecast');if(!Array.isArray(arr)||!arr.length){sec.style.display='none';return}sec.style.display='block';box.innerHTML=arr.map((x,i)=>`<div class="card forecast"><div class="mainhead"><div><div class="k">预测 #${i+1}</div><div class="title">${x.name||x.sector||'—'}</div></div><div class="confidence">${x.confidence||x.probability||''}</div></div><div class="row"><div class="label">支持证据</div><div>${x.evidence||x.reason||''}</div></div><div class="row"><div class="label">验证条件</div><div>${x.verify||x.validation||''}</div></div><div class="row"><div class="label">失效条件</div><div class="bad">${x.invalidate||x.failure||''}</div></div></div>`).join('')}
 function renderOil(o){
   document.getElementById('oilUpdated').textContent=`截至 ${o.as_of||'—'} · ${o.confidence||'—'}置信度`;
