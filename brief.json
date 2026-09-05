@@ -1,34 +1,840 @@
 {
   "date": "2026-09-05",
-  "updated_at": "08:00",
-  "market_status": "周末早间 / A股今日休市。隔夜美国8月非农显著强于预期，美债收益率与加息预期上升，美股小幅回落；原油维持高位并录得强劲周涨幅。对下周一A股而言，能源获得外部催化，高估值科技的贴现率压力重新上升，周五强势的农业与AI应用将接受分歧验证。",
+  "updated_at": "18:00",
+  "market_status": "周六休市：本版使用最近交易日2026年9月4日完整收盘数据。未制造9月5日A股行情；隔夜变量只用于周一验证，不替代盘面确认。",
   "metrics": [
-    {"label":"A股上一交易日","value":"沪指 -0.30% / 深成指 -0.79% / 创业板 -0.78% / 科创50 -2.10%","note":"9月4日收盘；沪深两市成交20307亿元，较前一交易日放量2718亿元，但指数冲高回落。"},
-    {"label":"美股隔夜","value":"标普 -0.40% / 道指 -0.50% / 纳指 -0.30%","note":"强于预期的美国8月就业数据推升利率预期，压制估值。"},
-    {"label":"美国就业","value":"8月非农 +16.2万人 / 失业率 4.1%","note":"明显高于约5万—6万人的市场预期；Fed 9月加息概率升至约60%。"},
-    {"label":"美债","value":"10Y约4.80% / 2Y约4.4%","note":"就业数据公布后收益率上行，高估值成长股折现率压力重新增强。"},
-    {"label":"原油","value":"Brent 92.68美元 / WTI 91.48美元","note":"周线分别约+7.6%和接近+10%；美伊冲突及霍尔木兹运输风险维持风险溢价。"},
-    {"label":"黄金","value":"约4460美元/盎司附近","note":"非农公布后一度明显下挫，随后收复部分跌幅；强美元/高利率与地缘避险互相对冲。"},
-    {"label":"工业金属","value":"铜高位 / 镍约1.68万美元每吨 / 国内APT约59-60万元每吨","note":"铜仍处历史高位区，镍偏弱；钨海外APT高位但国内价格偏弱，内外价差扩大。"}
+    {
+      "label": "最近交易日主要指数",
+      "value": "沪指 -0.30% / 深成指 -0.79% / 创业板 -0.78% / 科创50 -2.10%",
+      "note": "2026-09-04收盘；成长明显弱于上证50，风格偏防御与低位轮动。"
+    },
+    {
+      "label": "沪深成交额",
+      "value": "20307亿元",
+      "note": "2026-09-04完整交易日，较前一交易日增加2717.52亿元；放量但主要指数收跌，属于分歧放大。"
+    },
+    {
+      "label": "涨停/封板率",
+      "value": "41只 / 44.57%",
+      "note": "东方财富Choice收盘口径：另有51只盘中触及涨停后未封住；统一分母为41+51=92。"
+    },
+    {
+      "label": "行业资金集中",
+      "value": "传媒 +63.05亿 / 农林牧渔 +32.90亿",
+      "note": "证券时报·数据宝申万一级行业与主力资金估算口径；全市场同口径净流出328.09亿元。"
+    },
+    {
+      "label": "最弱资金方向",
+      "value": "电子 -247.90亿元",
+      "note": "同源申万一级行业口径；电子行业-2.72%，价格与资金均为负反馈。"
+    },
+    {
+      "label": "两融（滞后）",
+      "value": "26567.02亿元",
+      "note": "截至2026-09-03：融资余额26275.24亿元、融券余额291.78亿元；9月4日全市场汇总仍未取得。"
+    }
   ],
   "mainlines": [
-    {"title":"美国非农大幅超预期：利率重新成为下周一A股成长股的第一约束","stars":5,"fact":"美国8月非农新增16.2万人，失业率4.1%，远高于市场此前约5万—6万人的新增就业预期。数据公布后，市场对9月加息的定价升至约六成，美债2年和10年收益率同步上行。","market":"美股周五小幅回落，标普500约-0.4%、道指约-0.5%、纳指约-0.3%；10年期美债收益率升至约4.8%。美元也在就业数据后走强。","short_term":"下周一A股高估值AI硬件、半导体和高拥挤成长股需要先经受估值压力测试。周五已明显弱势的AI硬件不能因为长期产业逻辑而机械抄底。","mid_term":"如果后续美国CPI/PPI继续偏高，高利率环境会延长，压制远期现金流占比较高的成长资产；若通胀回落，则就业强劲反而有助于降低衰退风险。","real":["中际旭创","新易盛","工业富联","英维克"],"mapping":["半导体设备","先进封装","液冷服务器"],"sentiment":["无订单、无利润兑现、仅靠AI标签的高位概念股"],"risk":"就业数据只是单月数据，下一步真正决定美联储政策的是就业与通胀组合，不能把一次非农直接等同于确定加息。"},
-    {"title":"原油周线大涨：油气/油服获得最明确的周末外部催化","stars":5,"fact":"Brent周五收92.68美元/桶，本周约涨7.6%；WTI约91.48美元/桶，本周接近涨10%。美伊军事冲突反复、霍尔木兹海峡通行受限，以及俄炼厂受袭共同维持供应风险溢价。","market":"能源价格高企同时推升通胀担忧和长端利率。美国柴油价格创高位，说明冲突已不仅是金融市场事件，而开始进入实际能源成本传导。","short_term":"下周一优先看中国海油、中国石油、中海油服、海油工程等真正受益于油价和油服景气的核心，而不是纯地缘小票。","mid_term":"若Brent持续站稳90美元上方，油气上游自由现金流与资本开支逻辑得到强化；但高油价也会压缩航空、物流和部分化工下游利润。","real":["中国海油","中国石油","中海油服","海油工程"],"mapping":["招商轮船","中远海能","广汇能源"],"sentiment":["没有产量、订单或运价受益，仅凭地缘冲突标签上涨的小票"],"risk":"一旦美伊局势缓和或霍尔木兹通行恢复，地缘风险溢价可能迅速回吐；90美元以上追高的盈亏比明显下降。"},
-    {"title":"AI资本开支仍在加速：字节跳动巨额融资与英伟达收购验证产业投入","stars":4,"fact":"路透报道字节跳动获得约296亿美元银团贷款，主要用于AI芯片和数据中心等投入；英伟达前一日宣布约129亿美元收购Hugging Face，继续从芯片向模型与开发者生态延伸。","market":"产业端AI资本开支仍然强，但周五美债收益率上行使二级市场估值承压，说明基本面与股价短期可以背离。","short_term":"A股AI的优先级应从概念覆盖转向真实订单/收入兑现。工业富联、中际旭创、英维克等若下周一在高利率压力下仍能逆势走强，才是更有价值的价格确认。","mid_term":"字节等大型互联网公司持续投入AI算力，对服务器、光模块、数据中心制冷、电源和网络设备构成真实需求支撑；应用端则还需验证付费率和利润。","real":["工业富联","中际旭创","英维克","浪潮信息"],"mapping":["数据中心电源","PCB","液冷","AI应用"],"sentiment":["没有客户认证、订单和收入贡献的AI泛概念股"],"risk":"AI资本开支强并不意味着所有供应链公司都能拿到订单；同时高利率会压缩估值倍数。"},
-    {"title":"黄金、铜、镍、钨明显分化：不要再把有色当成单一交易逻辑","stars":3,"fact":"强非农推动美元和美债收益率上行，黄金在数据发布后快速下跌后部分修复；铜仍在历史高位附近，镍约1.68万美元/吨。SMM数据显示国内APT约59万—60万元/吨，而欧洲APT仍约3000美元/mtu，内外价差显著。","market":"黄金同时受高利率压制和地缘避险支撑；铜主要交易全球制造业、电网和AI基础设施需求；镍仍受库存和供给压力；钨则体现国内外供需结构差异。","short_term":"下周一黄金股不能只看战争消息，要看山东黄金、中金黄金是否获得量价确认；铜、镍、钨应分别交易，不能使用有色普涨逻辑。","mid_term":"黄金核心变量是实际利率；铜是全球资本开支和供需缺口；钨长期仍受资源稀缺与冶炼能力约束，但国内短期需求偏弱。","real":["紫金矿业","江西铜业","厦门钨业","中钨高新","山东黄金"],"mapping":["黄金概念","小金属概念"],"sentiment":["仅因有色标签跟涨、没有资源量或盈利弹性的后排"],"risk":"美元和利率快速变化会压制贵金属；铜和镍若库存上升、需求不及预期，价格可能高位回撤。"},
-    {"title":"周五A股主线进入周末考验：农业与AI应用强，但都已处于高分歧区","stars":4,"fact":"9月4日A股冲高回落，沪指-0.30%、深成指-0.79%、创业板指-0.78%，成交放大至2.03万亿元。农林牧渔有12只涨停，传媒/AI应用保持强势；电子、半导体和AI硬件明显走弱。","market":"41只股票收盘封死涨停、9只跌停，另有51只封板未遂，整体封板率约44.6%，说明虽然农业和AI应用有局部赚钱效应，但全市场分歧已经显著扩大。","short_term":"周一农业和AI应用都不能按周五强度直接外推。农业要看牧原/温氏等容量股，AI应用要看蓝色光标/世纪华通等容量核心，不能只看连板小票。","mid_term":"生猪中期依赖猪价与产能去化；AI应用中期依赖商业化收入。两个方向都需要从情绪交易过渡到基本面验证。","real":["牧原股份","温氏股份","蓝色光标","世纪华通"],"mapping":["新五丰","易点天下","数字人民币"],"sentiment":["连续涨停但缺乏业绩支撑的情绪后排"],"risk":"周五成交放大但指数收跌，属于放量分歧；若周一前排高开低走，短线情绪可能明显降温。"}
+    {
+      "title": "农林牧渔：价格、广度、涨停密度与资金同时确认",
+      "stars": 5,
+      "fact": "申万农林牧渔9月4日上涨4.16%；104只成分股中95只上涨、12只涨停，主力资金估算净流入32.90亿元。",
+      "market": "上涨家数比例91.35%，涨停密度11.54%；牧原股份+4.49%、主力资金估算净流入3.51亿元，新希望涨停。板块不是少数个股单拉，但已接近短线高潮。",
+      "short_term": "周一大概率先分化。能否延续取决于牧原、温氏、新希望等容量股承接，而不是后排继续一字或秒板。",
+      "mid_term": "生猪链要由猪价、成本和产能去化验证；种业和农业贸易题材不能与养殖盈利周期混为一谈。",
+      "real": [
+        "牧原股份",
+        "温氏股份",
+        "新希望"
+      ],
+      "mapping": [
+        "敦煌种业",
+        "亚盛集团",
+        "平潭发展"
+      ],
+      "sentiment": [
+        "仅靠农业标签、无盈利改善验证的高换手后排"
+      ],
+      "risk": "牧原2026H1营收594.10亿元、归母净亏损60.78亿元，说明股价上涨交易的是周期预期而非已实现利润；板块高潮后回撤风险高。"
+    },
+    {
+      "title": "传媒/AI应用：行业资金第一，但内部并非全面一致",
+      "stars": 5,
+      "fact": "传媒行业9月4日上涨3.16%，主力资金估算净流入63.05亿元，居申万一级行业第一；龙版传媒5连板。",
+      "market": "天娱数科、易点天下、欢瑞世纪等进入龙虎榜机构净买入前列，但机构席位也高度活跃，说明博弈强而非低风险一致上涨。",
+      "short_term": "周一看蓝色光标、世纪华通等容量核心是否继续强于创业板；若只剩龙版传媒等高标，定义为情绪抱团。",
+      "mid_term": "AI应用需要验证广告、游戏、内容生产效率和付费收入。蓝色光标2026H1营收345.62亿元、归母净利润2.11亿元，同比增长119.28%，但利润率仍薄。",
+      "real": [
+        "蓝色光标",
+        "世纪华通",
+        "芒果超媒"
+      ],
+      "mapping": [
+        "易点天下",
+        "天娱数科"
+      ],
+      "sentiment": [
+        "无AI收入披露、仅靠短剧或智能体标签的概念股"
+      ],
+      "risk": "连板晋级率仅11.11%，高位投机情绪仍弱；机构席位数据不等于长期机构建仓。"
+    },
+    {
+      "title": "中船系/军工：容量中军走强，基本面质量高于纯地缘题材",
+      "stars": 4,
+      "fact": "中国船舶9月4日明显强于大盘，容量中军成为该方向核心；公司2026H1营收915.3亿元、归母净利润99.54亿元，分别同比增长26.01%和163.51%。",
+      "market": "中船系有中军价格确认，但涨停密度、行业成交占比与同源净流入数据未完整取得，因此不拔高为当日第一主线。",
+      "short_term": "周一看中国船舶能否高位承接，以及中国动力、中船防务是否扩散。",
+      "mid_term": "船舶制造由手持订单、交付节奏、船价和毛利率驱动，强于仅靠地缘消息的军工映射。",
+      "real": [
+        "中国船舶",
+        "中国动力",
+        "中船防务"
+      ],
+      "mapping": [
+        "船舶配套",
+        "军贸"
+      ],
+      "sentiment": [
+        "无订单验证的地缘冲突小票"
+      ],
+      "risk": "若中军高开低走且没有产业链扩散，板块可能只是单日事件性抱团。"
+    },
+    {
+      "title": "消费/地产：政策驱动的轮动，尚缺资金与广度完整确认",
+      "stars": 3,
+      "fact": "9月4日早盘消费与地产活跃，信达地产盘中维持连板结构，部分白酒与零售股走强。",
+      "market": "本次未取得该方向统一申万行业的完整成交额、主力净流入、上涨家数比例与涨停密度，不能认定为已完成价格+资金双确认。",
+      "short_term": "只作为备选轮动，需等容量股与行业广度共同增强。",
+      "mid_term": "中期取决于居民收入预期、地产销售与政策传导，而不是单日政策标题。",
+      "real": [
+        "贵州茅台",
+        "五粮液",
+        "保利发展"
+      ],
+      "mapping": [
+        "零售",
+        "家居",
+        "物业"
+      ],
+      "sentiment": [
+        "只靠促消费或地产政策标题上涨的小票"
+      ],
+      "risk": "缺少同源资金与成交结构数据，证据等级低于农业和传媒。"
+    },
+    {
+      "title": "AI硬件/半导体：资金与价格双重负反馈，暂不定义为主线",
+      "stars": 1,
+      "fact": "电子行业9月4日下跌2.72%，主力资金估算净流出247.90亿元，为申万一级行业最大流出。",
+      "market": "科创50下跌2.10%，浪潮信息跌停且龙虎榜机构席位净卖出5.62亿元；这不是健康的板块内轮动。",
+      "short_term": "周一除非中际旭创、新易盛、工业富联等容量核心同步放量反包，否则仅按超跌修复处理。",
+      "mid_term": "AI资本开支长期逻辑仍可能成立，但不能抵消短期估值、拥挤度和机构减仓压力。",
+      "real": [
+        "中际旭创",
+        "新易盛",
+        "工业富联"
+      ],
+      "mapping": [
+        "PCB",
+        "液冷",
+        "先进封装"
+      ],
+      "sentiment": [
+        "无客户、订单和收入验证的AI硬件后排"
+      ],
+      "risk": "强行把长期产业逻辑用于解释短期下跌，会低估资金撤离与估值压缩。"
+    }
   ],
   "top3": [
-    {"name":"油气/油服","stars":5,"verify":"周一9:45前中国海油、中国石油、中海油服至少两只高开后仍维持强势，且不是只有地缘小票涨停"},
-    {"name":"传媒/AI应用中的容量核心","stars":4,"verify":"蓝色光标、世纪华通、芒果超媒等容量股至少两只强于指数；若只有连板小票强，则降级为情绪延续"},
-    {"name":"农林牧渔/生猪养殖","stars":4,"verify":"牧原股份、温氏股份、新希望至少两只保持强势，且前排首次分歧仍有承接"}
+    {
+      "name": "传媒/AI应用容量核心",
+      "stars": 4,
+      "verify": "周一9:45前蓝色光标、世纪华通、芒果超媒至少两只强于创业板，且高标不批量核按钮。"
+    },
+    {
+      "name": "农林牧渔/养殖",
+      "stars": 4,
+      "verify": "牧原股份、温氏股份、新希望至少两只强于沪深300，分歧后板块上涨家数仍保持多数。"
+    },
+    {
+      "name": "中船系/船舶制造",
+      "stars": 4,
+      "verify": "中国船舶高位承接，中国动力或中船防务至少一只同步增强；若只有小票补涨则降级。"
+    }
   ],
   "next_day_forecast": [
-    {"name":"油气/油服","score":84,"confidence":"中高","breakdown":{"relative_strength":8,"limit_density":6,"turnover_fundflow":12,"leader_midcap":15,"late_session":6,"continuity":9,"external_catalyst":10},"evidence":"A股周五并非第一主线，但周末Brent/WTI维持90美元以上并录得显著周涨幅；外部催化强，且中国海油、中国石油、中海油服具备容量和基本面承接能力。","leaders":["中国海油","中国石油","中海油服","海油工程"],"verify":"周一9:45前中国海油/中国石油至少一只明显强于沪深300，中海油服/海油工程同步跟随，板块不能只剩小票脉冲。","invalidate":"油价周末明显回落或出现美伊缓和，且A股油气中军高开低走。"},
-    {"name":"传媒/AI应用","score":80,"confidence":"中","breakdown":{"relative_strength":14,"limit_density":16,"turnover_fundflow":18,"leader_midcap":12,"late_session":6,"continuity":8,"external_catalyst":6},"evidence":"周五传媒+AI应用获得价格和资金确认，但美债收益率上行对高估值成长形成逆风，周一更可能是核心分化而非全面加速。","leaders":["蓝色光标","世纪华通","芒果超媒","易点天下"],"verify":"周一9:45前至少两只容量核心强于创业板指，同时高标不出现批量炸板。","invalidate":"易点天下等高弹性核心快速低开走弱，且蓝色光标/世纪华通同步放量下跌。"},
-    {"name":"农林牧渔/生猪养殖","score":78,"confidence":"中","breakdown":{"relative_strength":15,"limit_density":20,"turnover_fundflow":16,"leader_midcap":10,"late_session":7,"continuity":6,"external_catalyst":4},"evidence":"周五行业涨幅和涨停密度最强，但已进入明显高潮，且周末缺乏与油价同等级别的新外部催化。","leaders":["牧原股份","温氏股份","新希望","新五丰"],"verify":"周一9:45前牧原/温氏至少一只维持红盘且板块前排分歧后有回封或承接。","invalidate":"容量核心低开走弱、前排批量炸板，说明周五主要是情绪高潮。"}
+    {
+      "name": "传媒/AI应用",
+      "score": 80,
+      "confidence": "中",
+      "breakdown": {
+        "relative_strength": 14,
+        "limit_density": 16,
+        "turnover_fundflow": 18,
+        "leader_midcap": 12,
+        "late_session": 6,
+        "continuity": 8,
+        "external_catalyst": 6
+      },
+      "evidence": "9月4日行业涨3.16%、同源主力资金估算净流入63.05亿元且有高标；但连板晋级率低、高估值成长面临隔夜利率压力。",
+      "leaders": [
+        "蓝色光标",
+        "世纪华通",
+        "芒果超媒",
+        "龙版传媒"
+      ],
+      "verify": "周一9:45前至少两只容量核心明显强于创业板指，高标未批量大幅低开。",
+      "invalidate": "容量核心同步放量下跌，只剩单一连板股抱团。"
+    },
+    {
+      "name": "农林牧渔/生猪养殖",
+      "score": 78,
+      "confidence": "中",
+      "breakdown": {
+        "relative_strength": 15,
+        "limit_density": 20,
+        "turnover_fundflow": 16,
+        "leader_midcap": 10,
+        "late_session": 7,
+        "continuity": 6,
+        "external_catalyst": 4
+      },
+      "evidence": "行业涨4.16%、95/104上涨、12只涨停、同源主力资金估算净流入32.90亿元；但已高潮且牧原上半年仍亏损。",
+      "leaders": [
+        "牧原股份",
+        "温氏股份",
+        "新希望",
+        "新五丰"
+      ],
+      "verify": "周一9:45前牧原/温氏至少一只强于沪深300，涨停前排分歧后仍有承接。",
+      "invalidate": "容量核心低开低走、前排批量炸板，板块上涨家数迅速降至不足一半。"
+    },
+    {
+      "name": "中船系/船舶制造",
+      "score": 74,
+      "confidence": "中低",
+      "breakdown": {
+        "relative_strength": 12,
+        "limit_density": 8,
+        "turnover_fundflow": 14,
+        "leader_midcap": 15,
+        "late_session": 8,
+        "continuity": 9,
+        "external_catalyst": 8
+      },
+      "evidence": "中国船舶容量中军强，半年报与手持订单逻辑可验证；但行业涨停密度及同源资金数据未完整取得，相关分项置信度下降。",
+      "leaders": [
+        "中国船舶",
+        "中国动力",
+        "中船防务"
+      ],
+      "verify": "周一9:45前中国船舶强于沪深300，中国动力或中船防务至少一只同步上涨放量。",
+      "invalidate": "中国船舶明显低开低走且产业链无扩散。"
+    }
   ],
-  "forecast_review": {"status":"pending","note":"上一期收盘简报预测的是下一交易日（9月7日周一）。9月5日为周六，无A股交易，因此没有新的实际盘面可用于复盘，保留到周一收盘后评估。"},
-  "avoid": ["高利率环境下无订单、无利润兑现的高估值AI硬件后排","Brent已在90美元以上时单纯追涨地缘冲突小票","周五农业与AI应用高潮后的无基本面连板后排","把黄金、铜、镍、钨简单归为同一有色逻辑","在周末休市阶段把消息催化直接当作周一确定性涨幅"],
-  "data_quality": {"macro_checked":"2026-09-05 08:00","macro_update":"无新官方期次，不改写macro.json","notes":"A股数据为9月4日收盘；两融最新可靠数据截至9月3日。隔夜市场数据为美国9月4日收盘。商品数据存在不同报价时点，本版优先采用Reuters和公开金属报价，无法同口径确认的变化幅度不强填。"}
+  "forecast_review": {
+    "as_of": "2026-09-05 18:00",
+    "market_note": "9月5日休市，9月4日收盘后形成、目标为9月7日的预测尚未到期，禁止用周末消息进行前视判定。",
+    "last_completed": {
+      "published_at": "2026-09-03 收盘后",
+      "target_trade_date": "2026-09-04",
+      "benchmark": "上证指数（9月4日-0.30%）",
+      "items": [
+        {
+          "name": "液冷服务器/AI散热",
+          "published_score": 84,
+          "actual": "液冷约-2.56%，未进入强势板块前列",
+          "hit": false,
+          "excess_return_1d": null,
+          "note": "缺少可复算的同一板块指数起始价，超额收益不硬算。"
+        },
+        {
+          "name": "航运/油运",
+          "published_score": 79,
+          "actual": "未进入9月4日强势第一梯队",
+          "hit": false,
+          "excess_return_1d": null,
+          "note": "同口径板块收益未取得。"
+        },
+        {
+          "name": "机器人/电机",
+          "published_score": 77,
+          "actual": "机械设备约-1.86%，未进入强势前列",
+          "hit": false,
+          "excess_return_1d": null,
+          "note": "宽行业不等于机器人概念，避免用宽口径制造命中。"
+        }
+      ],
+      "calibration": "降低昨日强势惯性外推；行业主力资金净流出超过50亿元直接降级；宽主题必须拆到可交易子板块；高潮板块连续性封顶，等待9:45容量中军确认。"
+    },
+    "pending": {
+      "published_at": "2026-09-05 18:00",
+      "target_trade_date": "2026-09-07",
+      "status": "待验证"
+    }
+  },
+  "avoid": [
+    "电子/AI硬件资金大幅净流出后的无订单后排；没有容量中军反包前不把超跌等同反转",
+    "农业单日高潮后的无辨识度小票；若牧原、温氏、新希望不承接，回避追高",
+    "传媒只剩最高板而容量股走弱时的高位接力",
+    "仅靠地缘冲突标签、缺少订单或资源产量验证的军工与油气小票",
+    "任何以未经校准分数冒充上涨概率或连续涨停概率的结论"
+  ],
+  "data_quality": {
+    "market_data_as_of": "2026-09-04 15:00 北京时间",
+    "updated_at": "2026-09-05 18:00 北京时间",
+    "status": "周六休市，使用最近完整交易日",
+    "unavailable": [
+      "申万一级行业完整成交额及占全市场比例",
+      "同源20日平均成交占比",
+      "3/5/10日同源主力净流入序列",
+      "行业中位数与前三成交集中度（除已披露农业广度外）",
+      "收盘10%/20%/30%涨停拆分",
+      "全市场跌停统一口径",
+      "逐笔首次封板时间、开板次数与封单变化",
+      "ETF份额净变化",
+      "9月4日全市场两融汇总"
+    ],
+    "notes": "所有缺失项保留null或“未取得”，没有以午间数据代替收盘，也没有把不同分类体系、主力资金、融资、ETF和龙虎榜相加。"
+  },
+  "sector_capital_concentration": {
+    "as_of": "2026-09-04 15:00 北京时间",
+    "classification": "申万一级行业（互斥）；概念板块不参与加总",
+    "market_turnover_scope": "沪深两市成交额20307亿元",
+    "methodology": "主力净流入来自成交单分类估算，不等于机构真实仓位或账户间资金迁移。行业成交额、全市场占比及20日平均占比必须同源；本次未取得完整同源行业成交额，相关字段留空。",
+    "rows": [
+      {
+        "rank": 1,
+        "sector": "传媒",
+        "return_pct": 3.16,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 6.305,
+        "net_inflow_to_turnover_pct": null,
+        "status": "行业净流入已取得；成交占比未取得"
+      },
+      {
+        "rank": 2,
+        "sector": "农林牧渔",
+        "return_pct": 4.16,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 3.29,
+        "net_inflow_to_turnover_pct": null,
+        "status": "行业净流入已取得；成交占比未取得"
+      },
+      {
+        "rank": 31,
+        "sector": "电子",
+        "return_pct": -2.72,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": -24.79,
+        "net_inflow_to_turnover_pct": null,
+        "status": "净流出最大；成交占比未取得"
+      }
+    ]
+  },
+  "multi_day_persistence": {
+    "as_of": "2026-09-04",
+    "scope": "完整交易日；不与午间数据混算",
+    "note": "未取得同一申万一级行业、同一主力资金算法的3/5/10日完整序列，因此不伪造累计净流入、净流入天数和成交占比趋势。",
+    "rows": [
+      {
+        "sector": "传媒",
+        "day1_net_inflow_billion": 6.305,
+        "days3_net_inflow_billion": null,
+        "days5_net_inflow_billion": null,
+        "days10_net_inflow_billion": null,
+        "net_inflow_days_3": null,
+        "net_inflow_days_5": null,
+        "net_inflow_days_10": null,
+        "relative_return_3d": null,
+        "relative_return_5d": null,
+        "relative_return_10d": null,
+        "turnover_share_trend": "未取得"
+      },
+      {
+        "sector": "农林牧渔",
+        "day1_net_inflow_billion": 3.29,
+        "days3_net_inflow_billion": null,
+        "days5_net_inflow_billion": null,
+        "days10_net_inflow_billion": null,
+        "net_inflow_days_3": null,
+        "net_inflow_days_5": null,
+        "net_inflow_days_10": null,
+        "relative_return_3d": null,
+        "relative_return_5d": null,
+        "relative_return_10d": null,
+        "turnover_share_trend": "未取得"
+      },
+      {
+        "sector": "电子",
+        "day1_net_inflow_billion": -24.79,
+        "days3_net_inflow_billion": null,
+        "days5_net_inflow_billion": null,
+        "days10_net_inflow_billion": null,
+        "net_inflow_days_3": null,
+        "net_inflow_days_5": null,
+        "net_inflow_days_10": null,
+        "relative_return_3d": null,
+        "relative_return_5d": null,
+        "relative_return_10d": null,
+        "turnover_share_trend": "未取得"
+      }
+    ]
+  },
+  "sector_internal_strength": [
+    {
+      "sector": "农林牧渔",
+      "component_count": 104,
+      "advancers": 95,
+      "advancer_ratio_pct": 91.35,
+      "limit_up_count": 12,
+      "limit_density_pct": 11.54,
+      "median_return_pct": null,
+      "top3_turnover_share_pct": null,
+      "judgement": "整体扩散，不是少数个股拉升；但中位数与前三成交集中度未取得。"
+    },
+    {
+      "sector": "传媒",
+      "component_count": null,
+      "advancers": null,
+      "advancer_ratio_pct": null,
+      "limit_up_count": null,
+      "limit_density_pct": null,
+      "median_return_pct": null,
+      "top3_turnover_share_pct": null,
+      "judgement": "行业涨幅与净流入确认，但内部广度和集中度未取得，不能断言全面扩散。"
+    },
+    {
+      "sector": "中船系",
+      "component_count": null,
+      "advancers": null,
+      "advancer_ratio_pct": null,
+      "limit_up_count": null,
+      "limit_density_pct": null,
+      "median_return_pct": null,
+      "top3_turnover_share_pct": null,
+      "judgement": "容量中军强，板块宽度证据不足。"
+    }
+  ],
+  "cross_validation": {
+    "financing": {
+      "data_period": "2026-08-28至2026-09-03（5个完整交易日）",
+      "classification": "东方财富一级行业；与申万行业不可直接横向加总",
+      "coverage": "全市场融资余额26275.24亿元",
+      "items": [
+        {
+          "sector": "文化传媒",
+          "net_financing_buy_billion": 0.64
+        },
+        {
+          "sector": "基础化工",
+          "net_financing_buy_billion": 2.06
+        },
+        {
+          "sector": "电气设备",
+          "net_financing_buy_billion": 1.611
+        },
+        {
+          "sector": "电子设备",
+          "net_financing_buy_billion": -6.538
+        }
+      ],
+      "note": "9月4日行业融资数据滞后，不用于当日实时评分。"
+    },
+    "etf_share": {
+      "data_period": null,
+      "status": "未取得可靠ETF份额增减数据；没有把ETF价格上涨造成的规模变化当作净申购。"
+    },
+    "dragon_tiger": {
+      "data_period": "2026-09-04",
+      "coverage": "金融界/巨灵口径：沪深龙虎榜40只个股出现机构席位，21只净买入、19只净卖出，合计净买入16.97亿元",
+      "items": [
+        {
+          "name": "天娱数科",
+          "institution_net_buy_billion": 0.548
+        },
+        {
+          "name": "易点天下",
+          "institution_net_buy_billion": 0.467
+        },
+        {
+          "name": "新希望",
+          "institution_net_buy_billion": 0.252
+        },
+        {
+          "name": "浪潮信息",
+          "institution_net_buy_billion": -0.562
+        }
+      ],
+      "note": "仅覆盖上榜个股与机构专用席位，不代表全市场机构资金，也不能与主力净流入或融资净买入相加。"
+    }
+  },
+  "limit_review": {
+    "trade_date": "2026-09-04",
+    "scope": "东方财富Choice收盘口径；未确认是否含ST/未开板新股，故类别拆分不硬填",
+    "limit_up_total": 41,
+    "failed_limit_count": 51,
+    "seal_rate_pct": 44.57,
+    "seal_rate_formula": "41/(41+51)",
+    "blast_rate_pct": 55.43,
+    "blast_rate_formula": "51/(41+51)",
+    "limit_down_total": null,
+    "categories": {
+      "ten_pct": null,
+      "twenty_pct": null,
+      "thirty_pct": null,
+      "special_rules": "未取得可靠收盘拆分；不同板块及ST股票涨跌幅规则不同，不能混用午间数据。"
+    },
+    "first_board_count": null,
+    "ladder": [
+      {
+        "boards": 5,
+        "count": 1,
+        "names": [
+          "龙版传媒"
+        ]
+      }
+    ],
+    "highest_board": 5,
+    "intraday_detail": {
+      "first_seal_time": "未取得逐笔/逐笔级封板时间",
+      "open_count": "未取得",
+      "turnover": "仅部分个股可得，未形成统一表",
+      "late_support": "只能从收盘与盘面复盘定性，未取得封单变化，不编造回封速度"
+    },
+    "sentiment_validation": "周一9:45前观察龙版传媒溢价、连板晋级率是否回升，以及农业/传媒容量股能否同步承接。"
+  },
+  "candidate_pool": [
+    {
+      "type": "趋势候选",
+      "code": "300058",
+      "name": "蓝色光标",
+      "sector_role": "传媒/AI应用容量核心",
+      "price_fund_persistence": "9月4日所在传媒行业+3.16%、行业主力净流入63.05亿元；个股3/5/10日同源净流入未取得。",
+      "business_validation": "2026H1营收345.62亿元，同比+6.80%；归母净利润2.11亿元，同比+119.28%；出海收入290.79亿元。AI收入单独占比未充分披露。",
+      "valuation": "未取得同日一致预期PE，不填假值",
+      "risk_events": "商誉、海外业务回款与利润率、AI商业化不达预期；最新减持/解禁日历未取得",
+      "why": "比纯短剧小票更有容量和真实营销业务，但利润率较薄。",
+      "confirm": "周一9:45前强于创业板且放量不破周五关键支撑",
+      "invalidate": "放量跌破周五低点且传媒中军同步走弱"
+    },
+    {
+      "type": "趋势候选",
+      "code": "600150",
+      "name": "中国船舶",
+      "sector_role": "中船系容量中军",
+      "price_fund_persistence": "9月4日明显强于指数；同源3/5/10日资金序列未取得。",
+      "business_validation": "2026H1营收915.3亿元，同比+26.01%；归母净利润99.54亿元，同比+163.51%；船舶造修及海工业务收入815.25亿元。",
+      "valuation": "未取得同日一致预期PE/PB，不填假值",
+      "risk_events": "交付节奏、成本与汇率、航运周期、重大资产事项；最新减持/解禁日历未取得",
+      "why": "订单与利润兑现清晰，基本面强于纯军工情绪映射。",
+      "confirm": "周一强于沪深300且中国动力/中船防务至少一只跟随",
+      "invalidate": "中国船舶高开低走且板块无扩散"
+    },
+    {
+      "type": "趋势候选",
+      "code": "002714",
+      "name": "牧原股份",
+      "sector_role": "生猪养殖容量核心",
+      "price_fund_persistence": "9月4日+4.49%，主力资金估算净流入3.51亿元；多日序列未取得。",
+      "business_validation": "2026H1营收594.10亿元，同比-22.30%；归母净亏损60.78亿元，经营现金流净额-22.24亿元。",
+      "valuation": "亏损期静态PE失真；未取得PB与周期化盈利估值",
+      "risk_events": "猪价、疫病、饲料成本、资产负债率与现金流；最新减持/解禁日历未取得",
+      "why": "板块最具容量与成本观察价值，但财务尚未验证周期反转。",
+      "confirm": "周一强于沪深300且温氏/新希望同步承接",
+      "invalidate": "容量股集体低开低走、猪价预期继续下修"
+    },
+    {
+      "type": "连板候选",
+      "code": "605577",
+      "name": "龙版传媒",
+      "sector_role": "AI漫剧/传媒5连板最高板",
+      "price_fund_persistence": "9月4日5连板；连板晋级率仅11.11%，高位情绪脆弱。",
+      "business_validation": "主营出版发行；AI漫剧对收入利润的实际贡献未取得可核验披露",
+      "valuation": "高情绪阶段估值参考价值低；未取得同日PE",
+      "risk_events": "高位断板、监管关注、股东减持/解禁与题材兑现；具体最新日历未取得",
+      "why": "辨识度最高但属于高风险情绪样本，不等同于基本面首选。",
+      "confirm": "周一竞价与9:45前保持正溢价且传媒容量股同步强",
+      "invalidate": "低开快速下杀或开板后无承接"
+    }
+  ],
+  "forecast_history": [
+    {
+      "published_at": "2026-09-03 18:00",
+      "target_trade_date": "2026-09-04",
+      "status": "1日结果已评估；3/5日待验证",
+      "benchmark": "上证指数",
+      "forecast": [
+        {
+          "name": "液冷服务器/AI散热",
+          "score": 84
+        },
+        {
+          "name": "航运/油运",
+          "score": 79
+        },
+        {
+          "name": "机器人/电机",
+          "score": 77
+        }
+      ],
+      "results": {
+        "day1": [
+          {
+            "name": "液冷服务器/AI散热",
+            "hit": false,
+            "sector_return_pct": -2.56,
+            "excess_return_pct": null,
+            "max_drawdown_pct": null
+          },
+          {
+            "name": "航运/油运",
+            "hit": false,
+            "sector_return_pct": null,
+            "excess_return_pct": null,
+            "max_drawdown_pct": null
+          },
+          {
+            "name": "机器人/电机",
+            "hit": false,
+            "sector_return_pct": -1.86,
+            "excess_return_pct": null,
+            "max_drawdown_pct": null
+          }
+        ],
+        "day3": "待验证",
+        "day5": "待验证"
+      },
+      "measurement": "板块收盘表现对比发布后下一完整交易日；因缺少一致板块指数起始价及可成交价格，超额收益与最大回撤留空，禁止前视补算。"
+    },
+    {
+      "published_at": "2026-09-05 08:00",
+      "target_trade_date": "2026-09-07",
+      "status": "被18:00收盘审计版修订；保留原始预测",
+      "forecast": [
+        {
+          "name": "油气/油服",
+          "score": 84,
+          "confidence": "中高",
+          "breakdown": {
+            "relative_strength": 8,
+            "limit_density": 6,
+            "turnover_fundflow": 12,
+            "leader_midcap": 15,
+            "late_session": 6,
+            "continuity": 9,
+            "external_catalyst": 10
+          },
+          "evidence": "A股周五并非第一主线，但周末Brent/WTI维持90美元以上并录得显著周涨幅；外部催化强，且中国海油、中国石油、中海油服具备容量和基本面承接能力。",
+          "leaders": [
+            "中国海油",
+            "中国石油",
+            "中海油服",
+            "海油工程"
+          ],
+          "verify": "周一9:45前中国海油/中国石油至少一只明显强于沪深300，中海油服/海油工程同步跟随，板块不能只剩小票脉冲。",
+          "invalidate": "油价周末明显回落或出现美伊缓和，且A股油气中军高开低走。"
+        },
+        {
+          "name": "传媒/AI应用",
+          "score": 80,
+          "confidence": "中",
+          "breakdown": {
+            "relative_strength": 14,
+            "limit_density": 16,
+            "turnover_fundflow": 18,
+            "leader_midcap": 12,
+            "late_session": 6,
+            "continuity": 8,
+            "external_catalyst": 6
+          },
+          "evidence": "周五传媒+AI应用获得价格和资金确认，但美债收益率上行对高估值成长形成逆风，周一更可能是核心分化而非全面加速。",
+          "leaders": [
+            "蓝色光标",
+            "世纪华通",
+            "芒果超媒",
+            "易点天下"
+          ],
+          "verify": "周一9:45前至少两只容量核心强于创业板指，同时高标不出现批量炸板。",
+          "invalidate": "易点天下等高弹性核心快速低开走弱，且蓝色光标/世纪华通同步放量下跌。"
+        },
+        {
+          "name": "农林牧渔/生猪养殖",
+          "score": 78,
+          "confidence": "中",
+          "breakdown": {
+            "relative_strength": 15,
+            "limit_density": 20,
+            "turnover_fundflow": 16,
+            "leader_midcap": 10,
+            "late_session": 7,
+            "continuity": 6,
+            "external_catalyst": 4
+          },
+          "evidence": "周五行业涨幅和涨停密度最强，但已进入明显高潮，且周末缺乏与油价同等级别的新外部催化。",
+          "leaders": [
+            "牧原股份",
+            "温氏股份",
+            "新希望",
+            "新五丰"
+          ],
+          "verify": "周一9:45前牧原/温氏至少一只维持红盘且板块前排分歧后有回封或承接。",
+          "invalidate": "容量核心低开走弱、前排批量炸板，说明周五主要是情绪高潮。"
+        }
+      ],
+      "score_audit": {
+        "issue": "原油/油服原标84分，但分项8+6+12+15+6+9+10=66",
+        "raw_score": 84,
+        "verified_score": 66,
+        "action": "纠正总分，不为维持排名修改原分项"
+      }
+    },
+    {
+      "published_at": "2026-09-05 18:00",
+      "target_trade_date": "2026-09-07",
+      "status": "待验证",
+      "forecast": [
+        {
+          "name": "传媒/AI应用",
+          "score": 80,
+          "confidence": "中",
+          "breakdown": {
+            "relative_strength": 14,
+            "limit_density": 16,
+            "turnover_fundflow": 18,
+            "leader_midcap": 12,
+            "late_session": 6,
+            "continuity": 8,
+            "external_catalyst": 6
+          },
+          "evidence": "9月4日行业涨3.16%、同源主力资金估算净流入63.05亿元且有高标；但连板晋级率低、高估值成长面临隔夜利率压力。",
+          "leaders": [
+            "蓝色光标",
+            "世纪华通",
+            "芒果超媒",
+            "龙版传媒"
+          ],
+          "verify": "周一9:45前至少两只容量核心明显强于创业板指，高标未批量大幅低开。",
+          "invalidate": "容量核心同步放量下跌，只剩单一连板股抱团。"
+        },
+        {
+          "name": "农林牧渔/生猪养殖",
+          "score": 78,
+          "confidence": "中",
+          "breakdown": {
+            "relative_strength": 15,
+            "limit_density": 20,
+            "turnover_fundflow": 16,
+            "leader_midcap": 10,
+            "late_session": 7,
+            "continuity": 6,
+            "external_catalyst": 4
+          },
+          "evidence": "行业涨4.16%、95/104上涨、12只涨停、同源主力资金估算净流入32.90亿元；但已高潮且牧原上半年仍亏损。",
+          "leaders": [
+            "牧原股份",
+            "温氏股份",
+            "新希望",
+            "新五丰"
+          ],
+          "verify": "周一9:45前牧原/温氏至少一只强于沪深300，涨停前排分歧后仍有承接。",
+          "invalidate": "容量核心低开低走、前排批量炸板，板块上涨家数迅速降至不足一半。"
+        },
+        {
+          "name": "中船系/船舶制造",
+          "score": 74,
+          "confidence": "中低",
+          "breakdown": {
+            "relative_strength": 12,
+            "limit_density": 8,
+            "turnover_fundflow": 14,
+            "leader_midcap": 15,
+            "late_session": 8,
+            "continuity": 9,
+            "external_catalyst": 8
+          },
+          "evidence": "中国船舶容量中军强，半年报与手持订单逻辑可验证；但行业涨停密度及同源资金数据未完整取得，相关分项置信度下降。",
+          "leaders": [
+            "中国船舶",
+            "中国动力",
+            "中船防务"
+          ],
+          "verify": "周一9:45前中国船舶强于沪深300，中国动力或中船防务至少一只同步上涨放量。",
+          "invalidate": "中国船舶明显低开低走且产业链无扩散。"
+        }
+      ],
+      "measurement": "以9月7日可交易时点为起点；1/3/5个完整交易日后，用固定板块指数对沪深300计算超额收益，并记录期间最大回撤。当前未到期。"
+    }
+  ],
+  "forecast_score_audit": {
+    "framework_total": 100,
+    "weights": {
+      "relative_strength": 15,
+      "limit_density": 20,
+      "turnover_fundflow": 20,
+      "leader_midcap": 15,
+      "late_session": 10,
+      "continuity": 10,
+      "external_catalyst": 10
+    },
+    "checked_at": "2026-09-05 18:00",
+    "results": [
+      {
+        "name": "传媒/AI应用",
+        "declared": 80,
+        "calculated": 80,
+        "valid": true
+      },
+      {
+        "name": "农林牧渔/生猪养殖",
+        "declared": 78,
+        "calculated": 78,
+        "valid": true
+      },
+      {
+        "name": "中船系/船舶制造",
+        "declared": 74,
+        "calculated": 74,
+        "valid": true
+      }
+    ],
+    "correction": "历史油气/油服84分已查明为分项合计66分；已在forecast_history保留原始值及纠正值。"
+  },
+  "sources": [
+    {
+      "name": "证券时报·数据宝：9月4日农林牧渔行业资金流向",
+      "url": "https://www.stcn.com/article/detail/4172753.html",
+      "as_of": "2026-09-04 16:43"
+    },
+    {
+      "name": "东方财富Choice：9月4日涨停复盘",
+      "url": "https://wap.eastmoney.com/a/202609043865488153.html",
+      "as_of": "2026-09-04 17:24"
+    },
+    {
+      "name": "财联社：9月4日焦点复盘",
+      "url": "https://www.cls.cn/detail/2474429",
+      "as_of": "2026-09-04 收盘"
+    },
+    {
+      "name": "金融界/巨灵：9月4日龙虎榜机构席位",
+      "url": "https://finance.jrj.com.cn/2026/09/04174858358059.shtml",
+      "as_of": "2026-09-04"
+    },
+    {
+      "name": "东方财富证券两融周报",
+      "url": "https://finance.sina.com.cn/stock/s/2026-09-04/doc-iniqskuq0839017.shtml",
+      "as_of": "截至2026-09-03"
+    },
+    {
+      "name": "Reuters：美国8月就业与利率预期",
+      "url": "https://www.reuters.com/business/citigroup-delays-fed-rate-cut-forecast-2027-after-strong-us-jobs-report-2026-09-04/",
+      "as_of": "2026-09-04"
+    }
+  ]
 }
