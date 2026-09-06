@@ -55,7 +55,7 @@
 
 <section class="section"><div class="section-head"><h2>板块资金集中榜</h2><div class="rangehint" id="capitalScope"></div></div><div class="card" style="overflow-x:auto"><table><thead><tr><th>行业</th><th>涨跌幅</th><th>成交额</th><th>市场占比</th><th>较20日均值</th><th>主力净流入</th><th>净流入/成交额</th></tr></thead><tbody id="capitalConcentration"></tbody></table><div class="note" id="capitalNote"></div></div></section>
 
-<section class="section"><div class="section-head"><h2>3/5/10日持续性</h2></div><div class="card" style="overflow-x:auto"><table><thead><tr><th>行业</th><th>当日净流入</th><th>3日</th><th>5日</th><th>10日</th><th>净流入天数</th><th>相对收益</th><th>成交占比趋势</th></tr></thead><tbody id="persistence"></tbody></table><div class="note" id="persistenceNote"></div></div></section>
+<section class="section"><div class="section-head"><h2>3/5/10日持续性</h2></div><div class="card" style="overflow-x:auto"><table><thead><tr><th>行业</th><th>当日净流入</th><th>3日</th><th>5日</th><th>10日</th><th>净流入天数</th><th>相对收益</th><th>成交强度</th></tr></thead><tbody id="persistence"></tbody></table><div class="note" id="persistenceNote"></div></div></section>
 
 <section class="section"><div class="section-head"><h2>板块内部强弱</h2></div><div class="card" style="overflow-x:auto"><table><thead><tr><th>板块</th><th>上涨家数/分母</th><th>上涨比例</th><th>涨停/分母</th><th>涨停密度</th><th>中位数涨幅</th><th>前三成交占比</th><th>判断</th></tr></thead><tbody id="internalStrength"></tbody></table></div></section>
 
@@ -80,16 +80,17 @@ function dashboardUpdatedAtBeijing(s){if(!s)return null;const m=String(s).match(
 function updateFreshness(d){const el=document.getElementById('staleBanner');const dt=dashboardUpdatedAtBeijing(d&&d.updated_at);if(!dt){el.textContent='⚠ 数据更新时间无法识别，请检查 GitHub Actions 是否正常运行。';el.classList.add('show');return}const hours=(Date.now()-dt.getTime())/3600000;if(hours>24){el.textContent=`⚠ 数据可能已过期：仪表盘最后更新于北京时间 ${d.updated_at}，距现在约 ${Math.floor(hours)} 小时。`;el.classList.add('show')}else{el.textContent='';el.classList.remove('show')}}
 
 async function load(){
-  const [b,d,m,o,f]=await Promise.all([
+  const [b,d,m,o,f,detail]=await Promise.all([
     fetch('./brief.json',{cache:'no-store'}).then(r=>r.json()),
     fetch('./dashboard.json',{cache:'no-store'}).then(r=>r.json()),
     fetch('./macro.json',{cache:'no-store'}).then(r=>r.json()),
     fetch('./oil_outlook.json',{cache:'no-store'}).then(r=>r.json()),
-    fetch('./fx_outlook.json',{cache:'no-store'}).then(r=>r.json())
+    fetch('./fx_outlook.json',{cache:'no-store'}).then(r=>r.json()),
+    fetch('./market_details.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).catch(()=>null)
   ]);
   document.getElementById('dateLine').textContent=`简报 ${b.date} ${b.updated_at} · 数据仪表盘 北京时间 ${d.updated_at||'待更新'}`;
   document.getElementById('marketStatus').textContent=b.market_status||'市场简报';
-  updateFreshness(d);renderLiquidity(d.liquidity||{});renderTrade(d.trade||{});renderCnyOutlook(f||{});renderMacro(m||{});renderFxReserves(m||{});renderMetals(d.commodities||{});renderOil(o||{});renderForecast(b.next_day_forecast||[]);renderCloseModules(b);
+  updateFreshness(d);renderLiquidity(d.liquidity||{});renderTrade(d.trade||{});renderCnyOutlook(f||{});renderMacro(m||{});renderFxReserves(m||{});renderMetals(d.commodities||{});renderOil(o||{});renderForecast(b.next_day_forecast||[]);renderCloseModules(b);if(detail)renderMarketDetails(detail,b);
   document.getElementById('metrics').innerHTML=(b.metrics||[]).map(x=>`<div class="card"><div class="k">${x.label}</div><div class="v">${x.value}</div><div class="small">${x.note||''}</div></div>`).join('');
   document.getElementById('mainlines').innerHTML=(b.mainlines||[]).map((x,i)=>`<article class="card mainline"><div class="mainhead"><div><div class="k">#${i+1}</div><div class="title">${x.title}</div></div><div class="stars">${'★'.repeat(Number(x.stars)||0)}${'☆'.repeat(Math.max(0,5-(Number(x.stars)||0)))}</div></div><div class="row"><div class="label">核心事实 / 催化</div><div>${x.fact||''}</div></div><div class="row"><div class="label">价格确认</div><div>${x.market||''}</div></div><div class="row"><div class="label">短期影响</div><div>${x.short_term||''}</div></div><div class="row"><div class="label">中期逻辑</div><div>${x.mid_term||''}</div></div><div class="row"><div class="label">标的分层</div><div class="tags">${(x.real||[]).map(v=>`<span class="tag real">真实业务 · ${v}</span>`).join('')}${(x.mapping||[]).map(v=>`<span class="tag map">产业映射 · ${v}</span>`).join('')}${(x.sentiment||[]).map(v=>`<span class="tag mood">纯情绪 · ${v}</span>`).join('')}</div></div><div class="row"><div class="label">风险</div><div class="bad">${x.risk||''}</div></div></article>`).join('');
   document.getElementById('top3').innerHTML=(b.top3||[]).map(x=>`<tr><td><b>${x.name}</b></td><td>${'★'.repeat(Number(x.stars)||0)}${'☆'.repeat(Math.max(0,5-(Number(x.stars)||0)))}</td><td>${x.verify||''}</td></tr>`).join('');
@@ -227,6 +228,40 @@ function renderCloseModules(b){
   document.getElementById('crossValidation').innerHTML=`<div class="k">交叉验证</div><div class="row"><div class="label">行业融资</div><div>${fi.data_period||'未取得'}：${(fi.items||[]).map(v=>v.sector+' '+(v.net_financing_buy_billion>=0?'+':'')+billionYuan(v.net_financing_buy_billion)).join('；')}<div class="small">${fi.note||''}</div></div></div><div class="row"><div class="label">ETF份额</div><div>${x.etf_share&&x.etf_share.status||'未取得'}</div></div><div class="row"><div class="label">龙虎榜机构席位</div><div>${lh.coverage||'未取得'}<div class="small">${lh.note||''}</div></div></div>`;
 }
 function renderForecast(arr){const sec=document.getElementById('forecastSection'),box=document.getElementById('forecast');if(!Array.isArray(arr)||!arr.length){sec.style.display='none';return}sec.style.display='block';box.innerHTML=arr.map((x,i)=>`<div class="card forecast"><div class="mainhead"><div><div class="k">预测 #${i+1}</div><div class="title">${x.name||x.sector||'—'}</div></div><div class="confidence">${x.score==null?'':x.score+' / 100 · '}${x.confidence||''}</div></div><div class="row"><div class="label">支持证据</div><div>${x.evidence||x.reason||''}</div></div><div class="row"><div class="label">验证条件</div><div>${x.verify||x.validation||''}</div></div><div class="row"><div class="label">失效条件</div><div class="bad">${x.invalidate||x.failure||''}</div></div></div>`).join('')}
+
+function renderMarketDetails(m,b){
+  const money=v=>v==null?'未取得':fmt(v/1e8,2)+'亿元';
+  const rows=m.sectors||[];
+  document.getElementById('capitalNote').textContent+=' 下方历史持续性采用东财独立板块序列，与本表新闻口径不拼接。';
+  document.getElementById('persistence').innerHTML=rows.map(x=>`<tr><td>${x.name}</td><td>${money(x.day_net_yuan)}</td>${[3,5,10].map(n=>'<td>'+money(x.windows[n].net_yuan)+'</td>').join('')}<td>${[3,5,10].map(n=>n+'日 '+val(x.windows[n].inflow_days,'天',0)).join(' / ')}</td><td>${[3,5,10].map(n=>n+'日 '+val(x.windows[n].excess_pct_point,'个百分点')).join(' / ')}</td><td>当日成交/前20日均额：${val(x.turnover_vs_prev20,'倍')}</td></tr>`).join('');
+  document.getElementById('persistenceNote').textContent=m.data_date+'；东财板块历史序列独立计算，超额收益对比上证指数。缺少区间内任一交易日时不计算累计净流入；成交额倍数不是市场成交占比。';
+  const sourceBox=document.getElementById('briefSources');
+  sourceBox.innerHTML+='<br>直接数据：'+sourceLinks(m.sources)+' · <a href="./market_details.json">下载原始序列与计算结果</a>';
+  const datasets=m.datasets||{},pool=datasets['limits_'+m.data_date]?.rows||[];
+  const historical=m.limit_history||[],latest=historical.find(x=>x.date===m.data_date)||{};
+  const time=v=>{if(v==null)return '未取得';const s=String(v).padStart(6,'0');return s.slice(0,2)+':'+s.slice(2,4)+':'+s.slice(4,6)};
+  document.getElementById('limitDetail').innerHTML='<div class="note">'+escapeText(m.limit_scope)+'</div><div style="overflow-x:auto"><table><thead><tr><th>交易日</th><th>池内涨停</th><th>未封住</th><th>封板率</th></tr></thead><tbody>'+historical.map(x=>`<tr><td>${x.date}</td><td>${val(x.limit_count,'',0)}</td><td>${val(x.failed_count,'',0)}</td><td>${val(x.seal_rate_pct,'%')}</td></tr>`).join('')+'</tbody></table></div><details><summary>展开 '+pool.length+' 只涨停股的封板与承接明细</summary><div style="overflow-x:auto"><table><thead><tr><th>股票 / 行业</th><th>连板</th><th>成交额</th><th>换手率</th><th>封板资金</th><th>封单/流通市值</th><th>首次 / 最后封板</th><th>炸板次数</th></tr></thead><tbody>'+pool.map(x=>`<tr><td>${escapeText(x['名称'])} ${x['代码']}<div class="small">${escapeText(x['所属行业'])}</div></td><td>${x['连板数']}</td><td>${money(x['成交额'])}</td><td>${val(x['换手率'],'%')}</td><td>${money(x['封板资金'])}</td><td>${x['流通市值']?val(x['封板资金']/x['流通市值']*100,'%'):'未取得'}</td><td>${time(x['首次封板时间'])} / ${time(x['最后封板时间'])}</td><td>${x['炸板次数']}</td></tr>`).join('')+'</tbody></table></div></details>';
+  document.getElementById('limitCards').insertAdjacentHTML('beforeend','<div class="card"><div class="k">直接接口 · 独立口径</div><div class="v">'+val(latest.limit_count,'只',0)+'</div><div class="small">封板率 '+val(latest.seal_rate_pct,'%')+'；上方为简报新闻口径</div></div>');
+  const sectors={},ladder={};for(const x of pool){const name=x['所属行业']||'未分类';sectors[name]=(sectors[name]||0)+1;ladder[x['连板数']]=(ladder[x['连板数']]||0)+1;}
+  document.getElementById('limitDetail').insertAdjacentHTML('afterbegin','<div class="row"><div class="label">池内板块分布</div><div>'+Object.entries(sectors).sort((a,b)=>b[1]-a[1]).map(([k,v])=>escapeText(k)+' '+v+'只（'+fmt(v/pool.length*100,1)+'%）').join('；')+'</div></div><div class="row"><div class="label">池内连板梯队</div><div>'+Object.entries(ladder).sort((a,b)=>b[0]-a[0]).map(([k,v])=>k+'板 '+v+'只').join('；')+'</div></div>');
+  const etfs=m.etf_changes||[];
+  for(const row of document.querySelectorAll('#crossValidation > .row')){if(['ETF份额','龙虎榜机构席位'].includes(row.querySelector('.label')?.textContent))row.remove();}
+  document.getElementById('crossValidation').insertAdjacentHTML('beforeend','<div class="row"><div class="label">ETF实际份额</div><div>'+escapeText(m.etf_scope)+'<div class="small">'+(m.etf_comparison_dates||[]).join(' → ')+'；匹配 '+etfs.length+' 只。以下按份额变化绝对值列前10，不能据此跨基金比较资金金额。</div><table><thead><tr><th>ETF</th><th>份额增减</th><th>变化</th></tr></thead><tbody>'+etfs.slice(0,10).map(x=>`<tr><td>${escapeText(x.name)} ${x.code}</td><td>${fmt(x.delta_shares/1e8,3)}亿份</td><td>${val(x.change_pct,'%')}</td></tr>`).join('')+'</tbody></table></div></div>');
+  const lhb=datasets['lhb_'+m.data_date]?.rows||[];
+  if(lhb.length)document.getElementById('crossValidation').insertAdjacentHTML('beforeend','<details><summary>展开 '+lhb.length+' 条机构龙虎榜记录</summary><div class="small">按上榜记录列示；多日上榜与当日上榜不能重复加总。</div><table><tbody>'+lhb.map(x=>`<tr><td>${escapeText(x['名称'])} ${x['代码']}</td><td>${money(x['机构买入净额'])}</td><td>${escapeText(x['上榜原因']||'')}</td></tr>`).join('')+'</tbody></table></details>');
+  const unlocks=datasets.unlocks?.rows||[];
+  if(unlocks.length)document.getElementById('crossValidation').insertAdjacentHTML('beforeend','<details><summary>展开 '+unlocks.length+' 条未来30天解禁记录</summary><div class="small">采集时间 '+escapeText(datasets.unlocks.fetched_at)+'；解禁不等于实际减持，计划可能调整。</div><div style="overflow-x:auto"><table><thead><tr><th>股票</th><th>日期</th><th>解禁数量</th><th>股份类型</th></tr></thead><tbody>'+unlocks.map(x=>'<tr><td>'+escapeText(x['股票简称'])+' '+x['股票代码']+'</td><td>'+String(x['解禁时间']).slice(0,10)+'</td><td>'+val(x['解禁数量']/1e4,'万股')+'</td><td>'+escapeText(x['限售股类型'])+'</td></tr>').join('')+'</tbody></table></div></details>');
+  const cards=document.querySelectorAll('#candidatePool article');
+  for(const x of m.stocks||[]){
+    const i=(b.candidate_pool||[]).findIndex(c=>c.code===x.code);if(i<0||!cards[i])continue;
+    cards[i].insertAdjacentHTML('beforeend',`<div class="row"><div class="label">接口核验 · ${m.data_date}</div><div>收盘 ${val(x.close,'元')}；成交 ${money(x.turnover_yuan)}；换手 ${val(x.turnover_pct,'%')}；成交/前20日均额 ${val(x.turnover_vs_prev20,'倍')}<br>主力估算净流入：当日 ${money(x.day_net_yuan)}；${[3,5,10].map(n=>n+'日 '+money(x.windows[n].net_yuan)).join('；')}<div class="small">历史量价与资金描述，不代表收益预测；如与上方旧摘要冲突，以本行同日接口数据为独立参照。</div></div></div>`);
+  }
+  const failed=(m.availability||[]).filter(x=>x.status==='error');
+  const labelMap=Object.fromEntries([...(m.sectors||[]),...(m.stocks||[])].map(x=>[x.code,x.name]));
+  const missingNames=[...new Set(failed.map(x=>labelMap[x.dataset.replace(/^(price|flow)_/,'')]||x.dataset))];
+  document.getElementById('qualityNote').textContent='数据整理：'+m.updated_at+'；行情截至 '+m.data_date+'；各序列实际采集时间见下载数据。已补充部分板块及候选股历史资金、5日涨停专题、ETF份额、机构龙虎榜与解禁记录。历史行情或资金仍有缺项：'+(missingNames.join('、')||'无')+'。另外尚缺完整同层级行业成交分母、尾盘封单逐时变化、完整减持公告、部分估值及深交所ETF份额。主力资金为数据商按成交划分的估算值；ETF份额变化不是净申购金额。采集失败时保留此前记录与实际日期，缺项不按零计算。';
+}
+
 function renderOil(o){
   document.getElementById('oilUpdated').textContent=`截至 ${o.as_of||'—'} · ${o.confidence||'—'}置信度`;
   document.getElementById('oilHorizon').textContent=o.horizon||'';
