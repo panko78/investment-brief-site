@@ -232,6 +232,7 @@ function renderForecast(arr){const sec=document.getElementById('forecastSection'
 function renderMarketDetails(m,b){
   const money=v=>v==null?'未取得':fmt(v/1e8,2)+'亿元';
   const rows=m.sectors||[];
+  document.getElementById('decisionNote').textContent='新闻简报日期 '+b.date+'；新增直接数据截至 '+m.data_date+'。已补充部分板块及候选股3/5/10日资金、ETF份额、涨停明细和解禁记录。累计净流入与流入天数需要一起判断；完整覆盖范围和缺项见页尾。';
   document.getElementById('capitalNote').textContent+=' 下方历史持续性采用东财独立板块序列，与本表新闻口径不拼接。';
   document.getElementById('persistence').innerHTML=rows.map(x=>`<tr><td>${x.name}</td><td>${money(x.day_net_yuan)}</td>${[3,5,10].map(n=>'<td>'+money(x.windows[n].net_yuan)+'</td>').join('')}<td>${[3,5,10].map(n=>n+'日 '+val(x.windows[n].inflow_days,'天',0)).join(' / ')}</td><td>${[3,5,10].map(n=>n+'日 '+val(x.windows[n].excess_pct_point,'个百分点')).join(' / ')}</td><td>当日成交/前20日均额：${val(x.turnover_vs_prev20,'倍')}</td></tr>`).join('');
   document.getElementById('persistenceNote').textContent=m.data_date+'；东财板块历史序列独立计算，超额收益对比上证指数。缺少区间内任一交易日时不计算累计净流入；成交额倍数不是市场成交占比。';
