@@ -1,6 +1,6 @@
 """Collect dated, reproducible market details without rewriting the news brief.
 
-Prices/flows: Eastmoney, yuan. ETF shares: SSE via AKShare, shares (not yuan).
+Prices/flows: Eastmoney, yuan. ETF shares: SSE via AKShare with verified-date fallback, shares (not yuan).
 Limits: Eastmoney topic pool; scope differs from news and excludes some boards.
 """
 import argparse
@@ -169,8 +169,9 @@ def main():
         ds = day.replace('-','')
         jobs['limits_'+day] = lambda d=ds: frame(ak.stock_zt_pool_em(date=d))
         jobs['failed_'+day] = lambda d=ds: frame(ak.stock_zt_pool_zbgc_em(date=d))
-    prev = benchmark[-2]['date']
-    for day in [prev,target]: jobs['etf_'+day] = lambda d=day: frame(ak.fund_etf_scale_sse(date=d.replace('-','')))
+    etf_days = [r['date'] for r in benchmark][-5:]
+    for day in etf_days:
+        jobs['etf_'+day] = lambda d=day: frame(ak.fund_etf_scale_sse(date=d.replace('-','')))
     jobs['lhb_'+target] = lambda: frame(ak.stock_lhb_jgmmtj_em(start_date=target.replace('-',''),end_date=target.replace('-','')))
     jobs['unlocks'] = lambda: frame(ak.stock_restricted_release_detail_em(start_date=now.date().isoformat().replace('-',''),end_date=(now.date()+timedelta(days=30)).isoformat().replace('-','')))
     old = json.loads(OUTPUT.read_text()) if OUTPUT.exists() and OUTPUT.read_text().strip() else {}
@@ -178,7 +179,8 @@ def main():
     datasets = old.get('datasets',{}).copy(); availability = []
     if args.reuse:
         for key in list(jobs):
-            if key in datasets and datasets[key].get('rows') and any((r.get('date')==target or str(r.get('统计日期',''))[:10]==target) for r in datasets[key]['rows'] if isinstance(r,dict)):
+            expected_day = key[4:] if key.startswith('etf_') else target
+            if key in datasets and datasets[key].get('rows') and any((r.get('date')==expected_day or str(r.get('统计日期',''))[:10]==expected_day) for r in datasets[key]['rows'] if isinstance(r,dict)):
                 availability.append({'dataset':key,'status':'cached','rows':len(datasets[key]['rows']),'fetched_at':datasets[key]['fetched_at']}); del jobs[key]
     if args.offline:
         availability.extend({'dataset':k,'status':'error','reason':'Not available in saved responses'} for k in jobs); jobs={}
@@ -210,16 +212,32 @@ def main():
         up,failed=rows('limits_'+day),rows('failed_'+day); upcodes={r['代码'] for r in up}; badcodes={r['代码'] for r in failed}
         if upcodes & badcodes: raise ValueError('Limit and failed pools overlap')
         limits.append({'date':day,'limit_count':len(up) if up else None,'failed_count':len(failed) if failed else None,'seal_rate_pct':len(up)/(len(up)+len(failed))*100 if up and failed else None})
-    etf=[]; prevmap={r['基金代码']:r for r in rows('etf_'+prev) if r.get('基金代码')}
-    for row in rows('etf_'+target):
-        previous=prevmap.get(row.get('基金代码'))
-        if previous and str(row.get('统计日期',''))[:10]==target and str(previous.get('统计日期',''))[:10]==prev:
-            curr=number(row.get('基金份额')); before=number(previous.get('基金份额'))
-            if curr is not None and before is not None and before>0:
-                etf.append({'code':row['基金代码'],'name':row.get('基金简称',''),'shares':curr,'previous_shares':before,'delta_shares':curr-before,'change_pct':(curr/before-1)*100})
-    if not etf and old.get('etf_comparison_dates') == [prev,target]: etf=old.get('etf_changes',[])
+
+    # SSE same-day ETF share disclosure can lag the cash-market close. Never turn
+    # an unavailable target date into an empty "current" comparison: compare the
+    # two latest dates for which the official SSE endpoint actually returned rows.
+    available_etf = []
+    for day in reversed(etf_days):
+        verified = [r for r in rows('etf_'+day) if r.get('基金代码') and str(r.get('统计日期',''))[:10] == day]
+        if verified:
+            available_etf.append((day, verified))
+        if len(available_etf) == 2:
+            break
+    available_etf.sort(key=lambda x:x[0])
+    etf_dates = [x[0] for x in available_etf]
+    etf=[]
+    if len(available_etf) == 2:
+        prev_etf, prev_rows = available_etf[0]
+        target_etf, target_rows = available_etf[1]
+        prevmap={r['基金代码']:r for r in prev_rows if r.get('基金代码')}
+        for row in target_rows:
+            previous=prevmap.get(row.get('基金代码'))
+            if previous:
+                curr=number(row.get('基金份额')); before=number(previous.get('基金份额'))
+                if curr is not None and before is not None and before>0:
+                    etf.append({'code':row['基金代码'],'name':row.get('基金简称',''),'shares':curr,'previous_shares':before,'delta_shares':curr-before,'change_pct':(curr/before-1)*100})
     etf.sort(key=lambda r:abs(r['delta_shares']),reverse=True)
-    result={'updated_at':now.isoformat(),'data_date':target,'benchmark':'上证指数000001；未复权收盘收益，超额为百分点差','sector_scope':'东方财富板块代码：传媒、农林牧渔、石油石化、半导体；仅4个关注板块，含不同层级，不能加总为全市场，也不拼接新闻中的申万资金序列','limit_scope':'东方财富涨停专题池；接口文档注明不含ST及科创板，未验证北交所完整覆盖。与新闻口径独立；封板资金为快照','etf_scope':'上交所ETF；份额单位为份，差值为净份额变化，不是人民币净申购金额；仅比较同代码和明确日期','sectors':groups[0],'stocks':groups[1],'limit_history':limits,'etf_comparison_dates':[prev,target],'etf_changes':etf,'availability':availability,'datasets':datasets,'sources':[{'name':'东财日线接口','url':PRICE_URL},{'name':'东财历史资金接口','url':FLOW_URL},{'name':'东财涨停池','url':'https://quote.eastmoney.com/ztb/detail#type=ztgc'},{'name':'上交所ETF份额','url':'https://www.sse.com.cn/assortment/fund/etf/list/scale/'}]}
+    result={'updated_at':now.isoformat(),'data_date':target,'benchmark':'上证指数000001；未复权收盘收益，超额为百分点差','sector_scope':'东方财富板块代码：传媒、农林牧渔、石油石化、半导体；仅4个关注板块，含不同层级，不能加总为全市场，也不拼接新闻中的申万资金序列','limit_scope':'东方财富涨停专题池；接口文档注明不含ST及科创板，未验证北交所完整覆盖。与新闻口径独立；封板资金为快照','etf_scope':'上交所ETF官方份额；若最新交易日尚未发布，则显示最近两个已核验统计日并明确日期。份额单位为份，差值不是人民币净申购金额','sectors':groups[0],'stocks':groups[1],'limit_history':limits,'etf_comparison_dates':etf_dates,'etf_changes':etf,'availability':availability,'datasets':datasets,'sources':[{'name':'东财日线接口','url':PRICE_URL},{'name':'东财历史资金接口','url':FLOW_URL},{'name':'东财涨停池','url':'https://quote.eastmoney.com/ztb/detail#type=ztgc'},{'name':'上交所ETF份额','url':'https://www.sse.com.cn/assortment/fund/etf/list/scale/'}]}
     result['datasets']={k:v for k,v in datasets.items() if not k.startswith('etf_')}
     for dataset in result['datasets'].values():
         rows_=dataset['rows']
@@ -227,6 +245,6 @@ def main():
             ds=[r['date'] for r in rows_ if r.get('date')]
             if len(ds)!=len(set(ds)) or (ds and max(ds)>target): raise ValueError('Duplicate or future-dated history')
     OUTPUT.write_text(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
-    print('SAVED',target,'sectors',len(groups[0]),'stocks',len(groups[1]),'ETF pairs',len(etf),flush=True)
+    print('SAVED',target,'sectors',len(groups[0]),'stocks',len(groups[1]),'ETF pairs',len(etf),'ETF dates',etf_dates,flush=True)
 
 if __name__=='__main__':main()
