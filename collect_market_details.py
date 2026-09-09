@@ -20,7 +20,6 @@ CACHE = ROOT / '.market-details-cache.json'
 SECTORS = {'BK0486': '传媒', 'BK0433': '农林牧渔', 'BK0464': '石油石化', 'BK1036': '半导体'}
 PRICE_URL = 'https://push2his.eastmoney.com/api/qt/stock/kline/get'
 FLOW_URL = 'https://push2his.eastmoney.com/api/qt/stock/fflow/daykline/get'
-# Bound all AKShare requests as well as our direct calls.
 _request = requests.sessions.Session.request
 def bounded_request(self, *args, **kwargs):
     kwargs['timeout'] = (8, 20)
@@ -66,7 +65,6 @@ def prices(secid, end):
                     return parsed
         except Exception:
             pass
-        # Direct provider fallback avoids blank stock cards when the AKShare wrapper fails.
         return eastmoney_prices(secid, end)
     return eastmoney_prices(secid, end)
 
@@ -107,13 +105,20 @@ def stats(price, flow, benchmark, target):
     out['turnover_vs_prev20'] = current['turnover_yuan']/(sum(amounts)/20) if len(amounts)==20 and all(v is not None and v>0 for v in amounts) and current.get('turnover_yuan') is not None else None
     net = out['day_net_yuan']; amt = out['turnover_yuan']
     out['net_to_turnover_pct'] = net/amt*100 if net is not None and amt else None
-    # Historical return is descriptive, not the return of a published recommendation.
     return out
 
 def main():
     parser = argparse.ArgumentParser(); parser.add_argument('--date'); parser.add_argument('--reuse',action='store_true'); parser.add_argument('--offline',action='store_true'); args = parser.parse_args()
     now = datetime.now(ZoneInfo('Asia/Shanghai'))
-    cutoff = args.date or (now.date() if now.hour>=16 else now.date()-timedelta(days=1)).isoformat()
+    if args.date:
+        cutoff = args.date
+    elif now.weekday() < 5 and (now.hour, now.minute) >= (15, 10):
+        cutoff = now.date().isoformat()
+    else:
+        d = now.date() - timedelta(days=1)
+        while d.weekday() >= 5:
+            d -= timedelta(days=1)
+        cutoff = d.isoformat()
     liquidity = json.loads((ROOT/'dashboard.json').read_text()).get('liquidity',{})
     benchmark = [{'date':r['date'],'close':r['sh_close']} for r in liquidity.get('sh_index_series',[]) if r['date']<=cutoff and r.get('sh_close')]
     if len(benchmark)<22:
@@ -142,7 +147,7 @@ def main():
         jobs['etf_'+day] = lambda d=day: frame(ak.fund_etf_scale_sse(date=d.replace('-','')))
     jobs['lhb_'+target] = lambda: frame(ak.stock_lhb_jgmmtj_em(start_date=target.replace('-',''),end_date=target.replace('-','')))
     jobs['unlocks'] = lambda: frame(ak.stock_restricted_release_detail_em(start_date=now.date().isoformat().replace('-',''),end_date=(now.date()+timedelta(days=30)).isoformat().replace('-','')))
-    old = json.loads(OUTPUT.read_text()) if OUTPUT.exists() else {}
+    old = json.loads(OUTPUT.read_text()) if OUTPUT.exists() and OUTPUT.read_text().strip() else {}
     if CACHE.exists():
         old.setdefault('datasets', {}).update(json.loads(CACHE.read_text()))
     datasets = old.get('datasets',{}).copy(); availability = []
@@ -174,7 +179,6 @@ def main():
         group=[]
         for code,name in mapping.items():
             p,f=rows('price_'+code),rows('flow_'+code)
-            # A same-day topic pool can verify price/turnover, never historical flow.
             if code in stocks and not any(r['date']==target for r in p):
                 snapshot=next((r for r in rows('limits_'+target)+rows('failed_'+target) if r['代码']==code),None)
                 if snapshot:
@@ -184,7 +188,6 @@ def main():
     limits=[]
     for day in dates:
         up,failed=rows('limits_'+day),rows('failed_'+day)
-        # Both populations come from the same provider's topic pools.
         upcodes={r['代码'] for r in up}; badcodes={r['代码'] for r in failed}
         if upcodes & badcodes: raise ValueError('Limit and failed pools overlap')
         limits.append({'date':day,'limit_count':len(up) if up else None,'failed_count':len(failed) if failed else None,'seal_rate_pct':len(up)/(len(up)+len(failed))*100 if up and failed else None})
@@ -205,8 +208,6 @@ def main():
         'sectors':groups[0],'stocks':groups[1],'limit_history':limits,'etf_comparison_dates':[prev,target],'etf_changes':etf,
         'availability':availability,'datasets':datasets,
         'sources':[{'name':'东财日线接口','url':PRICE_URL},{'name':'东财历史资金接口','url':FLOW_URL},{'name':'东财涨停池','url':'https://quote.eastmoney.com/ztb/detail#type=ztgc'},{'name':'上交所ETF份额','url':'https://www.sse.com.cn/assortment/fund/etf/list/scale/'},{'name':'东财机构龙虎榜','url':'https://data.eastmoney.com/stock/jgmmtj.html'}]}
-    # Store complete ETF before/after figures in etf_changes; avoid duplicating
-    # two large raw tables in the public payload. Keep the local restart cache.
     result['datasets']={k:v for k,v in datasets.items() if not k.startswith('etf_')}
     for dataset in result['datasets'].values():
         rows_=dataset['rows']
