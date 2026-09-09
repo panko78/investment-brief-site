@@ -5,7 +5,7 @@ INDEX = ROOT / "index.html"
 
 
 def main():
-    """Fail the workflow if chart markup and JavaScript drift apart.
+    """Fail the workflow if current chart markup and JavaScript drift apart.
 
     This script intentionally does not rewrite index.html. Scheduled market-data
     updates must never modify the page template.
@@ -14,16 +14,19 @@ def main():
     required = (
         'id="marginChart"',
         'id="turnoverChart"',
-        'id="shIndexChart"',
-        "drawTrendChart('margin','marginChart'",
-        "drawTrendChart('turnover','turnoverChart'",
-        "drawTrendChart('shIndex','shIndexChart'",
-        "function dynamicBounds(values)",
+        'id="shChart"',
+        "chart('m','marginChart'",
+        "chart('t','turnoverChart'",
+        "chart('s','shChart'",
+        "function chart(name,id,rows,key,title,unit)",
+        "function drawCharts()",
+        "data-days=\"10\"",
+        "data-days=\"30\"",
     )
     missing = [token for token in required if token not in html]
     if missing:
         raise SystemExit(f"Liquidity chart wiring is incomplete: {missing}")
-    if "getElementById('liquidityChart')" in html:
+    if "getElementById('liquidityChart')" in html or 'id="liquidityChart"' in html:
         raise SystemExit("Obsolete combined liquidityChart reference detected")
 
     print("Liquidity chart wiring is valid; index.html left unchanged")
