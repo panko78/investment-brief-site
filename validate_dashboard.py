@@ -21,7 +21,9 @@ def expected_latest_market_date(now):
         while d.weekday() >= 5:
             d -= timedelta(days=1)
         return d.isoformat()
-    if now.hour >= 16:
+    # A-share cash market closes at 15:00. Allow 10 minutes for providers to
+    # publish final snapshots, then require the current trading day.
+    if (now.hour, now.minute) >= (15, 10):
         return now.date().isoformat()
     return previous_weekday(now.date()).isoformat()
 
@@ -54,41 +56,45 @@ def main():
 
     detail_summary = {'status': 'missing'}
     if DETAILS.exists():
-        details = json.loads(DETAILS.read_text(encoding='utf-8'))
-        detail_date = details.get('data_date')
-        sectors = details.get('sectors') or []
-        stocks = details.get('stocks') or []
-        limits = details.get('limit_history') or []
-        etf_dates = details.get('etf_comparison_dates') or []
-        etf_changes = details.get('etf_changes') or []
-        availability = details.get('availability') or []
-        transient_errors = [x for x in availability if x.get('status') == 'error']
+        raw = DETAILS.read_text(encoding='utf-8').strip()
+        if not raw:
+            problems.append('market_details.json 为空')
+        else:
+            details = json.loads(raw)
+            detail_date = details.get('data_date')
+            sectors = details.get('sectors') or []
+            stocks = details.get('stocks') or []
+            limits = details.get('limit_history') or []
+            etf_dates = details.get('etf_comparison_dates') or []
+            etf_changes = details.get('etf_changes') or []
+            availability = details.get('availability') or []
+            transient_errors = [x for x in availability if x.get('status') == 'error']
 
-        usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
-        usable_stocks = [x for x in stocks if x.get('data_date') == expected and (x.get('close') is not None or x.get('day_net_yuan') is not None)]
-        limit_ok = any(x.get('date') == expected and x.get('limit_count') is not None and x.get('failed_count') is not None for x in limits)
-        etf_ok = expected in etf_dates and len(etf_dates) >= 2 and len(etf_changes) > 0
+            usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
+            usable_stocks = [x for x in stocks if x.get('data_date') == expected and (x.get('close') is not None or x.get('day_net_yuan') is not None)]
+            limit_ok = any(x.get('date') == expected and x.get('limit_count') is not None and x.get('failed_count') is not None for x in limits)
+            etf_ok = expected in etf_dates and len(etf_dates) >= 2 and len(etf_changes) > 0
 
-        detail_summary = {
-            'status': 'ok' if len(usable_sectors) >= 4 and len(usable_stocks) >= 4 and limit_ok and etf_ok else 'degraded',
-            'data_date': detail_date,
-            'usable_sectors': len(usable_sectors),
-            'usable_stocks': len(usable_stocks),
-            'limit_up_ok': limit_ok,
-            'etf_comparison_ok': etf_ok,
-            'etf_change_rows': len(etf_changes),
-            'transient_request_errors': len(transient_errors),
-        }
-        if detail_date != expected:
-            problems.append(f'资金/涨停明细数据过期：期望 {expected}，实际 {detail_date}')
-        if len(usable_sectors) < 4:
-            problems.append(f'板块资金数据不完整：可用 {len(usable_sectors)}/4')
-        if len(usable_stocks) < 4:
-            warnings.append(f'重点个股明细部分不完整：可用 {len(usable_stocks)}/5')
-        if not limit_ok:
-            problems.append('涨停/炸板数据缺少最新完整交易日')
-        if not etf_ok:
-            warnings.append('ETF份额比较未形成可用的两日对比结果')
+            detail_summary = {
+                'status': 'ok' if len(usable_sectors) >= 4 and len(usable_stocks) >= 4 and limit_ok and etf_ok else 'degraded',
+                'data_date': detail_date,
+                'usable_sectors': len(usable_sectors),
+                'usable_stocks': len(usable_stocks),
+                'limit_up_ok': limit_ok,
+                'etf_comparison_ok': etf_ok,
+                'etf_change_rows': len(etf_changes),
+                'transient_request_errors': len(transient_errors),
+            }
+            if detail_date != expected:
+                problems.append(f'资金/涨停明细数据过期：期望 {expected}，实际 {detail_date}')
+            if len(usable_sectors) < 4:
+                problems.append(f'板块资金数据不完整：可用 {len(usable_sectors)}/4')
+            if len(usable_stocks) < 4:
+                warnings.append(f'重点个股明细部分不完整：可用 {len(usable_stocks)}/5')
+            if not limit_ok:
+                problems.append('涨停/炸板数据缺少最新完整交易日')
+            if not etf_ok:
+                warnings.append('ETF份额比较未形成可用的两日对比结果')
     else:
         problems.append('market_details.json 不存在')
 
