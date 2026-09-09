@@ -14,10 +14,10 @@ def main():
     required = (
         'id="marginChart"',
         'id="turnoverChart"',
-        'id="shChart"',
+        'id="shIndexChart"',
         "chart('m','marginChart'",
         "chart('t','turnoverChart'",
-        "chart('s','shChart'",
+        "chart('s','shIndexChart'",
         "function chart(name,id,rows,key,title,unit)",
         "function drawCharts()",
         "data-days=\"10\"",
