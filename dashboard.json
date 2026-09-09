@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-09 10:55",
+  "updated_at": "2026-09-09 10:59",
   "liquidity": {
-    "status": "两融接口本次失败，保留上一成功数据和真实数据日；成交额主源和备用源均失败，保留上一成功数据和真实数据日；上证指数主源和备用源均失败，保留上一成功数据和真实数据日",
+    "status": "多源校验更新正常",
     "freshness": {
       "margin_as_of": "2026-09-08",
       "turnover_as_of": "2026-09-08",
       "sh_index_as_of": "2026-09-08",
-      "checked_at": "2026-09-09 10:54"
+      "checked_at": "2026-09-09 10:59"
     },
     "margin_series": [
       {
@@ -578,7 +578,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：上一成功数据",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用源",
     "source": "各序列独立记录真实数据日期"
   },
@@ -1443,19 +1443,15 @@
           "close": 610000
         },
         {
-          "date": "2026-08-31",
-          "close": 338600
-        },
-        {
           "date": "2026-09-04",
           "close": 595000
         }
       ],
-      "source_note": "SMM公开钨市场资讯；钨无LME式连续期货，本项采用中国APT现货/长协公开报价。"
+      "source_note": "SMM公开钨市场资讯；钨无LME式连续期货，本项采用中国APT现货/长协公开报价。；已自动剔除与序列中位数偏离超过30%的孤立异常报价。"
     }
   },
   "data_quality": {
-    "checked_at": "2026-09-09T10:55:02.827791+08:00",
+    "checked_at": "2026-09-09T10:59:31.316141+08:00",
     "expected_market_date": "2026-09-08",
     "sh_index_as_of": "2026-09-08",
     "turnover_as_of": "2026-09-08",
@@ -1468,7 +1464,7 @@
       "limit_up_ok": true,
       "etf_comparison_ok": true,
       "etf_change_rows": 903,
-      "transient_request_errors": 2
+      "transient_request_errors": 0
     },
     "warnings": [],
     "problems": [],
