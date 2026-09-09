@@ -43,22 +43,32 @@ def number(x):
 def frame(df):
     return json.loads(df.to_json(orient='records', force_ascii=False, date_format='iso'))
 
-def prices(secid, end):
-    if not secid.startswith('90.'):
-        start=(datetime.fromisoformat(end)-timedelta(days=65)).strftime('%Y%m%d')
-        rows=frame(ak.stock_zh_a_hist(symbol=secid.split('.')[1],start_date=start,end_date=end.replace('-','')))
-        if not rows: raise ValueError('No dated stock price rows')
-        names={'开盘':'open','收盘':'close','最高':'high','最低':'low','成交额':'turnover_yuan','涨跌幅':'return_pct','换手率':'turnover_pct'}
-        return [{'date':r['日期'][:10],**{v:r[k] for k,v in names.items()}} for r in rows][-45:]
+def eastmoney_prices(secid, end):
     data = get(PRICE_URL, {'secid': secid, 'klt': 101, 'fqt': 0,
         'beg': (datetime.fromisoformat(end)-timedelta(days=100)).strftime('%Y%m%d'),
         'end': end.replace('-', ''), 'fields1': 'f1,f2,f3,f4,f5,f6',
         'fields2': 'f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61'}).get('data')
     if not data or not data.get('klines'):
-        raise ValueError('No dated price rows')
+        raise ValueError('No dated Eastmoney price rows')
     names = ['open', 'close', 'high', 'low', 'volume_lots', 'turnover_yuan', 'amplitude_pct', 'return_pct', 'change', 'turnover_pct']
     return [{'date': a[0], **dict(zip(names, map(number, a[1:])))}
         for a in (row.split(',') for row in data['klines']) if a[0] <= end][-45:]
+
+def prices(secid, end):
+    if not secid.startswith('90.'):
+        start=(datetime.fromisoformat(end)-timedelta(days=65)).strftime('%Y%m%d')
+        try:
+            rows=frame(ak.stock_zh_a_hist(symbol=secid.split('.')[1],start_date=start,end_date=end.replace('-','')))
+            if rows:
+                names={'开盘':'open','收盘':'close','最高':'high','最低':'low','成交额':'turnover_yuan','涨跌幅':'return_pct','换手率':'turnover_pct'}
+                parsed=[{'date':r['日期'][:10],**{v:r.get(k) for k,v in names.items()}} for r in rows][-45:]
+                if any(r['date']==end and r.get('close') is not None and r.get('turnover_yuan') is not None for r in parsed):
+                    return parsed
+        except Exception:
+            pass
+        # Direct provider fallback avoids blank stock cards when the AKShare wrapper fails.
+        return eastmoney_prices(secid, end)
+    return eastmoney_prices(secid, end)
 
 def flows(secid, end):
     if not secid.startswith('90.'):
