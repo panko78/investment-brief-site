@@ -73,15 +73,18 @@ def main():
             usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
             usable_stocks = [x for x in stocks if x.get('data_date') == expected and (x.get('close') is not None or x.get('day_net_yuan') is not None)]
             limit_ok = any(x.get('date') == expected and x.get('limit_count') is not None and x.get('failed_count') is not None for x in limits)
-            etf_ok = expected in etf_dates and len(etf_dates) >= 2 and len(etf_changes) > 0
+            etf_pair_ok = len(etf_dates) >= 2 and len(etf_changes) > 0
+            etf_current = expected in etf_dates
 
             detail_summary = {
-                'status': 'ok' if len(usable_sectors) >= 4 and len(usable_stocks) >= 4 and limit_ok and etf_ok else 'degraded',
+                'status': 'ok' if len(usable_sectors) >= 4 and len(usable_stocks) >= 4 and limit_ok and etf_pair_ok else 'degraded',
                 'data_date': detail_date,
                 'usable_sectors': len(usable_sectors),
                 'usable_stocks': len(usable_stocks),
                 'limit_up_ok': limit_ok,
-                'etf_comparison_ok': etf_ok,
+                'etf_comparison_ok': etf_pair_ok,
+                'etf_as_of': etf_dates[-1] if etf_dates else None,
+                'etf_current_day_available': etf_current,
                 'etf_change_rows': len(etf_changes),
                 'transient_request_errors': len(transient_errors),
             }
@@ -93,8 +96,10 @@ def main():
                 warnings.append(f'重点个股明细部分不完整：可用 {len(usable_stocks)}/5')
             if not limit_ok:
                 problems.append('涨停/炸板数据缺少最新完整交易日')
-            if not etf_ok:
+            if not etf_pair_ok:
                 warnings.append('ETF份额比较未形成可用的两日对比结果')
+            elif not etf_current:
+                warnings.append(f'上交所ETF份额尚未发布到 {expected}；当前使用最近已核验统计日 {etf_dates[-1]}')
     else:
         problems.append('market_details.json 不存在')
 
@@ -108,7 +113,7 @@ def main():
         'warnings': warnings,
         'problems': problems,
         'publish_status': 'blocked' if problems else ('degraded' if warnings else 'ok'),
-        'note': '质量状态按最终可展示数据判断；单个上游请求失败但被重试、缓存或备用源完整补齐时，不再误报为降级。'
+        'note': '质量状态按最终可展示数据判断；ETF等官方披露若晚于收盘，只显示最近两个已核验统计日并明确滞后，不用空值或估算值冒充当日数据。'
     }
     data['data_quality'] = quality
     data['updated_at'] = now.strftime('%Y-%m-%d %H:%M')
