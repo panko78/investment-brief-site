@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-09 09:22",
+  "updated_at": "2026-09-09 09:23",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "两融接口本次失败，保留上一成功数据和真实数据日；成交额主源和备用源均失败，保留上一成功数据和真实数据日",
     "freshness": {
       "margin_as_of": "2026-09-08",
       "turnover_as_of": "2026-09-08",
       "sh_index_as_of": "2026-09-08",
-      "checked_at": "2026-09-09 09:22"
+      "checked_at": "2026-09-09 09:23"
     },
     "margin_series": [
       {
@@ -334,7 +334,7 @@
       },
       {
         "date": "2026-08-13",
-        "sh_close": 3926.96
+        "sh_close": 3926.97
       },
       {
         "date": "2026-08-14",
@@ -366,7 +366,7 @@
       },
       {
         "date": "2026-08-25",
-        "sh_close": 3889.44
+        "sh_close": 3889.45
       },
       {
         "date": "2026-08-26",
@@ -577,10 +577,10 @@
         "sh_close": 3990.3
       }
     },
-    "margin_source": "上交所+深交所+北交所融资融券汇总（全A；增量更新）",
-    "turnover_source": "优先上交所+深交所官方汇总；失败自动切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
+    "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：上一成功数据",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用源",
-    "source": "各序列独立记录真实数据日期；页面更新时间不代表所有序列同日披露"
+    "source": "各序列独立记录真实数据日期"
   },
   "trade": {
     "latest_month": "2026年7月",
@@ -908,8 +908,8 @@
         "中国供应增长",
         "全球工业需求走弱"
       ],
-      "latest": 3332.5,
-      "month_change": 2.7,
+      "latest": 3337.5,
+      "month_change": 2.85,
       "trend": "震荡偏强",
       "outlook": "未来1–4周偏多震荡；若5日动量持续转正并站稳20日均线，上行概率提高。",
       "series": [
@@ -1011,10 +1011,10 @@
         },
         {
           "date": "2026-09-09",
-          "close": 3332.5
+          "close": 3337.5
         }
       ],
-      "momentum_5d": 1.21,
+      "momentum_5d": 1.37,
       "data_source": "LME/COMEX primary source"
     },
     "zinc": {
@@ -1282,8 +1282,8 @@
         "高波动和杠杆资金撤退",
         "工业需求走弱"
       ],
-      "latest": 66.495,
-      "month_change": 6.82,
+      "latest": 66.47,
+      "month_change": 6.78,
       "trend": "震荡",
       "outlook": "未来1–4周更可能区间震荡，等待价格对20日均线和近月高低点作出方向选择。",
       "series": [
@@ -1389,10 +1389,10 @@
         },
         {
           "date": "2026-09-09",
-          "close": 66.495
+          "close": 66.47
         }
       ],
-      "momentum_5d": 0.87,
+      "momentum_5d": 0.83,
       "data_source": "LME/COMEX primary source"
     },
     "tungsten": {
@@ -1455,7 +1455,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-09-09T09:22:36.349265+08:00",
+    "checked_at": "2026-09-09T09:23:56.302060+08:00",
     "expected_market_date": "2026-09-08",
     "sh_index_as_of": "2026-09-08",
     "turnover_as_of": "2026-09-08",
@@ -1464,11 +1464,11 @@
       "status": "ok",
       "data_date": "2026-09-08",
       "usable_sectors": 4,
-      "dataset_errors": 1,
+      "dataset_errors": 3,
       "retained_cache_errors": 0
     },
     "warnings": [
-      "资金明细部分接口失败 1 项；成功数据已发布，失败项保留缓存/明确标记"
+      "资金明细部分接口失败 3 项；成功数据已发布，失败项保留缓存/明确标记"
     ],
     "problems": [],
     "publish_status": "degraded"
