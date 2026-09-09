@@ -3,6 +3,7 @@ import re
 import time
 from pathlib import Path
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 
 import akshare as ak
 import pandas as pd
@@ -101,8 +102,7 @@ def fetch_all_a_margin(start_date,end_date):
     return result
 
 def fetch_hs_turnover_official():
-    rows=[]
-    expected=expected_market_date()
+    rows=[]; expected=expected_market_date()
     for d in recent_weekdays(4):
         if d.isoformat()>expected: continue
         ds=d.strftime('%Y%m%d')
@@ -154,19 +154,31 @@ def fetch_hs_turnover(start_date,end_date):
         return rows,'交易所官方成交额'
     except Exception as exc:
         print('Official turnover unavailable/stale, switching fallback:',exc)
-        rows=fetch_hs_turnover_fallback(start_date,end_date)
-        rows=[x for x in rows if x.get('date')<=expected]
+        rows=fetch_hs_turnover_fallback(start_date,end_date); rows=[x for x in rows if x.get('date')<=expected]
         if not rows or rows[-1]['date']!=expected: raise RuntimeError(f'fallback latest {rows[-1]["date"] if rows else None} != expected {expected}')
         return rows,'东方财富上证A股指数+深证A股指数成交额备用源'
 
+def fetch_sh_index_yahoo(expected):
+    url='https://query1.finance.yahoo.com/v8/finance/chart/000001.SS'
+    r=browser_get(url,params={'range':'10d','interval':'1d','includePrePost':'false','events':'div,splits'},timeout=(5,10))
+    result=((r.json().get('chart') or {}).get('result') or [None])[0]
+    if not result: raise RuntimeError('Yahoo chart missing result')
+    stamps=result.get('timestamp') or []; closes=(((result.get('indicators') or {}).get('quote') or [{}])[0].get('close') or [])
+    rows=[]
+    for ts,close in zip(stamps,closes):
+        v=safe_float(close)
+        if v is None: continue
+        d=datetime.fromtimestamp(ts,ZoneInfo('Asia/Shanghai')).date().isoformat()
+        rows.append({'date':d,'sh_close':round(v,2)})
+    rows=sorted({x['date']:x for x in rows}.values(),key=lambda x:x['date'])
+    if not rows or rows[-1]['date']!=expected: raise RuntimeError(f'Yahoo latest {rows[-1]["date"] if rows else None} != expected {expected}')
+    return rows[-10:]
+
 def fetch_sh_index_tencent(expected):
-    r=browser_get('https://qt.gtimg.cn/q=sh000001',timeout=(6,12),encoding='gbk')
-    text=r.text.strip()
+    r=browser_get('https://qt.gtimg.cn/q=sh000001',timeout=(5,10),encoding='gbk'); text=r.text.strip()
     if '="' not in text: raise RuntimeError('Unexpected Tencent quote response')
-    body=text.split('="',1)[1].rsplit('"',1)[0]
-    fields=body.split('~')
-    close=safe_float(fields[3] if len(fields)>3 else None)
-    stamps=[x for x in fields if re.fullmatch(r'\d{14}',str(x or ''))]
+    body=text.split('="',1)[1].rsplit('"',1)[0]; fields=body.split('~')
+    close=safe_float(fields[3] if len(fields)>3 else None); stamps=[x for x in fields if re.fullmatch(r'\d{14}',str(x or ''))]
     if close is None or not stamps: raise RuntimeError('Tencent quote missing close/date')
     qdate=datetime.strptime(stamps[0][:8],'%Y%m%d').date().isoformat()
     if qdate!=expected: raise RuntimeError(f'Tencent quote date {qdate} != expected {expected}')
@@ -187,9 +199,13 @@ def fetch_sh_index(start_date,end_date):
                 if d and d<=expected and v is not None: rows.append({'date':d,'sh_close':round(v,2)})
     rows=sorted(rows,key=lambda x:x['date'])[-30:]
     if not rows or rows[-1]['date']!=expected:
-        print('Primary index histories stale; trying Tencent close quote')
-        current=retry_call(lambda: fetch_sh_index_tencent(expected),'Shanghai Composite Tencent',attempts=2)
-        rows=merge_rows(rows,[current],'sh_close')
+        try:
+            print('Primary index histories stale; trying Yahoo Finance')
+            rows=merge_rows(rows,retry_call(lambda: fetch_sh_index_yahoo(expected),'Shanghai Composite Yahoo',attempts=2),'sh_close')
+        except Exception as exc: print('Yahoo fallback failed:',exc)
+    if not rows or rows[-1]['date']!=expected:
+        print('Yahoo unavailable/stale; trying Tencent close quote')
+        current=retry_call(lambda: fetch_sh_index_tencent(expected),'Shanghai Composite Tencent',attempts=2); rows=merge_rows(rows,[current],'sh_close')
     if not rows or rows[-1]['date']!=expected: raise RuntimeError('Shanghai Composite latest completed date is stale')
     return rows
 
@@ -207,7 +223,7 @@ def main():
         print('index update failed, keep previous:',exc); sh_index_series=old.get('sh_index_series',[]); warnings.append('上证指数主源和备用源均失败，保留上一成功数据和真实数据日')
     if not margin_series or not turnover_series or not sh_index_series: raise RuntimeError('Critical market series unavailable')
     mm={x['date']:x['margin_balance'] for x in margin_series}; tm={x['date']:x['turnover'] for x in turnover_series}; common=sorted(set(mm)&set(tm))[-30:]
-    data['liquidity']={'status':'多源校验更新正常' if not warnings else '；'.join(warnings),'freshness':{'margin_as_of':margin_series[-1]['date'],'turnover_as_of':turnover_series[-1]['date'],'sh_index_as_of':sh_index_series[-1]['date'],'checked_at':datetime.now().strftime('%Y-%m-%d %H:%M')},'margin_series':margin_series[-30:],'turnover_series':turnover_series[-30:],'sh_index_series':sh_index_series[-30:],'series':[{'date':d,'margin_balance':mm[d],'turnover':tm[d]} for d in common],'high_30d':{'margin_balance':max(margin_series,key=lambda x:x['margin_balance']),'turnover':max(turnover_series,key=lambda x:x['turnover']),'sh_index':max(sh_index_series,key=lambda x:x['sh_close'])},'margin_source':'上交所+深交所+北交所融资融券汇总（增量更新）','turnover_source':'优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：'+source,'sh_index_source':'上证指数000001：东方财富主源，新浪备用，腾讯收盘快照第三备用（15:10前剔除未完成当日）','source':'各序列独立记录真实数据日期'}
+    data['liquidity']={'status':'多源校验更新正常' if not warnings else '；'.join(warnings),'freshness':{'margin_as_of':margin_series[-1]['date'],'turnover_as_of':turnover_series[-1]['date'],'sh_index_as_of':sh_index_series[-1]['date'],'checked_at':datetime.now().strftime('%Y-%m-%d %H:%M')},'margin_series':margin_series[-30:],'turnover_series':turnover_series[-30:],'sh_index_series':sh_index_series[-30:],'series':[{'date':d,'margin_balance':mm[d],'turnover':tm[d]} for d in common],'high_30d':{'margin_balance':max(margin_series,key=lambda x:x['margin_balance']),'turnover':max(turnover_series,key=lambda x:x['turnover']),'sh_index':max(sh_index_series,key=lambda x:x['sh_close'])},'margin_source':'上交所+深交所+北交所融资融券汇总（增量更新）','turnover_source':'优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：'+source,'sh_index_source':'上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用','source':'各序列独立记录真实数据日期'}
     data['updated_at']=datetime.now().strftime('%Y-%m-%d %H:%M'); DATA.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
 
 if __name__=='__main__': main()
