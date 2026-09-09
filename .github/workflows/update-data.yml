@@ -26,6 +26,9 @@ on:
     - cron: '30 6 * * 1-5'
     - cron: '15 7 * * 1-5'
     - cron: '45 7 * * 1-5'
+    # Beijing time: 02:20 next morning (Tue-Sat). Catch delayed post-close
+    # disclosures such as SSE ETF shares and retry transient upstream failures.
+    - cron: '20 18 * * 1-5'
 
 permissions:
   contents: write
