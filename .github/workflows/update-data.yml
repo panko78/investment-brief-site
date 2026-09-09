@@ -8,6 +8,7 @@ on:
       - 'fix_liquidity.py'
       - 'update_chart.py'
       - 'collect_market_details.py'
+      - 'preserve_etf_fallback.py'
       - 'validate_dashboard.py'
       - 'sanitize_dashboard.py'
       - 'requirements.txt'
@@ -73,11 +74,17 @@ jobs:
       - name: Validate liquidity chart wiring
         run: python update_chart.py
 
+      - name: Capture last verified ETF comparison
+        run: python preserve_etf_fallback.py capture
+
       - name: Collect sector, stock, ETF and limit-up details
         run: |
           python collect_market_details.py || true
           # A second pass reuses successful first-pass/cache data and retries missing datasets.
           python collect_market_details.py --reuse
+
+      - name: Restore verified ETF comparison if upstream is unavailable
+        run: python preserve_etf_fallback.py restore
 
       - name: Validate final dashboard output
         run: python validate_dashboard.py
