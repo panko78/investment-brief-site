@@ -78,7 +78,11 @@ def fetch_all_a_margin(start_date,end_date):
 
 def fetch_hs_turnover_official():
     rows=[]
-    for d in recent_weekdays(3):
+    expected=expected_market_date()
+    for d in recent_weekdays(4):
+        # Intraday runs must never query or validate against an unfinished trading day.
+        if d.isoformat()>expected:
+            continue
         ds=d.strftime('%Y%m%d')
         try:
             sse=retry_call(lambda ds=ds: ak.stock_sse_deal_daily(date=ds),f'SSE turnover {ds}',attempts=2,base_sleep=.2)
@@ -129,7 +133,9 @@ def fetch_hs_turnover(start_date,end_date):
     except Exception as exc:
         print('Official turnover unavailable/stale, switching fallback:',exc)
         rows=fetch_hs_turnover_fallback(start_date,end_date)
-        if rows[-1]['date']!=expected: raise RuntimeError(f'fallback latest {rows[-1]["date"]} != expected {expected}')
+        # Eastmoney may expose today's intraday bar. Only completed-market rows are valid here.
+        rows=[x for x in rows if x.get('date')<=expected]
+        if not rows or rows[-1]['date']!=expected: raise RuntimeError(f'fallback latest {rows[-1]["date"] if rows else None} != expected {expected}')
         return rows,'东方财富上证A股指数+深证A股指数成交额备用源'
 
 def fetch_sh_index(start_date,end_date):
@@ -140,12 +146,13 @@ def fetch_sh_index(start_date,end_date):
     if df is None or df.empty: raise RuntimeError('Shanghai Composite data is empty')
     dc=next((c for c in df.columns if str(c).lower()=='date' or str(c)=='日期'),None); cc=next((c for c in df.columns if str(c).lower()=='close' or str(c)=='收盘'),None)
     if dc is None or cc is None: raise RuntimeError(f'Unexpected columns: {list(df.columns)}')
-    rows=[]
+    expected=expected_market_date(); rows=[]
     for _,row in df.iterrows():
         d=date_key(row.get(dc)); v=safe_float(row.get(cc))
-        if d and v is not None: rows.append({'date':d,'sh_close':round(v,2)})
+        # Sina may include the current unfinished session; exclude it from completed-day series.
+        if d and d<=expected and v is not None: rows.append({'date':d,'sh_close':round(v,2)})
     rows=sorted(rows,key=lambda x:x['date'])[-30:]
-    if not rows or rows[-1]['date']!=expected_market_date(): raise RuntimeError('Shanghai Composite latest date is stale')
+    if not rows or rows[-1]['date']!=expected: raise RuntimeError('Shanghai Composite latest completed date is stale')
     return rows
 
 def main():
@@ -162,7 +169,7 @@ def main():
         print('index update failed, keep previous:',exc); sh_index_series=old.get('sh_index_series',[]); warnings.append('上证指数主源和备用源均失败，保留上一成功数据和真实数据日')
     if not margin_series or not turnover_series or not sh_index_series: raise RuntimeError('Critical market series unavailable')
     mm={x['date']:x['margin_balance'] for x in margin_series}; tm={x['date']:x['turnover'] for x in turnover_series}; common=sorted(set(mm)&set(tm))[-30:]
-    data['liquidity']={'status':'多源校验更新正常' if not warnings else '；'.join(warnings),'freshness':{'margin_as_of':margin_series[-1]['date'],'turnover_as_of':turnover_series[-1]['date'],'sh_index_as_of':sh_index_series[-1]['date'],'checked_at':datetime.now().strftime('%Y-%m-%d %H:%M')},'margin_series':margin_series[-30:],'turnover_series':turnover_series[-30:],'sh_index_series':sh_index_series[-30:],'series':[{'date':d,'margin_balance':mm[d],'turnover':tm[d]} for d in common],'high_30d':{'margin_balance':max(margin_series,key=lambda x:x['margin_balance']),'turnover':max(turnover_series,key=lambda x:x['turnover']),'sh_index':max(sh_index_series,key=lambda x:x['sh_close'])},'margin_source':'上交所+深交所+北交所融资融券汇总（增量更新）','turnover_source':'优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：'+source,'sh_index_source':'上证指数000001：东方财富主源，新浪备用源','source':'各序列独立记录真实数据日期'}
+    data['liquidity']={'status':'多源校验更新正常' if not warnings else '；'.join(warnings),'freshness':{'margin_as_of':margin_series[-1]['date'],'turnover_as_of':turnover_series[-1]['date'],'sh_index_as_of':sh_index_series[-1]['date'],'checked_at':datetime.now().strftime('%Y-%m-%d %H:%M')},'margin_series':margin_series[-30:],'turnover_series':turnover_series[-30:],'sh_index_series':sh_index_series[-30:],'series':[{'date':d,'margin_balance':mm[d],'turnover':tm[d]} for d in common],'high_30d':{'margin_balance':max(margin_series,key=lambda x:x['margin_balance']),'turnover':max(turnover_series,key=lambda x:x['turnover']),'sh_index':max(sh_index_series,key=lambda x:x['sh_close'])},'margin_source':'上交所+深交所+北交所融资融券汇总（增量更新）','turnover_source':'优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：'+source,'sh_index_source':'上证指数000001：东方财富主源，新浪备用源（盘中自动剔除未收盘当日行）','source':'各序列独立记录真实数据日期'}
     data['updated_at']=datetime.now().strftime('%Y-%m-%d %H:%M'); DATA.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
 
 if __name__=='__main__': main()
