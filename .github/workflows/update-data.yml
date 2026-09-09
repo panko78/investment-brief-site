@@ -8,24 +8,35 @@ on:
       - 'fix_liquidity.py'
       - 'update_chart.py'
       - 'collect_market_details.py'
+      - 'validate_dashboard.py'
       - 'requirements.txt'
       - '.github/workflows/update-data.yml'
   schedule:
-    # Beijing time: 08:00
-    - cron: '0 0 * * *'
-
-    # Beijing time: 15:15
-    - cron: '15 7 * * *'
+    # Beijing time: 08:00 premarket refresh
+    - cron: '0 0 * * 1-5'
+    # Beijing time: 09:35 / 10:30 / 11:35
+    - cron: '35 1 * * 1-5'
+    - cron: '30 2 * * 1-5'
+    - cron: '35 3 * * 1-5'
+    # Beijing time: 13:30 / 14:30 / 15:15 / 15:45
+    - cron: '30 5 * * 1-5'
+    - cron: '30 6 * * 1-5'
+    - cron: '15 7 * * 1-5'
+    - cron: '45 7 * * 1-5'
 
 permissions:
   contents: write
+
+concurrency:
+  group: market-dashboard-main
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v6
@@ -40,18 +51,33 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Update market data
-        run: python update_data.py
+      - name: Update market data with retry
+        run: |
+          for i in 1 2 3; do
+            python update_data.py && break
+            if [ "$i" = "3" ]; then exit 1; fi
+            sleep $((i*20))
+          done
 
-      - name: Recalculate liquidity with corrected market-wide definitions
-        run: python fix_liquidity.py
+      - name: Recalculate liquidity with multi-source fallback
+        run: |
+          for i in 1 2 3; do
+            python fix_liquidity.py && break
+            if [ "$i" = "3" ]; then exit 1; fi
+            sleep $((i*20))
+          done
 
       - name: Validate liquidity chart wiring
         run: python update_chart.py
 
       - name: Collect sector, stock, ETF and limit-up details
-        continue-on-error: true
-        run: python collect_market_details.py
+        run: |
+          python collect_market_details.py || true
+          # Retry only missing datasets while retaining successful first-pass data.
+          python collect_market_details.py --reuse
+
+      - name: Validate dashboard freshness and completeness
+        run: python validate_dashboard.py
 
       - name: Commit updated dashboard
         run: |
