@@ -16,8 +16,6 @@ def previous_weekday(d):
 
 
 def expected_latest_market_date(now):
-    # Before the close, the latest complete daily dataset should be the previous weekday.
-    # After 16:00, today's close is expected on normal weekdays.
     if now.weekday() >= 5:
         d = now.date()
         while d.weekday() >= 5:
@@ -59,23 +57,38 @@ def main():
         details = json.loads(DETAILS.read_text(encoding='utf-8'))
         detail_date = details.get('data_date')
         sectors = details.get('sectors') or []
-        usable_sectors = [x for x in sectors if x.get('return_pct') is not None or x.get('day_net_yuan') is not None]
+        stocks = details.get('stocks') or []
+        limits = details.get('limit_history') or []
+        etf_dates = details.get('etf_comparison_dates') or []
+        etf_changes = details.get('etf_changes') or []
         availability = details.get('availability') or []
-        errors = [x for x in availability if x.get('status') == 'error']
-        retained = [x for x in errors if x.get('retained')]
+        transient_errors = [x for x in availability if x.get('status') == 'error']
+
+        usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
+        usable_stocks = [x for x in stocks if x.get('data_date') == expected and (x.get('close') is not None or x.get('day_net_yuan') is not None)]
+        limit_ok = any(x.get('date') == expected and x.get('limit_count') is not None and x.get('failed_count') is not None for x in limits)
+        etf_ok = expected in etf_dates and len(etf_dates) >= 2 and len(etf_changes) > 0
+
         detail_summary = {
-            'status': 'ok' if usable_sectors else 'degraded',
+            'status': 'ok' if len(usable_sectors) >= 4 and len(usable_stocks) >= 4 and limit_ok and etf_ok else 'degraded',
             'data_date': detail_date,
             'usable_sectors': len(usable_sectors),
-            'dataset_errors': len(errors),
-            'retained_cache_errors': len(retained),
+            'usable_stocks': len(usable_stocks),
+            'limit_up_ok': limit_ok,
+            'etf_comparison_ok': etf_ok,
+            'etf_change_rows': len(etf_changes),
+            'transient_request_errors': len(transient_errors),
         }
         if detail_date != expected:
             problems.append(f'资金/涨停明细数据过期：期望 {expected}，实际 {detail_date}')
-        if not usable_sectors:
-            problems.append('资金板块没有可用的当日板块数据')
-        elif errors:
-            warnings.append(f'资金明细部分接口失败 {len(errors)} 项；成功数据已发布，失败项保留缓存/明确标记')
+        if len(usable_sectors) < 4:
+            problems.append(f'板块资金数据不完整：可用 {len(usable_sectors)}/4')
+        if len(usable_stocks) < 4:
+            warnings.append(f'重点个股明细部分不完整：可用 {len(usable_stocks)}/5')
+        if not limit_ok:
+            problems.append('涨停/炸板数据缺少最新完整交易日')
+        if not etf_ok:
+            warnings.append('ETF份额比较未形成可用的两日对比结果')
     else:
         problems.append('market_details.json 不存在')
 
@@ -89,6 +102,7 @@ def main():
         'warnings': warnings,
         'problems': problems,
         'publish_status': 'blocked' if problems else ('degraded' if warnings else 'ok'),
+        'note': '质量状态按最终可展示数据判断；单个上游请求失败但被重试、缓存或备用源完整补齐时，不再误报为降级。'
     }
     data['data_quality'] = quality
     data['updated_at'] = now.strftime('%Y-%m-%d %H:%M')
