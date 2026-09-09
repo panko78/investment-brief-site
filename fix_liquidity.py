@@ -1,4 +1,5 @@
 import json
+import re
 import time
 from pathlib import Path
 from datetime import datetime, timedelta
@@ -6,10 +7,14 @@ from datetime import datetime, timedelta
 import akshare as ak
 import pandas as pd
 import requests
+try:
+    from curl_cffi import requests as curl_requests
+except Exception:
+    curl_requests=None
 
 ROOT=Path(__file__).resolve().parent
 DATA=ROOT/'dashboard.json'
-UA={'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36'}
+UA={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36'}
 
 def safe_float(x):
     try:
@@ -33,8 +38,6 @@ def expected_market_date():
     if now.weekday()>=5:
         while d.weekday()>=5: d-=timedelta(days=1)
         return d.isoformat()
-    # A-share cash market closes at 15:00. Allow a short provider-publication buffer,
-    # then treat today as the latest complete session rather than waiting until 16:00.
     if (now.hour, now.minute)>=(15,10): return d.isoformat()
     d-=timedelta(days=1)
     while d.weekday()>=5: d-=timedelta(days=1)
@@ -50,6 +53,25 @@ def retry_call(fn,label,attempts=3,base_sleep=.6):
         except Exception as exc:
             last=exc; print(f'{label} attempt {i+1}/{attempts} failed: {exc}')
             if i+1<attempts: time.sleep(base_sleep*(i+1))
+    raise last
+
+def browser_get(url,params=None,timeout=(6,15),encoding=None):
+    last=None
+    try:
+        r=requests.get(url,params=params,headers=UA,timeout=timeout)
+        r.raise_for_status()
+        if encoding: r.encoding=encoding
+        return r
+    except Exception as exc:
+        last=exc
+    if curl_requests is not None:
+        try:
+            r=curl_requests.get(url,params=params,headers=UA,timeout=timeout[1],impersonate='chrome')
+            r.raise_for_status()
+            if encoding: r.encoding=encoding
+            return r
+        except Exception as exc:
+            last=exc
     raise last
 
 def merge_rows(old_rows,new_rows,value_key):
@@ -82,8 +104,7 @@ def fetch_hs_turnover_official():
     rows=[]
     expected=expected_market_date()
     for d in recent_weekdays(4):
-        if d.isoformat()>expected:
-            continue
+        if d.isoformat()>expected: continue
         ds=d.strftime('%Y%m%d')
         try:
             sse=retry_call(lambda ds=ds: ak.stock_sse_deal_daily(date=ds),f'SSE turnover {ds}',attempts=2,base_sleep=.2)
@@ -108,7 +129,7 @@ def eastmoney_index_amount(secid,start_date,end_date):
     url='https://push2his.eastmoney.com/api/qt/stock/kline/get'
     params={'secid':secid,'klt':101,'fqt':0,'beg':start_date,'end':end_date,'fields1':'f1,f2,f3,f4,f5,f6','fields2':'f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61','ut':'7eea3edcaed734bea9cbfc24409ed989'}
     def _fetch():
-        r=requests.get(url,params=params,headers=UA,timeout=(6,15)); r.raise_for_status(); j=r.json(); lines=(j.get('data') or {}).get('klines') or []
+        r=browser_get(url,params=params,timeout=(6,15)); j=r.json(); lines=(j.get('data') or {}).get('klines') or []
         if not lines: raise RuntimeError('no kline rows')
         return lines
     out={}
@@ -138,19 +159,37 @@ def fetch_hs_turnover(start_date,end_date):
         if not rows or rows[-1]['date']!=expected: raise RuntimeError(f'fallback latest {rows[-1]["date"] if rows else None} != expected {expected}')
         return rows,'东方财富上证A股指数+深证A股指数成交额备用源'
 
+def fetch_sh_index_tencent(expected):
+    r=browser_get('https://qt.gtimg.cn/q=sh000001',timeout=(6,12),encoding='gbk')
+    text=r.text.strip()
+    if '="' not in text: raise RuntimeError('Unexpected Tencent quote response')
+    body=text.split('="',1)[1].rsplit('"',1)[0]
+    fields=body.split('~')
+    close=safe_float(fields[3] if len(fields)>3 else None)
+    stamps=[x for x in fields if re.fullmatch(r'\d{14}',str(x or ''))]
+    if close is None or not stamps: raise RuntimeError('Tencent quote missing close/date')
+    qdate=datetime.strptime(stamps[0][:8],'%Y%m%d').date().isoformat()
+    if qdate!=expected: raise RuntimeError(f'Tencent quote date {qdate} != expected {expected}')
+    return {'date':qdate,'sh_close':round(close,2)}
+
 def fetch_sh_index(start_date,end_date):
-    df=None
+    expected=expected_market_date(); rows=[]; df=None
     try: df=retry_call(lambda: ak.stock_zh_index_daily_em(symbol='sh000001',start_date=start_date,end_date=end_date),'Shanghai Composite EM',attempts=2)
     except Exception as exc: print('Shanghai Composite EM failed, fallback Sina:',exc)
-    if df is None or df.empty: df=retry_call(lambda: ak.stock_zh_index_daily(symbol='sh000001'),'Shanghai Composite Sina',attempts=2)
-    if df is None or df.empty: raise RuntimeError('Shanghai Composite data is empty')
-    dc=next((c for c in df.columns if str(c).lower()=='date' or str(c)=='日期'),None); cc=next((c for c in df.columns if str(c).lower()=='close' or str(c)=='收盘'),None)
-    if dc is None or cc is None: raise RuntimeError(f'Unexpected columns: {list(df.columns)}')
-    expected=expected_market_date(); rows=[]
-    for _,row in df.iterrows():
-        d=date_key(row.get(dc)); v=safe_float(row.get(cc))
-        if d and d<=expected and v is not None: rows.append({'date':d,'sh_close':round(v,2)})
+    if df is None or df.empty:
+        try: df=retry_call(lambda: ak.stock_zh_index_daily(symbol='sh000001'),'Shanghai Composite Sina',attempts=2)
+        except Exception as exc: print('Shanghai Composite Sina failed:',exc); df=None
+    if df is not None and not df.empty:
+        dc=next((c for c in df.columns if str(c).lower()=='date' or str(c)=='日期'),None); cc=next((c for c in df.columns if str(c).lower()=='close' or str(c)=='收盘'),None)
+        if dc is not None and cc is not None:
+            for _,row in df.iterrows():
+                d=date_key(row.get(dc)); v=safe_float(row.get(cc))
+                if d and d<=expected and v is not None: rows.append({'date':d,'sh_close':round(v,2)})
     rows=sorted(rows,key=lambda x:x['date'])[-30:]
+    if not rows or rows[-1]['date']!=expected:
+        print('Primary index histories stale; trying Tencent close quote')
+        current=retry_call(lambda: fetch_sh_index_tencent(expected),'Shanghai Composite Tencent',attempts=2)
+        rows=merge_rows(rows,[current],'sh_close')
     if not rows or rows[-1]['date']!=expected: raise RuntimeError('Shanghai Composite latest completed date is stale')
     return rows
 
@@ -168,7 +207,7 @@ def main():
         print('index update failed, keep previous:',exc); sh_index_series=old.get('sh_index_series',[]); warnings.append('上证指数主源和备用源均失败，保留上一成功数据和真实数据日')
     if not margin_series or not turnover_series or not sh_index_series: raise RuntimeError('Critical market series unavailable')
     mm={x['date']:x['margin_balance'] for x in margin_series}; tm={x['date']:x['turnover'] for x in turnover_series}; common=sorted(set(mm)&set(tm))[-30:]
-    data['liquidity']={'status':'多源校验更新正常' if not warnings else '；'.join(warnings),'freshness':{'margin_as_of':margin_series[-1]['date'],'turnover_as_of':turnover_series[-1]['date'],'sh_index_as_of':sh_index_series[-1]['date'],'checked_at':datetime.now().strftime('%Y-%m-%d %H:%M')},'margin_series':margin_series[-30:],'turnover_series':turnover_series[-30:],'sh_index_series':sh_index_series[-30:],'series':[{'date':d,'margin_balance':mm[d],'turnover':tm[d]} for d in common],'high_30d':{'margin_balance':max(margin_series,key=lambda x:x['margin_balance']),'turnover':max(turnover_series,key=lambda x:x['turnover']),'sh_index':max(sh_index_series,key=lambda x:x['sh_close'])},'margin_source':'上交所+深交所+北交所融资融券汇总（增量更新）','turnover_source':'优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：'+source,'sh_index_source':'上证指数000001：东方财富主源，新浪备用源（15:10前自动剔除未完成当日行）','source':'各序列独立记录真实数据日期'}
+    data['liquidity']={'status':'多源校验更新正常' if not warnings else '；'.join(warnings),'freshness':{'margin_as_of':margin_series[-1]['date'],'turnover_as_of':turnover_series[-1]['date'],'sh_index_as_of':sh_index_series[-1]['date'],'checked_at':datetime.now().strftime('%Y-%m-%d %H:%M')},'margin_series':margin_series[-30:],'turnover_series':turnover_series[-30:],'sh_index_series':sh_index_series[-30:],'series':[{'date':d,'margin_balance':mm[d],'turnover':tm[d]} for d in common],'high_30d':{'margin_balance':max(margin_series,key=lambda x:x['margin_balance']),'turnover':max(turnover_series,key=lambda x:x['turnover']),'sh_index':max(sh_index_series,key=lambda x:x['sh_close'])},'margin_source':'上交所+深交所+北交所融资融券汇总（增量更新）','turnover_source':'优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：'+source,'sh_index_source':'上证指数000001：东方财富主源，新浪备用，腾讯收盘快照第三备用（15:10前剔除未完成当日）','source':'各序列独立记录真实数据日期'}
     data['updated_at']=datetime.now().strftime('%Y-%m-%d %H:%M'); DATA.write_text(json.dumps(data,ensure_ascii=False,indent=2),encoding='utf-8')
 
 if __name__=='__main__': main()
