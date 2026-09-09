@@ -9,6 +9,7 @@ on:
       - 'update_chart.py'
       - 'collect_market_details.py'
       - 'validate_dashboard.py'
+      - 'sanitize_dashboard.py'
       - 'requirements.txt'
       - '.github/workflows/update-data.yml'
   schedule:
@@ -56,6 +57,9 @@ jobs:
           # update_data.py contains slower macro/commodity/history sources. If a provider hangs,
           # keep the last verified values and continue to the strict A-share refresh below.
           timeout 75s python update_data.py || echo "Non-core refresh timed out/failed; retaining last verified non-core values"
+
+      - name: Sanitize cached market series
+        run: python sanitize_dashboard.py
 
       - name: Recalculate liquidity with multi-source fallback
         run: |
