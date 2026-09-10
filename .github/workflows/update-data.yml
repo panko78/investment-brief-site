@@ -29,6 +29,10 @@ on:
     # Beijing time: 02:20 next morning (Tue-Sat). Catch delayed post-close
     # disclosures such as SSE ETF shares and retry transient upstream failures.
     - cron: '20 18 * * 1-5'
+    # Redundant 02:35 overnight trigger. GitHub scheduled events can occasionally
+    # be delayed or skipped; this second trigger gives the self-healing pass another
+    # chance without changing the data-validity rules.
+    - cron: '35 18 * * 1-5'
 
 permissions:
   contents: write
