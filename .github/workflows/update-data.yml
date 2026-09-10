@@ -64,7 +64,7 @@ jobs:
 
       - name: Refresh macro and commodity sources without blocking core A-share data
         run: |
-          # Liquidity is refreshed by fix_liquidity.py in the next strict step. Do not run the
+          # Liquidity is refreshed by fix_liquidity.py in the next bounded step. Do not run the
           # older 45-day liquidity crawl here, because it can consume the entire non-core timeout
           # before trade/commodity sources get a chance to refresh.
           timeout 75s python -u - <<'PY' || echo "Non-core refresh timed out/failed; retaining last verified non-core values"
@@ -84,16 +84,22 @@ jobs:
 
       - name: Recalculate liquidity with multi-source fallback
         run: |
-          # Some AkShare-backed exchange endpoints can stall below Python's request layer.
-          # Bound each attempt so a single upstream hang cannot consume the whole workflow
-          # and prevent sector/stock/ETF collection and publication from running.
-          for i in 1 2 3; do
-            timeout 120s python fix_liquidity.py && break
+          # Liquidity is important, but a stalled exchange/AkShare endpoint must never block
+          # sector/stock/ETF/limit-up collection. Try twice with hard bounds; on failure retain
+          # the last verified liquidity series and let the final validator report any staleness.
+          liquidity_ok=0
+          for i in 1 2; do
+            if timeout 75s python fix_liquidity.py; then
+              liquidity_ok=1
+              break
+            fi
             rc=$?
             echo "Liquidity refresh attempt $i failed/timed out (exit $rc)"
-            if [ "$i" = "3" ]; then exit "$rc"; fi
-            sleep $((i*15))
+            sleep $((i*10))
           done
+          if [ "$liquidity_ok" != "1" ]; then
+            echo "Liquidity refresh unavailable; continuing with last verified liquidity data"
+          fi
 
       - name: Validate liquidity chart wiring
         run: python update_chart.py
