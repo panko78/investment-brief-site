@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-10 15:00",
+  "updated_at": "2026-09-10 15:02",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "两融接口本次失败，保留上一成功数据和真实数据日",
     "freshness": {
       "margin_as_of": "2026-09-09",
       "turnover_as_of": "2026-09-09",
       "sh_index_as_of": "2026-09-09",
-      "checked_at": "2026-09-10 14:59"
+      "checked_at": "2026-09-10 15:02"
     },
     "margin_series": [
       {
@@ -254,19 +254,19 @@
       },
       {
         "date": "2026-09-04",
-        "turnover": 20333.55
+        "turnover": 20301.64
       },
       {
         "date": "2026-09-07",
-        "turnover": 19492.18
+        "turnover": 19453.56
       },
       {
         "date": "2026-09-08",
-        "turnover": 19620.87
+        "turnover": 19597.86
       },
       {
         "date": "2026-09-09",
-        "turnover": 18575.1
+        "turnover": 18551.05
       }
     ],
     "sh_index_series": [
@@ -312,7 +312,7 @@
       },
       {
         "date": "2026-08-13",
-        "sh_close": 3926.97
+        "sh_close": 3926.96
       },
       {
         "date": "2026-08-14",
@@ -344,7 +344,7 @@
       },
       {
         "date": "2026-08-25",
-        "sh_close": 3889.45
+        "sh_close": 3889.44
       },
       {
         "date": "2026-08-26",
@@ -525,22 +525,22 @@
       {
         "date": "2026-09-04",
         "margin_balance": 26378.39,
-        "turnover": 20333.55
+        "turnover": 20301.64
       },
       {
         "date": "2026-09-07",
         "margin_balance": 26494.78,
-        "turnover": 19492.18
+        "turnover": 19453.56
       },
       {
         "date": "2026-09-08",
         "margin_balance": 26515.0,
-        "turnover": 19620.87
+        "turnover": 19597.86
       },
       {
         "date": "2026-09-09",
         "margin_balance": 26486.0,
-        "turnover": 18575.1
+        "turnover": 18551.05
       }
     ],
     "high_30d": {
@@ -559,7 +559,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -889,8 +889,8 @@
         "中国供应增长",
         "全球工业需求走弱"
       ],
-      "latest": 3339.5,
-      "month_change": 2.2,
+      "latest": 3344.5,
+      "month_change": 2.36,
       "trend": "震荡偏强",
       "outlook": "未来1–4周偏多震荡；若5日动量持续转正并站稳20日均线，上行概率提高。",
       "series": [
@@ -992,10 +992,10 @@
         },
         {
           "date": "2026-09-10",
-          "close": 3339.5
+          "close": 3344.5
         }
       ],
-      "momentum_5d": 0.66,
+      "momentum_5d": 0.81,
       "data_source": "LME/COMEX primary source"
     },
     "zinc": {
@@ -1012,8 +1012,8 @@
         "中国出口增加",
         "挤仓缓解后多头平仓"
       ],
-      "latest": 4015.5,
-      "month_change": 6.58,
+      "latest": 4021.5,
+      "month_change": 6.74,
       "trend": "强势上行",
       "outlook": "未来1–4周技术面仍偏强，但高位波动会放大；若跌破20日均线，趋势降为中性。",
       "series": [
@@ -1115,10 +1115,10 @@
         },
         {
           "date": "2026-09-10",
-          "close": 4015.5
+          "close": 4021.5
         }
       ],
-      "momentum_5d": 3.03,
+      "momentum_5d": 3.18,
       "data_source": "LME/COMEX primary source"
     },
     "gold": {
@@ -1432,7 +1432,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-09-10T15:00:09.774522+08:00",
+    "checked_at": "2026-09-10T15:02:48.681825+08:00",
     "expected_market_date": "2026-09-09",
     "sh_index_as_of": "2026-09-09",
     "turnover_as_of": "2026-09-09",
@@ -1442,12 +1442,14 @@
       "data_date": "2026-09-09",
       "usable_sectors": 4,
       "usable_stocks": 5,
+      "expected_stocks": 5,
+      "incomplete_stocks": [],
       "limit_up_ok": true,
       "etf_comparison_ok": true,
       "etf_as_of": "2026-09-09",
       "etf_current_day_available": true,
       "etf_change_rows": 903,
-      "transient_request_errors": 2
+      "transient_request_errors": 5
     },
     "warnings": [],
     "problems": [],
