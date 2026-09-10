@@ -80,9 +80,14 @@ jobs:
 
       - name: Recalculate liquidity with multi-source fallback
         run: |
+          # Some AkShare-backed exchange endpoints can stall below Python's request layer.
+          # Bound each attempt so a single upstream hang cannot consume the whole workflow
+          # and prevent sector/stock/ETF collection and publication from running.
           for i in 1 2 3; do
-            python fix_liquidity.py && break
-            if [ "$i" = "3" ]; then exit 1; fi
+            timeout 120s python fix_liquidity.py && break
+            rc=$?
+            echo "Liquidity refresh attempt $i failed/timed out (exit $rc)"
+            if [ "$i" = "3" ]; then exit "$rc"; fi
             sleep $((i*15))
           done
 
