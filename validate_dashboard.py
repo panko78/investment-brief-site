@@ -33,6 +33,24 @@ def latest_date(rows):
     return max(vals) if vals else None
 
 
+def stock_complete(row, expected):
+    if row.get('data_date') != expected:
+        return False
+    for key in ('close', 'return_pct', 'turnover_yuan', 'day_net_yuan'):
+        if row.get(key) is None:
+            return False
+    windows = row.get('windows') or {}
+    for n in (3, 5, 10):
+        w = windows.get(str(n)) or {}
+        if w.get('net_yuan') is None or w.get('inflow_days') is None:
+            return False
+        if w.get('return_pct') is None or w.get('excess_pct_point') is None:
+            return False
+        if (w.get('observed_flow_days') or 0) < n:
+            return False
+    return True
+
+
 def main():
     now = datetime.now(ZoneInfo('Asia/Shanghai'))
     expected = expected_latest_market_date(now)
@@ -71,16 +89,20 @@ def main():
             transient_errors = [x for x in availability if x.get('status') == 'error']
 
             usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
-            usable_stocks = [x for x in stocks if x.get('data_date') == expected and (x.get('close') is not None or x.get('day_net_yuan') is not None)]
+            complete_stocks = [x for x in stocks if stock_complete(x, expected)]
+            incomplete_stocks = [x.get('code') or x.get('name') or '?' for x in stocks if not stock_complete(x, expected)]
+            expected_stock_count = len(stocks)
             limit_ok = any(x.get('date') == expected and x.get('limit_count') is not None and x.get('failed_count') is not None for x in limits)
             etf_pair_ok = len(etf_dates) >= 2 and len(etf_changes) > 0
             etf_current = expected in etf_dates
 
             detail_summary = {
-                'status': 'ok' if len(usable_sectors) >= 4 and len(usable_stocks) >= 4 and limit_ok and etf_pair_ok else 'degraded',
+                'status': 'ok' if len(usable_sectors) >= 4 and expected_stock_count > 0 and len(complete_stocks) == expected_stock_count and limit_ok and etf_pair_ok else 'degraded',
                 'data_date': detail_date,
                 'usable_sectors': len(usable_sectors),
-                'usable_stocks': len(usable_stocks),
+                'usable_stocks': len(complete_stocks),
+                'expected_stocks': expected_stock_count,
+                'incomplete_stocks': incomplete_stocks,
                 'limit_up_ok': limit_ok,
                 'etf_comparison_ok': etf_pair_ok,
                 'etf_as_of': etf_dates[-1] if etf_dates else None,
@@ -92,8 +114,10 @@ def main():
                 problems.append(f'资金/涨停明细数据过期：期望 {expected}，实际 {detail_date}')
             if len(usable_sectors) < 4:
                 problems.append(f'板块资金数据不完整：可用 {len(usable_sectors)}/4')
-            if len(usable_stocks) < 4:
-                warnings.append(f'重点个股明细部分不完整：可用 {len(usable_stocks)}/5')
+            if expected_stock_count == 0:
+                warnings.append('重点个股候选池为空')
+            elif len(complete_stocks) < expected_stock_count:
+                warnings.append(f'重点个股价格/资金/3-5-10日窗口不完整：完整 {len(complete_stocks)}/{expected_stock_count}；缺失 {",".join(incomplete_stocks)}')
             if not limit_ok:
                 problems.append('涨停/炸板数据缺少最新完整交易日')
             if not etf_pair_ok:
