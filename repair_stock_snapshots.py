@@ -1,15 +1,16 @@
-"""Repair candidate-stock prices with an independent Sina close snapshot.
+"""Repair candidate-stock prices with independent historical/quote fallbacks.
 
-Fund-flow data is never fabricated. If the primary historical price provider fails on
-an otherwise cached stock, use Sina only for the verified current-day close/turnover,
-then recompute 3/5/10-day price and excess-return windows from the retained historical
-price cache plus that verified close.
+Fund-flow data is never fabricated. For a prior completed trading day, BaoStock is
+preferred because a live Sina quote already points at the new trading day. Sina is
+kept as a same-day end-of-day fallback. Price-derived 3/5/10-day returns are then
+recomputed from verified historical closes; flow-derived fields stay untouched.
 """
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import baostock as bs
 import requests
 
 ROOT = Path(__file__).resolve().parent
@@ -20,6 +21,46 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36',
     'Referer': 'https://finance.sina.com.cn/',
 }
+
+
+def num(v):
+    try:
+        return float(v) if v not in (None, '') else None
+    except (TypeError, ValueError):
+        return None
+
+
+def baostock_history(code: str, expected_date: str):
+    symbol = ('sh.' if code.startswith('6') else 'sz.') + code
+    start = (datetime.fromisoformat(expected_date) - timedelta(days=100)).date().isoformat()
+    lg = bs.login()
+    if lg.error_code != '0':
+        raise ValueError(f'BaoStock login {lg.error_code}: {lg.error_msg}')
+    fields = 'date,open,high,low,close,volume,amount,turn,pctChg'
+    try:
+        rs = bs.query_history_k_data_plus(
+            symbol, fields, start_date=start, end_date=expected_date,
+            frequency='d', adjustflag='3'
+        )
+        if rs.error_code != '0':
+            raise ValueError(f'BaoStock query {rs.error_code}: {rs.error_msg}')
+        rows = []
+        names = fields.split(',')
+        while rs.next():
+            raw = dict(zip(names, rs.get_row_data()))
+            rows.append({
+                'date': raw['date'],
+                'close': num(raw['close']),
+                'turnover_yuan': num(raw['amount']),
+                'turnover_pct': num(raw['turn']),
+                'return_pct': num(raw['pctChg']),
+            })
+    finally:
+        bs.logout()
+    current = next((r for r in reversed(rows) if r['date'] == expected_date), None)
+    if not current or current.get('close') is None or current.get('turnover_yuan') is None:
+        raise ValueError(f'BaoStock has no complete row for {expected_date}')
+    return rows, current
 
 
 def sina_snapshot(code: str, expected_date: str):
@@ -50,13 +91,11 @@ def sina_snapshot(code: str, expected_date: str):
     }
 
 
-def recompute_price_windows(row, code, expected, details, benchmark):
-    """Fill only price-derived window fields from retained verified closes.
-
-    Flow-derived fields remain exactly as produced by the collector.
-    """
+def recompute_price_windows(row, code, expected, details, benchmark, extra_rows=None):
     datasets = details.get('datasets') or {}
     price_rows = list((datasets.get(f'price_{code}') or {}).get('rows') or [])
+    if extra_rows:
+        price_rows.extend(extra_rows)
     pm = {r.get('date'): r for r in price_rows if r.get('date') and r.get('close') is not None}
     pm[expected] = {**pm.get(expected, {}), 'date': expected, 'close': row.get('close')}
     bm = {r.get('date'): r.get('close') for r in benchmark if r.get('date') and r.get('close') is not None}
@@ -117,28 +156,41 @@ def main():
             continue
 
         try:
-            snap = sina_snapshot(code, expected)
-            row['close'] = snap['close']
-            row['return_pct'] = snap['return_pct']
-            row['turnover_yuan'] = snap['turnover_yuan']
-            row['snapshot_source'] = snap['quote_source']
-            recompute_price_windows(row, code, expected, details, benchmark)
-            repaired.append(code)
-        except Exception as exc:
-            failures.append(f'{code} {type(exc).__name__}: {exc}')
+            history, current = baostock_history(code, expected)
+            row['close'] = current['close']
+            row['return_pct'] = current['return_pct']
+            row['turnover_yuan'] = current['turnover_yuan']
+            if current.get('turnover_pct') is not None:
+                row['turnover_pct'] = current['turnover_pct']
+            row['snapshot_source'] = 'BaoStock未复权日线备用源'
+            recompute_price_windows(row, code, expected, details, benchmark, history)
+            repaired.append((code, 'baostock'))
+            continue
+        except Exception as first_exc:
+            try:
+                snap = sina_snapshot(code, expected)
+                row['close'] = snap['close']
+                row['return_pct'] = snap['return_pct']
+                row['turnover_yuan'] = snap['turnover_yuan']
+                row['snapshot_source'] = snap['quote_source']
+                recompute_price_windows(row, code, expected, details, benchmark)
+                repaired.append((code, 'sina'))
+                continue
+            except Exception as second_exc:
+                failures.append(f'{code} BaoStock={type(first_exc).__name__}: {first_exc}; Sina={type(second_exc).__name__}: {second_exc}')
 
     details['stocks'] = stocks
     availability = details.setdefault('availability', [])
     now = datetime.now(ZoneInfo('Asia/Shanghai')).isoformat()
-    for code in repaired:
-        availability.append({'dataset': f'sina_snapshot_{code}', 'status': 'ok', 'rows': 1, 'fetched_at': now})
+    for code, source in repaired:
+        availability.append({'dataset': f'{source}_price_{code}', 'status': 'ok', 'rows': 1, 'fetched_at': now})
     for item in failures:
-        availability.append({'dataset': 'sina_snapshot', 'status': 'error', 'reason': item, 'retained': False})
+        availability.append({'dataset': 'candidate_price_fallback', 'status': 'error', 'reason': item, 'retained': False})
 
     DETAILS.write_text(json.dumps(details, ensure_ascii=False, indent=2, allow_nan=False) + '\n', encoding='utf-8')
-    print('Sina stock snapshot/window repairs:', repaired or 'none')
+    print('Candidate stock price/window repairs:', repaired or 'none')
     if failures:
-        print('Sina snapshot failures:', failures)
+        print('Candidate price fallback failures:', failures)
 
     still_missing = []
     for row in stocks:
