@@ -8,6 +8,7 @@ on:
       - 'fix_liquidity.py'
       - 'update_chart.py'
       - 'collect_market_details.py'
+      - 'repair_realtime_close.py'
       - 'repair_stock_snapshots.py'
       - 'preserve_etf_fallback.py'
       - 'validate_dashboard.py'
@@ -115,6 +116,9 @@ jobs:
           python collect_market_details.py || true
           # A second pass reuses successful first-pass/cache data and retries missing datasets.
           python collect_market_details.py --reuse
+
+      - name: Repair same-day close snapshots and turnover from realtime fallbacks
+        run: python repair_realtime_close.py
 
       - name: Repair missing candidate-stock snapshots from independent source
         run: python repair_stock_snapshots.py
