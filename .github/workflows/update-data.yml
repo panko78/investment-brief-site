@@ -18,11 +18,12 @@ on:
     # Beijing time: 08:00 premarket refresh + 08:10 redundant retry
     - cron: '0 0 * * 1-5'
     - cron: '10 0 * * 1-5'
-    # Beijing time: 09:35 / 09:45 redundant retry / 10:30 / 11:35
+    # Beijing time: 09:35 / 09:45 redundant retry / 10:30 / 11:35 / 11:45 redundant retry
     - cron: '35 1 * * 1-5'
     - cron: '45 1 * * 1-5'
     - cron: '30 2 * * 1-5'
     - cron: '35 3 * * 1-5'
+    - cron: '45 3 * * 1-5'
     # Beijing time: 13:30 / 14:30 / 15:15 / 15:45 (post-close freshness checks)
     - cron: '30 5 * * 1-5'
     - cron: '30 6 * * 1-5'
