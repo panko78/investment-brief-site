@@ -11,6 +11,7 @@ on:
       - 'repair_realtime_close.py'
       - 'repair_stock_snapshots.py'
       - 'preserve_etf_fallback.py'
+      - 'sync_dashboard_market_details.py'
       - 'validate_dashboard.py'
       - 'sanitize_dashboard.py'
       - 'requirements.txt'
@@ -125,6 +126,9 @@ jobs:
 
       - name: Restore verified ETF comparison if upstream is unavailable
         run: python preserve_etf_fallback.py restore
+
+      - name: Sync dashboard liquidity from verified market details
+        run: python sync_dashboard_market_details.py
 
       - name: Validate final dashboard output
         run: python validate_dashboard.py
