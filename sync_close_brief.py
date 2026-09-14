@@ -43,7 +43,12 @@ def main():
         [x for x in liq.get("sh_index_series", []) if x.get("date") and x.get("sh_close") is not None],
         key=lambda x: x["date"],
     )
-    turnover = latest_by_date(liq.get("turnover_series"))
+    turnover_rows = sorted(
+        [x for x in liq.get("turnover_series", []) if x.get("date") and x.get("turnover") is not None],
+        key=lambda x: x["date"],
+    )
+    turnover = turnover_rows[-1] if turnover_rows else None
+    previous_turnover = turnover_rows[-2] if len(turnover_rows) >= 2 else None
     if details.get("data_date") != target or not sh_rows or sh_rows[-1]["date"] != target:
         raise RuntimeError(f"Verified close data is not current: target={target}, details={details.get('data_date')}, sh={sh_rows[-1]['date'] if sh_rows else None}")
     if not turnover or turnover.get("date") != target:
@@ -63,13 +68,15 @@ def main():
     snap["as_of"] = f"{target} 15:00 北京时间"
     indices = snap.setdefault("indices", {})
     indices["shanghai"] = {"close": current_sh["sh_close"], "change_pct": round(sh_change, 2) if sh_change is not None else None}
-    # Other index close values are not part of the verified dashboard pipeline. Do not carry
-    # potentially stale intraday values into a post-close snapshot.
     for key in ("shenzhen", "chinext", "star50", "beijing50"):
         indices[key] = {"close": None, "change_pct": None}
 
     market = snap.setdefault("market", {})
     market["turnover_billion"] = round(turnover["turnover"] / 10, 2)
+    market["change_vs_previous_billion"] = (
+        round((turnover["turnover"] - previous_turnover["turnover"]) / 10, 2)
+        if previous_turnover else None
+    )
     market["limit_up_cls_non_st"] = current_limit["limit_count"]
     market["failed_limit_cls_non_st"] = current_limit["failed_count"]
     market["seal_rate_pct"] = round(current_limit.get("seal_rate_pct"), 2) if current_limit.get("seal_rate_pct") is not None else None
@@ -78,7 +85,7 @@ def main():
     market["limit_down_total"] = None
     snap["leading"] = []
     snap["lagging"] = []
-    snap["note"] = "收盘数值仅同步自动管线已核验字段：上证、沪深成交额、涨停/炸板。其他指数点位、涨跌家数、跌停数及收盘强弱板块未在本管线内独立核验，因此不沿用午间值、不做估算。"
+    snap["note"] = "收盘数值仅同步自动管线已核验字段：上证、沪深成交额、较前一交易日成交额变化、涨停/炸板。其他指数点位、涨跌家数、跌停数及收盘强弱板块未在本管线内独立核验，因此不沿用午间值、不做估算。"
 
     stocks = {str(x.get("code")): x for x in details.get("stocks", []) if x.get("code")}
     for item in brief.get("candidate_pool", []):
@@ -109,10 +116,16 @@ def main():
         etf["data_period"] = f"{etf_dates[-2]}→{etf_dates[-1]}"
         etf["status"] = f"使用上交所最近两个已核验统计日，共{len(etf_rows)}条可比ETF；若当日份额尚未披露则明确滞后，不估算。"
 
+    dragon = cross.setdefault("dragon_tiger", {})
+    dragon["data_period"] = f"{target}收盘"
+    dragon["coverage"] = "本自动管线尚未形成可独立核验的当日龙虎榜机构席位汇总。"
+    dragon["items"] = []
+    dragon["note"] = "未核验即留空；不与主力资金、融资或ETF份额相加。"
+
     dq = brief.setdefault("data_quality", {})
     dq["as_of"] = now.strftime("%Y-%m-%d %H:%M 北京时间")
     dq["verified"] = f"收盘核心市场日{target}；上证、成交额、涨停/炸板、4个板块资金及5只重点股3/5/10日窗口已通过自动校验。"
-    dq["unavailable"] = "其他指数收盘点位、全市场涨跌家数/跌停数、收盘强弱板块排名，以及尚未由官方发布到当日的ETF份额，不在自动收盘同步中估算。"
+    dq["unavailable"] = "其他指数收盘点位、全市场涨跌家数/跌停数、收盘强弱板块排名、当日龙虎榜机构席位汇总，以及尚未由官方发布到当日的ETF份额，不在自动收盘同步中估算。"
     dq["rule"] = "仅把已通过 dashboard/market_details 最终校验的数据同步为收盘事实；无法核验字段保持空值，午间主观判断不自动改写为收盘结论。"
 
     decision = brief.setdefault("decision_summary", {})
