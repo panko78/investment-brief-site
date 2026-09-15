@@ -8,6 +8,8 @@ on:
       - 'fix_liquidity.py'
       - 'update_chart.py'
       - 'collect_market_details.py'
+      - 'collect_sector_ranking.py'
+      - 'refresh_dynamic_sectors.py'
       - 'repair_realtime_close.py'
       - 'repair_stock_snapshots.py'
       - 'preserve_etf_fallback.py'
@@ -31,12 +33,9 @@ on:
     - cron: '30 6 * * 1-5'
     - cron: '15 7 * * 1-5'
     - cron: '45 7 * * 1-5'
-    # Beijing time: 02:20 next morning (Tue-Sat). Catch delayed post-close
-    # disclosures such as SSE ETF shares and retry transient upstream failures.
+    # Beijing time: 02:20 next morning (Tue-Sat). Catch delayed post-close disclosures.
     - cron: '20 18 * * 1-5'
-    # Redundant 02:35 overnight trigger. GitHub scheduled events can occasionally
-    # be delayed or skipped; this second trigger gives the self-healing pass another
-    # chance without changing the data-validity rules.
+    # Redundant 02:35 overnight trigger.
     - cron: '35 18 * * 1-5'
 
 permissions:
@@ -69,9 +68,6 @@ jobs:
 
       - name: Refresh macro and commodity sources without blocking core A-share data
         run: |
-          # Liquidity is refreshed by fix_liquidity.py in the next bounded step. Do not run the
-          # older 45-day liquidity crawl here, because it can consume the entire non-core timeout
-          # before trade/commodity sources get a chance to refresh.
           timeout 75s python -u - <<'PY' || echo "Non-core refresh timed out/failed; retaining last verified non-core values"
           from datetime import datetime
           import json
@@ -89,9 +85,6 @@ jobs:
 
       - name: Recalculate liquidity with multi-source fallback
         run: |
-          # Liquidity is important, but a stalled exchange/AkShare endpoint must never block
-          # sector/stock/ETF/limit-up collection. Try twice with hard bounds; on failure retain
-          # the last verified liquidity series and let the final validator report any staleness.
           liquidity_ok=0
           for i in 1 2; do
             if timeout 75s python fix_liquidity.py; then
@@ -109,14 +102,21 @@ jobs:
       - name: Validate liquidity chart wiring
         run: python update_chart.py
 
+      - name: Refresh market-wide industry fund-flow ranking
+        run: |
+          python collect_sector_ranking.py || echo "Dynamic industry ranking unavailable; retaining last verified ranking"
+
       - name: Capture last verified ETF comparison
         run: python preserve_etf_fallback.py capture
 
       - name: Collect sector, stock, ETF and limit-up details
         run: |
           python collect_market_details.py || true
-          # A second pass reuses successful first-pass/cache data and retries missing datasets.
           python collect_market_details.py --reuse
+
+      - name: Replace fixed sector watchlist with dynamic fund-flow leaders
+        run: |
+          python refresh_dynamic_sectors.py || echo "Dynamic sector history refresh unavailable; retaining last verified sector set"
 
       - name: Repair same-day close snapshots and turnover from realtime fallbacks
         run: python repair_realtime_close.py
@@ -141,6 +141,9 @@ jobs:
           git add dashboard.json brief.json
           if [ -f market_details.json ]; then
             git add market_details.json
+          fi
+          if [ -f sector_ranking.json ]; then
+            git add sector_ranking.json
           fi
 
           if git diff --cached --quiet; then
