@@ -50,10 +50,16 @@ def stock_complete(row, expected):
 
 
 def live_sector_complete(row):
+    """Live sector rows may legitimately miss the 3-day series.
+
+    The live industry ranking must have current-day, 5-day and 10-day fund-flow
+    values to be publishable. A missing 3-day value is treated as a degraded
+    auxiliary field rather than a reason to freeze all sector modules on stale data.
+    """
     if row.get('name') in (None, '') or row.get('day_net_yuan') is None:
         return False
     windows = row.get('windows') or {}
-    return all((windows.get(str(n)) or {}).get('net_yuan') is not None for n in (3, 5, 10))
+    return all((windows.get(str(n)) or {}).get('net_yuan') is not None for n in (5, 10))
 
 
 def main():
@@ -99,6 +105,16 @@ def main():
                 sector_ok = len(usable_sectors) >= 8
                 if not sector_ok:
                     problems.append(f'动态行业资金数据不完整：可用 {len(usable_sectors)}/8')
+                else:
+                    missing_three = sum(
+                        1 for x in usable_sectors
+                        if ((x.get('windows') or {}).get('3') or {}).get('net_yuan') is None
+                    )
+                    if missing_three:
+                        warnings.append(
+                            f'动态行业3日资金上游暂缺：{missing_three}/{len(usable_sectors)} 个行业；'
+                            '当日、5日、10日继续使用最新数据，3日显示为空，不回退旧板块'
+                        )
             else:
                 usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
                 sector_ok = len(usable_sectors) >= 4
@@ -152,7 +168,7 @@ def main():
         'warnings': warnings,
         'problems': problems,
         'publish_status': 'blocked' if problems else ('degraded' if warnings else 'ok'),
-        'note': '动态行业资金榜与完整交易日行情分别校验；盘中行业排名允许缺少成交强度、流入天数和相对收益，不用旧板块数据冒充最新值。'
+        'note': '动态行业资金榜与完整交易日行情分别校验；盘中3日行业资金若上游缺失则明确留空，不允许因此回退旧板块。'
     }
     data['data_quality'] = quality
     data['updated_at'] = now.strftime('%Y-%m-%d %H:%M')
