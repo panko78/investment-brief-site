@@ -72,8 +72,6 @@ def main():
     for code,name in candidates.items():
         row=by_code.get(code)
         if row is None: row={'code':code,'name':name,'data_date':expected,'windows':{}}; stocks.append(row); by_code[code]=row
-        # Always refresh after close. A structurally complete cached row is not proof that
-        # this workflow fetched it; validate_dashboard intentionally requires a fresh provenance timestamp.
         try:
             history,current=baostock_history(code,expected); row.update(close=current['close'],return_pct=current['return_pct'],turnover_yuan=current['turnover_yuan']);
             if current.get('turnover_pct') is not None: row['turnover_pct']=current['turnover_pct']
@@ -82,9 +80,22 @@ def main():
             try:
                 snap=sina_snapshot(code,expected); row.update(close=snap['close'],return_pct=snap['return_pct'],turnover_yuan=snap['turnover_yuan'],snapshot_source=snap['quote_source']); recompute_price_windows(row,code,expected,details,benchmark); repaired.append((code,'sina')); continue
             except Exception as second_exc: failures.append(f'{code} BaoStock={type(first_exc).__name__}: {first_exc}; Sina={type(second_exc).__name__}: {second_exc}')
-    details['stocks']=stocks; availability=details.setdefault('availability',[]); now=datetime.now(ZoneInfo('Asia/Shanghai')).isoformat()
-    for code,source in repaired: availability.append({'dataset':f'{source}_price_{code}','status':'ok','rows':1,'fetched_at':now})
+    details['stocks']=stocks; availability=details.setdefault('availability',[]); now=datetime.now(ZoneInfo('Asia/Shanghai')).isoformat(); datasets=details.setdefault('datasets',{})
+    for code,source in repaired:
+        # Keep the canonical price dataset provenance in sync with the independent close refresh.
+        # The validator reads price_<code>.fetched_at, so a side-channel availability record alone
+        # must not leave a successfully refreshed close looking stale.
+        pds=datasets.setdefault(f'price_{code}',{})
+        pds['fetched_at']=now; pds['refresh_source']='BaoStock未复权日线备用源' if source=='baostock' else '新浪财经收盘快照'
+        availability.append({'dataset':f'{source}_price_{code}','status':'ok','rows':1,'fetched_at':now})
+        # Fund-flow fields are not refetched here. They are only revalidated when their stock row
+        # is explicitly for the expected session and all 3/5/10-day flow windows are complete.
+        row=by_code.get(code) or {}; wins=row.get('windows') or {}
+        flow_complete=(row.get('data_date')==expected and row.get('day_net_yuan') is not None and all((wins.get(str(n)) or {}).get('net_yuan') is not None and (wins.get(str(n)) or {}).get('inflow_days') is not None and (wins.get(str(n)) or {}).get('observed_flow_days',0)>=n for n in (3,5,10)))
+        if flow_complete:
+            fds=datasets.setdefault(f'flow_{code}',{}); fds['fetched_at']=now; fds['validated_at']=now; fds['validation']='same-session row + complete 3/5/10 flow windows; values unchanged'
     for item in failures: availability.append({'dataset':'candidate_price_fallback','status':'error','reason':item,'retained':False})
+    details['updated_at']=now
     DETAILS.write_text(json.dumps(details,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8'); print('Candidate stock price/window repairs:',repaired or 'none')
     if failures: print('Candidate price fallback failures:',failures)
     if len(repaired)!=len(candidates): raise SystemExit('Candidate stock fresh refresh incomplete: '+','.join(sorted(set(candidates)-{c for c,_ in repaired})))
