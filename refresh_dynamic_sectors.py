@@ -3,13 +3,16 @@
 The selector uses the market-wide industry fund-flow ranking collected in
 sector_ranking.json. Historical price/flow windows are then fetched for the selected
 Eastmoney industry boards so the existing dashboard can keep its 3/5/10-day logic.
+Intraday ranking and completed-day persistence are deliberately not mixed.
 If the dynamic refresh is incomplete, the last verified sector set is retained.
 """
 from __future__ import annotations
 
 import json
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import akshare as ak
 
@@ -21,6 +24,7 @@ RANKING = ROOT / "sector_ranking.json"
 DASHBOARD = ROOT / "dashboard.json"
 MAX_SECTORS = 12
 MIN_COMPLETE = 8
+BOARD_LIST_URL = "https://17.push2.eastmoney.com/api/qt/clist/get"
 
 
 def first(row, names):
@@ -31,16 +35,46 @@ def first(row, names):
 
 
 def board_map():
-    rows = cmd.frame(ak.stock_board_industry_name_em())
-    out = {}
-    for row in rows:
-        name = first(row, ["板块名称", "名称", "行业"])
-        code = first(row, ["板块代码", "代码"])
-        if name and code:
-            out[str(name).strip()] = str(code).strip()
-    if not out:
-        raise ValueError("No Eastmoney industry board name/code mapping")
-    return out
+    """Resolve Eastmoney industry names to BK codes with two independent paths."""
+    errors = []
+    try:
+        rows = cmd.frame(ak.stock_board_industry_name_em())
+        out = {}
+        for row in rows:
+            name = first(row, ["板块名称", "名称", "行业"])
+            code = first(row, ["板块代码", "代码"])
+            if name and code:
+                out[str(name).strip()] = str(code).strip()
+        if out:
+            return out
+    except Exception as exc:
+        errors.append(f"AKShare: {type(exc).__name__}: {str(exc)[:120]}")
+
+    try:
+        data = cmd.get(BOARD_LIST_URL, {
+            "pn": 1,
+            "pz": 200,
+            "po": 1,
+            "np": 1,
+            "fltt": 2,
+            "invt": 2,
+            "fid": "f3",
+            "fs": "m:90+t:2+f:!50",
+            "fields": "f12,f14",
+        }).get("data") or {}
+        diff = data.get("diff") or []
+        out = {
+            str(row.get("f14")).strip(): str(row.get("f12")).strip()
+            for row in diff
+            if row.get("f14") and row.get("f12")
+        }
+        if out:
+            print("Industry board map recovered from direct Eastmoney endpoint", len(out), flush=True)
+            return out
+    except Exception as exc:
+        errors.append(f"Direct: {type(exc).__name__}: {str(exc)[:120]}")
+
+    raise ValueError("No Eastmoney industry board mapping; " + " | ".join(errors))
 
 
 def main():
@@ -53,6 +87,16 @@ def main():
     target = market.get("data_date")
     if not target:
         print("Dynamic sectors skipped: market data_date missing")
+        return
+
+    now = datetime.now(ZoneInfo("Asia/Shanghai"))
+    # The live sector ranking is partial-session data during market hours, while
+    # market_details.data_date intentionally remains the latest completed session.
+    # Keep the two separate until the post-close refresh so 3/5/10-day statistics
+    # are never selected using a different day's intraday ranking.
+    intraday = now.weekday() < 5 and (9, 25) <= (now.hour, now.minute) < (15, 10)
+    if intraday and target != now.date().isoformat():
+        print("Dynamic sector history skipped intraday; live ranking remains in sector_ranking.json", flush=True)
         return
 
     liquidity = json.loads(DASHBOARD.read_text(encoding="utf-8")).get("liquidity", {})
@@ -118,7 +162,7 @@ def main():
     sectors.sort(key=lambda x: x.get("day_net_yuan") or 0, reverse=True)
     market["sectors"] = sectors
     market["sector_scope"] = (
-        f"动态行业资金榜：先按全市场行业主力净流入排名选取前{len(sectors)}个行业，"
+        f"动态行业资金榜：按全市场行业主力净流入选取前{len(sectors)}个行业，"
         "再用东方财富行业板块日线和历史资金流计算3/5/10日持续性；概念板块不与行业混排。"
     )
     market["sector_ranking_updated_at"] = ranking.get("updated_at")
