@@ -9,11 +9,13 @@ on:
       - 'update_chart.py'
       - 'collect_market_details.py'
       - 'collect_sector_ranking.py'
+      - 'collect_live_limits.py'
       - 'refresh_dynamic_sectors.py'
       - 'repair_realtime_close.py'
       - 'repair_stock_snapshots.py'
       - 'preserve_etf_fallback.py'
       - 'validate_dashboard.py'
+      - 'harden_frontend.py'
       - 'sanitize_dashboard.py'
       - 'sync_close_brief.py'
       - 'requirements.txt'
@@ -22,20 +24,20 @@ on:
     # Beijing time: 08:00 premarket refresh + 08:10 redundant retry
     - cron: '0 0 * * 1-5'
     - cron: '10 0 * * 1-5'
-    # Beijing time: 09:35 / 09:45 redundant retry / 10:30 / 11:35 / 11:45 redundant retry
+    # Beijing time: intraday refreshes. Redundant triggers reduce GitHub cron misses.
     - cron: '35 1 * * 1-5'
     - cron: '45 1 * * 1-5'
     - cron: '30 2 * * 1-5'
     - cron: '35 3 * * 1-5'
     - cron: '45 3 * * 1-5'
-    # Beijing time: 13:30 / 14:30 / 15:15 / 15:45 (post-close freshness checks)
     - cron: '30 5 * * 1-5'
     - cron: '30 6 * * 1-5'
+    # Close snapshots and final completed-session refreshes.
+    - cron: '5 7 * * 1-5'
     - cron: '15 7 * * 1-5'
     - cron: '45 7 * * 1-5'
-    # Beijing time: 02:20 next morning (Tue-Sat). Catch delayed post-close disclosures.
+    # Beijing 02:20/02:35 next-morning catch-up for delayed disclosures.
     - cron: '20 18 * * 1-5'
-    # Redundant 02:35 overnight trigger.
     - cron: '35 18 * * 1-5'
 
 permissions:
@@ -43,14 +45,15 @@ permissions:
 
 concurrency:
   group: market-dashboard-main
-  cancel-in-progress: true
+  # Queue overlapping scheduled/manual runs instead of cancelling a valid refresh.
+  cancel-in-progress: false
 
 jobs:
   update:
     runs-on: ubuntu-latest
     env:
       TZ: Asia/Shanghai
-    timeout-minutes: 15
+    timeout-minutes: 18
 
     steps:
       - uses: actions/checkout@v6
@@ -93,10 +96,10 @@ jobs:
             fi
             rc=$?
             echo "Liquidity refresh attempt $i failed/timed out (exit $rc)"
-            sleep $((i*10))
+            sleep $((i*8))
           done
           if [ "$liquidity_ok" != "1" ]; then
-            echo "Liquidity refresh unavailable; continuing with last verified liquidity data"
+            echo "Liquidity refresh unavailable; final freshness validator will decide whether publication is allowed"
           fi
 
       - name: Validate liquidity chart wiring
@@ -104,19 +107,57 @@ jobs:
 
       - name: Refresh market-wide industry fund-flow ranking
         run: |
-          python collect_sector_ranking.py || echo "Dynamic industry ranking unavailable; retaining last verified ranking"
+          sector_ok=0
+          for i in 1 2; do
+            if timeout 90s python collect_sector_ranking.py; then
+              sector_ok=1
+              break
+            fi
+            echo "Industry ranking attempt $i failed"
+            sleep $((i*5))
+          done
+          if [ "$sector_ok" != "1" ]; then
+            echo "Industry ranking refresh failed; stale timestamps will be blocked by final validation"
+          fi
 
       - name: Capture last verified ETF comparison
         run: python preserve_etf_fallback.py capture
 
-      - name: Collect sector, stock, ETF and limit-up details
+      - name: Collect completed-session sector stock ETF and limit history
         run: |
-          python collect_market_details.py || true
-          python collect_market_details.py --reuse
+          details_ok=0
+          for i in 1 2; do
+            mode=""
+            if [ "$i" = "2" ]; then mode="--reuse"; fi
+            if timeout 210s python collect_market_details.py $mode; then
+              details_ok=1
+            else
+              echo "Market details attempt $i failed"
+            fi
+          done
+          if [ "$details_ok" != "1" ]; then
+            echo "No market-details pass completed successfully"
+            exit 1
+          fi
+
+      - name: Refresh same-day limit-up snapshot
+        run: |
+          live_limit_ok=0
+          for i in 1 2 3; do
+            if timeout 60s python collect_live_limits.py; then
+              live_limit_ok=1
+              break
+            fi
+            echo "Live limit snapshot attempt $i failed"
+            sleep $((i*4))
+          done
+          if [ "$live_limit_ok" != "1" ]; then
+            echo "Live limit snapshot unavailable; validator will reject stale intraday limits when required"
+          fi
 
       - name: Replace fixed sector watchlist with dynamic fund-flow leaders
         run: |
-          python refresh_dynamic_sectors.py || echo "Dynamic sector history refresh unavailable; retaining last verified sector set"
+          python refresh_dynamic_sectors.py || echo "Dynamic sector enrichment failed; validator will reject stale live sectors when required"
 
       - name: Repair same-day close snapshots and turnover from realtime fallbacks
         run: python repair_realtime_close.py
@@ -127,7 +168,10 @@ jobs:
       - name: Restore verified ETF comparison if upstream is unavailable
         run: python preserve_etf_fallback.py restore
 
-      - name: Validate final dashboard output
+      - name: Enforce frontend freshness wiring
+        run: python harden_frontend.py
+
+      - name: Validate every core module freshness
         run: python validate_dashboard.py
 
       - name: Sync verified post-close facts into brief
@@ -138,13 +182,9 @@ jobs:
           git config user.name "market-dashboard-bot"
           git config user.email "actions@users.noreply.github.com"
 
-          git add dashboard.json brief.json
-          if [ -f market_details.json ]; then
-            git add market_details.json
-          fi
-          if [ -f sector_ranking.json ]; then
-            git add sector_ranking.json
-          fi
+          git add dashboard.json brief.json index.html
+          if [ -f market_details.json ]; then git add market_details.json; fi
+          if [ -f sector_ranking.json ]; then git add sector_ranking.json; fi
 
           if git diff --cached --quiet; then
             echo "No data changes"
@@ -152,4 +192,38 @@ jobs:
             git commit -m "Update market dashboard data"
             git pull --rebase origin main
             git push origin HEAD:main
+          fi
+
+      - name: Verify GitHub Pages serves this exact refresh
+        run: |
+          expected=$(python - <<'PY'
+          import json
+          print(json.load(open('dashboard.json', encoding='utf-8'))['updated_at'])
+          PY
+          )
+          echo "Expecting published dashboard updated_at=$expected"
+          ok=0
+          for i in $(seq 1 15); do
+            if curl -fsS --max-time 12 "https://panko78.github.io/investment-brief-site/dashboard.json?verify=$RANDOM" -o /tmp/live-dashboard.json \
+              && curl -fsS --max-time 12 "https://panko78.github.io/investment-brief-site/index.html?verify=$RANDOM" -o /tmp/live-index.html; then
+              if EXPECTED="$expected" python - <<'PY'
+          import json, os
+          live=json.load(open('/tmp/live-dashboard.json', encoding='utf-8'))
+          html=open('/tmp/live-index.html', encoding='utf-8').read()
+          assert live.get('updated_at') == os.environ['EXPECTED'], (live.get('updated_at'), os.environ['EXPECTED'])
+          assert 'live_limit_snapshot' in html
+          assert 'limitFreshness' in html
+          print('Pages matches latest dashboard and freshness-aware frontend')
+          PY
+              then
+                ok=1
+                break
+              fi
+            fi
+            echo "Pages has not caught up yet ($i/15)"
+            sleep 8
+          done
+          if [ "$ok" != "1" ]; then
+            echo "GitHub Pages did not publish the latest verified dashboard in the allowed window"
+            exit 1
           fi
