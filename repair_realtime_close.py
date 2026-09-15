@@ -80,9 +80,6 @@ def em_snapshot(secid, target):
 
 
 def tencent_turnover(expected):
-    # Prefer A-share indices that match the existing dashboard scope. If Tencent does
-    # not expose either symbol, fall back to the broad exchange indices, whose quoted
-    # amount field is still an exchange-level turnover snapshot.
     symbol_sets = [('sh000002', 'sz399107'), ('sh000001', 'sz399001')]
     last = None
     for symbols in symbol_sets:
@@ -118,6 +115,51 @@ def merge_target(rows, row, target):
     out.append(row)
     out.sort(key=lambda x: x.get('date') or '')
     return out[-45:]
+
+
+def window_complete(w, n):
+    if not isinstance(w, dict):
+        return False
+    return (
+        w.get('net_yuan') is not None
+        and w.get('inflow_days') is not None
+        and w.get('return_pct') is not None
+        and w.get('excess_pct_point') is not None
+        and (w.get('observed_flow_days') or 0) >= n
+    )
+
+
+def merge_rebuilt_item(item, rebuilt):
+    """Merge a realtime repair without destroying verified historical windows.
+
+    Realtime snapshots are allowed to repair only same-day scalar fields. A rebuilt
+    3/5/10-day window replaces the existing one only when it is itself complete.
+    This prevents a one-row fallback dataset from erasing previously verified
+    persistence data while still allowing a fully rebuilt history to supersede it.
+    """
+    old_windows = item.get('windows') or {}
+    new_windows = rebuilt.get('windows') or {}
+    merged = dict(item)
+    merged['code'] = rebuilt.get('code') or item.get('code')
+    merged['name'] = rebuilt.get('name') or item.get('name')
+    for key in ('data_date', 'close', 'return_pct', 'turnover_yuan', 'turnover_pct', 'day_net_yuan', 'net_to_turnover_pct', 'turnover_vs_prev20'):
+        value = rebuilt.get(key)
+        if value is not None:
+            merged[key] = value
+    merged_windows = {}
+    for n in (3, 5, 10):
+        key = str(n)
+        candidate = new_windows.get(key) or {}
+        previous = old_windows.get(key) or {}
+        if window_complete(candidate, n):
+            merged_windows[key] = candidate
+        elif window_complete(previous, n):
+            merged_windows[key] = previous
+        else:
+            # Preserve the richer of two incomplete records rather than clearing it.
+            merged_windows[key] = previous if (previous.get('observed_flow_days') or 0) >= (candidate.get('observed_flow_days') or 0) else candidate
+    merged['windows'] = merged_windows
+    return merged
 
 
 def repair_details(data, expected):
@@ -164,7 +206,8 @@ def repair_details(data, expected):
                 f = merge_target(f, flow_row, expected)
                 datasets[flow_key] = {'fetched_at': now_iso, 'rows': f}
             rebuilt = {'code': code, 'name': item.get('name'), **cmd.stats(p, f, benchmark, expected)}
-            item.clear(); item.update(rebuilt)
+            merged = merge_rebuilt_item(item, rebuilt)
+            item.clear(); item.update(merged)
             repaired.append(code)
 
     if repaired:
@@ -179,9 +222,7 @@ def repair_details(data, expected):
 
 def main():
     data = json.loads(DASH.read_text(encoding='utf-8'))
-    expected = cmd.datetime.now(ZoneInfo('Asia/Shanghai')).date().isoformat()
-    # The workflow invokes this after 15:10 on same-day close runs. For safety,
-    # derive the true expected date from the dashboard validator convention.
+    expected = datetime.now(ZoneInfo('Asia/Shanghai')).date().isoformat()
     now = datetime.now(ZoneInfo('Asia/Shanghai'))
     if now.weekday() >= 5 or (now.hour, now.minute) < (15, 10):
         d = now.date()
