@@ -14,6 +14,7 @@ on:
       - 'repair_realtime_close.py'
       - 'repair_stock_snapshots.py'
       - 'preserve_etf_fallback.py'
+      - 'validate_sector_windows.py'
       - 'validate_dashboard.py'
       - 'harden_frontend.py'
       - 'sanitize_dashboard.py'
@@ -21,20 +22,20 @@ on:
       - 'requirements.txt'
       - '.github/workflows/update-data.yml'
   schedule:
-    - cron: '0 0 * * 1-5'      # 08:00 Beijing
-    - cron: '10 0 * * 1-5'     # 08:10 retry
-    - cron: '35 1 * * 1-5'     # 09:35
-    - cron: '45 1 * * 1-5'     # 09:45 retry
-    - cron: '30 2 * * 1-5'     # 10:30
-    - cron: '35 3 * * 1-5'     # 11:35
-    - cron: '45 3 * * 1-5'     # 11:45 retry
-    - cron: '30 5 * * 1-5'     # 13:30
-    - cron: '30 6 * * 1-5'     # 14:30
-    - cron: '5 7 * * 1-5'      # 15:05 live close snapshot
-    - cron: '15 7 * * 1-5'     # 15:15 completed-session attempt
-    - cron: '45 7 * * 1-5'     # 15:45 final close retry
-    - cron: '20 18 * * 1-5'    # 02:20 Beijing next morning
-    - cron: '35 18 * * 1-5'    # 02:35 retry
+    - cron: '0 0 * * 1-5'
+    - cron: '10 0 * * 1-5'
+    - cron: '35 1 * * 1-5'
+    - cron: '45 1 * * 1-5'
+    - cron: '30 2 * * 1-5'
+    - cron: '35 3 * * 1-5'
+    - cron: '45 3 * * 1-5'
+    - cron: '30 5 * * 1-5'
+    - cron: '30 6 * * 1-5'
+    - cron: '5 7 * * 1-5'
+    - cron: '15 7 * * 1-5'
+    - cron: '45 7 * * 1-5'
+    - cron: '20 18 * * 1-5'
+    - cron: '35 18 * * 1-5'
 
 permissions:
   contents: write
@@ -140,6 +141,9 @@ jobs:
 
       - name: Enforce frontend freshness wiring
         run: timeout 30s python harden_frontend.py
+
+      - name: Validate sector 3-5-10 persistence integrity
+        run: timeout 30s python validate_sector_windows.py
 
       - name: Validate every core module freshness
         run: timeout 45s python validate_dashboard.py
