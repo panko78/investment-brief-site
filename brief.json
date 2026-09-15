@@ -1,13 +1,13 @@
 {
   "avoid": [
-    "CPO仍弱时把电子规划扩大成AI硬件全面主升",
-    "中新赛克AI产品收入占比不超过上半年营收2%背景下追逐无合同的网安后排",
-    "闽东电力5连板后无容量设备股共振时继续接力地域小票",
-    "翔鹭钨业触板回落后追逐无资源量、无产能验证的钨概念",
-    "广汽A股停牌、交易条款未定时把所有汽车股视为重组受益",
-    "固态电池没有量产节点时把政策目标当成当期利润",
-    "昨日医药20cm前排分化时无差别追CXO和创新药",
-    "油服工程仍弱时追百美元油价的纯地缘概念"
+    "4300多只下跌背景下的高位核按钮链和无量跟风",
+    "宁德时代-6.16%且电新资金净流出时追无中试/量产节点的固态电池小票",
+    "中际旭创、新易盛偏弱时把PCB上涨扩展成CPO全面主升",
+    "中新赛克AI产品收入占比不超过上半年营收2%背景下追无合同网安后排",
+    "闽东电力5连板后容量风电股不共振时继续接力地域概念",
+    "农业、零售和高位消费连续跌停链中的机械抄底",
+    "百美元油价未获A股油气中军价格确认时追纯地缘概念",
+    "没有订单、临床读出、获批、BD或商业化收入的机器人和创新药概念"
   ],
   "candidate_pool": [
     {
@@ -80,86 +80,98 @@
   "closing_snapshot": {
     "as_of": "2026-09-15 15:00 北京时间",
     "indices": {
-      "beijing50": {
-        "close": null,
-        "change_pct": null
-      },
-      "chinext": {
-        "close": null,
-        "change_pct": null
-      },
       "shanghai": {
         "close": 3864.28,
         "change_pct": -0.54
       },
       "shenzhen": {
         "close": null,
-        "change_pct": null
+        "change_pct": -0.72
+      },
+      "chinext": {
+        "close": null,
+        "change_pct": -1.15
       },
       "star50": {
+        "close": null,
+        "change_pct": 1.55
+      },
+      "beijing50": {
         "close": null,
         "change_pct": null
       }
     },
-    "lagging": [],
-    "leading": [],
     "market": {
-      "advancers": null,
+      "turnover_billion": 1612.34,
       "change_vs_previous_billion": -16.46,
-      "decliners": null,
-      "failed_limit_cls_non_st": 24,
-      "limit_down_total": null,
+      "advancers": null,
+      "decliners": "超过4300只",
       "limit_up_cls_non_st": 32,
+      "failed_limit_cls_non_st": 24,
       "seal_rate_pct": 57.14,
-      "turnover_billion": 1612.34
+      "blast_rate_pct": 42.86,
+      "limit_down_total": null
     },
-    "note": "收盘数值仅同步自动管线已核验字段：上证、沪深成交额、较前一交易日成交额变化、涨停/炸板。其他指数点位、涨跌家数、跌停数及收盘强弱板块未在本管线内独立核验，因此不沿用午间值、不做估算。"
+    "leading": [
+      "半导体/存储芯片",
+      "PCB/MLCC",
+      "风电/智能电网",
+      "网络安全"
+    ],
+    "lagging": [
+      "农业种植",
+      "零售消费",
+      "兵装重组",
+      "电力新能源容量权重"
+    ],
+    "note": "指数涨跌采用15:00公开收盘口径；涨停、炸板采用财联社非ST及退市股口径。完整跌停数、20%/30%涨停总数与全市场精确涨跌家数未取得，保持空值。"
   },
   "cross_validation": {
-    "dragon_tiger": {
-      "coverage": "本自动管线尚未形成可独立核验的当日龙虎榜机构席位汇总。",
-      "data_period": "2026-09-15收盘",
-      "items": [],
-      "note": "未核验即留空；不与主力资金、融资或ETF份额相加。"
+    "financing": {
+      "data_period": "截至2026-09-14",
+      "coverage": "两融余额26268.53亿元，按交易所披露节奏使用最近已核验交易日",
+      "items": [
+        {
+          "scope": "申万一级近4周",
+          "detail": "电子-210.42亿元、医药生物-59.48亿元、计算机-50.89亿元、电力设备-35.92亿元"
+        },
+        {
+          "scope": "个股近4周",
+          "detail": "中际旭创+16.81亿元、宁德时代+12.96亿元；药明康德-10.60亿元"
+        }
+      ],
+      "note": "滞后数据，不能解释9月15日实时账户行为，也不能与主力资金、ETF或龙虎榜相加。"
     },
     "etf_share": {
       "data_period": "2026-09-11→2026-09-14",
-      "status": "使用上交所最近两个已核验统计日，共904条可比ETF；若当日份额尚未披露则明确滞后，不估算。"
+      "status": "上交所最近两个已核验统计日；9月15日收盘份额尚未完整披露。",
+      "note": "份额变化与ETF价格导致的规模变化不同，不能把规模增长当净申购。"
     },
-    "financing": {
-      "coverage": "两融余额26268.53亿元；按交易所披露节奏使用最近已核验交易日",
-      "data_period": "截至2026-09-14",
-      "items": [
-        {
-          "detail": "电子-210.42亿元、医药生物-59.48亿元、计算机-50.89亿元、非银金融-41.64亿元、电力设备-35.92亿元、银行-25.14亿元",
-          "scope": "申万一级近4周"
-        },
-        {
-          "detail": "中际旭创+16.81亿元、宁德时代+12.96亿元；药明康德-10.6亿元",
-          "scope": "个股近4周"
-        }
-      ],
-      "note": "披露滞后数据，不与主力资金、ETF或龙虎榜相加。"
+    "dragon_tiger": {
+      "data_period": "2026-09-15收盘",
+      "coverage": "完整当日机构席位净买入汇总尚未取得",
+      "items": [],
+      "note": "未核验即留空，不与成交分类资金、融资或ETF相加。"
     }
   },
   "data_quality": {
-    "as_of": "2026-09-15 16:01 北京时间",
-    "rule": "仅把已通过 dashboard/market_details 最终校验的数据同步为收盘事实；无法核验字段保持空值，午间主观判断不自动改写为收盘结论。",
-    "unavailable": "其他指数收盘点位、全市场涨跌家数/跌停数、收盘强弱板块排名、当日龙虎榜机构席位汇总，以及尚未由官方发布到当日的ETF份额，不在自动收盘同步中估算。",
-    "verified": "收盘核心市场日2026-09-15；上证、成交额、涨停/炸板、4个板块资金及5只重点股3/5/10日窗口已通过自动校验。",
-    "note": "主力净流入是成交分类估算，不等于机构真实仓位或账户间资金迁移；融资、ETF、龙虎榜不可相加。"
+    "as_of": "2026-09-15 18:00 北京时间",
+    "verified": "上证及主要指数涨跌、沪深成交额及日变化、32股涨停/24股炸板/57.14%封板率、连板梯队、半导体资金方向、部分主题和候选股资金序列。",
+    "unavailable": "完整跌停总数、10%/20%/30%涨停拆分、全市场精确涨跌家数、互斥行业成交额占比及20日均值、行业3/5/10日资金序列、当日ETF份额和完整龙虎榜机构席位。",
+    "rule": "缺失字段留空，不由盘中样本或日K外推；概念板块不重复加总。",
+    "note": "主力净流入是成交分类估算，不等于机构真实仓位或账户间资金迁移。"
   },
   "date": "2026-09-15",
   "decision_summary": {
-    "as_of": "2026-09-15 11:30",
+    "as_of": "2026-09-15 15:00 北京时间",
     "strongest": [
-      "半导体/电子化学品",
-      "网络与数据安全",
-      "风电/绿色电力"
+      "半导体/存储芯片",
+      "PCB/MLCC",
+      "风电/智能电网"
     ],
-    "key_signal": "午后最重要的是科创50强势能否由中芯国际、中微公司等容量股保持，同时网络安全和风电高标不出现集中开板。若科创50回落、只剩一字板和小票，上午行情应降级为政策脉冲。",
-    "avoid": "回避CPO弱势下的泛AI后排、无合同网安概念、5连板后无容量共振的绿电小票、钨触板回落后的追高，以及无量产节点的固态电池。",
-    "close_data_note": "该模块的主观判断仍保留原发布时间；收盘事实请以 closing_snapshot、candidate_pool.price_fund_persistence 和 data_quality 为准。"
+    "key_signal": "9月16日9:45前先看中芯国际、中微公司、北方华创能否至少两只继续强于科创50；随后看生益科技、沪电股份、深南电路和风电设备容量股能否承接。若只剩高标和小票，今日科技强势应降级为缩量环境下的局部抱团。",
+    "avoid": "回避4300股下跌背景下的高位核按钮链、宁德时代弱势时无量产节点的固态电池后排、CPO未共振时泛化AI硬件、无合同的网安概念，以及农业零售连续跌停链抄底。",
+    "close_data_note": "收盘事实已按15:00口径更新；主力资金是成交分类估算，不等同机构真实仓位。"
   },
   "forecast_history": [
     {
@@ -1174,117 +1186,203 @@
       "measurement": "以9月15日开盘后可成交价格为起点，使用固定板块指数对比上证指数；一字涨停或无流动性价格须标记不可成交。1/3/5个完整交易日后记录超额收益和期间最大回撤，禁止前视回填。",
       "published_at": "2026-09-14 18:00",
       "results": {
+        "day1": "定性：CXO/医药工具链未命中，PCB/MLCC命中，网络安全命中；缺少固定板块指数开盘可成交价，1日超额收益及最大回撤不可验证。",
+        "day3": "待验证",
+        "day5": "待验证"
+      },
+      "status": "1日定性已复盘；1日定量及3/5日待验证",
+      "target_trade_date": "2026-09-15"
+    },
+    {
+      "benchmark": "上证指数",
+      "forecast": [
+        {
+          "name": "半导体/存储芯片",
+          "score": 85,
+          "confidence": "中高",
+          "breakdown": {
+            "relative_strength": 15,
+            "limit_density": 16,
+            "turnover_fundflow": 18,
+            "leader_midcap": 15,
+            "late_session": 8,
+            "continuity": 6,
+            "external_catalyst": 7
+          },
+          "evidence": "科创50逆势+1.55%，国产芯片5只涨停；半导体同源成交分类净流入50.57亿元，存储芯片概念+1.02%且净流入47.36亿元。首日强化，连续性项仅6分。",
+          "leaders": [
+            "中芯国际",
+            "中微公司",
+            "北方华创",
+            "华海清科",
+            "兆易创新"
+          ],
+          "verify": "9:45前中芯国际、中微公司、北方华创至少两只强于科创50；半导体设备与存储不能只剩小市值涨停股。",
+          "invalidate": "科创50冲高回落，容量设备/制造股同步转弱，板块成交分类资金由净流入转为明显净流出。"
+        },
+        {
+          "name": "PCB/MLCC",
+          "score": 83,
+          "confidence": "中高",
+          "breakdown": {
+            "relative_strength": 14,
+            "limit_density": 18,
+            "turnover_fundflow": 16,
+            "leader_midcap": 14,
+            "late_session": 9,
+            "continuity": 8,
+            "external_catalyst": 4
+          },
+          "evidence": "PCB 4只涨停、澳弘电子与双星新材3板，生益科技+2.91%且净流入6.88亿元；多只前排尾盘封板。CPO仍弱，外部催化有限。",
+          "leaders": [
+            "生益科技",
+            "沪电股份",
+            "深南电路",
+            "三环集团",
+            "风华高科"
+          ],
+          "verify": "9:45前生益科技、沪电股份、深南电路、三环集团、风华高科至少两只强于电子指数；澳弘电子不出现快速核按钮。",
+          "invalidate": "容量PCB/MLCC同步低开低走，连板前排批量开板，资金仅留在低成交小票。"
+        },
+        {
+          "name": "风电/智能电网",
+          "score": 80,
+          "confidence": "中",
+          "breakdown": {
+            "relative_strength": 14,
+            "limit_density": 17,
+            "turnover_fundflow": 10,
+            "leader_midcap": 13,
+            "late_session": 9,
+            "continuity": 8,
+            "external_catalyst": 9
+          },
+          "evidence": "风电和智能电网各有4只涨停，闽东电力5板且多股尾盘封板；欧洲能源紧张提供催化。但电新行业资金整体净流出，资金项仅10分。",
+          "leaders": [
+            "大金重工",
+            "海力风电",
+            "天顺风能",
+            "中闽能源",
+            "闽东电力"
+          ],
+          "verify": "9:45前大金重工、海力风电、天顺风能至少两只保持强于电力设备指数；闽东电力换手后不出现快速核按钮。",
+          "invalidate": "5板高标高开低走，风电设备容量股同步转弱，电新行业继续明显净流出。"
+        }
+      ],
+      "measurement": "以9月16日开盘后可成交价格为起点，使用固定板块指数对比上证指数；一字涨停或无流动性价格标记不可成交。1/3/5个完整交易日后记录超额收益和期间最大回撤，禁止前视回填。",
+      "published_at": "2026-09-15 18:00",
+      "target_trade_date": "2026-09-16",
+      "results": {
         "day1": "待验证",
         "day3": "待验证",
         "day5": "待验证"
       },
-      "status": "已发布；1/3/5日待验证",
-      "target_trade_date": "2026-09-15"
+      "status": "已发布；1/3/5日待验证"
     }
   ],
   "forecast_review": {
-    "as_of": "2026-09-15 11:30",
-    "market_note": "对9月14日收盘发布、目标9月15日的84/82/78分预测做午间检查；原始分数及七项分项不倒改。",
+    "as_of": "2026-09-15 15:00",
+    "market_note": "对9月14日18:00发布、目标9月15日的84/82/78分预测做收盘复盘；原始分数及分项不倒改。",
     "items": [
       {
         "name": "CXO/重组蛋白与医药工具链",
         "published_score": 84,
         "entered_top_strength": false,
-        "hit": "partial",
-        "actual": "药明康德、凯莱英等容量CXO有承接，但昨日20cm重组蛋白前排分化，医药未进入上午最强行业前三。",
-        "reason": "容量与高弹性未共振，不能用少数容量股上涨判整个篮子命中。"
+        "hit": false,
+        "actual": "药明康德收跌1.38%，医药行业同源成交分类资金净流出，未进入强势前列。",
+        "reason": "前一日20cm高潮后的兑现压力被低估，容量与高弹性没有共振。"
       },
       {
         "name": "PCB/MLCC细分",
         "published_score": 82,
         "entered_top_strength": true,
-        "hit": "partial",
-        "actual": "华正新材、澳弘电子、双星新材等延续，MLCC与PCB活跃；CPO仍弱。",
-        "reason": "细分价格连续性确认，但宽AI硬件和光模块未确认。"
+        "hit": true,
+        "actual": "PCB 4只涨停、澳弘电子与双星新材3板，PCB/MLCC概念分别+0.58%/+1.03%，生益科技+2.91%。",
+        "reason": "细分价格和梯队命中；CPO不属于本次细分命中范围。"
       },
       {
         "name": "网络安全",
         "published_score": 78,
         "entered_top_strength": true,
         "hit": true,
-        "actual": "中新赛克4连板，启明信息、天融信、永信至诚等活跃，涨停梯队最清晰。",
-        "reason": "价格和梯队命中；资金金额与容量中军仍待收盘。"
+        "actual": "中新赛克4连板、启明信息和博汇科技2连板，涨停梯队延续。",
+        "reason": "短线价格命中，但容量中军仍不足，基本面置信度不能同步提高。"
       }
     ],
-    "calibration": "继续提高容量中军和行业相对强度权重；高标一字板只证明短线情绪，不能代替资金占比与基本面。将CPO、PCB、MLCC拆开评估。",
+    "calibration": "提高前一日20cm高潮后的兑现扣分；保持PCB/MLCC与CPO拆分；对一字/高板情绪增加可成交性折扣。资金项必须有同源金额或成交占比，不能用新闻强度替代。",
     "candidate_review": [
       {
         "name": "百普赛斯",
-        "published_at": "2026-09-14 11:45",
-        "result": "收涨16.57%，医药工具链进入强势方向",
-        "status": "确认"
-      },
-      {
-        "name": "诺诚健华",
-        "published_at": "2026-09-14 11:45",
-        "result": "收涨11.93%，但当日主力净流入估算为-0.18亿元",
-        "status": "价格确认、资金分化"
+        "published_at": "2026-09-14 18:00",
+        "result": "9月15日同源收盘与资金数据未完整取得",
+        "status": "不可验证"
       },
       {
         "name": "三环集团",
-        "published_at": "2026-09-14 11:45",
-        "result": "收涨1.18%，当日主力净流入估算4.19亿元，3/5/10日净流入均为正",
-        "status": "资金确认强于价格弹性"
+        "published_at": "2026-09-14 18:00",
+        "result": "收涨0.30%，当日成交分类净流出3.62亿元",
+        "status": "价格弱确认、资金背离"
       },
       {
-        "name": "安凯客车",
-        "published_at": "2026-09-14 11:45",
-        "result": "收涨10.14%，整车进入行业涨幅前列",
-        "status": "短线确认"
+        "name": "诺诚健华",
+        "published_at": "2026-09-14 18:00",
+        "result": "同源收盘与资金数据未完整取得",
+        "status": "不可验证"
       },
       {
-        "name": "永信至诚",
-        "published_at": "2026-09-14 11:45",
-        "result": "20cm涨停，网络安全形成涨停梯队",
-        "status": "短线确认"
+        "name": "中新赛克",
+        "published_at": "2026-09-14 18:00",
+        "result": "收涨10.02%并晋级4连板；当日成交分类净流出1.31亿元",
+        "status": "短线命中、可成交性和资金分化"
+      },
+      {
+        "name": "闽东电力",
+        "published_at": "2026-09-14 18:00",
+        "result": "收涨10.02%晋级5连板；当日成交分类净流出0.80亿元",
+        "status": "短线命中、尾盘回封且高风险"
       }
     ]
   },
   "forecast_score_audit": {
-    "as_of": "2026-09-15 08:00",
+    "as_of": "2026-09-15 18:00",
+    "framework": "15/20/20/15/10/10/10，共100分",
     "checks": [
       {
-        "calculated": 84,
-        "name": "CXO/重组蛋白与医药工具链",
-        "pass": true,
-        "reported": 84
+        "name": "半导体/存储芯片",
+        "reported": 85,
+        "calculated": 85,
+        "pass": true
       },
       {
-        "calculated": 82,
-        "name": "PCB/MLCC细分",
-        "pass": true,
-        "reported": 82
+        "name": "PCB/MLCC",
+        "reported": 83,
+        "calculated": 83,
+        "pass": true
       },
       {
-        "calculated": 78,
-        "name": "网络安全",
-        "pass": true,
-        "reported": 78
+        "name": "风电/智能电网",
+        "reported": 80,
+        "calculated": 80,
+        "pass": true
       }
     ],
-    "framework": "15/20/20/15/10/10/10，共100分",
-    "history_count": 11,
-    "note": "9月14日收盘原始84/82/78分继续按固定七项加总通过；油气盘前观察44分也等于分项合计。隔夜信息不修改A股已发布分项，这些分数不是上涨概率。"
+    "history_count": 12,
+    "note": "评分由程序加总；资金数据不完整的方向已压低资金项。总分不是上涨概率。"
   },
   "limit_review": {
-    "as_of": "11:30",
+    "as_of": "15:00",
     "trade_date": "2026-09-15",
-    "scope": "午间公开可核验样本；完整涨停/跌停/炸板统一总数未取得",
-    "limit_up_total": null,
+    "scope": "财联社非ST、退市股口径",
+    "limit_up_total": 32,
     "limit_down_total": null,
-    "failed_limit_count": null,
-    "seal_rate_pct": null,
-    "blast_rate_pct": null,
+    "failed_limit_count": 24,
+    "seal_rate_pct": 57.14,
+    "blast_rate_pct": 42.86,
     "categories": {
       "ten_pct": null,
-      "twenty_pct": null,
+      "twenty_pct": "至少1只：博汇科技20cm 2连板",
       "thirty_pct": null,
-      "special_rules": "可核验20cm高弹性样本包括气派科技约+17%、臻宝科技约+14%；完整20cm涨停数未取得，不把接近涨停计作封板。"
+      "special_rules": "完整10%/20%/30%拆分未取得；不把接近涨停计作封板。"
     },
     "highest_board": {
       "name": "闽东电力",
@@ -1307,83 +1405,147 @@
       },
       {
         "boards": 3,
-        "count": 1,
+        "count": 2,
         "names": [
+          "澳弘电子",
           "双星新材"
         ]
       },
       {
         "boards": 2,
-        "count": 1,
+        "count": 3,
         "names": [
-          "安凯客车"
-        ]
-      },
-      {
-        "boards": "多波",
-        "count": 2,
-        "names": [
-          "华正新材7天3板",
-          "澳弘电子涨停"
+          "博汇科技",
+          "启明信息",
+          "宏盛股份"
         ]
       }
     ],
     "intraday_detail": {
-      "first_seal_time": "翔鹭钨业开盘后约1分钟触及涨停；其他全量首次封板时间未取得",
-      "open_count": "翔鹭钨业触板后回落，可确认至少1个炸板样本；全量开板次数未取得",
-      "turnover": "未取得全量统一数据",
-      "late_support": "11点后福建绿电拉升，中闽能源涨停；科创50保持明显相对强势。无逐笔数据，不判断封单变化或回封速度。"
+      "first_seal_time": "闽东电力14:46、中新赛克14:09、澳弘电子14:41、中闽能源14:32；仅列公开可核验样本",
+      "open_count": "全量开板次数未取得；24股封板未遂是统一口径总数",
+      "turnover": "闽东电力换手约29.24%、中新赛克约23.27%、澳弘电子约13.08%；第三方复盘口径",
+      "late_support": "多只智能电网、风电和PCB前排在14:00后封板或回封，说明尾盘资金仍回流强势细分；无逐笔数据，不判断封单变化或回封速度。"
     },
-    "data_note": "完整分母未取得，因此不计算封板率和炸板率；不由日K或盘中样本外推全市场数量。",
-    "sentiment_validation": "午后看闽东电力、中新赛克高位封板稳定性，以及半导体容量股能否维持科创50强势。"
+    "data_note": "完整跌停总数与全部涨停板制度分类未取得，保持空值。",
+    "sentiment_validation": "次日先看5板、4板是否出现核按钮，再看半导体和PCB容量股能否承接。"
   },
   "mainlines": [
     {
-      "title": "半导体/电子化学品：科创50逆势领涨，政策获得价格确认",
+      "title": "半导体/存储芯片：科创50逆势领涨，价格与资金双确认",
       "stars": 5,
-      "fact": "工信部、国家发改委发布电子信息制造业“十五五”规划，提出2030年规上企业营收突破30万亿元，并推进集成电路全链条、高带宽存储、先进封装、光子及AI硬件底座。",
-      "market": "电子化学品约+2.40%、半导体约+1.53%，科创50约+1.65%，明显强于沪指、深成指和创业板；气派科技、臻宝科技等高弹性股领涨。",
-      "short_term": "政策刺激已经由行业和科创权重价格确认，但午后仍需中芯国际、中微公司、北方华创等容量核心维持相对强势。",
-      "mid_term": "规划是产业方向，不是上市公司订单。中期要看设备验证、晶圆厂资本开支、良率、产能利用率和真实收入。",
+      "fact": "电子信息制造业“十五五”规划继续提供全链条攻关、存储和先进封装催化；当天半导体板块同源成交分类净流入50.57亿元。",
+      "market": "科创50收涨1.55%，而沪指、深成指、创业板均下跌。存储芯片概念涨1.02%，128只成分上涨，和顺石油、大为股份涨停；该概念成交分类净流入47.36亿元。",
+      "short_term": "这是当天最清晰的容量承接方向，但尾盘未带动全市场回暖，次日仍需设备、制造和存储中军共同确认。",
+      "mid_term": "规划不是订单。中期看晶圆厂资本开支、设备验收、良率、存储价格、产能利用率和利润兑现。",
       "beneficiaries": [
-        "半导体设备与材料",
+        "半导体设备",
         "晶圆制造",
-        "先进封装与高端电子材料"
+        "存储与先进封装",
+        "电子材料"
       ],
       "losers": [
-        "高估值但无量产订单的芯片概念"
+        "无客户认证和量产收入的国产替代概念股"
       ],
       "business_map": {
         "direct": [
           "中芯国际",
           "中微公司",
           "北方华创",
-          "拓荆科技"
+          "华海清科",
+          "兆易创新"
         ],
         "mapping": [
           "气派科技",
           "臻宝科技",
-          "封装材料及EDA产业链"
+          "中晶科技"
         ],
         "sentiment": [
-          "只有规划标签、无客户验证和收入的后排"
+          "主营关联度低、仅依靠Chiplet或光刻胶标签的公司"
         ]
       },
-      "risk": "科创50成分调整后权重影响需留意；若容量核心午后回落、只剩小市值高弹性股，主线质量将下降。"
+      "risk": "成交额仍处年内低位；若科创50冲高回落、容量股不跟，政策行情可能快速缩回小票。"
     },
     {
-      "title": "网络与数据安全：四连板确认情绪强度，基本面贡献仍弱",
+      "title": "PCB/MLCC：四只涨停、三连板与材料涨价共振",
       "stars": 4,
-      "fact": "中新赛克一字涨停晋级4连板，启明信息竞价涨停，天融信、永信至诚、中孚信息、浩瀚深度等活跃；海外AI安全讨论与国内活动继续提供催化。",
-      "market": "网络安全是上午涨停梯队最清晰的概念线之一，昨晚78分预测获得价格验证。",
-      "short_term": "高标封单和20cm前排决定午后持续性；容量公司若不加入，仍是事件驱动的小票行情。",
-      "mid_term": "中新赛克公告称AI应用产品收入不超过2026年上半年营收的2%，不能把4连板解释为业绩大幅兑现。",
+      "fact": "电子布、铜箔和CCL价格催化延续；澳弘电子3连板，华正新材、欧克科技、诺德股份涨停，双星新材3连板。",
+      "market": "PCB概念收涨0.58%、MLCC概念涨1.03%；生益科技涨2.91%且成交分类净流入6.88亿元。澳弘电子14:41封板，显示尾盘仍有承接。",
+      "short_term": "细分获得确认，但中际旭创、新易盛分别下跌1.03%、1.22%，不能扩展为CPO或AI硬件全面主升。",
+      "mid_term": "核心仍是高多层板、低损耗覆铜板和高阶MLCC的客户认证、批量供货、提价及毛利率。",
       "beneficiaries": [
-        "真实政企安全合同",
-        "AI治理与数据安全产品"
+        "高阶PCB/覆铜板",
+        "高端铜箔",
+        "高阶MLCC"
       ],
       "losers": [
-        "高位接力失败的纯会议概念"
+        "无认证、无量产的泛AI材料概念"
+      ],
+      "business_map": {
+        "direct": [
+          "生益科技",
+          "沪电股份",
+          "深南电路",
+          "三环集团",
+          "风华高科"
+        ],
+        "mapping": [
+          "澳弘电子",
+          "华正新材",
+          "双星新材",
+          "诺德股份"
+        ],
+        "sentiment": [
+          "失实认证或只贴AI服务器标签的后排"
+        ]
+      },
+      "risk": "容量CPO仍弱、海外利率高；若生益、沪电、深南不能续强，连板股可能独立退潮。"
+    },
+    {
+      "title": "风电/智能电网：四股涨停且尾盘扩散，但电新整体资金仍弱",
+      "stars": 4,
+      "fact": "欧洲能源紧张与海风建设预期提供催化，天顺风能、吉鑫科技、大金重工、锡华科技等涨停，海力风电涨超10%。",
+      "market": "闽东电力14:46回封晋级5连板，中闽能源14:32封板，风电与福建绿电尾盘增强；但同源监控显示电新行业整体资金净流出，宁德时代跌6.16%。",
+      "short_term": "风电设备与绿电运营可继续观察，但必须把它们与固态电池、泛电新分开。",
+      "mid_term": "风电中期验证来自招标、订单、交付、海上项目开工和利用小时；发电端还看电价与现金流。",
+      "beneficiaries": [
+        "海上风电设备",
+        "有在建项目的绿电运营商",
+        "部分电网消纳设备"
+      ],
+      "losers": [
+        "只有地域或算电标签、无项目利润的跟风股"
+      ],
+      "business_map": {
+        "direct": [
+          "大金重工",
+          "海力风电",
+          "天顺风能",
+          "中闽能源"
+        ],
+        "mapping": [
+          "闽东电力",
+          "智能电网设备"
+        ],
+        "sentiment": [
+          "纯福建地域和无订单风电概念"
+        ]
+      },
+      "risk": "5连板拥挤且封板较晚；若闽东电力负反馈或设备中军低开，情绪可能迅速回吐。"
+    },
+    {
+      "title": "网络安全：四连板回封确认情绪，收入贡献不足限制中期逻辑",
+      "stars": 3,
+      "fact": "中新赛克午后打开一字后于14:09回封4连板，启明信息2连板，博汇科技20cm 2连板；网安活动与AI安全议题持续发酵。",
+      "market": "涨停梯队清晰，但奇安信、深信服等容量公司未形成同等级别共振。",
+      "short_term": "短线情绪得到确认，次日看高标换手承接，而不是继续依赖一字板。",
+      "mid_term": "中新赛克公告显示AI应用产品收入不超过2026年上半年营收2%；中期必须看政企合同、订阅收入和回款。",
+      "beneficiaries": [
+        "真实网络安全合同",
+        "数据治理和关键基础设施安全"
+      ],
+      "losers": [
+        "活动兑现后无合同支撑的AI安全概念"
       ],
       "business_map": {
         "direct": [
@@ -1393,110 +1555,44 @@
         ],
         "mapping": [
           "中新赛克",
-          "永信至诚",
-          "天融信"
+          "启明信息",
+          "博汇科技"
         ],
         "sentiment": [
           "无新增合同、只贴AI安全标签的公司"
         ]
       },
-      "risk": "中新赛克开板或永信至诚大幅回落时，昨日高位负反馈可能迅速扩散。"
+      "risk": "高标开板下杀、容量中军继续不响应时，梯队可能快速瓦解。"
     },
     {
-      "title": "风电/绿色电力：涨停扩散与五连板共振",
-      "stars": 4,
-      "fact": "大金重工、吉鑫科技等涨停，电力设备行业约+1.18%；福建本地绿电拉升，中闽能源涨停，闽东电力晋级5连板。",
-      "market": "同时具备行业涨幅、多个涨停和连板高度，是上午第三条得到价格确认的交易线；但风电设备、福建绿电和算电协同并非完全相同盈利逻辑。",
-      "short_term": "午后看大金重工、海力风电等容量或高辨识度设备股能否稳定，以及闽东电力是否维持承接。",
-      "mid_term": "设备端要看招标、订单、交付与海风项目开工；发电端要看装机、电量、电价和利用小时。",
+      "title": "固态电池：三只涨停但宁德时代大跌，尚未获容量确认",
+      "stars": 2,
+      "fact": "上海洗霸、金龙羽、英联股份涨停，政策和车企远期固态电池规划提供消息催化。",
+      "market": "宁德时代跌6.16%并遭成交分类净卖出23.35亿元，电新行业资金整体净流出；小票封板与产业链容量核心明显背离。",
+      "short_term": "只能定义为政策/消息刺激的局部交易，不是产业链主升。",
+      "mid_term": "必须验证电解质、电芯的能量密度、循环寿命、安全性、良率、中试和量产时间表；远期车型计划不等于当期利润。",
       "beneficiaries": [
-        "海上风电设备",
-        "有在建项目的绿色电力运营商"
+        "有中试线与明确量产节点的材料和设备公司"
       ],
       "losers": [
-        "只有地域或算力标签、无项目和利润贡献的跟风股"
+        "尚无中试、订单或客户验证的纯概念股"
       ],
       "business_map": {
         "direct": [
-          "大金重工",
-          "海力风电",
-          "金风科技",
-          "中闽能源"
-        ],
-        "mapping": [
-          "闽东电力",
-          "电网消纳与算电协同"
-        ],
-        "sentiment": [
-          "纯福建地域或零碳概念小票"
-        ]
-      },
-      "risk": "5连板阶段拥挤度高；若设备容量股回落、只剩地域高标，行情将降级为连板情绪。"
-    },
-    {
-      "title": "PCB/MLCC：连续性确认，但不是CPO全面回流",
-      "stars": 4,
-      "fact": "华正新材走出7天3板、澳弘电子涨停；双星新材晋级3连板，三环集团、火炬电子跟涨。上游材料涨价向部分PCB品类传导，村田拟扩高阶MLCC产能。",
-      "market": "PCB与MLCC连续活跃，昨晚82分预测部分命中；但CPO仍处跌幅区域，不能把材料和元件行情扩大为AI硬件全面主升。",
-      "short_term": "午后需要三环集团、风华高科、沪电股份、深南电路、生益科技至少两只继续强于电子指数。",
-      "mid_term": "真正验证来自客户认证、AI服务器板量、产品结构、提价落地及毛利率；行业规划和海外扩产不等于A股公司新增订单。",
-      "beneficiaries": [
-        "高阶MLCC",
-        "高多层PCB/覆铜板"
-      ],
-      "losers": [
-        "无认证、无量产的泛AI材料概念"
-      ],
-      "business_map": {
-        "direct": [
-          "三环集团",
-          "风华高科",
-          "沪电股份",
-          "深南电路",
-          "生益科技"
-        ],
-        "mapping": [
-          "华正新材",
-          "澳弘电子",
-          "双星新材"
-        ],
-        "sentiment": [
-          "失实英伟达认证或仅蹭涨价标签的公司"
-        ]
-      },
-      "risk": "海外半导体大跌和美债高位仍压制估值；若CPO与容量PCB继续弱，细分行情容易冲高回落。"
-    },
-    {
-      "title": "汽车整车/固态电池：政策与重组刺激，容量和产业化仍待核验",
-      "stars": 3,
-      "fact": "安凯客车2连板，众泰汽车、海马汽车、东风股份、中通客车跟涨；固态电池方面金龙羽涨停。广汽筹划发行股份购买一汽所持合资车企股权，电子信息规划也提出推进固态电池产业化。",
-      "market": "价格上有前排确认，但整车表现仍偏低价高弹性；广汽A股停牌，H股上涨不能替代A股容量确认。",
-      "short_term": "午后看长安汽车、赛力斯等容量整车是否加入；固态电池要看宁德时代、国轩高科而非只看小票封板。",
-      "mid_term": "整车重组要等交易条款、估值与协同；固态电池仍需能量密度、循环、安全、良率和量产时间表。",
-      "beneficiaries": [
-        "真实重组标的",
-        "具备电池研发和中试能力的公司"
-      ],
-      "losers": [
-        "无量产节点的固态电池概念"
-      ],
-      "business_map": {
-        "direct": [
-          "长安汽车",
-          "赛力斯",
           "宁德时代",
-          "国轩高科"
+          "国轩高科",
+          "先导智能"
         ],
         "mapping": [
-          "安凯客车",
-          "海马汽车",
-          "金龙羽"
+          "上海洗霸",
+          "金龙羽",
+          "英联股份"
         ],
         "sentiment": [
-          "仅凭央企整合或固态电池标签跟涨的公司"
+          "仅引用行业目标、无产业化进度的公司"
         ]
       },
-      "risk": "消息兑现后高开低走、重组不确定性以及固态电池商业化进度均可能令行情降温。"
+      "risk": "容量核心继续下跌、政策预期兑现或量产延迟都会使小票高开低走。"
     }
   ],
   "manual_revision": {
@@ -1515,37 +1611,37 @@
     "scope": "人工核验发布版；保留9月6日08:00周末资讯，修正资金单位与候选证据展示",
     "unit_contract": "所有 *_billion 字段均为十亿元人民币；网页显示亿元时乘10。历史值不改写。"
   },
-  "market_status": "午间简报：截至11:28接近午间收盘，沪指-0.14%、深成指-0.02%、创业板指-0.26%，科创50逆势+1.65%。沪深半日成交额约1.052万亿元。主线集中在半导体/电子化学品、网络与数据安全、风电绿电；指数分化而非普涨。",
+  "market_status": "2026-09-15 A股已收盘",
   "metrics": [
     {
       "label": "上证指数",
-      "value": "3880.04 / -0.14%",
-      "note": "11:28近午间收盘；盘中高3891.62、低3870.42"
+      "value": "3864.28 / -0.54%",
+      "note": "15:00收盘"
     },
     {
       "label": "深证成指",
-      "value": "13381.65 / -0.02%",
-      "note": "11:28近午间收盘"
+      "value": "-0.72%",
+      "note": "15:00收盘；点位未在同一公开源独立取得"
     },
     {
       "label": "创业板指",
-      "value": "3276.99 / -0.26%",
-      "note": "11:28近午间收盘"
+      "value": "-1.15%",
+      "note": "宁德时代-6.16%形成明显拖累"
     },
     {
       "label": "科创50",
-      "value": "1553.44 / +1.65%",
-      "note": "与主要宽基形成明显背离"
+      "value": "+1.55%",
+      "note": "与主要宽基显著背离，半导体成为核心承接方向"
     },
     {
-      "label": "沪深半日成交",
-      "value": "约1.052万亿元",
-      "note": "上交所约5027.48亿元、深交所约5494.35亿元；前日同一时点精确同源值未取得"
+      "label": "沪深成交额",
+      "value": "16123.4亿元",
+      "note": "较前一交易日减少164.6亿元，刷新年内低位"
     },
     {
-      "label": "领涨行业",
-      "value": "电子化学品+2.40% / 半导体+1.53%",
-      "note": "电力设备+1.18%、小金属+1.07%；截至约11:30公开盘面"
+      "label": "市场广度",
+      "value": "超4300只下跌",
+      "note": "指数跌幅有限，但个股风险偏好明显收缩"
     }
   ],
   "midday_snapshot": {
@@ -1613,14 +1709,13 @@
     "note": "油服工程上午处于弱势方向，中国海油、中国石油、中海油服未形成可核验共振，盘前44分观察不升级为A股主线。"
   },
   "multi_day_persistence": {
-    "as_of": "2026-09-15 11:30 北京时间",
-    "benchmark": "沪深300；午间仅与前日同一时点比较，不与完整日混算",
-    "scope": "完整交易日资金序列沿用9月14日收盘数据；9月15日半日不并入3/5/10日累计",
-    "methodology": "今日行业3/5/10日同源净流入、净流入天数、相对基准收益与成交占比趋势未取得，不填造。",
+    "as_of": "2026-09-15 15:00 北京时间",
+    "benchmark": "沪深300",
+    "scope": "仅使用完整交易日。行业3/5/10日同源净流入、净流入天数、相对基准收益与成交占比趋势未取得。",
+    "methodology": "不把午间数据与完整日混算；现有个股3/5/10日资金序列仅用于候选池，不替代行业数据。",
     "rows": [
       {
-        "sector": "PCB/MLCC",
-        "day1_net_inflow_billion": null,
+        "sector": "半导体/存储",
         "days3_net_inflow_billion": null,
         "days5_net_inflow_billion": null,
         "days10_net_inflow_billion": null,
@@ -1630,11 +1725,36 @@
         "relative_return_3d": null,
         "relative_return_5d": null,
         "relative_return_10d": null,
-        "turnover_share_trend": "9月11日、14日、15日上午连续活跃；CPO未同步"
+        "turnover_share_trend": "9月15日新增强；尚不足以确认多日主升"
+      },
+      {
+        "sector": "PCB/MLCC",
+        "days3_net_inflow_billion": null,
+        "days5_net_inflow_billion": null,
+        "days10_net_inflow_billion": null,
+        "net_inflow_days_3": null,
+        "net_inflow_days_5": null,
+        "net_inflow_days_10": null,
+        "relative_return_3d": null,
+        "relative_return_5d": null,
+        "relative_return_10d": null,
+        "turnover_share_trend": "9月11、14、15日连续活跃；CPO未同步"
+      },
+      {
+        "sector": "风电/绿电",
+        "days3_net_inflow_billion": null,
+        "days5_net_inflow_billion": null,
+        "days10_net_inflow_billion": null,
+        "net_inflow_days_3": null,
+        "net_inflow_days_5": null,
+        "net_inflow_days_10": null,
+        "relative_return_3d": null,
+        "relative_return_5d": null,
+        "relative_return_10d": null,
+        "turnover_share_trend": "电力高标延续至5板，风电设备9月15日扩散"
       },
       {
         "sector": "网络安全",
-        "day1_net_inflow_billion": null,
         "days3_net_inflow_billion": null,
         "days5_net_inflow_billion": null,
         "days10_net_inflow_billion": null,
@@ -1644,124 +1764,82 @@
         "relative_return_3d": null,
         "relative_return_5d": null,
         "relative_return_10d": null,
-        "turnover_share_trend": "中新赛克由3板升4板，短线连续；行业资金序列未取得"
-      },
-      {
-        "sector": "风电/绿色电力",
-        "day1_net_inflow_billion": null,
-        "days3_net_inflow_billion": null,
-        "days5_net_inflow_billion": null,
-        "days10_net_inflow_billion": null,
-        "net_inflow_days_3": null,
-        "net_inflow_days_5": null,
-        "net_inflow_days_10": null,
-        "relative_return_3d": null,
-        "relative_return_5d": null,
-        "relative_return_10d": null,
-        "turnover_share_trend": "闽东电力由4板升5板，风电设备上午扩散"
-      },
-      {
-        "sector": "半导体/电子化学品",
-        "day1_net_inflow_billion": null,
-        "days3_net_inflow_billion": null,
-        "days5_net_inflow_billion": null,
-        "days10_net_inflow_billion": null,
-        "net_inflow_days_3": null,
-        "net_inflow_days_5": null,
-        "net_inflow_days_10": null,
-        "relative_return_3d": null,
-        "relative_return_5d": null,
-        "relative_return_10d": null,
-        "turnover_share_trend": "9月15日受规划催化新增强，需收盘后建立连续性"
-      },
-      {
-        "sector": "CXO/医药工具链",
-        "day1_net_inflow_billion": null,
-        "days3_net_inflow_billion": null,
-        "days5_net_inflow_billion": null,
-        "days10_net_inflow_billion": null,
-        "net_inflow_days_3": null,
-        "net_inflow_days_5": null,
-        "net_inflow_days_10": null,
-        "relative_return_3d": null,
-        "relative_return_5d": null,
-        "relative_return_10d": null,
-        "turnover_share_trend": "9月14日强，15日上午容量与20cm前排分化"
+        "turnover_share_trend": "中新赛克连续4板；容量中军趋势未建立"
       }
     ]
   },
   "next_day_forecast": [
     {
-      "breakdown": {
-        "continuity": 7,
-        "external_catalyst": 8,
-        "late_session": 8,
-        "leader_midcap": 14,
-        "limit_density": 18,
-        "relative_strength": 14,
-        "turnover_fundflow": 15
-      },
+      "name": "半导体/存储芯片",
+      "score": 85,
       "confidence": "中高",
-      "evidence": "生物制品和化学制药居前，近岸蛋白、万邦医药20cm，百普赛斯+16.57%；医药板块同源主力资金净流入居首，世界肺癌大会提供产业催化。精确行业净流入金额未取得，资金项未给满分。",
-      "invalidate": "20cm双核心快速开板下杀，药明康德、凯莱英等容量公司同步弱于医药指数，板块资金转为明显流出。",
-      "leaders": [
-        "百普赛斯",
-        "药明康德",
-        "凯莱英",
-        "万邦医药",
-        "近岸蛋白"
-      ],
-      "name": "CXO/重组蛋白与医药工具链",
-      "score": 84,
-      "verify": "9:45前药明康德、凯莱英、百普赛斯至少两只强于医药指数；万邦医药和近岸蛋白不能同时大幅低开。"
-    },
-    {
       "breakdown": {
-        "continuity": 8,
-        "external_catalyst": 7,
-        "late_session": 9,
-        "leader_midcap": 14,
+        "relative_strength": 15,
         "limit_density": 16,
-        "relative_strength": 14,
-        "turnover_fundflow": 14
+        "turnover_fundflow": 18,
+        "leader_midcap": 15,
+        "late_session": 8,
+        "continuity": 6,
+        "external_catalyst": 7
       },
-      "confidence": "中高",
-      "evidence": "PCB、MLCC连续两日活跃，超声电子6天4板、双星新材2连板，多只细分股涨停；三环集团当日主力净流入估算4.19亿元，3/5/10日净流入均为正。通信整体净流出、CPO权重弱，限制资金分。",
-      "invalidate": "三环与风华同步转弱，PCB连板前排批量低开，通信继续净流出且CPO权重跌幅扩大。",
+      "evidence": "科创50逆势+1.55%，国产芯片5只涨停；半导体同源成交分类净流入50.57亿元，存储芯片概念+1.02%且净流入47.36亿元。首日强化，连续性项仅6分。",
       "leaders": [
-        "三环集团",
-        "风华高科",
-        "超声电子",
-        "沪电股份",
-        "深南电路"
+        "中芯国际",
+        "中微公司",
+        "北方华创",
+        "华海清科",
+        "兆易创新"
       ],
-      "name": "PCB/MLCC细分",
-      "score": 82,
-      "verify": "9:45前三环集团、风华高科、沪电股份、深南电路、生益科技至少两只强于电子指数，超声电子不出现快速核按钮。"
+      "verify": "9:45前中芯国际、中微公司、北方华创至少两只强于科创50；半导体设备与存储不能只剩小市值涨停股。",
+      "invalidate": "科创50冲高回落，容量设备/制造股同步转弱，板块成交分类资金由净流入转为明显净流出。"
     },
     {
+      "name": "PCB/MLCC",
+      "score": 83,
+      "confidence": "中高",
       "breakdown": {
+        "relative_strength": 14,
+        "limit_density": 18,
+        "turnover_fundflow": 16,
+        "leader_midcap": 14,
+        "late_session": 9,
         "continuity": 8,
-        "external_catalyst": 9,
-        "late_session": 8,
-        "leader_midcap": 12,
-        "limit_density": 17,
-        "relative_strength": 13,
-        "turnover_fundflow": 11
+        "external_catalyst": 4
       },
-      "confidence": "中",
-      "evidence": "中新赛克3连板，永信至诚20cm，博汇科技、启明信息、天融信涨停；网安周与AI安全议题仍有催化。但行业成交占比和净流入金额未取得，容量中军共振不足。",
-      "invalidate": "中新赛克开板转弱、永信至诚大幅低开，容量安全公司无响应，板块仅剩会议标签。",
+      "evidence": "PCB 4只涨停、澳弘电子与双星新材3板，生益科技+2.91%且净流入6.88亿元；多只前排尾盘封板。CPO仍弱，外部催化有限。",
       "leaders": [
-        "中新赛克",
-        "永信至诚",
-        "奇安信",
-        "深信服",
-        "启明星辰"
+        "生益科技",
+        "沪电股份",
+        "深南电路",
+        "三环集团",
+        "风华高科"
       ],
-      "name": "网络安全",
-      "score": 78,
-      "verify": "9:45前中新赛克保持封单或强承接，永信至诚不大幅低开，奇安信、深信服、启明星辰至少一只加入。"
+      "verify": "9:45前生益科技、沪电股份、深南电路、三环集团、风华高科至少两只强于电子指数；澳弘电子不出现快速核按钮。",
+      "invalidate": "容量PCB/MLCC同步低开低走，连板前排批量开板，资金仅留在低成交小票。"
+    },
+    {
+      "name": "风电/智能电网",
+      "score": 80,
+      "confidence": "中",
+      "breakdown": {
+        "relative_strength": 14,
+        "limit_density": 17,
+        "turnover_fundflow": 10,
+        "leader_midcap": 13,
+        "late_session": 9,
+        "continuity": 8,
+        "external_catalyst": 9
+      },
+      "evidence": "风电和智能电网各有4只涨停，闽东电力5板且多股尾盘封板；欧洲能源紧张提供催化。但电新行业资金整体净流出，资金项仅10分。",
+      "leaders": [
+        "大金重工",
+        "海力风电",
+        "天顺风能",
+        "中闽能源",
+        "闽东电力"
+      ],
+      "verify": "9:45前大金重工、海力风电、天顺风能至少两只保持强于电力设备指数；闽东电力换手后不出现快速核按钮。",
+      "invalidate": "5板高标高开低走，风电设备容量股同步转弱，电新行业继续明显净流出。"
     }
   ],
   "official_macro_update": {
@@ -1828,127 +1906,172 @@
     ]
   },
   "sector_capital_concentration": {
-    "as_of": "2026-09-15 11:30 北京时间",
-    "classification": "财联社行业分类；行业行互斥，概念板块不重复加总",
-    "market_turnover_scope": "沪深两市11:28成交约1.052万亿元；行业成交额与全市场占比未取得",
-    "methodology": "仅列同源可核验行业涨幅。行业成交额、占比、相对20日平均占比、主力净流入及净流入/成交额未取得，保持空值。",
-    "conclusion": "资金聚集度只能由科创50与行业相对强度作价格侧观察，不能替代成交额占比或主力净流入。",
+    "as_of": "2026-09-15 15:00 北京时间",
+    "classification": "财联社行业分类；行业互斥。存储芯片、PCB等概念仅作交叉观察，不重复加总。",
+    "market_turnover_scope": "沪深两市成交16123.4亿元；行业成交额和同范围全市场占比未取得。",
+    "methodology": "列示同源可核验的行业成交分类净流入；主力净流入是成交分类估算，不等于机构真实仓位或账户间资金迁移。行业成交额、占比、20日平均占比变化和净流入/成交额未取得则留空。",
     "rows": [
       {
         "rank": 1,
-        "sector": "电子化学品",
-        "return_pct": 2.4,
+        "sector": "半导体",
+        "return_pct": null,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": null,
+        "main_net_inflow_billion": 50.57,
         "net_inflow_to_turnover_pct": null,
-        "status": "行业涨幅居首，精确资金金额未取得"
+        "unit": "亿元",
+        "status": "14:19同源监控净流入50.57亿元；科创50收涨1.55%"
       },
       {
         "rank": 2,
-        "sector": "半导体",
-        "return_pct": 1.53,
+        "sector": "电子",
+        "return_pct": null,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
         "main_net_inflow_billion": null,
         "net_inflow_to_turnover_pct": null,
-        "status": "与科创50+1.65%共振"
+        "unit": "亿元",
+        "status": "早盘净流入超74亿元，收盘精确值未取得；内部半导体强、CPO弱"
       },
       {
         "rank": 3,
-        "sector": "电力设备",
-        "return_pct": 1.18,
+        "sector": "电力设备/新能源",
+        "return_pct": null,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
         "main_net_inflow_billion": null,
         "net_inflow_to_turnover_pct": null,
-        "status": "风电多个涨停，行业扩散较好"
+        "unit": "亿元",
+        "status": "同源监控净流出；风电强但宁德时代-6.16%，内部背离"
       },
       {
         "rank": 4,
-        "sector": "小金属",
-        "return_pct": 1.07,
+        "sector": "医药",
+        "return_pct": null,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
         "main_net_inflow_billion": null,
         "net_inflow_to_turnover_pct": null,
-        "status": "翔鹭钨业触板回落，消息驱动成分较高"
+        "unit": "亿元",
+        "status": "同源监控净流出，前一日CXO主线未延续"
+      }
+    ],
+    "concept_crosscheck": [
+      {
+        "concept": "存储芯片",
+        "return_pct": 1.02,
+        "main_net_inflow_billion": 47.36,
+        "unit": "亿元",
+        "note": "概念成分重叠，不与行业资金相加；128只上涨"
       },
       {
-        "rank": 5,
-        "sector": "电子",
-        "return_pct": 0.68,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
+        "concept": "PCB",
+        "return_pct": 0.58,
         "main_net_inflow_billion": null,
-        "net_inflow_to_turnover_pct": null,
-        "status": "半导体强、CPO弱，内部显著分化"
+        "unit": "亿元",
+        "note": "精确概念资金未取得"
       }
-    ]
+    ],
+    "conclusion": "资金最集中于半导体；但因缺少行业成交额占比与20日基准，不能给出完整集中度排名。"
   },
   "sector_internal_strength": {
-    "as_of": "2026-09-15 11:30 北京时间",
-    "methodology": "采用公开行业涨幅与可核验涨停样本；有效成分股分母、上涨家数比例、中位数涨幅和前三大成交股占比未取得，保持空值。",
-    "note": "概念成分存在重叠，涨停数不跨板块加总；无有效分母，不计算涨停密度。",
+    "as_of": "2026-09-15 15:00 北京时间",
+    "methodology": "涨停样本采用芦苇复盘题材归类，概念成分可重叠，故不跨板块加总；有效成分股分母、上涨比例、中位数涨幅和前三大成交股占比未取得。",
+    "note": "无有效分母，不计算伪精确涨停密度。",
     "rows": [
       {
-        "sector": "半导体/电子化学品",
+        "sector": "国产芯片",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
-        "limit_up_count_at_least": null,
+        "limit_up_count_at_least": 5,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "行业分别+1.53%/+2.40%，科创50+1.65%；高弹性股领涨，容量股午后待验证"
+        "observation": "5只涨停；科创50+1.55%，容量与高弹性共振"
       },
       {
-        "sector": "网络安全",
-        "advancer_ratio_pct": null,
-        "effective_constituents": null,
-        "limit_up_count_at_least": 2,
-        "limit_density_pct": null,
-        "median_return_pct": null,
-        "top3_turnover_share_pct": null,
-        "observation": "中新赛克4连板、启明信息竞价涨停，永信至诚等活跃；中军不足"
-      },
-      {
-        "sector": "风电/绿电",
+        "sector": "PCB",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
         "limit_up_count_at_least": 4,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "大金重工、吉鑫科技、中闽能源等涨停，闽东电力5连板"
+        "observation": "4只涨停；澳弘电子3板，尾盘回封"
       },
       {
-        "sector": "PCB/MLCC",
+        "sector": "风电",
+        "advancer_ratio_pct": null,
+        "effective_constituents": null,
+        "limit_up_count_at_least": 4,
+        "limit_density_pct": null,
+        "median_return_pct": null,
+        "top3_turnover_share_pct": null,
+        "observation": "4只涨停，设备端扩散"
+      },
+      {
+        "sector": "智能电网",
+        "advancer_ratio_pct": null,
+        "effective_constituents": null,
+        "limit_up_count_at_least": 4,
+        "limit_density_pct": null,
+        "median_return_pct": null,
+        "top3_turnover_share_pct": null,
+        "observation": "闽东电力5板并有尾盘回封，和风电有成分重叠"
+      },
+      {
+        "sector": "固态电池",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
         "limit_up_count_at_least": 3,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "华正新材、澳弘电子、双星新材形成可见梯队；CPO背离"
-      },
-      {
-        "sector": "汽车/固态电池",
-        "advancer_ratio_pct": null,
-        "effective_constituents": null,
-        "limit_up_count_at_least": 2,
-        "limit_density_pct": null,
-        "median_return_pct": null,
-        "top3_turnover_share_pct": null,
-        "observation": "安凯客车2连板、金龙羽涨停；容量与量产验证不足"
+        "observation": "3只涨停，但宁德时代-6.16%，少数股拉升特征明显"
       }
     ]
   },
   "sources": [
+    {
+      "date": "2026-09-15",
+      "title": "财联社：9月15日涨停分析",
+      "url": "https://www.cls.cn/detail/2483590",
+      "scope": "32股涨停、7只连板、24股封板未遂、57%封板率及最高板"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "财联社：连板股复盘",
+      "url": "https://finance.eastmoney.com/a/202609153874676262.html",
+      "scope": "4300多股下跌、连板晋级率、PCB与风电尾盘表现"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "财联社：主力资金监控",
+      "url": "https://www.cls.cn/detail/2483496",
+      "scope": "半导体净流入50.57亿元、宁德时代净卖出23.35亿元及资金方向"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "证券时报数据宝：存储芯片资金",
+      "url": "https://www.stcn.com/article/detail/4185842.html",
+      "scope": "存储概念涨幅、上涨家数、成交分类净流入与核心股"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "A股收评：主要指数",
+      "url": "https://www.finet.com.cn/",
+      "scope": "上证、深证、创业板与科创50收盘涨跌"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "芦苇复盘：题材涨停与封板时间",
+      "url": "https://www.lwwhy.com/review/limitup/2026-09-15",
+      "scope": "国产芯片、PCB、风电、智能电网、固态电池涨停样本及封板时间"
+    },
     {
       "date": "2026-09-15",
       "title": "腾讯行情：主要指数与沪深成交额",
@@ -2055,25 +2178,25 @@
   "top3": [
     {
       "rank": 1,
-      "name": "半导体/电子化学品",
+      "name": "半导体/存储芯片",
       "stars": 5,
-      "reason": "科创50与行业涨幅共同确认，容量属性优于单一题材脉冲",
-      "verify": "中芯国际、中微公司、北方华创至少两只继续强于科创50；行业不能只剩小市值高弹性股"
+      "reason": "科创50+1.55%，半导体成交分类净流入50.57亿元，价格与资金同时确认",
+      "verify": "中芯国际、中微公司、北方华创至少两只继续强于科创50"
     },
     {
       "rank": 2,
-      "name": "网络与数据安全",
+      "name": "PCB/MLCC",
       "stars": 4,
-      "reason": "中新赛克4连板且板块多股活跃，但基本面收入贡献偏低",
-      "verify": "中新赛克封单稳定，奇安信、深信服、启明星辰至少一只增强"
+      "reason": "四只PCB涨停、双星新材3连板，生益科技获得容量资金承接",
+      "verify": "生益、沪电、深南、三环、风华至少两只强于电子指数"
     },
     {
       "rank": 3,
-      "name": "风电/绿色电力",
+      "name": "风电/智能电网",
       "stars": 4,
-      "reason": "多个设备股涨停并与闽东电力5连板、中闽能源涨停共振",
-      "verify": "大金重工、海力风电等设备辨识度标的维持强势，闽东电力不出现高位负反馈"
+      "reason": "设备股涨停扩散，闽东电力与中闽能源尾盘回封",
+      "verify": "大金重工、海力风电、天顺风能至少两只保持强势，闽东电力不出现核按钮"
     }
   ],
-  "updated_at": "11:45"
+  "updated_at": "18:00"
 }
