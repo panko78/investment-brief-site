@@ -2,8 +2,8 @@
 
 Primary source: Eastmoney industry fund-flow ranking via AKShare.
 Fallback: Tonghuashun industry fund-flow ranking via AKShare.
-The file is intentionally separate from market_details.json so intraday sector ranking
-can refresh without mixing partial-day data into 3/5/10-day completed-session windows.
+The output includes day/3-day/5-day/10-day persistence fields so all sector
+modules can use one current source instead of the old fixed watchlist.
 """
 from __future__ import annotations
 
@@ -51,11 +51,11 @@ def eastmoney_period(indicator):
         if not name:
             continue
         change = pick(row, exact=[f"{indicator}涨跌幅", "今日涨跌幅", "涨跌幅"], contains=["涨跌幅"])
-        net = pick(row, exact=["主力净流入-净额", "主力净流入净额"], contains=["主力", "净流入", "净额"])
-        ratio = pick(row, exact=["主力净流入-净占比", "主力净流入净占比"], contains=["主力", "净流入", "净占比"])
+        net = pick(row, exact=["主力净流入-净额", f"{indicator}主力净流入-净额", "主力净流入净额"], contains=["主力", "净流入", "净额"])
+        ratio = pick(row, exact=["主力净流入-净占比", f"{indicator}主力净流入-净占比", "主力净流入净占比"], contains=["主力", "净流入", "净占比"])
         rank = pick(row, exact=["序号", "排名"])
-        out[str(name)] = {
-            "name": str(name),
+        out[str(name).strip()] = {
+            "name": str(name).strip(),
             "change_pct": num(change),
             "net_yuan": num(net),
             "net_ratio_pct": num(ratio),
@@ -73,13 +73,12 @@ def ths_period(symbol):
         name = pick(row, exact=["行业", "名称"])
         if not name:
             continue
-        change = pick(row, exact=["行业-涨跌幅", "涨跌幅"], contains=["涨跌幅"])
-        # THS interface documents '净额' in 亿元; normalize to yuan.
-        net = pick(row, exact=["净额"], contains=["净额"])
+        change = pick(row, exact=["行业-涨跌幅", "阶段涨跌幅", "涨跌幅"], contains=["涨跌幅"])
+        net = pick(row, exact=["净额", "资金流入净额"], contains=["净额"])
         rank = pick(row, exact=["序号", "排名"])
         net_billion = num(net)
-        out[str(name)] = {
-            "name": str(name),
+        out[str(name).strip()] = {
+            "name": str(name).strip(),
             "change_pct": num(str(change).replace("%", "")) if change is not None else None,
             "net_yuan": net_billion * 1e8 if net_billion is not None else None,
             "net_ratio_pct": None,
@@ -94,41 +93,61 @@ def collect_primary():
     today = eastmoney_period("今日")
     five = eastmoney_period("5日")
     ten = eastmoney_period("10日")
-    names = set(today) | set(five) | set(ten)
+    try:
+        three = ths_period("3日排行")
+        three_source = "同花顺3日排行补充"
+    except Exception:
+        three = {}
+        three_source = None
+    names = set(today) | set(five) | set(ten) | set(three)
     rows = []
     for name in names:
         d = today.get(name, {})
-        f = five.get(name, {})
-        t = ten.get(name, {})
+        r3 = three.get(name, {})
+        r5 = five.get(name, {})
+        r10 = ten.get(name, {})
         rows.append({
             "name": name,
             "return_pct": d.get("change_pct"),
             "day_net_yuan": d.get("net_yuan"),
             "day_net_ratio_pct": d.get("net_ratio_pct"),
-            "five_day_net_yuan": f.get("net_yuan"),
-            "ten_day_net_yuan": t.get("net_yuan"),
+            "three_day_net_yuan": r3.get("net_yuan"),
+            "five_day_net_yuan": r5.get("net_yuan"),
+            "ten_day_net_yuan": r10.get("net_yuan"),
+            "three_day_return_pct": r3.get("change_pct"),
+            "five_day_return_pct": r5.get("change_pct"),
+            "ten_day_return_pct": r10.get("change_pct"),
             "source_rank": d.get("source_rank"),
         })
-    return rows, "东方财富行业资金流排名（AKShare）"
+    source = "东方财富行业资金流排名（AKShare）"
+    if three_source:
+        source += "；" + three_source
+    return rows, source
 
 
 def collect_fallback():
     today = ths_period("即时")
+    three = ths_period("3日排行")
     five = ths_period("5日排行")
     ten = ths_period("10日排行")
-    names = set(today) | set(five) | set(ten)
+    names = set(today) | set(three) | set(five) | set(ten)
     rows = []
     for name in names:
         d = today.get(name, {})
-        f = five.get(name, {})
-        t = ten.get(name, {})
+        r3 = three.get(name, {})
+        r5 = five.get(name, {})
+        r10 = ten.get(name, {})
         rows.append({
             "name": name,
             "return_pct": d.get("change_pct"),
             "day_net_yuan": d.get("net_yuan"),
             "day_net_ratio_pct": None,
-            "five_day_net_yuan": f.get("net_yuan"),
-            "ten_day_net_yuan": t.get("net_yuan"),
+            "three_day_net_yuan": r3.get("net_yuan"),
+            "five_day_net_yuan": r5.get("net_yuan"),
+            "ten_day_net_yuan": r10.get("net_yuan"),
+            "three_day_return_pct": r3.get("change_pct"),
+            "five_day_return_pct": r5.get("change_pct"),
+            "ten_day_return_pct": r10.get("change_pct"),
             "source_rank": d.get("source_rank"),
         })
     return rows, "同花顺行业资金流排名（AKShare备用）"
@@ -159,7 +178,7 @@ def main():
     payload = {
         "updated_at": now.isoformat(),
         "source": source,
-        "scope": "全市场行业资金流动态排名；概念板块不混入行业排名。今日为当前/最近交易时点快照，5日与10日为同源区间资金排名。",
+        "scope": "全市场行业资金流动态排名；概念板块不混入行业排名。今日、3日、5日、10日均为同源或明确标注的补充行业资金口径。",
         "rows": usable,
         "upstream_errors": errors,
     }
