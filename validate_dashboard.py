@@ -21,8 +21,6 @@ def expected_latest_market_date(now):
         while d.weekday() >= 5:
             d -= timedelta(days=1)
         return d.isoformat()
-    # A-share cash market closes at 15:00. Allow 10 minutes for providers to
-    # publish final snapshots, then require the current trading day.
     if (now.hour, now.minute) >= (15, 10):
         return now.date().isoformat()
     return previous_weekday(now.date()).isoformat()
@@ -49,6 +47,13 @@ def stock_complete(row, expected):
         if (w.get('observed_flow_days') or 0) < n:
             return False
     return True
+
+
+def live_sector_complete(row):
+    if row.get('name') in (None, '') or row.get('day_net_yuan') is None:
+        return False
+    windows = row.get('windows') or {}
+    return all((windows.get(str(n)) or {}).get('net_yuan') is not None for n in (3, 5, 10))
 
 
 def main():
@@ -81,6 +86,7 @@ def main():
             details = json.loads(raw)
             detail_date = details.get('data_date')
             sectors = details.get('sectors') or []
+            sector_mode = details.get('sector_mode') or 'completed_history'
             stocks = details.get('stocks') or []
             limits = details.get('limit_history') or []
             etf_dates = details.get('etf_comparison_dates') or []
@@ -88,7 +94,17 @@ def main():
             availability = details.get('availability') or []
             transient_errors = [x for x in availability if x.get('status') == 'error']
 
-            usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
+            if sector_mode == 'live_ranking':
+                usable_sectors = [x for x in sectors if live_sector_complete(x)]
+                sector_ok = len(usable_sectors) >= 8
+                if not sector_ok:
+                    problems.append(f'动态行业资金数据不完整：可用 {len(usable_sectors)}/8')
+            else:
+                usable_sectors = [x for x in sectors if x.get('data_date') == expected and x.get('return_pct') is not None and x.get('turnover_yuan') is not None and x.get('day_net_yuan') is not None]
+                sector_ok = len(usable_sectors) >= 4
+                if not sector_ok:
+                    problems.append(f'板块资金数据不完整：可用 {len(usable_sectors)}/4')
+
             complete_stocks = [x for x in stocks if stock_complete(x, expected)]
             incomplete_stocks = [x.get('code') or x.get('name') or '?' for x in stocks if not stock_complete(x, expected)]
             expected_stock_count = len(stocks)
@@ -97,8 +113,9 @@ def main():
             etf_current = expected in etf_dates
 
             detail_summary = {
-                'status': 'ok' if len(usable_sectors) >= 4 and expected_stock_count > 0 and len(complete_stocks) == expected_stock_count and limit_ok and etf_pair_ok else 'degraded',
+                'status': 'ok' if sector_ok and expected_stock_count > 0 and len(complete_stocks) == expected_stock_count and limit_ok and etf_pair_ok else 'degraded',
                 'data_date': detail_date,
+                'sector_mode': sector_mode,
                 'usable_sectors': len(usable_sectors),
                 'usable_stocks': len(complete_stocks),
                 'expected_stocks': expected_stock_count,
@@ -112,8 +129,6 @@ def main():
             }
             if detail_date != expected:
                 problems.append(f'资金/涨停明细数据过期：期望 {expected}，实际 {detail_date}')
-            if len(usable_sectors) < 4:
-                problems.append(f'板块资金数据不完整：可用 {len(usable_sectors)}/4')
             if expected_stock_count == 0:
                 warnings.append('重点个股候选池为空')
             elif len(complete_stocks) < expected_stock_count:
@@ -137,7 +152,7 @@ def main():
         'warnings': warnings,
         'problems': problems,
         'publish_status': 'blocked' if problems else ('degraded' if warnings else 'ok'),
-        'note': '质量状态按最终可展示数据判断；ETF等官方披露若晚于收盘，只显示最近两个已核验统计日并明确滞后，不用空值或估算值冒充当日数据。'
+        'note': '动态行业资金榜与完整交易日行情分别校验；盘中行业排名允许缺少成交强度、流入天数和相对收益，不用旧板块数据冒充最新值。'
     }
     data['data_quality'] = quality
     data['updated_at'] = now.strftime('%Y-%m-%d %H:%M')
