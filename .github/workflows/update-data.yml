@@ -1,6 +1,5 @@
 name: Update market dashboard
 
-# self-heal trigger: 2026-09-16 12:05 CST
 on:
   workflow_dispatch:
   push:
@@ -58,3 +57,137 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Refresh non-core macro and commodity sources
+        run: |
+          timeout 75s python -u - <<'PY' || echo "Non-core refresh unavailable; retain verified non-core values"
+          from datetime import datetime
+          import json
+          import update_data as u
+          data = u.load_data()
+          u.fetch_trade(data)
+          u.fetch_metals(data)
+          data['updated_at'] = datetime.now().strftime('%Y-%m-%d %H:%M')
+          u.DATA.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+          PY
+
+      - name: Sanitize cached market series
+        run: timeout 30s python sanitize_dashboard.py
+
+      - name: Recalculate liquidity with multi-source fallback
+        run: |
+          ok=0
+          for i in 1 2; do
+            if timeout 75s python fix_liquidity.py; then ok=1; break; fi
+            echo "Liquidity attempt $i failed/timed out"
+            sleep $((i*8))
+          done
+          [ "$ok" = "1" ] || echo "Liquidity unavailable; final freshness validator decides publication"
+
+      - name: Validate liquidity chart wiring
+        run: timeout 30s python update_chart.py
+
+      - name: Refresh market-wide industry fund-flow ranking
+        run: |
+          ok=0
+          for i in 1 2; do
+            if timeout 90s python collect_sector_ranking.py; then ok=1; break; fi
+            echo "Industry ranking attempt $i failed/timed out"
+            sleep $((i*5))
+          done
+          [ "$ok" = "1" ] || echo "Industry ranking unavailable; stale timestamp will be rejected"
+
+      - name: Capture last verified ETF comparison
+        run: timeout 30s python preserve_etf_fallback.py capture
+
+      - name: Collect completed-session sector stock ETF and limit history
+        run: |
+          ok=0
+          for i in 1 2; do
+            mode=""
+            [ "$i" = "2" ] && mode="--reuse"
+            if timeout 210s python collect_market_details.py $mode; then ok=1; else echo "Market details attempt $i failed/timed out"; fi
+          done
+          if [ "$ok" != "1" ]; then echo "No market-details pass completed"; exit 1; fi
+
+      - name: Refresh same-day limit-up snapshot
+        run: |
+          ok=0
+          for i in 1 2 3; do
+            if timeout 60s python collect_live_limits.py; then ok=1; break; fi
+            echo "Live limit snapshot attempt $i failed/timed out"
+            sleep $((i*4))
+          done
+          [ "$ok" = "1" ] || echo "Live limits unavailable; validator will reject stale intraday limits"
+
+      - name: Replace fixed sector watchlist with dynamic fund-flow leaders
+        run: timeout 90s python refresh_dynamic_sectors.py || echo "Dynamic sector enrichment unavailable; validator decides freshness"
+
+      - name: Repair same-day close snapshots and turnover
+        run: timeout 60s python repair_realtime_close.py || echo "Realtime-close repair unavailable; validator decides freshness"
+
+      - name: Repair missing candidate-stock snapshots
+        run: timeout 60s python repair_stock_snapshots.py || echo "Stock snapshot repair unavailable; validator decides freshness"
+
+      - name: Restore verified ETF comparison if upstream is unavailable
+        run: timeout 30s python preserve_etf_fallback.py restore
+
+      - name: Enforce frontend freshness wiring
+        run: timeout 30s python harden_frontend.py
+
+      - name: Validate sector 3-5-10 persistence integrity
+        run: timeout 30s python validate_sector_windows.py
+
+      - name: Validate every core module freshness
+        run: |
+          if ! timeout 45s python validate_dashboard.py; then
+            echo "Primary validator failed; testing only the strict completed-sector fallback contract"
+            timeout 30s python validate_sector_fallback.py
+          fi
+
+      - name: Sync verified post-close facts into brief
+        run: timeout 30s python sync_close_brief.py
+
+      - name: Commit updated dashboard
+        run: |
+          git config user.name "market-dashboard-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add dashboard.json brief.json index.html
+          [ ! -f market_details.json ] || git add market_details.json
+          [ ! -f sector_ranking.json ] || git add sector_ranking.json
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "Update market dashboard data"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+
+      - name: Verify GitHub Pages serves this exact refresh
+        run: |
+          expected=$(python -c "import json; print(json.load(open('dashboard.json',encoding='utf-8'))['updated_at'])")
+          echo "Expecting published dashboard updated_at=$expected"
+          ok=0
+          for i in $(seq 1 15); do
+            if curl -fsS --max-time 12 "https://panko78.github.io/investment-brief-site/dashboard.json?verify=$RANDOM" -o /tmp/live-dashboard.json \
+              && curl -fsS --max-time 12 "https://panko78.github.io/investment-brief-site/index.html?verify=$RANDOM" -o /tmp/live-index.html \
+              && EXPECTED="$expected" python -c "import json,os; d=json.load(open('/tmp/live-dashboard.json',encoding='utf-8')); h=open('/tmp/live-index.html',encoding='utf-8').read(); assert d.get('updated_at')==os.environ['EXPECTED']; assert 'live_limit_snapshot' in h and 'limitFreshness' in h"; then
+              ok=1
+              echo "Pages matches latest verified dashboard and freshness-aware frontend"
+              break
+            fi
+            echo "Pages has not caught up yet ($i/15)"
+            sleep 8
+          done
+          if [ "$ok" != "1" ]; then
+            echo "GitHub Pages did not publish the latest verified dashboard"
+            exit 1
+          fi
