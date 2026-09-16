@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-16 14:40",
+  "updated_at": "2026-09-16 14:46",
   "liquidity": {
-    "status": "两融接口本次失败，保留上一成功数据和真实数据日；成交额主源和备用源均失败，保留上一成功数据和真实数据日",
+    "status": "多源校验更新正常",
     "freshness": {
       "margin_as_of": "2026-09-15",
       "turnover_as_of": "2026-09-15",
       "sh_index_as_of": "2026-09-15",
-      "checked_at": "2026-09-16 14:39"
+      "checked_at": "2026-09-16 14:45"
     },
     "margin_series": [
       {
@@ -292,7 +292,7 @@
       },
       {
         "date": "2026-08-13",
-        "sh_close": 3926.97
+        "sh_close": 3926.96
       },
       {
         "date": "2026-08-14",
@@ -324,7 +324,7 @@
       },
       {
         "date": "2026-08-25",
-        "sh_close": 3889.45
+        "sh_close": 3889.44
       },
       {
         "date": "2026-08-26",
@@ -555,7 +555,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：上一成功数据",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -1008,8 +1008,8 @@
         "中国出口增加",
         "挤仓缓解后多头平仓"
       ],
-      "latest": 3842.0,
-      "month_change": 2.6,
+      "latest": 3842.5,
+      "month_change": 2.62,
       "trend": "震荡",
       "outlook": "未来1–4周更可能区间震荡，等待价格对20日均线和近月高低点作出方向选择。",
       "series": [
@@ -1111,10 +1111,10 @@
         },
         {
           "date": "2026-09-16",
-          "close": 3842.0
+          "close": 3842.5
         }
       ],
-      "momentum_5d": -5.38,
+      "momentum_5d": -5.37,
       "data_source": "LME/COMEX primary source"
     },
     "gold": {
@@ -1428,7 +1428,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-09-16T14:40:50.531616+08:00",
+    "checked_at": "2026-09-16T14:46:30.799023+08:00",
     "expected_market_date": "2026-09-15",
     "sh_index_as_of": "2026-09-15",
     "turnover_as_of": "2026-09-15",
@@ -1440,14 +1440,14 @@
         "sh_index_as_of": "2026-09-15",
         "turnover_as_of": "2026-09-15",
         "margin_as_of": "2026-09-15",
-        "checked_at": "2026-09-16 14:39"
+        "checked_at": "2026-09-16 14:45"
       },
       "sectors": {
         "status": "ok",
         "mode": "live_ranking",
         "rows": 20,
         "usable_rows": 20,
-        "updated_at": "2026-09-16T14:39:39.521381+08:00",
+        "updated_at": "2026-09-16T14:45:37.966909+08:00",
         "source": "同花顺行业资金流排名（AKShare备用）"
       },
       "stocks": {
@@ -1462,10 +1462,10 @@
         "completed_as_of": "2026-09-15",
         "live_required": true,
         "live_date": "2026-09-16",
-        "live_fetched_at": "2026-09-16T14:40:23.279253+08:00",
-        "live_limit_count": 86,
-        "live_failed_count": 12,
-        "live_age_minutes": 0.5
+        "live_fetched_at": "2026-09-16T14:46:14.541985+08:00",
+        "live_limit_count": 87,
+        "live_failed_count": 11,
+        "live_age_minutes": 0.3
       },
       "etf": {
         "status": "ok",
@@ -1485,7 +1485,7 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-09-15",
-      "updated_at": "2026-09-16T14:40:50.097521+08:00",
+      "updated_at": "2026-09-16T14:46:30.530702+08:00",
       "sector_mode": "live_ranking",
       "usable_sectors": 20,
       "usable_stocks": 5,
@@ -1497,13 +1497,11 @@
       "etf_as_of": "2026-09-15",
       "etf_current_day_available": true,
       "etf_change_rows": 907,
-      "transient_request_errors": 5
+      "transient_request_errors": 0
     },
-    "warnings": [
-      "动态行业3日资金上游暂缺：3/20 个行业；当日、5日、10日继续使用最新数据，3日留空，不回退旧板块"
-    ],
+    "warnings": [],
     "problems": [],
-    "publish_status": "degraded",
+    "publish_status": "ok",
     "note": "所有核心模块分别校验实际日期与抓取时间；关键模块失败时禁止用旧缓存伪装成功。盘中涨停使用当日实时快照，完整交易日历史独立保存。"
   }
 }
