@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-18 20:25",
+  "updated_at": "2026-09-19 06:02",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "两融接口本次失败，保留上一成功数据和真实数据日",
     "freshness": {
       "margin_as_of": "2026-09-17",
       "turnover_as_of": "2026-09-18",
       "sh_index_as_of": "2026-09-18",
-      "checked_at": "2026-09-18 20:23"
+      "checked_at": "2026-09-19 06:01"
     },
     "margin_series": [
       {
@@ -248,19 +248,19 @@
       },
       {
         "date": "2026-09-15",
-        "turnover": 16141.9
+        "turnover": 16123.37
       },
       {
         "date": "2026-09-16",
-        "turnover": 18407.23
+        "turnover": 18386.91
       },
       {
         "date": "2026-09-17",
-        "turnover": 18249.71
+        "turnover": 18228.48
       },
       {
         "date": "2026-09-18",
-        "turnover": 20788.39
+        "turnover": 20765.8
       }
     ],
     "sh_index_series": [
@@ -278,7 +278,7 @@
       },
       {
         "date": "2026-08-13",
-        "sh_close": 3926.97
+        "sh_close": 3926.96
       },
       {
         "date": "2026-08-14",
@@ -310,7 +310,7 @@
       },
       {
         "date": "2026-08-25",
-        "sh_close": 3889.45
+        "sh_close": 3889.44
       },
       {
         "date": "2026-08-26",
@@ -519,17 +519,17 @@
       {
         "date": "2026-09-15",
         "margin_balance": 26274.7,
-        "turnover": 16141.9
+        "turnover": 16123.37
       },
       {
         "date": "2026-09-16",
         "margin_balance": 26368.0,
-        "turnover": 18407.23
+        "turnover": 18386.91
       },
       {
         "date": "2026-09-17",
         "margin_balance": 26390.98,
-        "turnover": 18249.71
+        "turnover": 18228.48
       }
     ],
     "high_30d": {
@@ -548,7 +548,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -632,15 +632,11 @@
         "关税预期落空",
         "制造业需求转弱"
       ],
-      "latest": 14523.0,
-      "month_change": 2.47,
+      "latest": 14562.0,
+      "month_change": 3.06,
       "trend": "震荡偏强",
       "outlook": "未来1–4周偏多震荡；若5日动量持续转正并站稳20日均线，上行概率提高。",
       "series": [
-        {
-          "date": "2026-08-14",
-          "close": 14172.5
-        },
         {
           "date": "2026-08-17",
           "close": 14130.0
@@ -735,10 +731,10 @@
         },
         {
           "date": "2026-09-18",
-          "close": 14523.0
+          "close": 14562.0
         }
       ],
-      "momentum_5d": 2.09,
+      "momentum_5d": 2.37,
       "data_source": "LME 3个月铜",
       "source_note": "当前使用LME 3个月铜历史行情；若该接口为空会自动切换COMEX铜连续备用源。"
     },
@@ -755,15 +751,11 @@
         "LME和中国精炼镍高库存",
         "印尼追加配额"
       ],
-      "latest": 16200.0,
-      "month_change": -3.46,
+      "latest": 16230.0,
+      "month_change": -3.1,
       "trend": "震荡偏弱",
       "outlook": "未来1–4周偏弱震荡；需要重新站回20日均线才算明显改善。",
       "series": [
-        {
-          "date": "2026-08-14",
-          "close": 16780.0
-        },
         {
           "date": "2026-08-17",
           "close": 16750.0
@@ -858,10 +850,10 @@
         },
         {
           "date": "2026-09-18",
-          "close": 16200.0
+          "close": 16230.0
         }
       ],
-      "momentum_5d": -1.88,
+      "momentum_5d": -1.7,
       "data_source": "LME/COMEX primary source"
     },
     "aluminum": {
@@ -878,15 +870,11 @@
         "中国供应增长",
         "全球工业需求走弱"
       ],
-      "latest": 3278.5,
-      "month_change": 1.06,
+      "latest": 3298.0,
+      "month_change": 1.23,
       "trend": "震荡偏强",
       "outlook": "未来1–4周偏多震荡；若5日动量持续转正并站稳20日均线，上行概率提高。",
       "series": [
-        {
-          "date": "2026-08-14",
-          "close": 3244.0
-        },
         {
           "date": "2026-08-17",
           "close": 3258.0
@@ -981,10 +969,10 @@
         },
         {
           "date": "2026-09-18",
-          "close": 3278.5
+          "close": 3298.0
         }
       ],
-      "momentum_5d": 0.68,
+      "momentum_5d": 1.27,
       "data_source": "LME/COMEX primary source"
     },
     "zinc": {
@@ -1001,15 +989,11 @@
         "中国出口增加",
         "挤仓缓解后多头平仓"
       ],
-      "latest": 3913.5,
-      "month_change": 4.1,
+      "latest": 3940.0,
+      "month_change": 4.88,
       "trend": "震荡偏强",
       "outlook": "未来1–4周偏多震荡；若5日动量持续转正并站稳20日均线，上行概率提高。",
       "series": [
-        {
-          "date": "2026-08-14",
-          "close": 3759.5
-        },
         {
           "date": "2026-08-17",
           "close": 3756.5
@@ -1104,10 +1088,10 @@
         },
         {
           "date": "2026-09-18",
-          "close": 3913.5
+          "close": 3940.0
         }
       ],
-      "momentum_5d": 1.32,
+      "momentum_5d": 2.01,
       "data_source": "LME/COMEX primary source"
     },
     "gold": {
@@ -1125,15 +1109,11 @@
         "美元反弹",
         "高位获利了结"
       ],
-      "latest": 4412.9,
-      "month_change": -0.43,
-      "trend": "震荡",
-      "outlook": "未来1–4周更可能区间震荡，等待价格对20日均线和近月高低点作出方向选择。",
+      "latest": 4415.9,
+      "month_change": -1.28,
+      "trend": "震荡偏弱",
+      "outlook": "未来1–4周偏弱震荡；需要重新站回20日均线才算明显改善。",
       "series": [
-        {
-          "date": "2026-08-14",
-          "close": 4431.9
-        },
         {
           "date": "2026-08-17",
           "close": 4473.1
@@ -1232,10 +1212,10 @@
         },
         {
           "date": "2026-09-18",
-          "close": 4412.9
+          "close": 4415.9
         }
       ],
-      "momentum_5d": 0.52,
+      "momentum_5d": 0.59,
       "data_source": "LME/COMEX primary source"
     },
     "silver": {
@@ -1252,15 +1232,11 @@
         "高波动和杠杆资金撤退",
         "工业需求走弱"
       ],
-      "latest": 67.18,
-      "month_change": 3.65,
+      "latest": 66.77,
+      "month_change": 1.31,
       "trend": "震荡偏强",
       "outlook": "未来1–4周偏多震荡；若5日动量持续转正并站稳20日均线，上行概率提高。",
       "series": [
-        {
-          "date": "2026-08-14",
-          "close": 64.815
-        },
         {
           "date": "2026-08-17",
           "close": 65.905
@@ -1359,10 +1335,10 @@
         },
         {
           "date": "2026-09-18",
-          "close": 67.18
+          "close": 66.77
         }
       ],
-      "momentum_5d": 3.32,
+      "momentum_5d": 2.69,
       "data_source": "LME/COMEX primary source"
     },
     "tungsten": {
@@ -1425,7 +1401,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-09-18T20:25:07.965515+08:00",
+    "checked_at": "2026-09-19T06:02:30.882718+08:00",
     "expected_market_date": "2026-09-18",
     "sh_index_as_of": "2026-09-18",
     "turnover_as_of": "2026-09-18",
@@ -1437,7 +1413,7 @@
         "sh_index_as_of": "2026-09-18",
         "turnover_as_of": "2026-09-18",
         "margin_as_of": "2026-09-17",
-        "checked_at": "2026-09-18 20:23"
+        "checked_at": "2026-09-19 06:01"
       },
       "sectors": {
         "status": "ok",
@@ -1457,11 +1433,11 @@
         "status": "ok",
         "completed_as_of": "2026-09-18",
         "live_required": false,
-        "live_date": "2026-09-18",
-        "live_fetched_at": "2026-09-18T20:24:23.111289+08:00",
-        "live_limit_count": 78,
-        "live_failed_count": 25,
-        "live_age_minutes": 0.7
+        "live_date": null,
+        "live_fetched_at": null,
+        "live_limit_count": null,
+        "live_failed_count": null,
+        "live_age_minutes": null
       },
       "etf": {
         "status": "ok",
@@ -1473,7 +1449,7 @@
         "current_day_available": false
       },
       "brief": {
-        "status": "ok",
+        "status": "degraded",
         "date": "2026-09-18",
         "updated_at": "2026-09-18 18:00"
       }
@@ -1481,19 +1457,19 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-09-18",
-      "updated_at": "2026-09-18T20:25:07.645935+08:00",
+      "updated_at": "2026-09-19T06:02:30.407870+08:00",
       "sector_mode": "completed_history",
       "usable_sectors": 4,
       "usable_stocks": 5,
       "expected_stocks": 5,
       "incomplete_stocks": [],
       "limit_up_ok": true,
-      "live_limit_ok": true,
+      "live_limit_ok": false,
       "etf_comparison_ok": true,
       "etf_as_of": "2026-09-17",
       "etf_current_day_available": false,
       "etf_change_rows": 909,
-      "transient_request_errors": 1
+      "transient_request_errors": 5
     },
     "warnings": [
       "上交所ETF份额尚未发布到 2026-09-18；当前使用最近已核验统计日 2026-09-17"
