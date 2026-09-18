@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-18 14:36",
+  "updated_at": "2026-09-18 14:41",
   "liquidity": {
     "status": "多源校验更新正常",
     "freshness": {
       "margin_as_of": "2026-09-17",
       "turnover_as_of": "2026-09-17",
       "sh_index_as_of": "2026-09-17",
-      "checked_at": "2026-09-18 14:34"
+      "checked_at": "2026-09-18 14:40"
     },
     "margin_series": [
       {
@@ -282,7 +282,7 @@
       },
       {
         "date": "2026-08-13",
-        "sh_close": 3926.97
+        "sh_close": 3926.96
       },
       {
         "date": "2026-08-14",
@@ -314,7 +314,7 @@
       },
       {
         "date": "2026-08-25",
-        "sh_close": 3889.45
+        "sh_close": 3889.44
       },
       {
         "date": "2026-08-26",
@@ -1426,7 +1426,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-09-18T14:36:58.967689+08:00",
+    "checked_at": "2026-09-18T14:41:12.957707+08:00",
     "expected_market_date": "2026-09-17",
     "sh_index_as_of": "2026-09-17",
     "turnover_as_of": "2026-09-17",
@@ -1438,14 +1438,14 @@
         "sh_index_as_of": "2026-09-17",
         "turnover_as_of": "2026-09-17",
         "margin_as_of": "2026-09-17",
-        "checked_at": "2026-09-18 14:34"
+        "checked_at": "2026-09-18 14:40"
       },
       "sectors": {
         "status": "ok",
         "mode": "live_ranking",
         "rows": 20,
         "usable_rows": 20,
-        "updated_at": "2026-09-18T14:36:02.476780+08:00",
+        "updated_at": "2026-09-18T14:40:19.120381+08:00",
         "source": "同花顺行业资金流排名（AKShare备用）"
       },
       "stocks": {
@@ -1460,7 +1460,7 @@
         "completed_as_of": "2026-09-17",
         "live_required": true,
         "live_date": "2026-09-18",
-        "live_fetched_at": "2026-09-18T14:36:47.264190+08:00",
+        "live_fetched_at": "2026-09-18T14:40:58.059241+08:00",
         "live_limit_count": 77,
         "live_failed_count": 26,
         "live_age_minutes": 0.2
@@ -1483,7 +1483,7 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-09-17",
-      "updated_at": "2026-09-18T14:36:58.576001+08:00",
+      "updated_at": "2026-09-18T14:41:12.531276+08:00",
       "sector_mode": "live_ranking",
       "usable_sectors": 20,
       "usable_stocks": 5,
@@ -1495,11 +1495,13 @@
       "etf_as_of": "2026-09-17",
       "etf_current_day_available": true,
       "etf_change_rows": 909,
-      "transient_request_errors": 1
+      "transient_request_errors": 3
     },
-    "warnings": [],
+    "warnings": [
+      "动态行业3日资金上游暂缺：16/20 个行业；当日、5日、10日继续使用最新数据，3日留空，不回退旧板块"
+    ],
     "problems": [],
-    "publish_status": "ok",
+    "publish_status": "degraded",
     "note": "所有核心模块分别校验实际日期与抓取时间；关键模块失败时禁止用旧缓存伪装成功。盘中涨停使用当日实时快照，完整交易日历史独立保存。"
   }
 }
