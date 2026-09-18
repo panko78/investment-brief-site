@@ -110,12 +110,12 @@ def collect_fallback():
 
 def main():
     now = datetime.now(ZoneInfo("Asia/Shanghai"))
-    # Before the A-share continuous session starts, upstream "即时/今日" tables
-    # can still contain the prior close. Re-fetching them would stamp yesterday's
-    # values with today's date and create false freshness. Preserve the last
-    # verified ranking until 09:30.
-    if now.weekday() < 5 and (now.hour, now.minute) < (9, 30) and OUTPUT.exists() and OUTPUT.read_text(encoding="utf-8").strip():
-        print("Premarket: retaining last verified sector ranking; no false same-day timestamp", flush=True)
+    # "即时/今日" retains the last trading session overnight and on weekends.
+    # Do not relabel prior-session values with a new calendar date. Keep the
+    # last verified ranking until a weekday A-share session can start at 09:30.
+    no_new_session = now.weekday() >= 5 or (now.weekday() < 5 and (now.hour, now.minute) < (9, 30))
+    if no_new_session and OUTPUT.exists() and OUTPUT.read_text(encoding="utf-8").strip():
+        print("No new A-share session: retaining last verified sector ranking; no false same-day timestamp", flush=True)
         return
     errors = []
     try:
