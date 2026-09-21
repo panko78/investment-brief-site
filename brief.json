@@ -1,80 +1,79 @@
 {
   "avoid": [
-    "把中美会谈议程当作已经达成关税、AI或稀土协议",
-    "把利雅得遇袭直接等同沙特能源设施严重受损或供应中断",
-    "油价反弹但中国海油、中国石油、中海油服不响应时追纯地缘小票",
-    "混淆上游、炼化、油服、油运、集运和港口盈利逻辑",
-    "把长鑫量产直接等同所有A股供应商新增订单",
-    "周五78只涨停后追无辨识度半导体、CPO和AI后排",
-    "5%美债背景下追无订单、无利润、无现金流的高估值成长股",
-    "把黄金走势泛化为铜、镍、钨同步上涨",
-    "无客户定点、量产、临床、获批、BD或商业化收入的机器人、创新药概念"
+    "半导体净流出约45.91亿元时追无订单、无验收的国产替代后排",
+    "把Anthropic湿实验室或政策规划直接当作A股AI制药订单、临床成功或利润",
+    "医药容量股转弱后追30cm、20cm高弹性跟风",
+    "把华为新架构或运营商采购泛化为全部CPO、PCB和AI硬件订单",
+    "汽车零部件走强但机器人容量股不响应时追无定点小票",
+    "追逐仅因名称含‘华’而上涨、无共同业务逻辑的股票",
+    "黄金股走弱时追贵金属小票，或把黄金外推为铜、镍、钨同步上涨",
+    "油气中军不响应时追纯地缘概念，混淆上游、炼化、油服和油运"
   ],
   "candidate_pool": [
     {
       "type": "趋势候选",
+      "code": "603259",
+      "name": "药明康德",
+      "sector_role": "CXO容量验证核心",
+      "price_fund_persistence": "行业价格与资金共振；个股午间精确成交分类资金未取得",
+      "business_validation": "订单、价格、产能利用率、回款与自由现金流",
+      "valuation": "同日一致预期估值未取得",
+      "risk_events": "高估值、政策及客户集中风险",
+      "why": "比AI制药概念小票更能验证医药行情是否由情绪升级为基本面",
+      "confirm": "继续强于医疗服务指数且凯莱英或百普赛斯同步",
+      "invalidate": "容量CXO转弱，只剩20cm/30cm小票"
+    },
+    {
+      "type": "趋势候选",
+      "code": "301080",
+      "name": "百普赛斯",
+      "sector_role": "生命科学工具链高弹性核心",
+      "price_fund_persistence": "医疗服务5日完整序列此前偏强；当日个股精确资金未取得",
+      "business_validation": "重组蛋白、抗体等产品收入、海外客户、毛利率和现金流",
+      "valuation": "同日一致预期估值未取得",
+      "risk_events": "高弹性与估值波动",
+      "why": "具备真实工具产品收入，优于纯AI制药映射",
+      "confirm": "与药明或凯莱英共振且不放量回吐",
+      "invalidate": "医药容量股集体走弱"
+    },
+    {
+      "type": "趋势候选",
+      "code": "300308",
+      "name": "中际旭创",
+      "sector_role": "CPO容量验证核心",
+      "price_fund_persistence": "通信设备+1.49%但行业净流入仅1.43亿元；个股午间精确资金未取得",
+      "business_validation": "800G/1.6T订单、出货、客户结构、毛利率与现金流",
+      "valuation": "对美债利率和客户资本开支敏感",
+      "risk_events": "高位波动、客户集中与竞争",
+      "why": "验证硬件回流是否具有容量资金支持",
+      "confirm": "强于创业板且新易盛或天孚同步",
+      "invalidate": "三只容量光模块集体冲高回落"
+    },
+    {
+      "type": "趋势候选",
       "code": "688981",
       "name": "中芯国际",
-      "sector_role": "半导体制造容量核心",
-      "price_fund_persistence": "收盘+2.85%；当日主力净流入+2.57亿元；3日净流入+3.34亿元、流入2/3天、超额+4.98个百分点；5日净流入+0.25亿元、流入2/5天、超额+3.30个百分点；10日净流入-5.00亿元、流入3/10天、超额+1.17个百分点",
-      "business_validation": "产能利用率、晶圆价格、资本开支、良率和利润",
+      "sector_role": "半导体制造容量观察核心",
+      "price_fund_persistence": "半导体+0.30%且净流出45.91亿元，当前仅作弱转强验证",
+      "business_validation": "产能利用率、价格、良率、资本开支和利润",
       "valuation": "同日一致预期估值未取得",
-      "risk_events": "周五尾盘低于日内高位；估值和行业周期风险",
-      "why": "最能验证半导体是否从单日修复升级为容量趋势",
-      "confirm": "周一强于科创50，且中微或北方华创同步",
-      "invalidate": "放量回吐且设备股同步转弱"
-    },
-    {
-      "type": "趋势候选",
-      "code": "300502",
-      "name": "新易盛",
-      "sector_role": "CPO容量核心",
-      "price_fund_persistence": "收盘+4.87%；当日主力净流入+15.19亿元；3日净流入+26.69亿元、流入3/3天、超额+10.86个百分点；5日净流入+4.87亿元、流入3/5天、超额+4.59个百分点；10日净流入+54.97亿元、流入6/10天、超额+15.75个百分点",
-      "business_validation": "800G/1.6T订单、出货、客户结构、毛利率和现金流",
-      "valuation": "高估值对美债利率和客户资本开支敏感",
-      "risk_events": "客户集中、竞争和高位波动",
-      "why": "全天容量强度高，且午后承接优于多数科技中军",
-      "confirm": "周一强于创业板且中际或天孚同步",
-      "invalidate": "高开低走并带动通信设备资金转负"
-    },
-    {
-      "type": "趋势候选",
-      "code": "002371",
-      "name": "北方华创",
-      "sector_role": "半导体设备容量核心",
-      "price_fund_persistence": "收盘+3.16%；当日主力净流入+2.03亿元；3日净流入+13.53亿元、流入3/3天、超额+6.34个百分点；5日净流入+17.13亿元、流入5/5天、超额+7.67个百分点；10日净流入+14.99亿元、流入6/10天、超额+8.04个百分点",
-      "business_validation": "设备订单、验收、客户导入、毛利率与回款",
-      "valuation": "同日一致预期估值未取得",
-      "risk_events": "订单确认节奏和高估值",
-      "why": "较中微尾盘强度更高，可验证设备端连续性",
-      "confirm": "强于科创50或电子指数且中芯/中微至少一只同步",
-      "invalidate": "设备容量股集体转弱"
-    },
-    {
-      "type": "趋势候选",
-      "code": "601689",
-      "name": "拓普集团",
-      "sector_role": "机器人容量验证核心",
-      "price_fund_persistence": "收盘+2.83%；当日主力净流入-0.23亿元；3日净流入+0.43亿元、流入1/3天、超额+6.04个百分点；5日净流入-1.53亿元、流入1/5天、超额+3.80个百分点；10日净流入-4.19亿元、流入2/10天、超额-1.33个百分点",
-      "business_validation": "执行器客户定点、订单、量产和利润贡献",
-      "valuation": "同日一致预期估值未取得",
-      "risk_events": "量产进度、客户集中和估值",
-      "why": "比机器人概念小票更能验证产业化资金",
-      "confirm": "强于汽车零部件指数且三花或绿的谐波同步",
-      "invalidate": "容量机器人同步转弱"
+      "risk_events": "周五高潮后资金兑现",
+      "why": "若其不能带动设备股，半导体难恢复主线资格",
+      "confirm": "午后强于科创50且中微或北方华创同步",
+      "invalidate": "行业继续净流出并弱于科创50"
     },
     {
       "type": "连板候选",
-      "code": "603626",
-      "name": "科森科技",
-      "sector_role": "机器人5天3板情绪锚",
-      "price_fund_persistence": "收盘+10.00%；当日主力净流入+2.30亿元；3日净流入+5.38亿元、流入3/3天、超额+22.82个百分点；5日净流入+5.91亿元、流入4/5天、超额+28.50个百分点；10日净流入+9.65亿元、流入7/10天、超额+31.08个百分点",
-      "business_validation": "机器人相关收入贡献、客户与订单仍需核验",
-      "valuation": "高位连板不适用普通趋势估值比较",
-      "risk_events": "开板下杀、业务映射弱及可成交性",
-      "why": "仅作机器人情绪温度计，不替代容量股",
-      "confirm": "封板承接稳定且拓普/三花/绿的谐波至少两只强势",
-      "invalidate": "开板下杀并带动机器人后排炸板"
+      "code": "001216",
+      "name": "华瓷股份",
+      "sector_role": "5连板名称炒作情绪锚",
+      "price_fund_persistence": "可确认5连板；真实行业资金持续性不可由名称概念加总",
+      "business_validation": "名称共性不构成订单或利润验证",
+      "valuation": "不适用普通趋势比较",
+      "risk_events": "开板下杀、同名概念批量退潮、可成交性",
+      "why": "只作短线情绪温度计，不作为产业候选",
+      "confirm": "封板稳定且未引发同类集中炸板",
+      "invalidate": "开板下杀并带动‘华字辈’批量回落"
     }
   ],
   "close_data_synced_at": "2026-09-18 20:25",
@@ -131,40 +130,40 @@
   "cross_validation": {
     "financing": {
       "data_period": "截至2026-09-17",
-      "coverage": "两融余额26390.98亿元；按交易所披露节奏使用最近已核验交易日",
+      "coverage": "两融余额26390.98亿元，披露滞后",
       "items": [],
-      "note": "披露滞后数据，不与主力资金、ETF或龙虎榜相加。"
+      "note": "不代表9月21日上午实时杠杆行为，不与主力资金、ETF或龙虎榜相加。"
     },
     "etf_share": {
-      "data_period": "2026-09-16→2026-09-17",
-      "status": "使用上交所最近两个已核验统计日，共909条可比ETF；若当日份额尚未披露则明确滞后，不估算。",
-      "note": "ETF成交额或规模增长不能替代份额净申购。"
+      "data_period": "9月21日上午份额数据未取得",
+      "status": "未取得",
+      "note": "ETF价格或成交额变化不能替代份额净申购。"
     },
     "dragon_tiger": {
-      "data_period": "2026-09-18收盘",
-      "coverage": "本自动管线尚未形成可独立核验的当日龙虎榜机构席位汇总。",
+      "data_period": "9月21日午间无收盘龙虎榜",
+      "coverage": "未取得",
       "items": [],
-      "note": "未核验即留空；不与主力资金、融资或ETF份额相加。"
+      "note": "龙虎榜为收盘后披露，午间不编造机构席位净买入。"
     }
   },
   "data_quality": {
-    "as_of": "2026-09-21 08:00 北京时间",
-    "verified": "A股最近完整交易日为2026-09-18；原油、中美会谈、长鑫量产、Fed表态和LPR核验至9月21日08:00。",
-    "unavailable": "中美会谈正式成果尚未公布；周一同口径黄金现货变化及铜、镍、钨可靠结算数据未取得；A股尚未开盘。",
-    "rule": "盘前只引用最近完整A股交易日；缺失数据不估算、不将海外消息写成A股已确认订单或利润。",
+    "as_of": "2026-09-21 11:30 北京时间",
+    "verified": "主要指数与沪深成交核验至11:30；互斥行业资金核验至10:27；涨停样本来自公开盘中报道。",
+    "unavailable": "全市场涨跌家数、完整涨停/跌停/炸板数量、10%/20%/30%全量分类、行业成交额与占比、20日平均占比、午间ETF份额、龙虎榜、全量个股首次封板时间和开板次数未取得。",
+    "rule": "缺失数据不估算；半日仅与前一交易日同一时点比较；多日指标只使用完整交易日。",
     "note": "主力资金是成交分类估算，不等于机构真实仓位；融资、ETF份额和龙虎榜口径不同，不能相加。"
   },
   "date": "2026-09-21",
   "decision_summary": {
-    "as_of": "2026-09-21 08:00 北京时间",
+    "as_of": "2026-09-21 11:30 北京时间",
     "strongest": [
-      "半导体/国产存储",
-      "上游油气/油服及对应油运",
-      "通信/CPO"
+      "创新药/AI制药/医疗服务",
+      "光学光电子/元件/通信",
+      "汽车零部件"
     ],
-    "key_signal": "先看中芯、中微、北方华创至少两只强于科创50；能源看中国海油、中国石油、中海油服至少两只强于沪深300；CPO看中际、新易盛、天孚至少两只强于创业板。",
-    "avoid": "回避把会谈议程当协议、把地缘袭击当供应中断、把长鑫量产泛化为所有供应商订单，以及科技容量高开低走后的后排。",
-    "close_data_note": "盘前引用9月18日最近完整A股交易日；不制造9月19—20日A股盘面数据。"
+    "key_signal": "午后先看药明、凯莱英、百普至少两只维持强势；再看中际、新易盛、天孚至少两只强于创业板；半导体只有中芯、中微、北方华创至少两只重新强于科创50才算修复。",
+    "avoid": "回避半导体资金流出下追20cm后排、把AI制药政策或海外实验室当A股订单、机器人无订单小票、‘华字辈’名称炒作后排，以及黄金和油气中军不跟随时追资源小票。",
+    "close_data_note": "半日成交只与前一交易日同一时点比较；3/5/10日完整交易日序列保留至9月18日，不与当日半日混算。"
   },
   "forecast_history": [
     {
@@ -1504,35 +1503,27 @@
     }
   ],
   "forecast_review": {
-    "as_of": "2026-09-18 15:00",
-    "market_note": "对9月17日18:00发布、目标9月18日的89/81/78分预测做收盘复盘；原始分数和七项分项未倒改。",
+    "as_of": "2026-09-21 11:30",
+    "market_note": "复盘9月18日18:00发布、目标9月21日的原始92/85分预测；午间不倒改原始分数与七项分项。",
     "items": [
       {
-        "name": "汽车整车/汽车零部件",
-        "published_score": 89,
+        "name": "半导体/国产芯片",
+        "published_score": 92,
         "entered_top_strength": false,
         "hit": false,
-        "actual": "汽车整车-1.00%、净流出约7.84亿元；赛力斯+0.15%、长安-0.42%、江淮-0.67%、众泰-3.38%。",
-        "reason": "容量整车未通过9:45验证，昨日主线次日直接转弱；对单日轮动和低价连板连续性估计过高。"
+        "actual": "半导体+0.30%、净流出约45.91亿元；科创50+0.35%，未进入上午强势板块前列。",
+        "reason": "周五高潮后的兑现折扣仍低估；长鑫量产是真实催化，但没有转化为当日上午价格和资金共振。"
       },
       {
-        "name": "机器人核心零部件",
-        "published_score": 81,
-        "entered_top_strength": true,
-        "hit": true,
-        "actual": "机器人约+1.7%；自动化、通用设备均涨逾2%，科森科技涨停，拓普、三花、绿的谐波均上涨。",
-        "reason": "涨停锚与容量中军共同确认，但资金持续性弱于半导体和CPO。"
-      },
-      {
-        "name": "医药/CXO与生命科学工具",
-        "published_score": 78,
+        "name": "通信/CPO",
+        "published_score": 85,
         "entered_top_strength": true,
         "hit": "partial",
-        "actual": "医疗服务+2.54%、生物制品+2.61%，百普赛斯+10.27%；药明-0.31%、凯莱英-0.55%。",
-        "reason": "行业价格强，但容量CXO没有共振，只能判工具链局部命中。"
+        "actual": "通信设备+1.49%、净流入约1.43亿元；光学光电子和元件分别涨1.91%、1.87%，资金较强。",
+        "reason": "硬件修复部分兑现，但资金集中在光学和元件，通信本身的资金确认不足。"
       }
     ],
-    "calibration": "提高单日第一主线在次日的兑现折扣，尤其是低价连板与重组驱动方向；容量股9:45验证失败后应快速降级。对半导体这类科创50、行业资金与制造/设备同时共振的新增主线，提高盘中识别权重。",
+    "calibration": "继续提高单日大涨主线次日兑现折扣；把当日行业资金方向和容量股相对强度置于周末产业消息之前。通信、光学和元件应拆分判断，不能用相关产业链上涨替代CPO本体命中。",
     "candidate_review": [
       {
         "name": "中芯国际",
@@ -1567,7 +1558,7 @@
     ]
   },
   "forecast_score_audit": {
-    "as_of": "2026-09-21 08:00",
+    "as_of": "2026-09-21 11:30",
     "framework": "15/20/20/15/10/10/10，共100分",
     "checks": [
       {
@@ -1584,226 +1575,200 @@
       }
     ],
     "history_count": 15,
-    "note": "盘前不重算收盘模型；原始92、85分完整保留，分数不是上涨概率。"
+    "note": "午间不重算或覆盖收盘预测；92、85分不是上涨概率。forecast_history保持原15期，待收盘形成完整结果后再追加。"
   },
   "limit_review": {
-    "as_of": "17:30收盘定版",
-    "trade_date": "2026-09-18",
-    "scope": "连板网收盘口径：涨停78、炸板25、跌停0，封板率75.7%。",
-    "limit_up_total": 78,
-    "limit_down_total": 0,
-    "failed_limit_count": 25,
-    "seal_rate_pct": 75.7,
-    "blast_rate_pct": 24.3,
+    "as_of": "2026-09-21 11:30午间",
+    "trade_date": "2026-09-21",
+    "scope": "完整涨停、跌停、炸板总数及统一分母未取得；仅记录公开可核验样本。",
+    "limit_up_total": null,
+    "limit_down_total": null,
+    "failed_limit_count": null,
+    "seal_rate_pct": null,
+    "blast_rate_pct": null,
     "categories": {
-      "ten_pct": "完整10%分类数量未单独取得",
-      "twenty_pct": "完整20cm涨停数量未取得；不以涨超10%替代涨停",
-      "thirty_pct": "北交所30cm完整分类未取得",
-      "special_rules": "不同板块涨跌停规则不同；未把涨超10%但未封板计入涨停。"
+      "ten_pct": "至少新华制药、华北制药、哈三联等医药股涨停；华瓷股份、华软科技等名称炒作样本涨停",
+      "twenty_pct": "诺禾致源20cm涨停",
+      "thirty_pct": "峆一药业30cm涨停",
+      "special_rules": "不同板块涨跌停规则不同；未以涨超10%替代涨停。"
     },
     "highest_board": {
-      "name": "锡华科技",
-      "boards": "4天4板"
+      "name": "华瓷股份",
+      "boards": "5连板"
     },
     "ladder": [
       {
-        "boards": "4天4板",
+        "boards": "5连板",
         "count": 1,
         "names": [
-          "锡华科技"
+          "华瓷股份"
         ]
       },
       {
-        "boards": "5天3板",
+        "boards": "3连板",
         "count": 1,
         "names": [
-          "科森科技"
+          "华软科技"
         ]
-      },
-      {
-        "boards": "2天2板",
-        "count": 2,
-        "names": [
-          "华纺股份",
-          "新宏泽"
-        ]
-      },
-      {
-        "boards": "连板合计",
-        "count": 12,
-        "names": []
       }
     ],
     "intraday_detail": {
-      "first_seal_time": "全量首次封板时间未取得",
+      "first_seal_time": "诺禾致源开盘约3分钟封20cm；其他全量首次封板时间未取得",
       "open_count": "全量开板次数未取得",
-      "turnover": "逐股统一换手率未取得",
-      "late_support": "午后涨停由63只扩展至78只，连板由9只增至12只；CPO中际旭创、新易盛午后增强，半导体制造设备容量股较午间有所回落。无逐笔数据，不判断回封速度或封单变化。"
+      "turnover": "统一换手率未取得",
+      "late_support": "11:30前完整逐笔与封单变化未取得，不判断回封速度和尾盘承接。"
     },
-    "data_note": "炸板率按25/(78+25)=24.27%，四舍五入24.3%；封板率按78/(78+25)=75.73%，四舍五入75.7%。",
-    "sentiment_validation": "周一观察科技容量股能否吸收78只涨停后的抛压，以及锡华科技、科森科技是否出现快速负反馈。"
+    "data_note": "无统一分母，不计算封板率或炸板率。",
+    "sentiment_validation": "午后观察医药前排是否稳定，以及华瓷股份、华软科技开板是否向名称炒作链扩散负反馈。"
   },
   "mainlines": [
     {
-      "title": "原油反弹约0.8%：地缘风险获得价格确认，实物供给冲击仍待证实",
+      "title": "医药全面扩散：创新药、AI制药与医疗服务形成上午第一主线",
       "stars": 5,
-      "fact": "胡塞周末宣称袭击利雅得，美伊威胁同步升级。9月21日亚洲早盘Brent升至104.68美元/桶、WTI升至101.06美元/桶，均上涨约0.8%。",
-      "market": "油价已对风险作出反应，但沙特TASI周日仅下跌0.3%，沙特阿美反而收涨1.3%；这说明市场尚未定价为全面能源供应中断。",
-      "short_term": "利好上游油气、油服及航线匹配的油运，压制航空、物流、轮胎和成本难转嫁的化工下游。A股必须由中国海油、中国石油、中海油服等容量公司确认。",
-      "mid_term": "只有设施持续受损、出口流量下降、运距或油轮租金上升，才会形成可持续盈利影响。",
+      "fact": "医疗服务+4.18%、生物制品+4.13%、化学制药+3.77%；成交分类净流入分别约10.34亿、10.98亿和27.46亿元。峆一药业30cm涨停、诺禾致源20cm涨停，新华制药、华北制药、哈三联等10cm涨停。",
+      "market": "行业涨幅、资金与不同交易制度涨停样本共同确认，强度明显高于主要指数。AI制药受海外湿实验室进展及国内产业规划预期催化，但不能把政策和海外合作直接折算为A股订单。",
+      "short_term": "午后重点看药明康德、凯莱英、百普赛斯等容量或基本面标的能否继续共振；若只剩30cm/20cm小票，主线质量下降。",
+      "mid_term": "CXO看订单、价格、产能利用率与回款；创新药看临床终点、获批、BD条款和商业化；生命科学工具看真实产品收入与利润。",
       "beneficiaries": [
-        "中国海油",
-        "中国石油",
-        "中海油服",
-        "海油工程",
-        "中远海能"
+        "药明康德",
+        "凯莱英",
+        "百普赛斯",
+        "诺禾致源",
+        "华北制药"
       ],
       "losers": [
-        "航空",
-        "物流",
-        "轮胎",
-        "弱议价化工下游"
+        "无管线、无订单、无商业化收入的AI制药概念"
       ],
       "business_map": {
         "direct": [
-          "中国海油",
-          "中国石油",
-          "中海油服"
+          "有CXO订单、临床管线、检测与科研产品收入的公司"
         ],
         "mapping": [
-          "海油工程",
-          "船型与航线匹配的油运公司"
+          "AI制药平台",
+          "湿实验室工具链",
+          "医药信息化"
         ],
         "sentiment": [
-          "无产量、储量、对应船型或订单的地缘小票"
+          "只贴AI制药或创新药标签、未披露订单与临床进展的公司"
         ]
       },
-      "risk": "袭击主张不等于能源设施严重受损；若油价回落且A股油气中军不响应，地缘线应迅速降级。"
+      "risk": "板块单上午涨幅较大；若容量医药午后转弱，高弹性涨停股可能由产业交易退化为情绪交易。"
     },
     {
-      "title": "长鑫第五代DRAM平台量产：国产存储迎来真实产业节点",
-      "stars": 5,
-      "fact": "长鑫存储宣布第五代DRAM平台进入量产，并发布两款24Gb LPDDR5X产品；公司称单位晶圆芯片产出较上一代至少提高50%。",
-      "market": "周五A股半导体行业已上涨4.31%、成交分类净流入约226.6亿元，周一面对产业催化与高潮兑现的双重作用。",
-      "short_term": "优先观察中芯国际、中微公司、北方华创、华天科技、长电科技和兆易创新；只有设备、制造、封测容量股共振，才能认定主线延续。",
-      "mid_term": "量产是真实进展，但必须继续核验良率、产能爬坡、客户认证、售价、毛利率以及国产设备订单和验收。",
-      "beneficiaries": [
-        "北方华创",
-        "中微公司",
-        "华海清科",
-        "华天科技",
-        "长电科技",
-        "兆易创新"
-      ],
-      "losers": [
-        "仅有国产替代标签、无客户与收入验证的概念股"
-      ],
-      "business_map": {
-        "direct": [
-          "存储产品、设备订单与封测收入明确的公司"
-        ],
-        "mapping": [
-          "半导体材料",
-          "EDA",
-          "洁净室",
-          "先进封装"
-        ],
-        "sentiment": [
-          "未披露客户导入、设备验收或收入的长鑫概念股"
-        ]
-      },
-      "risk": "长鑫量产不等于所有A股供应商获得新增订单；周五78只涨停后高开低走风险较高。"
-    },
-    {
-      "title": "中美纽约会谈聚焦AI、关税与关键矿产：议程明确，结果未落地",
-      "stars": 5,
-      "fact": "何立峰与美国财长贝森特在纽约会谈，为本周领导人峰会铺路，议题包括AI安全、关税、稀土与关键矿产以及11月到期的贸易休战。",
-      "market": "截至盘前未见双方发布正式成果。半导体、AI硬件、稀土和航空制造可能增加波动，但不能把会谈议程当作协议。",
-      "short_term": "若有正式联合声明，稀土、半导体和出口链可能快速重估；在此之前只按事件窗口处理，服从容量股价格和成交验证。",
-      "mid_term": "真正改变基本面的，是可执行的关税、出口管制、关键矿物流量、AI护栏和采购条款。",
-      "beneficiaries": [
-        "中芯国际",
-        "北方华创",
-        "中际旭创",
-        "北方稀土",
-        "盛和资源"
-      ],
-      "losers": [
-        "依赖单一政策预期、缺乏订单与现金流的概念股"
-      ],
-      "business_map": {
-        "direct": [
-          "真实晶圆、设备、光模块、稀土资源与冶炼业务"
-        ],
-        "mapping": [
-          "先进封装",
-          "AI服务器互连",
-          "磁材"
-        ],
-        "sentiment": [
-          "仅凭会谈标题交易的合作概念"
-        ]
-      },
-      "risk": "谈判仍可能只有原则表述或延后决定；以双方正式声明和可执行条款为准。"
-    },
-    {
-      "title": "美债长端仍近5%，美联储继续强调通胀：科技只获结构性窗口",
+      "title": "光学光电子与元件回流：硬件修复成立，但不等于半导体主升",
       "stars": 4,
-      "fact": "9月18日标普500上涨0.17%、纳指上涨0.39%、道指下跌0.18%；周日Kashkari称通胀并非只由油价驱动，核心通胀仍过高，并支持最近加息。",
-      "market": "美国10年期国债收益率仍约4.98%—5.00%。芯片股结构性走强，但高利率没有解除。",
-      "short_term": "CPO和半导体有海外情绪支撑，但A股周五已进入高潮区；中际旭创、新易盛、天孚通信以及中芯、中微、北方华创的承接比小票数量更重要。",
-      "mid_term": "5%附近无风险利率提高订单、利润、现金流和估值兑现门槛，泛AI后排最脆弱。",
+      "fact": "光学光电子+1.91%、净流入18.64亿元；元件+1.87%、净流入17.49亿元；通信设备+1.49%、净流入仅1.43亿元。华为新AI计算架构及运营商光纤采购构成催化。",
+      "market": "光学、元件的价格和资金较强，通信板块温和上涨；资金强度远低于周五半导体高潮，内部更偏光纤、光器件和部分元件。",
+      "short_term": "中际旭创、新易盛、天孚通信等容量CPO若午后继续强于创业板，可维持二线主线判断；若只有光纤或小票涨停，不能泛化为AI硬件全面回归。",
+      "mid_term": "核验800G/1.6T订单、运营商采购份额、客户认证、交付、毛利率和现金流。",
       "beneficiaries": [
         "中际旭创",
         "新易盛",
         "天孚通信",
-        "中芯国际",
-        "北方华创"
+        "光迅科技",
+        "具备真实交付的光纤光缆公司"
       ],
       "losers": [
-        "无订单、无现金流的高估值AI与半导体概念"
+        "无订单、无认证的CPO与AI硬件标签股"
       ],
       "business_map": {
         "direct": [
-          "具备订单、出货和利润验证的光模块与半导体公司"
+          "有光模块、光器件、光纤交付收入的公司"
         ],
         "mapping": [
-          "高速互连",
-          "先进封装",
-          "AI服务器配套"
+          "高速连接器",
+          "PCB/元件",
+          "液冷"
         ],
         "sentiment": [
-          "只有模型或AI标签、没有客户与收入的公司"
+          "仅凭华为架构名称映射、无供应关系证明的公司"
         ]
       },
-      "risk": "海外科技上涨幅度有限，不能直接外推为A股科技全面主升。"
+      "risk": "华为架构和运营商采购不等于所有A股公司新增订单；通信设备净流入很小，午后容易分化。"
     },
     {
-      "title": "LPR连续第16个月不变：无新增宽松，地产与高估值资产靠自身验证",
+      "title": "汽车零部件有资金承接，机器人仍偏消息驱动",
       "stars": 3,
-      "fact": "9月1年期LPR维持3.00%，5年期以上LPR维持3.50%，符合市场一致预期。",
-      "market": "报价不变没有提供新的估值扩张催化；中美利差、银行净息差与信贷需求仍制约全面降息空间。",
-      "short_term": "银行、地产和消费更多依赖正式政策工具与基本面数据；成长股也不能期待无风险利率快速下行。",
-      "mid_term": "后续观察信贷需求、地产销售、财政工具和银行息差，而不是仅交易降息预期。",
+      "fact": "汽车零部件+1.59%、净流入16.58亿元；自动化设备仅+0.90%、净流入0.21亿元。特斯拉Optimus产线建设与科达利减速器基地量产提供产业新闻。",
+      "market": "零部件资金强于机器人行业本身，说明资金更偏已有汽车业务与制造能力，而非无差别机器人概念。",
+      "short_term": "看拓普集团、三花智控、绿的谐波是否至少两只强于各自行业；否则机器人只能按消息脉冲处理。",
+      "mid_term": "必须核验客户定点、执行器/减速器订单、量产节奏、单机价值量、利润和回款。",
       "beneficiaries": [
-        "高股息银行",
-        "现金流稳定资产"
+        "拓普集团",
+        "三花智控",
+        "绿的谐波",
+        "科达利"
       ],
       "losers": [
-        "依赖快速降息重估的高杠杆地产与高估值成长后排"
+        "无客户、无定点、无量产节点的机器人标签股"
       ],
       "business_map": {
         "direct": [
-          "银行净息差、按揭与真实地产销售"
+          "已有汽车零部件收入及可核验机器人项目的公司"
         ],
         "mapping": [
-          "建材、家居、消费修复"
+          "丝杠",
+          "传感器",
+          "电机",
+          "减速器"
         ],
         "sentiment": [
-          "把LPR不变解读为超预期宽松或突然收紧的概念"
+          "仅靠特斯拉机器人概念炒作的公司"
         ]
       },
-      "risk": "LPR只是贷款定价基准之一，不能单独代表全部货币与信用环境。"
+      "risk": "特斯拉规划目标不等于A股订单；自动化设备资金几乎持平，产业链确认仍弱。"
+    },
+    {
+      "title": "半导体92分预测未通过午间资金验证",
+      "stars": 2,
+      "fact": "半导体仅+0.30%，成交分类净流出约45.91亿元；科创50+0.35%，明显弱于创业板。长鑫量产催化没有转化为行业资金延续。",
+      "market": "周五行业大涨后的兑现特征明显。3日累计资金仍偏强，但当日上午资金流向与价格强度均未进入前三。",
+      "short_term": "只有中芯国际、中微公司、北方华创至少两只午后重新强于科创50，且行业资金明显回流，才可从‘分歧’上调为‘承接’。",
+      "mid_term": "长鑫量产是真实产业节点，但仍需核验良率、客户导入、产能爬坡以及设备订单与验收。",
+      "beneficiaries": [
+        "中芯国际",
+        "北方华创",
+        "中微公司",
+        "华海清科",
+        "兆易创新"
+      ],
+      "losers": [
+        "把长鑫量产直接当作所有供应商新增订单的概念股"
+      ],
+      "business_map": {
+        "direct": [
+          "有晶圆制造、设备、存储或封测收入的公司"
+        ],
+        "mapping": [
+          "材料",
+          "EDA",
+          "洁净室"
+        ],
+        "sentiment": [
+          "无客户、送样、验收与收入披露的国产替代概念"
+        ]
+      },
+      "risk": "若午后继续净流出并弱于科创50，周五半导体应定性为单日高潮后的兑现。"
+    },
+    {
+      "title": "“华字辈”批量涨停：情绪强，但不是可加总的产业主线",
+      "stars": 1,
+      "fact": "华仁药业、华英农业、华森制药、华北制药、新华制药、华瓷股份、华脉科技、华阳新材、华软科技等跨行业上涨，华瓷股份5连板、华软科技3连板。",
+      "market": "标的横跨医药、农业、陶瓷、通信与材料，共同点主要是名称而非业务或现金流，属于典型符号炒作。",
+      "short_term": "可作为短线情绪温度计，但不可据此推导行业景气或基本面改善。",
+      "mid_term": "没有统一产业链、订单和利润逻辑，中期价值不可验证。",
+      "beneficiaries": [],
+      "losers": [
+        "追高无业务共性的名称概念股"
+      ],
+      "business_map": {
+        "direct": [],
+        "mapping": [],
+        "sentiment": [
+          "所有仅因名称含‘华’而被归类的股票"
+        ]
+      },
+      "risk": "名称炒作常在一致加速后快速反转；华瓷股份或华软科技开板可能触发同类批量负反馈。"
     }
   ],
   "manual_revision": {
@@ -1822,96 +1787,95 @@
     "scope": "人工核验发布版；保留9月6日08:00周末资讯，修正资金单位与候选证据展示",
     "unit_contract": "所有 *_billion 字段均为十亿元人民币；网页显示亿元时乘10。历史值不改写。"
   },
-  "market_status": "周一盘前；引用2026-09-18最近完整A股交易日，补充9月21日亚洲时段原油、周末中美会谈及美联储表态",
+  "market_status": "2026-09-21午间收盘；指数温和上涨，医药成为价格与资金共振的第一主线，半导体未通过资金验证",
   "metrics": [
     {
-      "label": "A股最近交易日",
-      "value": "上证+0.94% / 创业板+2.25% / 科创50+2.88%",
-      "note": "2026-09-18收盘；沪深成交20765.8亿元，较前日增加2537.3亿元"
+      "label": "上证指数",
+      "value": "3933.37点 / +0.55%",
+      "note": "截至11:30"
     },
     {
-      "label": "涨停 / 炸板 / 跌停",
-      "value": "78 / 25 / 0只",
-      "note": "9月18日；封板率75.7%，炸板率24.3%"
+      "label": "深证成指",
+      "value": "13718.23点 / +0.57%",
+      "note": "截至11:30"
     },
     {
-      "label": "美股周五",
-      "value": "标普+0.17% / 纳指+0.39% / 道指-0.18%",
-      "note": "9月18日收盘，芯片股结构性走强但市场广度有限"
+      "label": "创业板指",
+      "value": "3403.97点 / +0.93%",
+      "note": "截至11:30，主要指数中最强"
     },
     {
-      "label": "美国10年期国债",
-      "value": "约4.98%—5.00%",
-      "note": "仍处高位；周日Kashkari称核心通胀仍过高"
+      "label": "科创50",
+      "value": "1658.41点 / +0.35%",
+      "note": "明显弱于周五科技高潮"
     },
     {
-      "label": "Brent原油",
-      "value": "104.68美元/桶 / +0.78%",
-      "note": "9月21日亚洲早盘，利雅得遇袭后风险溢价回升"
+      "label": "沪深半日成交额",
+      "value": "13278.4亿元",
+      "note": "较9月18日同一时点约增加88亿元，小幅放量约0.7%"
     },
     {
-      "label": "WTI原油",
-      "value": "101.06美元/桶 / +0.76%",
-      "note": "9月21日亚洲早盘"
+      "label": "资金第一主线",
+      "value": "医疗服务+4.18% / 生物制品+4.13% / 化学制药+3.77%",
+      "note": "10:27同源互斥行业快照"
     },
     {
-      "label": "贵金属",
-      "value": "黄金约4382.59美元/盎司 / 周五+0.98%",
-      "note": "最新可靠正式收盘口径为9月18日；周一同口径现货变动未取得"
+      "label": "半导体",
+      "value": "+0.30% / 净流出约45.91亿元",
+      "note": "成交分类估算；92分预测未通过资金条件"
     },
     {
-      "label": "政策与产业",
-      "value": "长鑫DRAM量产 / 中美会谈进行中 / LPR不变",
-      "note": "会谈尚未公布正式成果；1年期LPR 3.00%、5年期以上3.50%"
+      "label": "涨停结构",
+      "value": "医药30cm、20cm、10cm均有确认样本",
+      "note": "完整涨停、跌停、炸板总数及统一分母未取得"
     }
   ],
   "midday_snapshot": {
-    "as_of": "2026-09-18 11:30 北京时间",
+    "as_of": "2026-09-21 11:30 北京时间",
     "indices": {
       "shanghai": {
-        "close": 3916.07,
-        "change_pct": 1.04
+        "close": 3933.37,
+        "change_pct": 0.55
       },
       "shenzhen": {
-        "close": 13613.48,
-        "change_pct": 1.52
+        "close": 13718.23,
+        "change_pct": 0.57
       },
       "chinext": {
-        "close": 3368.03,
-        "change_pct": 2.11
+        "close": 3403.97,
+        "change_pct": 0.93
       },
       "star50": {
-        "close": 1669.34,
-        "change_pct": 3.93
+        "close": 1658.41,
+        "change_pct": 0.35
       },
       "beijing50": {
         "close": null,
-        "change_pct": 1.33
+        "change_pct": null
       }
     },
     "leading": [
-      "半导体/国产芯片/存储",
-      "通信与CPO容量核心",
-      "机器人核心零部件",
-      "医疗服务与生命科学工具"
+      "创新药/AI制药/医疗服务",
+      "光学光电子/元件/通信设备",
+      "汽车零部件"
     ],
     "lagging": [
-      "汽车整车容量股",
+      "半导体资金背离",
       "贵金属",
-      "PCB高阶材料的部分容量股",
-      "风电与通信线缆"
+      "工业金属",
+      "纯名称炒作的非行业扩散"
     ],
     "market": {
-      "advancers": 4319,
-      "decliners": 784,
-      "turnover_billion": 1318.85,
-      "previous_same_time_billion": 1244.54,
-      "change_vs_previous_same_time_billion": 73.85,
-      "limit_up": 63,
-      "limit_down": 0,
-      "failed_limit": 24
+      "advancers": null,
+      "decliners": null,
+      "turnover_billion": 1327.84,
+      "previous_same_time_billion": 1319,
+      "change_vs_previous_same_time_billion": 8.84,
+      "limit_up": null,
+      "limit_down": null,
+      "failed_limit": null
     },
-    "note": "指数和成交来自腾讯11:30午间快照；涨停、炸板、跌停、涨跌家数与两市成交由连板网11:45午间版交叉核验。半日成交仅与9月17日午间同口径比较，不与全天混算。",
+    "note": "指数与沪深成交来自腾讯11:30快照；半日成交只与9月18日11:30同口径约1.319万亿元比较。全市场涨跌家数、涨停、跌停、炸板统一口径未取得，不估算。",
     "holiday_update": {
       "as_of": "2026-09-20 11:30 北京时间",
       "market_status": "周日休市，无当日上午指数、成交、涨跌家数、涨停、炸板和资金排名",
@@ -1950,8 +1914,8 @@
   "multi_day_persistence": {
     "as_of": "截至2026-09-18完整交易日",
     "benchmark": "沪深300",
-    "scope": "3/5/10日资金和累计涨幅来自同花顺同源行业口径；净流入天数、基准同期收益和成交占比趋势未取得。",
-    "methodology": "行业互斥，不与概念资金重复加总。相对基准收益缺少同步基准序列，留空。",
+    "scope": "继续保留9月18日完整交易日序列；9月21日10:27滚动快照无法确认完全排除当日半日，因此不据此重写3/5/10个完整交易日指标。",
+    "methodology": "午间当日资金排名与多日完整日序列严格分开；行业互斥，不与概念资金重复加总。",
     "rows": [
       {
         "sector": "半导体",
@@ -2138,215 +2102,219 @@
     ]
   },
   "sector_capital_concentration": {
-    "as_of": "2026-09-18 15:17 北京时间",
-    "classification": "同花顺行业资金流分类（AKShare备用）；行业互斥。概念只作交叉观察，不与行业重复加总。",
-    "market_turnover_scope": "沪深成交额20765.8亿元；行业成交额及同源全市场行业成交额未返回。",
-    "methodology": "主力净流入为成交分类估算，不等于机构真实仓位或账户迁移。因行业成交额、20日平均成交占比缺失，市场占比、相对20日变化和净流入/成交额留空。",
+    "as_of": "2026-09-21 10:27 北京时间",
+    "classification": "同花顺互斥行业资金流排名（AKShare备用）；概念板块不与行业重复加总。",
+    "market_turnover_scope": "沪深半日成交约13278.4亿元；同源行业成交额与全市场行业成交额未返回。",
+    "methodology": "主力净流入为大单成交分类估算，不等于机构真实仓位或账户迁移。行业成交额、20日平均成交占比缺失，因此市场占比、相对20日变化及净流入/成交额留空。",
     "rows": [
       {
         "rank": 1,
-        "sector": "半导体",
-        "return_pct": 4.31,
+        "sector": "化学制药",
+        "return_pct": 3.77,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 22.66,
+        "main_net_inflow_billion": 2.746,
         "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
       },
       {
         "rank": 2,
-        "sector": "通信设备",
-        "return_pct": 2.35,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 3.64,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      },
-      {
-        "rank": 3,
-        "sector": "光学光电子",
-        "return_pct": 1.74,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 3.43,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      },
-      {
-        "rank": 4,
-        "sector": "消费电子",
-        "return_pct": 1.91,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 3.2,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      },
-      {
-        "rank": 5,
-        "sector": "自动化设备",
-        "return_pct": 2.12,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 2.49,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      },
-      {
-        "rank": 6,
-        "sector": "光伏设备",
-        "return_pct": 2.91,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 2.43,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      },
-      {
-        "rank": 7,
-        "sector": "通用设备",
-        "return_pct": 2.1,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 2.43,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      },
-      {
-        "rank": 8,
-        "sector": "证券",
-        "return_pct": 1.36,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 2.28,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      },
-      {
-        "rank": 9,
-        "sector": "房地产",
-        "return_pct": 2.31,
+        "sector": "建筑材料",
+        "return_pct": 1.47,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
         "main_net_inflow_billion": 2.15,
         "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
       },
       {
-        "rank": 10,
-        "sector": "电子化学品",
-        "return_pct": 2.61,
+        "rank": 3,
+        "sector": "光学光电子",
+        "return_pct": 1.91,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 2.02,
+        "main_net_inflow_billion": 1.864,
         "net_inflow_to_turnover_pct": null,
-        "unit": "亿元",
-        "status": "15:17收盘互斥行业榜"
-      }
-    ],
-    "concept_crosscheck": [
-      {
-        "concept": "国产芯片",
-        "return_pct": 2.87,
-        "main_net_inflow_billion": 230,
-        "unit": "亿元",
-        "note": "概念与半导体行业重叠，不与226.6亿元相加"
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
       },
       {
-        "concept": "CPO",
-        "return_pct": 2.48,
-        "main_net_inflow_billion": 142,
-        "unit": "亿元",
-        "note": "与通信设备、光学光电子重叠，不相加"
+        "rank": 4,
+        "sector": "元件",
+        "return_pct": 1.87,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 1.749,
+        "net_inflow_to_turnover_pct": null,
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
       },
       {
-        "concept": "PCB",
-        "return_pct": 1.69,
-        "main_net_inflow_billion": -60.19,
-        "unit": "亿元",
-        "note": "与电子、元件重叠，不相加"
+        "rank": 5,
+        "sector": "汽车零部件",
+        "return_pct": 1.59,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 1.658,
+        "net_inflow_to_turnover_pct": null,
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
+      },
+      {
+        "rank": 6,
+        "sector": "军工装备",
+        "return_pct": 1.87,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 1.266,
+        "net_inflow_to_turnover_pct": null,
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
+      },
+      {
+        "rank": 7,
+        "sector": "生物制品",
+        "return_pct": 4.13,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 1.098,
+        "net_inflow_to_turnover_pct": null,
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
+      },
+      {
+        "rank": 8,
+        "sector": "医疗服务",
+        "return_pct": 4.18,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 1.034,
+        "net_inflow_to_turnover_pct": null,
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
+      },
+      {
+        "rank": 9,
+        "sector": "医疗器械",
+        "return_pct": 2.69,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 0.677,
+        "net_inflow_to_turnover_pct": null,
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
+      },
+      {
+        "rank": 10,
+        "sector": "中药",
+        "return_pct": 2.46,
+        "turnover_billion": null,
+        "market_share_pct": null,
+        "share_vs_20d_avg_pct_point": null,
+        "main_net_inflow_billion": 0.638,
+        "net_inflow_to_turnover_pct": null,
+        "unit": "十亿元（1=10亿元）",
+        "status": "10:27半日互斥行业快照"
       }
     ],
-    "conclusion": "半导体资金聚集度最强；通信设备、光学光电子和消费电子居行业净流入前列。PCB指数上涨但资金净流出，属于明显背离。"
+    "concept_crosscheck": [],
+    "conclusion": "资金集中于化学制药、光学光电子、元件、汽车零部件和医药细分；半导体当日上午净流出约45.91亿元，未通过资金确认。"
   },
   "sector_internal_strength": {
-    "as_of": "2026-09-18 15:00 北京时间",
-    "methodology": "涨停数量采用连板网收盘题材归类；概念可重叠，不跨板块相加。有效成分股分母、上涨比例、中位数涨幅和前三大成交股占比未取得。",
-    "note": "无有效成分股分母，不计算伪精确涨停密度。",
+    "as_of": "2026-09-21 11:30 北京时间",
+    "methodology": "仅列可核验涨停样本；有效成分股分母、上涨家数比例、中位数涨幅和前三大成交股占比未取得，不计算伪精确密度。",
+    "note": "不同交易制度涨停幅度不同；30cm、20cm、10cm分别列示，不将涨超阈值但未封板计入。",
     "rows": [
       {
-        "sector": "国产芯片",
+        "sector": "医药/AI制药",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
-        "limit_up_count_at_least": 11,
+        "limit_up_count_at_least": 5,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "约11只涨停；中芯、中微、北方华创共同上涨，属于整体扩散"
+        "observation": "至少峆一药业30cm、诺禾致源20cm，新华制药、华北制药、哈三联10cm；行业与容量股午后仍需确认"
       },
       {
-        "sector": "通信/CPO",
+        "sector": "光学光电子/元件/通信",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
         "limit_up_count_at_least": null,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "完整涨停数未取得；中际、新易盛、天孚、光迅四只容量核心同涨"
+        "observation": "行业资金为正，但完整涨停数与成分股分母未取得"
       },
       {
-        "sector": "机器人/自动化设备",
-        "advancer_ratio_pct": null,
-        "effective_constituents": null,
-        "limit_up_count_at_least": 1,
-        "limit_density_pct": null,
-        "median_return_pct": null,
-        "top3_turnover_share_pct": null,
-        "observation": "至少科森科技涨停；拓普、三花、绿的谐波同步上涨，容量确认成立"
-      },
-      {
-        "sector": "医疗服务/生物制品",
+        "sector": "汽车零部件/机器人",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
         "limit_up_count_at_least": null,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "百普赛斯+10.27%，药明与凯莱英下跌，少数高弹性股强于容量股"
+        "observation": "汽车零部件资金较强，自动化设备仅微幅净流入，属于内部明显分化"
       },
       {
-        "sector": "PCB",
+        "sector": "半导体",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
         "limit_up_count_at_least": null,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "概念指数上涨但净流出60.19亿元；生益与澳弘下跌，属于价格与资金背离"
+        "observation": "行业+0.30%但净流出45.91亿元，价格和资金均弱于周五"
       }
     ]
   },
   "sources": [
+    {
+      "date": "2026-09-21",
+      "title": "腾讯实时行情：午间主要指数与成交额",
+      "url": "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+      "scope": "11:30指数点位、涨跌幅及沪深成交额"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "仓库行业资金排名",
+      "url": "https://github.com/panko78/investment-brief-site/blob/main/sector_ranking.json",
+      "scope": "10:27互斥行业涨跌幅、当日成交分类资金快照"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "东方财富：创新药走强与‘华字辈’名称炒作",
+      "url": "https://finance.eastmoney.com/a/202609213879834313.html",
+      "scope": "医药涨停样本、华瓷股份5连板与名称炒作风险"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "东方财富：AI制药盘中走强",
+      "url": "https://finance.eastmoney.com/a/202609213879818095.html",
+      "scope": "诺禾致源20cm、泓博医药等表现及产业催化边界"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "东方财富：华为AI计算架构刺激光通信",
+      "url": "https://finance.eastmoney.com/a/202609213879768732.html",
+      "scope": "Peerium架构、运营商光纤采购与A股映射"
+    },
+    {
+      "date": "2026-09-21",
+      "title": "东方财富：特斯拉Optimus工厂与机器人产业进展",
+      "url": "https://finance.eastmoney.com/a/202609213879530874.html",
+      "scope": "产线建设、规划目标及A股订单边界"
+    },
     {
       "date": "2026-09-21",
       "title": "Reuters：利雅得遇袭后原油上涨",
@@ -2597,25 +2565,25 @@
   "top3": [
     {
       "rank": 1,
-      "name": "半导体/国产存储",
+      "name": "创新药/AI制药/医疗服务",
       "stars": 5,
-      "reason": "周五价格、资金与涨停宽度确认，长鑫量产提供真实产业催化",
-      "verify": "9:45前中芯国际、中微公司、北方华创至少两只强于科创50；华天、长电不集体高开低走"
+      "reason": "医疗服务、生物制品、化学制药均涨逾3.7%，且同源资金净流入，30cm/20cm/10cm均有确认样本",
+      "verify": "药明康德、凯莱英、百普赛斯至少两只继续强于医药指数；医药前排不出现集中炸板"
     },
     {
       "rank": 2,
-      "name": "上游油气/油服及对应油运",
-      "stars": 5,
-      "reason": "亚洲早盘Brent与WTI均反弹约0.8%，地缘风险首次获得基准油价确认",
-      "verify": "中国海油、中国石油、中海油服至少两只强于沪深300；油运须同步核验船型、航线和租金"
+      "name": "光学光电子/元件/通信",
+      "stars": 4,
+      "reason": "光学和元件分别净流入18.64亿、17.49亿元，通信温和上涨",
+      "verify": "中际旭创、新易盛、天孚通信至少两只继续强于创业板，通信资金不转为明显净流出"
     },
     {
       "rank": 3,
-      "name": "通信/CPO",
-      "stars": 4,
-      "reason": "周五容量股共振，但5%附近美债和78只涨停后的兑现压力仍高",
-      "verify": "中际旭创、新易盛、天孚通信至少两只强于创业板，通信设备资金不明显转负"
+      "name": "汽车零部件",
+      "stars": 3,
+      "reason": "行业+1.59%、净流入16.58亿元，但机器人行业资金确认较弱",
+      "verify": "拓普、三花、绿的谐波至少两只维持强势；若只剩小票则降级"
     }
   ],
-  "updated_at": "2026-09-21 08:00"
+  "updated_at": "2026-09-21 11:45"
 }
