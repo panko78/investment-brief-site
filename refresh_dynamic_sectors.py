@@ -33,9 +33,12 @@ def board_map():
             if name and code: out[str(name).strip()]=str(code).strip()
         if out: return out
     except Exception as exc: print('AKShare board map failed',type(exc).__name__,str(exc)[:120],flush=True)
-    out=direct_board_map()
-    if not out: raise ValueError('No Eastmoney industry board name/code mapping')
-    return out
+    try:
+        out=direct_board_map()
+        if out: return out
+    except Exception as exc:
+        print('Direct board map failed; use ranking-only fallback',type(exc).__name__,str(exc)[:120],flush=True)
+    return {}
 
 def live_projection(ranking,data_date=None):
     rows=[r for r in ranking.get('rows',[]) if r.get('name') and r.get('day_net_yuan') is not None]; rows.sort(key=lambda r:r.get('day_net_yuan') or 0,reverse=True); as_of=data_date or (ranking.get('updated_at') or '')[:10] or None; sectors=[]
@@ -60,7 +63,7 @@ def main():
         selected.append((code,name)); seen.add(code)
         if len(selected)>=12: break
     if len(selected)<MIN_COMPLETE:
-        market['sectors']=live_projection(ranking,target); market['sector_mode']='completed_ranking_fallback'; market['sector_scope']='动态行业资金榜；历史行业板块映射暂不可用，保留最近完成交易日口径。'; market['sector_ranking_updated_at']=ranking.get('updated_at'); market['sector_ranking_source']=ranking.get('source'); MARKET.write_text(json.dumps(market,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8'); return
+        market['sectors']=live_projection(ranking,target); market['sector_mode']='completed_ranking_fallback'; market['sector_scope']='动态行业资金榜；历史行业板块映射暂不可用，保留最近完成交易日口径。'; market['sector_ranking_updated_at']=ranking.get('updated_at'); market['sector_ranking_source']=ranking.get('source'); MARKET.write_text(json.dumps(market,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8'); print('SAVED ranking-only sector fallback',len(market['sectors']),flush=True); return
     jobs={}; raw={}
     with ThreadPoolExecutor(max_workers=4) as ex:
         for code,name in selected: jobs[ex.submit(cmd.prices,'90.'+code,target)]=(code,name,'price'); jobs[ex.submit(cmd.flows,'90.'+code,target)]=(code,name,'flow')
