@@ -1,14 +1,13 @@
 {
   "avoid": [
-    "把费城半导体大涨直接等同A股半导体订单与资金回流",
-    "中芯、中微、北方华创不响应时追国产替代后排",
-    "中际、新易盛、天孚集体高开低走后追CPO小票",
+    "半导体设备股不跟时把数字芯片上涨泛化为全产业链主升",
+    "中芯、中微、北方华创转弱后追20cm芯片后排",
+    "通信设备净流出时追无订单的CPO、光纤和连接器概念",
+    "自动化设备资金流出时追无客户定点、无量产节点的机器人小票",
+    "把Meta等海外AI产品热度直接视为易点天下等A股公司的新增订单",
     "医药容量股转弱后追无临床、无BD、无商业化收入的AI制药概念",
-    "把Iambic申请IPO或ADARx战略投资等同药物获批",
-    "世联行、万科A出现高位负反馈后追地产后排",
-    "Brent回落时追无产量、储量或订单的油气地缘小票",
-    "黄金外盘与A股同步偏弱时抄贵金属后排",
-    "把中美AI安全沟通机制解释为出口管制和关税已经放松"
+    "房地产开发价格和资金均转弱后追昨日涨停后排",
+    "把油价回落机械外推为所有化工下游利润改善"
   ],
   "candidate_pool": [
     {
@@ -16,65 +15,65 @@
       "code": "688981",
       "name": "中芯国际",
       "sector_role": "半导体制造容量验证核心",
-      "price_fund_persistence": "昨日半导体行业+0.23%、净流出约101.12亿元；隔夜费城半导体+4.3%。个股完整同源资金序列未取得。",
-      "business_validation": "产能利用率、价格、良率、资本开支和利润",
-      "valuation": "对美债利率、资本开支和政策敏感",
-      "risk_events": "隔夜高开兑现、行业资金继续流出",
-      "why": "判断海外芯片反弹能否转化为A股容量行情",
+      "price_fund_persistence": "上午半导体+1.67%、净流入约76.90亿元；个股同源资金未取得。",
+      "business_validation": "产能利用率、良率、价格、资本开支和利润",
+      "valuation": "同日一致预期估值未取得",
+      "risk_events": "科创50冲高回落、设计强而制造设备不跟",
+      "why": "判断芯片行情能否从设计扩散至制造",
       "confirm": "强于科创50且中微或北方华创同步",
-      "invalidate": "高开低走、行业继续大额净流出"
+      "invalidate": "高开回落、行业资金转负"
     },
     {
       "type": "趋势候选",
       "code": "300308",
       "name": "中际旭创",
       "sector_role": "CPO容量验证核心",
-      "price_fund_persistence": "昨日通信设备+1.77%但净流出14.56亿元；隔夜AI风险偏好明显修复。个股完整同源3/5/10日资金未取得。",
-      "business_validation": "800G/1.6T订单、出货、客户结构、毛利率和现金流",
-      "valuation": "高估值与客户资本开支敏感",
-      "risk_events": "通信资金未转正、外盘映射兑现",
-      "why": "验证AI硬件修复是否具备容量资金支持",
+      "price_fund_persistence": "通信设备上午-0.06%、净流出约4.38亿元；个股完整资金未取得。",
+      "business_validation": "800G/1.6T订单、出货、毛利率和现金流",
+      "valuation": "高估值、客户资本开支敏感",
+      "risk_events": "半导体独强、通信继续失血",
+      "why": "检验科技行情是否扩散至AI硬件",
       "confirm": "强于创业板且新易盛或天孚同步",
-      "invalidate": "三只容量光模块集体冲高回落"
+      "invalidate": "容量光模块集体走弱"
+    },
+    {
+      "type": "趋势候选",
+      "code": "300766",
+      "name": "每日互动",
+      "sector_role": "AI应用与数据营销观察标的",
+      "price_fund_persistence": "传媒+2.73%、广告营销+3.58%；个股半日资金与估值未取得。",
+      "business_validation": "AI应用收入、客户投放、毛利率与回款",
+      "valuation": "未取得同日一致预期估值",
+      "risk_events": "海外映射兑现、传媒冲高回落",
+      "why": "观察AI应用能否从情绪转向业务验证",
+      "confirm": "保持相对强势且传媒资金继续为正",
+      "invalidate": "只剩小票封板、容量应用股回落"
     },
     {
       "type": "趋势候选",
       "code": "603259",
       "name": "药明康德",
       "sector_role": "CXO容量验证核心",
-      "price_fund_persistence": "昨日收盘+4.97%；医疗服务+5.10%、当日净流入13.40亿元，3/5/10日净流入约9.01/21.15/2.15亿元。",
-      "business_validation": "订单、价格、产能利用率、回款与自由现金流",
+      "price_fund_persistence": "医药价格延续但大行业资金净流出约9.27亿元。",
+      "business_validation": "订单、价格、产能利用率、回款和自由现金流",
       "valuation": "同日一致预期估值未取得",
-      "risk_events": "单日高潮后兑现、政策与客户集中风险",
-      "why": "比AI制药概念小票更能验证医药行情质量",
-      "confirm": "继续强于医疗服务指数且凯莱英或百普同步",
-      "invalidate": "容量CXO转弱，只剩20cm/30cm小票"
+      "risk_events": "连续大涨后兑现、政策和客户集中",
+      "why": "验证医药行情是否仍有容量资金",
+      "confirm": "强于医疗服务指数且凯莱英或百普同步",
+      "invalidate": "容量CXO转弱，只剩高弹性小票"
     },
     {
-      "type": "趋势候选",
+      "type": "趋势观察",
       "code": "600048",
       "name": "保利发展",
-      "sector_role": "房地产容量验证核心",
-      "price_fund_persistence": "昨日房地产+3.68%、净流入25.73亿元；3/5日净流入4.72/0.85亿元，10日仍净流出5.39亿元。个股同源资金序列未取得。",
-      "business_validation": "销售、回款、融资成本、土储和资产减值",
+      "sector_role": "地产失效验证指标",
+      "price_fund_persistence": "房地产开发上午下跌且资金净流出；个股数据未取得。",
+      "business_validation": "销售、回款、融资成本和资产减值",
       "valuation": "同日一致预期估值未取得",
-      "risk_events": "销售、政策执行和资产减值风险",
-      "why": "比连板股更能验证地产容量趋势",
-      "confirm": "强于沪深300且万科A或华发股份同步",
-      "invalidate": "容量地产集体高开低走"
-    },
-    {
-      "type": "连板候选",
-      "code": "002285",
-      "name": "世联行",
-      "sector_role": "房地产4连板情绪锚",
-      "price_fund_persistence": "昨日4连板；个股完整资金与可成交性数据未取得。",
-      "business_validation": "经纪及服务收入、项目回款与现金流",
-      "valuation": "不适用普通趋势比较",
-      "risk_events": "开板下杀、板块一致性兑现、可成交性",
-      "why": "只作地产情绪温度计，不替代容量股",
-      "confirm": "保持强承接且万科A、保利发展不转弱",
-      "invalidate": "开板下杀并带动地产集中炸板"
+      "risk_events": "昨日高潮后继续兑现",
+      "why": "用于判断地产能否午后修复，不作为追涨推荐",
+      "confirm": "强于沪深300且万科或华发同步",
+      "invalidate": "容量地产继续下行"
     }
   ],
   "close_data_synced_at": "2026-09-21 18:00",
@@ -128,41 +127,41 @@
   },
   "cross_validation": {
     "financing": {
-      "data_period": "截至2026-09-18",
-      "coverage": "两融余额26382.23亿元，较9月17日减少8.75亿元；为滞后数据。",
+      "data_period": "截至2026-09-21",
+      "coverage": "两市融资余额约26528.04亿元，较9月18日增加约145.81亿元；为滞后数据。",
       "items": [],
-      "note": "不代表9月21日实时杠杆行为，不与主力资金、ETF或龙虎榜相加。"
+      "note": "不能代表9月22日上午行业实时杠杆行为，不与主力资金、ETF或龙虎榜相加。"
     },
     "etf_share": {
       "data_period": "截至最近可核验披露日",
       "status": "当日ETF份额净变化未取得。",
-      "note": "ETF价格或成交额变化不能替代份额净申购。"
+      "note": "ETF成交额或价格上涨不能替代份额净申购。"
     },
     "dragon_tiger": {
-      "data_period": "2026-09-21收盘",
-      "coverage": "完整龙虎榜机构席位汇总未取得。",
+      "data_period": "2026-09-22午间",
+      "coverage": "龙虎榜须收盘后披露，上午无完整机构席位数据。",
       "items": [],
-      "note": "未核验即留空；不与主力资金、融资或ETF份额相加。"
+      "note": "不与主力资金、融资或ETF份额相加。"
     }
   },
   "data_quality": {
-    "as_of": "2026-09-22 08:00",
-    "verified": "隔夜美股指数、费城半导体、Brent、黄金、美债方向及新增产业新闻已用公开来源核验；A股资金和涨停引用9月21日完整交易日。",
-    "unavailable": "美国10年期收益率精确收盘点位、铜/镍/钨同一时点完整结算、当日ETF份额、行业融资净买入和完整龙虎榜机构席位未取得。",
-    "rule": "盘前不制造A股当日价格与资金；缺失字段保持空值，不把海外价格或新闻直接写成A股订单。",
-    "note": "主力资金是成交分类估算，不等于机构真实仓位；融资、ETF份额和龙虎榜口径不同，不能相加。"
+    "as_of": "2026-09-22 11:45",
+    "verified": "主要指数与半日成交使用腾讯11:28快照；行业涨幅和资金使用10:58东方财富同源行业排名；两融更新至9月21日。",
+    "unavailable": "全市场涨跌家数、完整涨停/跌停/炸板、10%/20%/30%拆分、逐笔尾盘承接、行业成交额及20日成交占比、ETF份额与龙虎榜机构席位未取得。",
+    "rule": "半日只与前日同一时点比较；3/5/10日完整交易日序列不混入今天半日；缺失字段保持空值。",
+    "note": "主力资金是成交分类估算，不等于机构真实仓位；层级行业不能重复加总，融资、ETF份额和龙虎榜口径也不能相加。"
   },
   "date": "2026-09-22",
   "decision_summary": {
-    "as_of": "2026-09-22 08:00 北京时间",
+    "as_of": "2026-09-22 11:45 北京时间",
     "strongest": [
-      "AI硬件/半导体核心",
-      "医药/CXO与生命科学工具",
-      "房地产开发与服务"
+      "半导体/数字芯片设计",
+      "传媒/广告营销/AI应用",
+      "生物制品/医疗服务"
     ],
-    "key_signal": "开盘后先看科技容量股能否把隔夜费城半导体大涨转化为A股资金回流；医药与地产则看昨日高潮后的承接。科技若高开低走且医药、地产同时分化，应降低总体追涨仓位。",
-    "avoid": "回避半导体和CPO容量股不响应时追海外映射后排、医药容量股转弱后追AI制药小票、地产高位股核按钮后的跟风、油价下跌后追纯油气地缘概念，以及黄金外盘走弱时抄贵金属后排。",
-    "close_data_note": "盘前版；9月21日收盘医药93分、地产87分原始预测保持不变。"
+    "key_signal": "午后先看科创50能否守住1%以上涨幅以及半导体资金是否继续为正；其次看传媒是否获得容量应用股确认。医药若价格继续上涨但资金持续流出，只按高弹性延续，不按基本面主升。",
+    "avoid": "回避半导体设备不跟时泛化全产业链、通信和机器人资金流出时追后排、医药容量股转弱后追20cm/30cm小票、地产预测失效后的低价接力，以及把海外AI产品直接当作A股订单。",
+    "close_data_note": "午间快照；医药93分、地产87分原始预测保持不变，收盘后再作最终复盘。"
   },
   "forecast_history": [
     {
@@ -1564,27 +1563,27 @@
     }
   ],
   "forecast_review": {
-    "as_of": "2026-09-21 15:00",
-    "market_note": "复盘9月18日18:00发布、目标9月21日的原始92/85分预测；原始分数与七项分项不倒改。",
+    "as_of": "2026-09-22 11:30",
+    "market_note": "复盘9月21日18:00发布、目标9月22日的93/87分原始预测；分数与七项分项不倒改，收盘后再作最终结果。",
     "items": [
       {
-        "name": "半导体/国产芯片",
-        "published_score": 92,
-        "entered_top_strength": false,
-        "hit": false,
-        "actual": "半导体+0.23%、净流出约101.12亿元；科创50仅+0.29%，未进入全天强势板块前列。",
-        "reason": "周五+4.31%高潮后的兑现折扣仍低估；长鑫量产是真实催化，但没有转化为当日价格和资金共振。"
+        "name": "医药/CXO与生命科学工具",
+        "published_score": 93,
+        "entered_top_strength": true,
+        "hit": "部分命中",
+        "actual": "生物制品+2.74%、医疗服务+1.65%、化学制药+1.27%；但医药生物大行业净流出约9.27亿元，容量资金弱于昨日。",
+        "reason": "价格连续性仍在，但昨日高潮后的资金兑现高于模型预期；不能用生物制品局部上涨替代CXO容量确认。"
       },
       {
-        "name": "通信/CPO",
-        "published_score": 85,
+        "name": "房地产开发与服务",
+        "published_score": 87,
         "entered_top_strength": false,
         "hit": false,
-        "actual": "通信设备+1.77%但净流出约14.56亿元；光学、元件仅局部修复，通信/CPO未进入全天强势前三。",
-        "reason": "午间局部回流未延续为收盘资金确认；产业链映射上涨不能替代CPO本体与容量资金命中。"
+        "actual": "房地产-0.03%、净流出约4.25亿元；房地产开发-0.34%、净流出约6.59亿元，仅服务细分上涨。",
+        "reason": "昨日午后加速与涨停梯队的次日兑现折扣仍不足，9:45容量验证失败后应立即降级。"
       }
     ],
-    "calibration": "提高单日涨幅超过4%、涨停密集主线的次日兑现折扣；9:45容量股和行业资金任一失败即降级。通信、光学、元件和PCB分开评分，外部产业新闻不能覆盖当日资金方向。",
+    "calibration": "对单日涨幅超过3%、涨停密集且午后加速的板块继续增加次日兑现扣分；价格延续但行业资金转负只能判部分命中。大行业与子行业必须拆分验证。",
     "candidate_review": [
       {
         "name": "中芯国际",
@@ -1639,213 +1638,189 @@
     "note": "盘前重新校验：医药93分、房地产87分均等于七项分项之和；隔夜信息不改分。历史2026-09-05油气/油服已按原分项由误报84纠正为66。"
   },
   "limit_review": {
-    "as_of": "2026-09-21收盘",
-    "trade_date": "2026-09-21",
-    "scope": "105只涨停、2只跌停为公开全市场口径；自动管线非ST口径为103只涨停、25只炸板。两套口径分别使用，不混算。",
-    "limit_up_total": 105,
-    "limit_down_total": 2,
-    "failed_limit_count": 25,
-    "seal_rate_pct": 80.47,
-    "blast_rate_pct": 19.53,
+    "as_of": "2026-09-22 11:30",
+    "trade_date": "2026-09-22",
+    "scope": "完整全市场涨停、跌停、炸板及10%/20%/30%统一分类未取得。",
+    "limit_up_total": null,
+    "limit_down_total": null,
+    "failed_limit_count": null,
+    "seal_rate_pct": null,
+    "blast_rate_pct": null,
     "categories": {
-      "ten_pct": "南华生物3连板、世联行4连板、万科A 2连板，新华制药、哈药股份、我爱我家、金融街、华发股份等涨停",
-      "twenty_pct": "近岸蛋白等科创板20cm样本；完整20cm总数未取得",
-      "thirty_pct": "完整北交所30cm总数未取得，不以涨超阈值替代涨停",
-      "special_rules": "不同板块涨跌停制度不同；105为全市场公开口径，103/25用于同一非ST分母计算封板与炸板率。"
+      "ten_pct": "完整数量未取得",
+      "twenty_pct": "完整数量未取得",
+      "thirty_pct": "完整数量未取得",
+      "special_rules": "不同板块涨跌停制度不同；没有统一分母，不计算封板率或炸板率。"
     },
     "highest_board": {
-      "name": "世联行",
-      "boards": "4连板（已核验地产样本；全市场完整最高板梯队未取得）"
+      "name": null,
+      "boards": "完整连板梯队未取得，不沿用昨日高度冒充今日数据"
     },
-    "ladder": [
-      {
-        "boards": "4连板",
-        "count": 1,
-        "names": [
-          "世联行"
-        ]
-      },
-      {
-        "boards": "3连板",
-        "count": 1,
-        "names": [
-          "南华生物"
-        ]
-      },
-      {
-        "boards": "2连板",
-        "count": 1,
-        "names": [
-          "万科A"
-        ]
-      }
-    ],
+    "ladder": [],
     "intraday_detail": {
-      "first_seal_time": "全量首次封板时间未取得",
-      "open_count": "全量开板次数未取得",
+      "first_seal_time": "未取得",
+      "open_count": "未取得",
       "turnover": "统一换手率未取得",
-      "late_support": "尾盘指数回暖、地产午后增强；无逐笔封单数据，不判断回封速度或封单变化。"
+      "late_support": "无逐笔数据，不推断回封速度、封单变化或尾盘承接。"
     },
-    "data_note": "炸板率按25÷(103+25)=19.53%，封板率按103÷128=80.47%。",
-    "sentiment_validation": "9月22日观察医药高潮后的容量承接，以及世联行、万科A是否向地产容量股继续扩散。"
+    "data_note": "数据不足即留空，不以涨幅达到阈值替代真实封板。",
+    "sentiment_validation": "午后重点观察科技容量股能否维持资金回流，以及昨日医药、地产高位股是否出现批量负反馈。"
   },
   "mainlines": [
     {
-      "title": "美股AI与芯片大涨：A股科技获得修复窗口",
+      "title": "半导体与数字芯片：上午第一主线",
       "stars": 5,
-      "fact": "纳斯达克+2.26%并创收盘新高，费城半导体指数+4.3%；AMD约涨10%、Intel涨12.2%、Arm涨17%，Meta涨11.4%。",
-      "market": "美债收益率和油价同步回落，资金重新进入AI交易。但昨日A股半导体仅涨0.23%、净流出约101.12亿元，通信设备净流出14.56亿元，内外盘仍明显背离。",
-      "short_term": "9:45前若中芯国际、中微公司、北方华创至少两只强于科创50，同时中际旭创、新易盛、天孚通信至少两只强于创业板，科技修复才算获得A股确认。",
-      "mid_term": "AI需求中期看云厂资本开支、GPU/CPU出货、800G/1.6T订单、设备验收、毛利率和现金流。",
+      "fact": "隔夜费城半导体指数大涨4.3%，亚洲科技股延续强势；上午数字芯片设计上涨3.62%、半导体上涨1.67%，科创50上涨1.36%。",
+      "market": "10:58成交分类估算显示电子大行业净流入约88.98亿元、半导体净流入约76.90亿元、数字芯片设计净流入约71.51亿元。三者存在层级与成分重叠，绝不能相加。",
+      "short_term": "上午已经完成外盘催化到A股价格和资金的第一轮确认；午后看科创50能否守住涨幅以及容量制造、设备股能否共同承接。",
+      "mid_term": "真正基本面仍是晶圆厂资本开支、设备验收、良率、产能利用率、存储价格和利润现金流。",
       "beneficiaries": [
         "中芯国际",
+        "兆易创新",
         "北方华创",
         "中微公司",
-        "中际旭创",
-        "新易盛"
+        "长电科技"
       ],
       "losers": [
-        "无订单、无客户认证、无现金流的AI和国产替代后排"
+        "没有客户验证、设备验收和量产收入的国产替代后排"
       ],
       "business_map": {
         "direct": [
-          "晶圆制造、半导体设备、光模块和服务器真实收入公司"
+          "晶圆制造",
+          "芯片设计",
+          "半导体设备与封测真实收入公司"
         ],
         "mapping": [
-          "先进封装",
-          "PCB",
-          "液冷",
-          "光器件"
-        ],
-        "sentiment": [
-          "仅因美股芯片上涨而跟涨、无供应关系证明的公司"
-        ]
-      },
-      "risk": "外盘一夜反弹不能消除A股百亿元级资金流出；若容量股高开低走，应按情绪脉冲处理。"
-    },
-    {
-      "title": "原油跌至11日低位：成长估值受益，油气面临兑现",
-      "stars": 4,
-      "fact": "Brent结算约100.34美元/桶，跌至9月9日以来低位；市场押注美伊在联合国会议期间出现外交进展，同时海湾原油流量和沙特替代出口改善。",
-      "market": "油价回落帮助美国10年期收益率跌回5%下方，是隔夜科技反弹的重要背景。昨日A股油气开采及服务+2.91%，今日面临明显兑现检验。",
-      "short_term": "中国海油、中国石油、中海油服若不能强于沪深300，应回避地缘小票；航空、物流、轮胎和弱议价化工下游获得成本边际改善。",
-      "mid_term": "仍须观察霍尔木兹与红海实物流量、沙特管道修复、柴油价差和油轮租金，不能仅看期货单日变化。",
-      "beneficiaries": [
-        "航空",
-        "物流",
-        "轮胎",
-        "成本敏感化工下游"
-      ],
-      "losers": [
-        "纯油价弹性交易的上游油气后排"
-      ],
-      "business_map": {
-        "direct": [
-          "上游产量公司",
-          "真实油服订单公司"
-        ],
-        "mapping": [
-          "海工装备",
-          "对应油运船型"
-        ],
-        "sentiment": [
-          "无产量、储量、船型或订单的地缘概念"
-        ]
-      },
-      "risk": "中东冲突并未结束，一旦谈判失败或供应设施再次受损，油价可能快速反弹。"
-    },
-    {
-      "title": "中美建立AI安全沟通机制：政策风险下降有限",
-      "stars": 4,
-      "fact": "中美同意约两个月后在深圳继续AI安全对话，并建立AI安全事故沟通热线；关税休战是否延长尚未决定。",
-      "market": "这是真实的沟通机制进展，但不是关税、芯片出口管制、关键矿产限制或采购条款已经改变。",
-      "short_term": "网络安全、AI治理和算力板块可能出现情绪映射，需看奇安信、深信服等真实政企合同公司是否参与，而非只看小票涨停。",
-      "mid_term": "真正基本面影响取决于可执行的AI标准、出口管制、数据跨境和开发者责任规则。",
-      "beneficiaries": [
-        "奇安信",
-        "深信服",
-        "启明星辰",
-        "具备AI治理与安全合同的公司"
-      ],
-      "losers": [
-        "无合同、无收入的AI安全概念"
-      ],
-      "business_map": {
-        "direct": [
-          "有安全产品和政企合同的公司"
-        ],
-        "mapping": [
-          "模型测评",
-          "数据合规",
-          "算力基础设施"
-        ],
-        "sentiment": [
-          "把对话安排直接理解为政策放松或新增订单的公司"
-        ]
-      },
-      "risk": "贸易休战和科技限制仍未落地，峰会前后消息波动较大。"
-    },
-    {
-      "title": "先进封装园区开工：产业方向真实，兑现时间较远",
-      "stars": 4,
-      "fact": "台湾高雄先进封装园区开工，台积电将建设技术验证实验室和人才中心，预计2029年第四季度启用。",
-      "market": "先进封装对AI和高性能计算确有关键作用，但该项目建设周期长，没有披露任何A股企业直接订单。",
-      "short_term": "长电科技、通富微电、华天科技、甬矽电子等只能以A股价格与订单验证，不能因海外园区开工直接上调盈利。",
-      "mid_term": "观察CoWoS类产能、设备材料验证、客户导入、资本开支和产能利用率。",
-      "beneficiaries": [
-        "长电科技",
-        "通富微电",
-        "华天科技",
-        "甬矽电子"
-      ],
-      "losers": [
-        "没有客户验证和量产收入的先进封装标签股"
-      ],
-      "business_map": {
-        "direct": [
-          "具备先进封装收入与客户认证的封测公司"
-        ],
-        "mapping": [
-          "设备",
           "材料",
-          "载板",
-          "测试"
+          "EDA",
+          "先进封装"
         ],
         "sentiment": [
-          "仅以台积电园区概念映射的公司"
+          "仅因美股芯片上涨而贴标签的公司"
         ]
       },
-      "risk": "设施2029年才计划启用，当前A股利润贡献不可验证。"
+      "risk": "半导体设备细分仅涨约0.11%且资金略为净流出，说明资金更偏芯片设计与电子大盘；若容量设备股不跟，不能泛化为全产业链主升。"
     },
     {
-      "title": "海外生物科技融资回暖：临床阶段决定含金量",
+      "title": "传媒与广告营销：资金确认较强，订单验证不足",
       "stars": 4,
-      "fact": "英伟达与卡塔尔投资局支持的Iambic Therapeutics申请美股IPO，核心候选药处于早期临床；RNA药企ADARx拟以最高约17.4亿美元估值IPO，其领先项目已进入后期临床，并获得艾伯维战略投资。",
-      "market": "海外融资活跃支持昨日A股医药情绪，但早期AI平台与后期临床资产的确定性完全不同。",
-      "short_term": "药明康德、凯莱英、百普赛斯至少两只继续强于医药指数，才能确认昨日医药主线延续；仅AI制药小票涨停应降级。",
-      "mid_term": "Iambic看临床安全性、有效性和合作里程碑；ADARx看后期临床终点、监管进展与艾伯维合作兑现。",
+      "fact": "传媒上涨2.73%、广告营销上涨3.58%，成交分类净流入分别约26.92亿元和15.49亿元；隔夜Meta等AI应用相关资产大涨提供情绪催化。",
+      "market": "传媒进入互斥大行业资金前列，广告营销净流入/成交额估算约10.18%，短线集中度较高。",
+      "short_term": "午后若易点天下、蓝色光标、浙文互联等业务型公司保持成交与相对强度，传媒可维持第二主线；若只剩小票封板，降级为事件交易。",
+      "mid_term": "中期必须核验海外客户投放、AI营销收入、毛利率、平台采购成本、回款及汇率影响。",
+      "beneficiaries": [
+        "易点天下",
+        "蓝色光标",
+        "浙文互联",
+        "分众传媒"
+      ],
+      "losers": [
+        "没有客户、收入或利润贡献的AI应用概念"
+      ],
+      "business_map": {
+        "direct": [
+          "有海外广告投放和营销平台收入的公司"
+        ],
+        "mapping": [
+          "AI内容生成",
+          "数据服务",
+          "数字媒体"
+        ],
+        "sentiment": [
+          "仅因Meta新品或AI新闻上涨的概念股"
+        ]
+      },
+      "risk": "海外AI产品热度不等于A股公司新增订单，传媒10日累计表现仍偏弱，午后冲高兑现风险较高。"
+    },
+    {
+      "title": "医药延续上涨，但容量资金出现背离",
+      "stars": 4,
+      "fact": "生物制品上涨2.74%、医疗服务上涨1.65%、化学制药上涨1.27%，昨日第一主线仍有价格惯性。",
+      "market": "医药生物大行业净流出约9.27亿元，医疗服务净流出约5.41亿元；生物制品仅小幅净流入，说明涨幅与资金不完全同步。",
+      "short_term": "医药93分预测只能判定部分命中。若药明康德、凯莱英、百普赛斯无法重新获得资金，午后应防20cm/30cm高弹性前排兑现。",
+      "mid_term": "CXO看订单、价格、产能利用率与回款；创新药看临床终点、获批、BD条款和商业化销售。",
       "beneficiaries": [
         "药明康德",
         "凯莱英",
         "百普赛斯",
-        "成都先导"
+        "诺禾致源"
       ],
       "losers": [
         "无管线、无临床、无BD和商业化收入的AI制药概念"
       ],
       "business_map": {
         "direct": [
-          "有CXO订单、临床管线和科研产品收入的公司"
+          "CXO订单",
+          "临床管线",
+          "检测与生命科学工具收入"
         ],
         "mapping": [
-          "AI制药平台",
-          "生命科学工具"
+          "AI药物设计",
+          "科研服务"
         ],
         "sentiment": [
-          "把海外IPO直接等同A股订单和临床成功的公司"
+          "把海外融资或IPO当作A股订单的公司"
         ]
       },
-      "risk": "IPO申请和战略投资不等于药物获批，早期临床失败率仍高。"
+      "risk": "行业已连续大涨，资金由净流入转为分化，短线高潮后的兑现压力上升。"
+    },
+    {
+      "title": "房地产：87分预测上午失效",
+      "stars": 2,
+      "fact": "房地产大行业下跌0.03%、净流出约4.25亿元；房地产开发下跌0.34%、净流出约6.59亿元，仅房地产服务上涨1.71%。",
+      "market": "昨日容量地产与涨停梯队共振，上午未延续；地产服务的局部上涨不能替代开发板块命中。",
+      "short_term": "只有万科A、保利发展、华发股份至少两只重新强于沪深300且行业资金转正，才可从失效上调为分歧修复。",
+      "mid_term": "中期仍看销售、回款、融资成本、土地储备和资产减值，连板不等于行业基本面反转。",
+      "beneficiaries": [
+        "仅保留万科A",
+        "保利发展",
+        "华发股份作为容量验证"
+      ],
+      "losers": [
+        "昨日涨停后的无基本面地产后排"
+      ],
+      "business_map": {
+        "direct": [
+          "销售回款与融资改善可验证的开发商"
+        ],
+        "mapping": [
+          "物业服务",
+          "经纪服务"
+        ],
+        "sentiment": [
+          "单纯低价或名称概念"
+        ]
+      },
+      "risk": "若世联行等高位股出现负反馈，昨日地产主线可能完成一日兑现。"
+    },
+    {
+      "title": "通信与机器人：指数上涨但资金确认不足",
+      "stars": 3,
+      "fact": "通信设备下跌0.06%、净流出约4.38亿元；自动化设备上涨0.85%但净流出约5.40亿元。",
+      "market": "光通信没有同步复制隔夜AI芯片强势，机器人也未获得容量资金确认，说明资金选择了数字芯片而非泛科技。",
+      "short_term": "CPO看中际旭创、新易盛、天孚通信；机器人看拓普集团、三花智控、绿的谐波。容量股不共振时不追小票。",
+      "mid_term": "CPO核验800G/1.6T订单和毛利率；机器人核验客户定点、执行器订单、量产和利润贡献。",
+      "beneficiaries": [
+        "具备真实订单和量产收入的核心公司"
+      ],
+      "losers": [
+        "无订单、无客户定点和无产业化节点的概念股"
+      ],
+      "business_map": {
+        "direct": [
+          "光模块出货",
+          "汽车零部件及机器人量产"
+        ],
+        "mapping": [
+          "连接器",
+          "减速器",
+          "丝杠"
+        ],
+        "sentiment": [
+          "仅靠海外AI或人形机器人新闻上涨的公司"
+        ]
+      },
+      "risk": "科技内部轮动加快，半导体强不代表通信、PCB和机器人同步主升。"
     }
   ],
   "manual_revision": {
@@ -1855,76 +1830,76 @@
       "next_day_forecast",
       "official_macro_update",
       "closing_snapshot",
-      "cross_validation",
+      "multi_day_persistence",
       "overnight_context",
       "preopen_update"
     ],
-    "reason": "在远端最新28字段结构上发布9月22日早间版；保留9月21日收盘93/87原始预测、16期历史和历史油气66分纠正记录。",
-    "revised_at": "2026-09-22 08:00",
-    "scope": "早间隔夜更新；macro.json无新官方期次，因此不改写",
+    "reason": "在远端最新28字段结构上发布9月22日午间版；保留93/87原始预测、16期历史和其他任务字段。",
+    "revised_at": "2026-09-22 11:45",
+    "scope": "午间盘面更新；只更新brief.json，不改macro.json、dashboard.json、index.html或工作流",
     "unit_contract": "所有 *_billion 字段均为十亿元人民币；网页显示亿元时乘10。历史值不改写。"
   },
-  "market_status": "2026-09-22盘前；隔夜美股AI与芯片大涨、油价和美债收益率回落，A股医药与地产延续性仍待9:45容量股验证",
+  "market_status": "2026-09-22午间；放量上涨、科技接力，半导体/数字芯片和传媒广告获得价格与资金确认，昨日医药延续但资金分化，地产预测上午失效",
   "metrics": [
     {
-      "label": "标普500",
-      "value": "+1.49%",
-      "note": "9月21日收盘"
+      "label": "上证指数",
+      "value": "3958.66 / +0.22%",
+      "note": "11:28腾讯快照"
     },
     {
-      "label": "纳斯达克",
-      "value": "+2.26%",
-      "note": "创收盘新高"
+      "label": "深证成指",
+      "value": "13819.67 / +0.65%",
+      "note": "11:28腾讯快照"
     },
     {
-      "label": "费城半导体",
-      "value": "+4.3%",
-      "note": "AMD、Intel、Arm领涨"
+      "label": "创业板指",
+      "value": "3432.98 / +0.98%",
+      "note": "11:28腾讯快照"
     },
     {
-      "label": "美国10年期美债",
-      "value": "跌回5%下方",
-      "note": "利率压力暂时缓和，10月再加息概率仍约50%"
+      "label": "科创50",
+      "value": "1680.03 / +1.36%",
+      "note": "11:28腾讯快照"
     },
     {
-      "label": "Brent原油",
-      "value": "约100.34美元/桶",
-      "note": "11日低位，外交与供给恢复预期压低风险溢价"
+      "label": "沪深半日成交",
+      "value": "约14208.6亿元",
+      "note": "较昨日同期增加约930亿元、约7.0%"
     },
     {
-      "label": "现货黄金",
-      "value": "约4349.94美元/盎司 / -0.6%",
-      "note": "美元走强与加息预期压制"
+      "label": "半导体",
+      "value": "+1.67% / 净流入约76.90亿元",
+      "note": "10:58同源行业资金快照"
     },
     {
-      "label": "昨日A股第一主线",
-      "value": "医药/CXO",
-      "note": "医疗服务+5.10%、化学制药+4.67%"
+      "label": "数字芯片设计",
+      "value": "+3.62% / 净流入约71.51亿元",
+      "note": "与电子行业成分重叠，不可相加"
     },
     {
-      "label": "原始收盘预测",
+      "label": "原始预测",
       "value": "医药93 / 地产87",
-      "note": "隔夜不修改分项"
+      "note": "上午复盘，不修改原始分项"
     }
   ],
   "midday_snapshot": {
-    "as_of": "2026-09-21 11:30 北京时间",
+    "as_of": "2026-09-22 11:30 北京时间（指数快照时间11:28）",
     "indices": {
       "shanghai": {
-        "close": 3933.37,
-        "change_pct": 0.55
+        "close": 3958.66,
+        "change_pct": 0.22
       },
       "shenzhen": {
-        "close": 13718.23,
-        "change_pct": 0.57
+        "close": 13819.67,
+        "change_pct": 0.65
       },
       "chinext": {
-        "close": 3403.97,
-        "change_pct": 0.93
+        "close": 3432.98,
+        "change_pct": 0.98
       },
       "star50": {
-        "close": 1658.41,
-        "change_pct": 0.35
+        "close": 1680.03,
+        "change_pct": 1.36
       },
       "beijing50": {
         "close": null,
@@ -1932,34 +1907,27 @@
       }
     },
     "leading": [
-      "创新药/AI制药/医疗服务",
-      "光学光电子/元件/通信设备",
-      "汽车零部件"
+      "半导体/数字芯片设计",
+      "传媒/广告营销/AI应用",
+      "生物制品与医疗服务延续"
     ],
     "lagging": [
-      "半导体资金背离",
-      "贵金属",
-      "工业金属",
-      "纯名称炒作的非行业扩散"
+      "房地产开发",
+      "银行",
+      "国防军工",
+      "油气地缘交易"
     ],
     "market": {
       "advancers": null,
       "decliners": null,
-      "turnover_billion": 1327.84,
-      "previous_same_time_billion": 1319,
-      "change_vs_previous_same_time_billion": 8.84,
+      "turnover_billion": 1420.86,
+      "previous_same_time_billion": 1327.84,
+      "change_vs_previous_same_time_billion": 93.02,
       "limit_up": null,
       "limit_down": null,
       "failed_limit": null
     },
-    "note": "指数与沪深成交来自腾讯11:30快照；半日成交只与9月18日11:30同口径约1.319万亿元比较。全市场涨跌家数、涨停、跌停、炸板统一口径未取得，不估算。",
-    "holiday_update": {
-      "as_of": "2026-09-20 11:30 北京时间",
-      "market_status": "周日休市，无当日上午指数、成交、涨跌家数、涨停、炸板和资金排名",
-      "latest_policy": "9月1年期LPR维持3.00%，5年期以上LPR维持3.50%，连续第16个月不变，符合市场一致预期",
-      "interpretation": "事实是报价不变；对周一A股的影响仍需价格验证。短期不构成银行、地产或高估值成长股的新增宽松催化。",
-      "data_rule": "完整保留2026-09-18午间历史快照，不把休市日与交易日数据混算。"
-    }
+    "note": "沪深成交按腾讯11:28快照合计，仅与9月21日午间同口径13278.4亿元比较。全市场涨跌家数、涨停、跌停、炸板统一分母未取得，因此不估算封板率或炸板率；无逐笔数据，不推断上午尾盘封单变化。"
   },
   "morning_watch_unconfirmed": [
     {
@@ -2194,159 +2162,153 @@
     ]
   },
   "sector_capital_concentration": {
-    "as_of": "2026-09-21 15:17后收盘口径",
-    "classification": "同花顺互斥行业资金流排名（AKShare备用）；概念板块不与行业重复加总。",
-    "market_turnover_scope": "沪深成交额20337.59亿元；同源行业成交额未返回。",
-    "methodology": "主力净流入是大单成交分类估算，不等于机构真实仓位或账户迁移。行业成交额、20日平均成交占比缺失，因此市场占比、相对20日变化及净流入/成交额留空。",
+    "as_of": "2026-09-22 10:58 北京时间",
+    "classification": "东方财富同源大行业口径；下表使用互斥的大行业分类，半导体、数字芯片等子行业另行分析且不与电子重复加总。",
+    "market_turnover_scope": "沪深11:28成交约14208.6亿元；同源各行业成交额未完整返回。",
+    "methodology": "主力净流入为大单成交分类估算，不等于机构真实仓位或账户迁移。行业成交额与20日平均占比未取得，因此市场占比、相对20日变化保持空值；净流入/成交额仅使用数据源直接提供的比率。",
     "rows": [
       {
         "rank": 1,
-        "sector": "化学制药",
-        "return_pct": 4.67,
+        "sector": "电子",
+        "return_pct": 1.13,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 3.942,
-        "net_inflow_to_turnover_pct": null,
+        "main_net_inflow_billion": 8.898,
+        "net_inflow_to_turnover_pct": 2.23,
         "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
+        "status": "10:58半日快照"
       },
       {
         "rank": 2,
-        "sector": "房地产",
-        "return_pct": 3.68,
+        "sector": "计算机",
+        "return_pct": 1.78,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 2.573,
-        "net_inflow_to_turnover_pct": null,
+        "main_net_inflow_billion": 3.424,
+        "net_inflow_to_turnover_pct": 4.71,
         "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
+        "status": "10:58半日快照"
       },
       {
         "rank": 3,
-        "sector": "证券",
-        "return_pct": 1.41,
+        "sector": "传媒",
+        "return_pct": 2.73,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 1.88,
-        "net_inflow_to_turnover_pct": null,
+        "main_net_inflow_billion": 2.692,
+        "net_inflow_to_turnover_pct": 6.69,
         "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
+        "status": "10:58半日快照"
       },
       {
         "rank": 4,
-        "sector": "生物制品",
-        "return_pct": 4.64,
+        "sector": "有色金属",
+        "return_pct": 0.63,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 1.545,
-        "net_inflow_to_turnover_pct": null,
+        "main_net_inflow_billion": 1.455,
+        "net_inflow_to_turnover_pct": 2.77,
         "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
+        "status": "10:58半日快照"
       },
       {
         "rank": 5,
-        "sector": "医疗服务",
-        "return_pct": 5.1,
+        "sector": "房地产",
+        "return_pct": -0.03,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 1.34,
-        "net_inflow_to_turnover_pct": null,
+        "main_net_inflow_billion": -0.425,
+        "net_inflow_to_turnover_pct": -2.52,
         "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
+        "status": "10:58半日快照"
       },
       {
         "rank": 6,
-        "sector": "军工装备",
-        "return_pct": 1.95,
+        "sector": "医药生物",
+        "return_pct": 1.39,
         "turnover_billion": null,
         "market_share_pct": null,
         "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 1.331,
-        "net_inflow_to_turnover_pct": null,
+        "main_net_inflow_billion": -0.927,
+        "net_inflow_to_turnover_pct": -0.93,
         "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
-      },
-      {
-        "rank": 7,
-        "sector": "中药",
-        "return_pct": 3.26,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 1.168,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
-      },
-      {
-        "rank": 8,
-        "sector": "软件开发",
-        "return_pct": 2.4,
-        "turnover_billion": null,
-        "market_share_pct": null,
-        "share_vs_20d_avg_pct_point": null,
-        "main_net_inflow_billion": 1.033,
-        "net_inflow_to_turnover_pct": null,
-        "unit": "十亿元（1=10亿元）",
-        "status": "收盘互斥行业快照"
+        "status": "10:58半日快照"
       }
     ],
     "concept_crosscheck": [],
-    "conclusion": "资金主要集中于医药、房地产、证券与软件；半导体净流出约101.12亿元、通信设备净流出约14.56亿元，科技未通过收盘资金确认。"
+    "conclusion": "上午资金由昨日医药、地产明显切向电子、计算机和传媒；医药价格延续但大行业资金转负，地产价格与资金均未延续。"
   },
   "sector_internal_strength": {
-    "as_of": "2026-09-21收盘",
-    "methodology": "仅列可核验涨停/大涨样本；有效成分股分母、上涨家数比例、中位数涨幅和前三大成交股占比未取得，不计算伪精确密度。",
-    "note": "不同交易制度涨停幅度不同；不将涨超10%但未封板的股票计入涨停总数。",
+    "as_of": "2026-09-22 11:30",
+    "methodology": "完整有效成分股清单、上涨家数比例、中位数涨幅、前三大成交股占比及全量涨停分布未取得，相关字段留空；不以少数大涨股推算板块密度。",
+    "note": "数字芯片与电子、广告营销与传媒存在层级关系，只作内部强弱解释，不重复加总。",
     "rows": [
       {
-        "sector": "医药/CXO/生命科学工具",
-        "advancer_ratio_pct": null,
-        "effective_constituents": null,
-        "limit_up_count_at_least": 10,
-        "limit_density_pct": null,
-        "median_return_pct": null,
-        "top3_turnover_share_pct": null,
-        "observation": "超30只涨停或涨超10%，南华生物3连板，新华制药、哈药股份、近岸蛋白等封板；整体扩散而非单一龙头。"
-      },
-      {
-        "sector": "房地产",
-        "advancer_ratio_pct": null,
-        "effective_constituents": null,
-        "limit_up_count_at_least": 8,
-        "limit_density_pct": null,
-        "median_return_pct": null,
-        "top3_turnover_share_pct": null,
-        "observation": "近10股涨停，世联行4连板、万科A 2连板，容量与情绪共同确认。"
-      },
-      {
-        "sector": "消费/农业/零售",
-        "advancer_ratio_pct": null,
-        "effective_constituents": null,
-        "limit_up_count_at_least": 4,
-        "limit_density_pct": null,
-        "median_return_pct": null,
-        "top3_turnover_share_pct": null,
-        "observation": "会稽山5天4板，国芳集团、宁波中百、金健米业等涨停；资金规模低于医药地产。"
-      },
-      {
-        "sector": "半导体/通信",
+        "sector": "半导体/数字芯片",
         "advancer_ratio_pct": null,
         "effective_constituents": null,
         "limit_up_count_at_least": null,
         "limit_density_pct": null,
         "median_return_pct": null,
         "top3_turnover_share_pct": null,
-        "observation": "行业价格微涨但资金显著净流出，少数个股上涨不能替代整体扩散。"
+        "observation": "数字芯片涨3.62%、半导体涨1.67%，资金集中；但半导体设备仅涨0.11%，行情偏设计端。"
+      },
+      {
+        "sector": "传媒/广告营销",
+        "advancer_ratio_pct": null,
+        "effective_constituents": null,
+        "limit_up_count_at_least": null,
+        "limit_density_pct": null,
+        "median_return_pct": null,
+        "top3_turnover_share_pct": null,
+        "observation": "传媒与广告营销同时上涨且资金为正，但完整涨停宽度未取得，暂不能确认全面扩散。"
+      },
+      {
+        "sector": "医药",
+        "advancer_ratio_pct": null,
+        "effective_constituents": null,
+        "limit_up_count_at_least": null,
+        "limit_density_pct": null,
+        "median_return_pct": null,
+        "top3_turnover_share_pct": null,
+        "observation": "生物制品最强，医疗服务、化学制药延续；大行业资金转负，存在少数高弹性股贡献涨幅的可能。"
+      },
+      {
+        "sector": "房地产",
+        "advancer_ratio_pct": null,
+        "effective_constituents": null,
+        "limit_up_count_at_least": null,
+        "limit_density_pct": null,
+        "median_return_pct": null,
+        "top3_turnover_share_pct": null,
+        "observation": "开发板块价格和资金均转弱，仅服务细分上涨，昨日整体扩散未延续。"
       }
     ]
   },
   "sources": [
+    {
+      "date": "2026-09-22",
+      "title": "腾讯实时行情：主要指数午间快照",
+      "url": "https://qt.gtimg.cn/q=sh000001,sz399001,sz399006,sh000688",
+      "scope": "11:28指数点位、涨跌幅和沪深成交额"
+    },
+    {
+      "date": "2026-09-22",
+      "title": "仓库行业资金排名",
+      "url": "https://github.com/panko78/investment-brief-site/blob/main/sector_ranking.json",
+      "scope": "10:58同源行业涨幅、主力净流入、净流入/成交额及多日窗口"
+    },
+    {
+      "date": "2026-09-22",
+      "title": "Reuters全球市场：亚洲科技上涨、油价回落",
+      "url": "https://www.reuters.com/world/china/global-markets-wrapup-1-2026-09-22/",
+      "scope": "亚洲科技、Brent、美元、美债及中美峰会预期"
+    },
     {
       "date": "2026-09-21",
       "title": "Reuters：纳指创收盘新高、AI与芯片领涨",
@@ -2633,25 +2595,25 @@
   "top3": [
     {
       "rank": 1,
-      "name": "AI硬件/半导体核心",
+      "name": "半导体/数字芯片设计",
       "stars": 5,
-      "reason": "隔夜纳指创高、费城半导体+4.3%，油价和美债收益率同步回落",
-      "verify": "中芯、中微、北方华创至少两只强于科创50；中际、新易盛、天孚至少两只强于创业板"
+      "reason": "数字芯片设计+3.62%、半导体+1.67%，电子大行业净流入约88.98亿元；科创50强于主要指数",
+      "verify": "中芯国际、中微公司、北方华创至少两只继续强于科创50；行业资金不由净流入转为明显净流出"
     },
     {
       "rank": 2,
-      "name": "医药/CXO与生命科学工具",
+      "name": "传媒/广告营销/AI应用",
       "stars": 4,
-      "reason": "昨日A股第一主线，海外生物科技融资情绪偏正面，但已处单日高潮后",
-      "verify": "药明、凯莱英、百普至少两只强于医药指数；南华生物、近岸蛋白不快速兑现"
+      "reason": "传媒+2.73%、广告营销+3.58%，资金分别净流入约26.92亿和15.49亿元；但海外AI催化尚未转化为A股确认订单",
+      "verify": "易点天下、蓝色光标、浙文互联等容量或业务公司保持承接，板块不只剩小市值涨停"
     },
     {
       "rank": 3,
-      "name": "房地产开发与服务",
+      "name": "生物制品/医疗服务",
       "stars": 4,
-      "reason": "昨日价格、涨停和资金确认，隔夜无新增强催化，重点看自身承接",
-      "verify": "万科、保利、华发至少两只强于沪深300；世联行不快速开板下杀"
+      "reason": "生物制品+2.74%、医疗服务+1.65%，昨日强势仍有价格延续；但医药生物大行业净流出约9.27亿元",
+      "verify": "药明康德、凯莱英、百普赛斯至少两只强于医药指数，容量股资金重新转正"
     }
   ],
-  "updated_at": "2026-09-22 08:00"
+  "updated_at": "2026-09-22 11:45"
 }
