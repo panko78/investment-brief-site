@@ -2,7 +2,10 @@
 
 Intraday: project only rows with genuine day/3/5/10 ranking data so the rendered
 persistence module never advertises a window that is actually empty.
-Post-close/premarket: use the latest completed-session history.
+Post-close/premarket: use the latest completed-session history.  If the historical
+flow endpoint returns an implausible exact zero while the independently collected
+same-day ranking has a non-zero value, reject that sector rather than publishing a
+false zero; the normal ranking fallback will then preserve verified persistence.
 """
 from __future__ import annotations
 import json
@@ -59,7 +62,7 @@ def main():
     if not target: print('Dynamic sectors skipped: market data_date missing'); return
     liquidity=json.loads(DASHBOARD.read_text(encoding='utf-8')).get('liquidity',{}); benchmark=sorted([{'date':r['date'],'close':r['sh_close']} for r in liquidity.get('sh_index_series',[]) if r.get('date') and r.get('sh_close') is not None and r['date']<=target],key=lambda x:x['date'])
     if len(benchmark)<22 or benchmark[-1]['date']!=target: raise ValueError('Verified benchmark does not cover market data_date')
-    mapping=board_map(); ranked=[r for r in ranking.get('rows',[]) if r.get('name') and r.get('day_net_yuan') is not None]; ranked.sort(key=lambda r:r.get('day_net_yuan') or 0,reverse=True); selected=[]; seen=set()
+    mapping=board_map(); ranked=[r for r in ranking.get('rows',[]) if r.get('name') and r.get('day_net_yuan') is not None]; ranked.sort(key=lambda r:r.get('day_net_yuan') or 0,reverse=True); ranking_by_name={str(r['name']).strip():r for r in ranked}; selected=[]; seen=set()
     for row in ranked:
         name=str(row['name']).strip(); code=mapping.get(name)
         if not code or code in seen: continue
@@ -76,9 +79,11 @@ def main():
             except Exception as exc: print('dynamic sector',code,name,kind,type(exc).__name__,str(exc)[:120],flush=True)
     sectors=[]
     for code,name in selected:
-        item=raw.get(code,{}); stat=cmd.stats(item.get('price',[]),item.get('flow',[]),benchmark,target); windows=stat.get('windows',{}); complete=stat.get('turnover_yuan') is not None and stat.get('day_net_yuan') is not None and all((windows.get(str(n)) or {}).get('net_yuan') is not None for n in (3,5,10))
+        item=raw.get(code,{}); stat=cmd.stats(item.get('price',[]),item.get('flow',[]),benchmark,target); windows=stat.get('windows',{}); rank_day=(ranking_by_name.get(name) or {}).get('day_net_yuan'); suspicious_zero=stat.get('day_net_yuan')==0 and rank_day not in (None,0)
+        if suspicious_zero: print('reject false-zero sector flow',code,name,'ranking_day_net=',rank_day,flush=True)
+        complete=stat.get('turnover_yuan') is not None and stat.get('day_net_yuan') is not None and not suspicious_zero and all((windows.get(str(n)) or {}).get('net_yuan') is not None for n in (3,5,10))
         if complete: sectors.append({'code':code,'name':name,**stat})
-    if len(sectors)<MIN_COMPLETE: sectors=live_projection(ranking,target); market['sector_mode']='completed_ranking_fallback'; market['sector_scope']='动态行业资金榜；完整历史抓取不足，仅展示最近完成交易日中3/5/10日窗口完整的行业。'
+    if len(sectors)<MIN_COMPLETE: sectors=live_projection(ranking,target); market['sector_mode']='completed_ranking_fallback'; market['sector_scope']='动态行业资金榜；完整历史抓取不足或历史资金端点出现与同日排名冲突的零值，仅展示最近完成交易日中3/5/10日窗口完整的行业。'
     else: sectors.sort(key=lambda x:x.get('day_net_yuan') or 0,reverse=True); market['sector_mode']='completed_history'; market['sector_scope']=f'动态行业资金榜：按当前资金排名选取前{len(sectors)}个行业，再用完整交易日历史计算3/5/10日持续性。'
     if len(sectors)<MIN_COMPLETE: raise ValueError(f'Sector persistence fallback incomplete: {len(sectors)} rows')
     market['sectors']=sectors; market['sector_ranking_updated_at']=ranking.get('updated_at'); market['sector_ranking_source']=ranking.get('source'); MARKET.write_text(json.dumps(market,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8'); print('SAVED dynamic sectors',market.get('sector_mode'),len(sectors),flush=True)
