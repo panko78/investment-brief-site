@@ -1,9 +1,4 @@
-"""Strict sector-persistence publication contract.
-
-Completed-history mode requires full board history. Live/dynamic mode has fewer
-fields by design, but it must still expose genuine day/3/5/10 fund-flow and
-return windows for a useful cross-section; never silently skip persistence.
-"""
+"""Strict sector-persistence publication contract."""
 from __future__ import annotations
 import json
 from pathlib import Path
@@ -42,17 +37,10 @@ def main():
     d=json.loads(DETAILS.read_text(encoding='utf-8')); mode=d.get('sector_mode') or 'completed_history'; sectors=d.get('sectors') or []; expected=d.get('data_date')
     if mode!='completed_history':
         complete=[x for x in sectors if live_sector(x)]
-        if len(complete)>=8:
-            print(f'Sector live persistence validation OK: {len(complete)}/{len(sectors)} industries have genuine day/3/5/10 flow+return windows');return
-        # During live mode market_details.data_date can intentionally remain the last completed
-        # session, so validate the ranking against its own current-session date rather than
-        # incorrectly accepting stale completed-session data.
-        r=json.loads(RANKING.read_text(encoding='utf-8')) if RANKING.exists() else {}
-        ranking_date=str(r.get('updated_at') or '')[:10]
-        n,source=ranking_fallback(ranking_date or expected)
-        if n>=8:
-            print(f'Sector live persistence validation OK via ranking: {n} complete industries through {ranking_date}; source={source}');return
-        raise SystemExit(f'Sector live persistence validation failed: {len(complete)}/{len(sectors)} rendered rows complete; ranking complete={n}, detail={source}; require >=8')
+        if len(sectors)>=8 and len(complete)==len(sectors):
+            print(f'Sector live persistence validation OK: {len(complete)}/{len(sectors)} rendered industries have genuine day/3/5/10 flow+return windows');return
+        incomplete=[x.get('name') or '?' for x in sectors if not live_sector(x)]
+        raise SystemExit(f'Sector live persistence validation failed: rendered {len(complete)}/{len(sectors)} complete, incomplete={incomplete}; publication requires every displayed row complete and >=8 rows')
     complete=[x for x in sectors if completed_sector(x,expected)]
     if len(complete)>=8 and len(complete)==len(sectors):
         print(f'Sector persistence validation OK: {len(complete)}/{len(sectors)} completed-history sectors through {expected}');return
