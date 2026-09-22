@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-09-23 05:22",
+  "updated_at": "2026-09-23 05:39",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "两融接口本次失败，保留上一成功数据和真实数据日",
     "freshness": {
       "margin_as_of": "2026-09-21",
       "turnover_as_of": "2026-09-22",
       "sh_index_as_of": "2026-09-22",
-      "checked_at": "2026-09-23 05:21"
+      "checked_at": "2026-09-23 05:38"
     },
     "margin_series": [
       {
@@ -246,19 +246,19 @@
       },
       {
         "date": "2026-09-17",
-        "turnover": 18249.71
+        "turnover": 18228.48
       },
       {
         "date": "2026-09-18",
-        "turnover": 20788.39
+        "turnover": 20765.8
       },
       {
         "date": "2026-09-21",
-        "turnover": 20337.59
+        "turnover": 20311.13
       },
       {
         "date": "2026-09-22",
-        "turnover": 21387.55
+        "turnover": 21351.11
       }
     ],
     "sh_index_series": [
@@ -268,7 +268,7 @@
       },
       {
         "date": "2026-08-13",
-        "sh_close": 3926.97
+        "sh_close": 3926.96
       },
       {
         "date": "2026-08-14",
@@ -300,7 +300,7 @@
       },
       {
         "date": "2026-08-25",
-        "sh_close": 3889.45
+        "sh_close": 3889.44
       },
       {
         "date": "2026-08-26",
@@ -517,17 +517,17 @@
       {
         "date": "2026-09-17",
         "margin_balance": 26390.98,
-        "turnover": 18249.71
+        "turnover": 18228.48
       },
       {
         "date": "2026-09-18",
         "margin_balance": 26382.23,
-        "turnover": 20788.39
+        "turnover": 20765.8
       },
       {
         "date": "2026-09-21",
         "margin_balance": 26528.04,
-        "turnover": 20337.59
+        "turnover": 20311.13
       }
     ],
     "high_30d": {
@@ -546,7 +546,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -1399,7 +1399,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-09-23T05:22:32.994335+08:00",
+    "checked_at": "2026-09-23T05:39:30.224998+08:00",
     "expected_market_date": "2026-09-22",
     "sh_index_as_of": "2026-09-22",
     "turnover_as_of": "2026-09-22",
@@ -1411,7 +1411,7 @@
         "sh_index_as_of": "2026-09-22",
         "turnover_as_of": "2026-09-22",
         "margin_as_of": "2026-09-21",
-        "checked_at": "2026-09-23 05:21"
+        "checked_at": "2026-09-23 05:38"
       },
       "sectors": {
         "status": "ok",
@@ -1456,7 +1456,7 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-09-22",
-      "updated_at": "2026-09-23T05:22:32.606392+08:00",
+      "updated_at": "2026-09-23T05:39:29.819859+08:00",
       "sector_mode": "completed_ranking_fallback",
       "usable_sectors": 20,
       "usable_stocks": 5,
@@ -1468,7 +1468,7 @@
       "etf_as_of": "2026-09-22",
       "etf_current_day_available": true,
       "etf_change_rows": 912,
-      "transient_request_errors": 0
+      "transient_request_errors": 5
     },
     "warnings": [
       "brief.json 仍为较早日期 2026-09-22；核心行情模块不受影响"
