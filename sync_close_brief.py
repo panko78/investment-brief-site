@@ -29,14 +29,19 @@ def fmt_pct(v, suffix="%"):
 
 def main():
     now = datetime.now(TZ)
-    if now.weekday() >= 5 or (now.hour, now.minute) < (15, 10):
-        print("Not a post-close sync window; brief left unchanged")
-        return
-
     dashboard = json.loads(DASH.read_text(encoding="utf-8"))
     details = json.loads(DETAILS.read_text(encoding="utf-8"))
     brief = json.loads(BRIEF.read_text(encoding="utf-8"))
-    target = now.date().isoformat()
+
+    # After 15:10 on a weekday, require today's verified close. Outside that
+    # window, resync the most recent already-verified close so late-published
+    # data (notably official ETF shares) can propagate into brief.json.
+    post_close = now.weekday() < 5 and (now.hour, now.minute) >= (15, 10)
+    target = now.date().isoformat() if post_close else details.get("data_date")
+    if not target:
+        raise RuntimeError("market_details.json has no verified data_date")
+    if not post_close and brief.get("date") != target:
+        raise RuntimeError(f"Overnight resync requires brief date to match verified details: brief={brief.get('date')}, details={target}")
 
     liq = dashboard.get("liquidity") or {}
     sh_rows = sorted(
@@ -73,10 +78,7 @@ def main():
 
     market = snap.setdefault("market", {})
     market["turnover_billion"] = round(turnover["turnover"] / 10, 2)
-    market["change_vs_previous_billion"] = (
-        round((turnover["turnover"] - previous_turnover["turnover"]) / 10, 2)
-        if previous_turnover else None
-    )
+    market["change_vs_previous_billion"] = round((turnover["turnover"] - previous_turnover["turnover"]) / 10, 2) if previous_turnover else None
     market["limit_up_cls_non_st"] = current_limit["limit_count"]
     market["failed_limit_cls_non_st"] = current_limit["failed_count"]
     market["seal_rate_pct"] = round(current_limit.get("seal_rate_pct"), 2) if current_limit.get("seal_rate_pct") is not None else None
@@ -96,9 +98,7 @@ def main():
         pieces = [f"收盘{fmt_pct(row.get('return_pct'))}", f"当日主力净流入{fmt_yi(row.get('day_net_yuan'))}"]
         for n in (3, 5, 10):
             w = windows.get(str(n)) or {}
-            pieces.append(
-                f"{n}日净流入{fmt_yi(w.get('net_yuan'))}、流入{w.get('inflow_days') if w.get('inflow_days') is not None else '未取得'}/{n}天、超额{fmt_pct(w.get('excess_pct_point'), '个百分点')}"
-            )
+            pieces.append(f"{n}日净流入{fmt_yi(w.get('net_yuan'))}、流入{w.get('inflow_days') if w.get('inflow_days') is not None else '未取得'}/{n}天、超额{fmt_pct(w.get('excess_pct_point'), '个百分点')}")
         item["price_fund_persistence"] = "；".join(pieces)
 
     cross = brief.setdefault("cross_validation", {})
@@ -124,7 +124,7 @@ def main():
 
     dq = brief.setdefault("data_quality", {})
     dq["as_of"] = now.strftime("%Y-%m-%d %H:%M 北京时间")
-    dq["verified"] = f"收盘核心市场日{target}；上证、成交额、涨停/炸板、4个板块资金及5只重点股3/5/10日窗口已通过自动校验。"
+    dq["verified"] = f"收盘核心市场日{target}；上证、成交额、涨停/炸板、板块资金及重点股3/5/10日窗口已通过自动校验。"
     dq["unavailable"] = "其他指数收盘点位、全市场涨跌家数/跌停数、收盘强弱板块排名、当日龙虎榜机构席位汇总，以及尚未由官方发布到当日的ETF份额，不在自动收盘同步中估算。"
     dq["rule"] = "仅把已通过 dashboard/market_details 最终校验的数据同步为收盘事实；无法核验字段保持空值，午间主观判断不自动改写为收盘结论。"
 
