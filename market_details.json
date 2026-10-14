@@ -1,430 +1,690 @@
 {
-  "updated_at": "2026-10-14T07:05:51.076762+08:00",
+  "updated_at": "2026-10-14T12:50:04.002239+08:00",
   "data_date": "2026-10-13",
   "benchmark": "上证指数000001；未复权收盘收益，超额为百分点差",
-  "sector_scope": "动态行业资金榜：按当前资金排名选取前12个行业，再用完整交易日历史计算3/5/10日持续性。",
-  "limit_scope": "东方财富涨停专题池；接口文档注明不含ST及科创板，未验证北交所完整覆盖。与新闻口径独立；封板资金为快照",
+  "sector_scope": "动态行业资金榜：仅展示当前排名中当日、3日、5日、10日资金与收益率均完整的行业，并按当日净流入排序；缺失窗口不以旧值回填。",
+  "limit_scope": "盘中优先显示当日东方财富涨停/炸板专题池实时快照；完整交易日历史仍保存在 limit_history。接口口径不含ST及科创板，北交所覆盖未单独验证。",
   "etf_scope": "上交所ETF官方份额；若最新交易日尚未发布，则显示最近两个已核验统计日并明确日期。份额单位为份，差值不是人民币净申购金额",
   "sectors": [
     {
-      "code": "BK1340",
-      "name": "印制电路板",
-      "data_date": "2026-10-13",
-      "close": 13150.46,
-      "return_pct": 6.08,
-      "turnover_yuan": 83802676258.0,
-      "turnover_pct": 5.66,
-      "day_net_yuan": 2087754496.0,
+      "code": null,
+      "name": "电力",
+      "data_date": "2026-10-14",
+      "return_pct": 0.99,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 2709000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": -4726138368.0,
-          "inflow_days": 1,
-          "return_pct": -2.05279728170642,
-          "excess_pct_point": -1.7631779317759388,
+          "net_yuan": -252000000.0,
+          "inflow_days": null,
+          "return_pct": -0.5,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -9114124544.0,
-          "inflow_days": 1,
-          "return_pct": -8.9916558994528,
-          "excess_pct_point": -8.21916180606952,
+          "net_yuan": 664000000.0,
+          "inflow_days": null,
+          "return_pct": 1.39,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -21961853952.0,
-          "inflow_days": 2,
-          "return_pct": -11.76621750644622,
-          "excess_pct_point": -7.992713806361918,
+          "net_yuan": -2082000000.0,
+          "inflow_days": null,
+          "return_pct": -1.86,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 0.8672499033854336,
-      "net_to_turnover_pct": 2.4912742518777233
+      }
     },
     {
-      "code": "BK1329",
-      "name": "集成电路制造",
-      "data_date": "2026-10-13",
-      "close": 3114.33,
-      "return_pct": -0.57,
-      "turnover_yuan": 16733087424.0,
-      "turnover_pct": 2.95,
-      "day_net_yuan": 2052160192.0,
+      "code": null,
+      "name": "文化传媒",
+      "data_date": "2026-10-14",
+      "return_pct": 3.04,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 2367000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": 1884069488.0,
-          "inflow_days": 2,
-          "return_pct": -2.8317457544093982,
-          "excess_pct_point": -2.542126404478917,
+          "net_yuan": 1324000000.0,
+          "inflow_days": null,
+          "return_pct": 12.9,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -688574224.0,
-          "inflow_days": 2,
-          "return_pct": -11.483978421887354,
-          "excess_pct_point": -10.711484328504074,
+          "net_yuan": -1888000000.0,
+          "inflow_days": null,
+          "return_pct": 9.35,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -2807961808.0,
-          "inflow_days": 4,
-          "return_pct": -17.29459285048479,
-          "excess_pct_point": -13.521089150400488,
+          "net_yuan": 3268000000.0,
+          "inflow_days": null,
+          "return_pct": 9.46,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 1.3151903273133643,
-      "net_to_turnover_pct": 12.2640857601486
+      }
     },
     {
-      "code": "BK1204",
-      "name": "国防军工",
-      "data_date": "2026-10-13",
-      "close": 5258.99,
-      "return_pct": 2.53,
-      "turnover_yuan": 46971471198.0,
-      "turnover_pct": 2.08,
-      "day_net_yuan": 1932941248.0,
+      "code": null,
+      "name": "油气开采及服务",
+      "data_date": "2026-10-14",
+      "return_pct": 3.83,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 1007000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": -1741103216.0,
-          "inflow_days": 1,
-          "return_pct": -0.7878130453237819,
-          "excess_pct_point": -0.49819369539330083,
+          "net_yuan": -347000000.0,
+          "inflow_days": null,
+          "return_pct": 0.49,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -1933562112.0,
-          "inflow_days": 2,
-          "return_pct": -2.4458154944313026,
-          "excess_pct_point": -1.6733214010480224,
+          "net_yuan": 66000000.0,
+          "inflow_days": null,
+          "return_pct": 4.13,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -7636448512.0,
-          "inflow_days": 3,
-          "return_pct": -7.4735606824343765,
-          "excess_pct_point": -3.7000569823500746,
+          "net_yuan": -291000000.0,
+          "inflow_days": null,
+          "return_pct": -0.32,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 0.963802189831101,
-      "net_to_turnover_pct": 4.115138825122222
+      }
     },
     {
-      "code": "BK0459",
+      "code": null,
+      "name": "煤炭开采加工",
+      "data_date": "2026-10-14",
+      "return_pct": 1.42,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 859000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 677000000.0,
+          "inflow_days": null,
+          "return_pct": 0.85,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": 264000000.0,
+          "inflow_days": null,
+          "return_pct": 3.59,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": 504000000.0,
+          "inflow_days": null,
+          "return_pct": 1.07,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "影视院线",
+      "data_date": "2026-10-14",
+      "return_pct": 3.45,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 849000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 1446000000.0,
+          "inflow_days": null,
+          "return_pct": 15.94,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -102000000.0,
+          "inflow_days": null,
+          "return_pct": 13.08,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": 33000000.0,
+          "inflow_days": null,
+          "return_pct": 10.49,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "石油加工贸易",
+      "data_date": "2026-10-14",
+      "return_pct": 0.16,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 750000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 113999999.99999999,
+          "inflow_days": null,
+          "return_pct": -1.16,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": 532000000.0,
+          "inflow_days": null,
+          "return_pct": 0.13,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": 171000000.0,
+          "inflow_days": null,
+          "return_pct": -3.26,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "建筑装饰",
+      "data_date": "2026-10-14",
+      "return_pct": -0.45,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 702000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": -317000000.0,
+          "inflow_days": null,
+          "return_pct": -0.76,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": 258000000.0,
+          "inflow_days": null,
+          "return_pct": -1.14,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -1776000000.0000002,
+          "inflow_days": null,
+          "return_pct": -3.87,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "游戏",
+      "data_date": "2026-10-14",
+      "return_pct": 3.84,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 512000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 757000000.0,
+          "inflow_days": null,
+          "return_pct": 9.65,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -114999999.99999999,
+          "inflow_days": null,
+          "return_pct": 7.41,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -6000000.0,
+          "inflow_days": null,
+          "return_pct": 3.83,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "军工装备",
+      "data_date": "2026-10-14",
+      "return_pct": 0.77,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 505999999.99999994,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": -1637000000.0,
+          "inflow_days": null,
+          "return_pct": 0.95,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -74000000.0,
+          "inflow_days": null,
+          "return_pct": -0.14,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -2336000000.0,
+          "inflow_days": null,
+          "return_pct": -5.56,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "钢铁",
+      "data_date": "2026-10-14",
+      "return_pct": 0.31,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 493000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": -106000000.0,
+          "inflow_days": null,
+          "return_pct": 0.19,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": 443000000.0,
+          "inflow_days": null,
+          "return_pct": 1.31,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -1061999999.9999999,
+          "inflow_days": null,
+          "return_pct": -2.25,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "白酒",
+      "data_date": "2026-10-14",
+      "return_pct": -0.24,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 487000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 725000000.0,
+          "inflow_days": null,
+          "return_pct": 1.14,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": 1528000000.0,
+          "inflow_days": null,
+          "return_pct": 3.5,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -50000000.0,
+          "inflow_days": null,
+          "return_pct": -0.52,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "港口航运",
+      "data_date": "2026-10-14",
+      "return_pct": 0.99,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 415000000.00000006,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 386000000.0,
+          "inflow_days": null,
+          "return_pct": 0.49,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": 173000000.0,
+          "inflow_days": null,
+          "return_pct": 3.38,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -1120000000.0,
+          "inflow_days": null,
+          "return_pct": -0.63,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "工业金属",
+      "data_date": "2026-10-14",
+      "return_pct": -0.23,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 403000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 1103000000.0,
+          "inflow_days": null,
+          "return_pct": -1.61,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -144000000.0,
+          "inflow_days": null,
+          "return_pct": -2.09,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": 1622000000.0,
+          "inflow_days": null,
+          "return_pct": -6.29,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
       "name": "元件",
-      "data_date": "2026-10-13",
-      "close": 58629.69,
-      "return_pct": 4.77,
-      "turnover_yuan": 99658178574.0,
-      "turnover_pct": 5.43,
-      "day_net_yuan": 1366614272.0,
+      "data_date": "2026-10-14",
+      "return_pct": 2.08,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 383000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": -8545302272.0,
-          "inflow_days": 1,
-          "return_pct": -2.90097901106533,
-          "excess_pct_point": -2.611359661134849,
+          "net_yuan": -2733000000.0,
+          "inflow_days": null,
+          "return_pct": -0.56,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -14042697984.0,
-          "inflow_days": 1,
-          "return_pct": -9.060791390897972,
-          "excess_pct_point": -8.288297297514692,
+          "net_yuan": -5798000000.0,
+          "inflow_days": null,
+          "return_pct": -6.77,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -31654340864.0,
-          "inflow_days": 2,
-          "return_pct": -13.562540994615425,
-          "excess_pct_point": -9.789037294531123,
+          "net_yuan": -4539000000.0,
+          "inflow_days": null,
+          "return_pct": -10.97,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 0.8351858102703871,
-      "net_to_turnover_pct": 1.371301674940042
+      }
     },
     {
-      "code": "BK1201",
-      "name": "电子",
-      "data_date": "2026-10-13",
-      "close": 12044.42,
-      "return_pct": 1.01,
-      "turnover_yuan": 404764189810.0,
-      "turnover_pct": 2.76,
-      "day_net_yuan": 1284182272.0,
+      "code": null,
+      "name": "银行",
+      "data_date": "2026-10-14",
+      "return_pct": 0.06,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 376000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": -24082320896.0,
-          "inflow_days": 1,
-          "return_pct": -3.188930935700529,
-          "excess_pct_point": -2.899311585770048,
+          "net_yuan": -1379000000.0,
+          "inflow_days": null,
+          "return_pct": -0.06,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -62409020160.0,
-          "inflow_days": 1,
-          "return_pct": -8.777614183056437,
-          "excess_pct_point": -8.005120089673158,
+          "net_yuan": 4113000000.0000005,
+          "inflow_days": null,
+          "return_pct": 2.26,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -127608928000.0,
-          "inflow_days": 2,
-          "return_pct": -13.374985346038471,
-          "excess_pct_point": -9.60148164595417,
+          "net_yuan": -426000000.0,
+          "inflow_days": null,
+          "return_pct": 2.2,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 0.8581376254308338,
-      "net_to_turnover_pct": 0.3172667702157167
+      }
     },
     {
-      "code": "BK1230",
-      "name": "航海装备Ⅱ",
-      "data_date": "2026-10-13",
-      "close": 5141.91,
-      "return_pct": 4.36,
-      "turnover_yuan": 8552342553.0,
-      "turnover_pct": 2.51,
-      "day_net_yuan": 988968016.0,
+      "code": null,
+      "name": "通信服务",
+      "data_date": "2026-10-14",
+      "return_pct": 0.18,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 359000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": 382513104.0,
-          "inflow_days": 1,
-          "return_pct": 0.015755383089222086,
-          "excess_pct_point": 0.3053747330197032,
+          "net_yuan": 176000000.0,
+          "inflow_days": null,
+          "return_pct": 0.47,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": 881997600.0,
-          "inflow_days": 3,
-          "return_pct": -0.5036823182931638,
-          "excess_pct_point": 0.26881177509011644,
+          "net_yuan": -774000000.0,
+          "inflow_days": null,
+          "return_pct": -4.36,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": 118928608.0,
-          "inflow_days": 5,
-          "return_pct": -5.86857983919391,
-          "excess_pct_point": -2.0950761391096084,
+          "net_yuan": 1105000000.0,
+          "inflow_days": null,
+          "return_pct": -6.91,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 0.9823343372563096,
-      "net_to_turnover_pct": 11.563709122632005
+      }
     },
     {
-      "code": "BK1383",
-      "name": "航海装备Ⅲ",
-      "data_date": "2026-10-13",
-      "close": 5141.91,
-      "return_pct": 4.36,
-      "turnover_yuan": 8552342553.0,
-      "turnover_pct": 2.51,
-      "day_net_yuan": 988968016.0,
+      "code": null,
+      "name": "中药",
+      "data_date": "2026-10-14",
+      "return_pct": 0.23,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 298000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": 382513104.0,
-          "inflow_days": 1,
-          "return_pct": 0.015755383089222086,
-          "excess_pct_point": 0.3053747330197032,
+          "net_yuan": 1207000000.0,
+          "inflow_days": null,
+          "return_pct": 0.56,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": 881997600.0,
-          "inflow_days": 3,
-          "return_pct": -0.5036823182931638,
-          "excess_pct_point": 0.26881177509011644,
+          "net_yuan": 663000000.0,
+          "inflow_days": null,
+          "return_pct": 1.07,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": 118928608.0,
-          "inflow_days": 5,
-          "return_pct": -5.86857983919391,
-          "excess_pct_point": -2.0950761391096084,
+          "net_yuan": -395000000.0,
+          "inflow_days": null,
+          "return_pct": -1.78,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 0.9823343372563096,
-      "net_to_turnover_pct": 11.563709122632005
+      }
     },
     {
-      "code": "BK1293",
-      "name": "营销代理",
-      "data_date": "2026-10-13",
-      "close": 4706.0,
-      "return_pct": 1.77,
-      "turnover_yuan": 15645833262.0,
-      "turnover_pct": 7.75,
-      "day_net_yuan": 872876976.0,
+      "code": null,
+      "name": "轨交设备",
+      "data_date": "2026-10-14",
+      "return_pct": -0.17,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 246000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": 1491270944.0,
-          "inflow_days": 3,
-          "return_pct": 7.875903741501267,
-          "excess_pct_point": 8.165523091431748,
+          "net_yuan": 301000000.0,
+          "inflow_days": null,
+          "return_pct": 0.23,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": 113579520.0,
-          "inflow_days": 3,
-          "return_pct": 3.68242245850281,
-          "excess_pct_point": 4.45491655188609,
+          "net_yuan": 44000000.0,
+          "inflow_days": null,
+          "return_pct": -0.13,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -335004080.0,
-          "inflow_days": 5,
-          "return_pct": 3.8767253005825175,
-          "excess_pct_point": 7.650229000666819,
+          "net_yuan": -177000000.0,
+          "inflow_days": null,
+          "return_pct": -0.74,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 1.3993522955249245,
-      "net_to_turnover_pct": 5.578974039816787
+      }
     },
     {
-      "code": "BK0486",
-      "name": "传媒",
-      "data_date": "2026-10-13",
-      "close": 10553.26,
-      "return_pct": 1.1,
-      "turnover_yuan": 65702827924.0,
-      "turnover_pct": 4.68,
-      "day_net_yuan": 790635008.0,
+      "code": null,
+      "name": "证券",
+      "data_date": "2026-10-14",
+      "return_pct": 0.31,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 243000000.00000003,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": 5841351664.0,
-          "inflow_days": 3,
-          "return_pct": 9.179749533155036,
-          "excess_pct_point": 9.469368883085517,
+          "net_yuan": 2691000000.0,
+          "inflow_days": null,
+          "return_pct": 2.74,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": 2371200880.0,
-          "inflow_days": 3,
-          "return_pct": 6.019121749709422,
-          "excess_pct_point": 6.791615843092702,
+          "net_yuan": -193000000.0,
+          "inflow_days": null,
+          "return_pct": 1.44,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": 67445968.0,
-          "inflow_days": 5,
-          "return_pct": 5.2374090675654905,
-          "excess_pct_point": 9.010912767649792,
+          "net_yuan": -587000000.0,
+          "inflow_days": null,
+          "return_pct": -2.27,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 1.4692007489088468,
-      "net_to_turnover_pct": 1.20335004288483
+      }
     },
     {
-      "code": "BK1231",
-      "name": "航空装备Ⅱ",
-      "data_date": "2026-10-13",
-      "close": 4034.84,
-      "return_pct": 3.12,
-      "turnover_yuan": 15933636819.0,
-      "turnover_pct": 1.69,
-      "day_net_yuan": 790586928.0,
+      "code": null,
+      "name": "工程机械",
+      "data_date": "2026-10-14",
+      "return_pct": -0.31,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 145000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": -183507872.0,
-          "inflow_days": 1,
-          "return_pct": 0.44086200844881684,
-          "excess_pct_point": 0.730481358379298,
+          "net_yuan": -214000000.0,
+          "inflow_days": null,
+          "return_pct": -1.32,
+          "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -261445824.0,
-          "inflow_days": 2,
-          "return_pct": -1.0481707287165354,
-          "excess_pct_point": -0.27567663533325515,
+          "net_yuan": 391000000.0,
+          "inflow_days": null,
+          "return_pct": -1.55,
+          "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -1725571440.0,
-          "inflow_days": 2,
-          "return_pct": -5.7095317772646865,
-          "excess_pct_point": -1.9360280771803846,
+          "net_yuan": -534999999.99999994,
+          "inflow_days": null,
+          "return_pct": -3.83,
+          "excess_pct_point": null,
           "observed_flow_days": 10
         }
-      },
-      "turnover_vs_prev20": 1.0813072060141096,
-      "net_to_turnover_pct": 4.961748136855158
-    },
-    {
-      "code": "BK1384",
-      "name": "航空装备Ⅲ",
-      "data_date": "2026-10-13",
-      "close": 4034.84,
-      "return_pct": 3.12,
-      "turnover_yuan": 15933636819.0,
-      "turnover_pct": 1.69,
-      "day_net_yuan": 790586928.0,
-      "windows": {
-        "3": {
-          "net_yuan": -183507872.0,
-          "inflow_days": 1,
-          "return_pct": 0.44086200844881684,
-          "excess_pct_point": 0.730481358379298,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": -261445824.0,
-          "inflow_days": 2,
-          "return_pct": -1.0481707287165354,
-          "excess_pct_point": -0.27567663533325515,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": -1725571440.0,
-          "inflow_days": 2,
-          "return_pct": -5.7095317772646865,
-          "excess_pct_point": -1.9360280771803846,
-          "observed_flow_days": 10
-        }
-      },
-      "turnover_vs_prev20": 1.0813072060141096,
-      "net_to_turnover_pct": 4.961748136855158
-    },
-    {
-      "code": "BK1220",
-      "name": "广告营销",
-      "data_date": "2026-10-13",
-      "close": 4947.87,
-      "return_pct": 1.75,
-      "turnover_yuan": 17680734508.0,
-      "turnover_pct": 5.46,
-      "day_net_yuan": 745167488.0,
-      "windows": {
-        "3": {
-          "net_yuan": 1427047920.0,
-          "inflow_days": 3,
-          "return_pct": 7.865587401107899,
-          "excess_pct_point": 8.15520675103838,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": 26654528.0,
-          "inflow_days": 3,
-          "return_pct": 3.9285084144814686,
-          "excess_pct_point": 4.701002507864748,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": -477912448.0,
-          "inflow_days": 5,
-          "return_pct": 3.824266307426938,
-          "excess_pct_point": 7.59777000751124,
-          "observed_flow_days": 10
-        }
-      },
-      "turnover_vs_prev20": 1.4655543686004144,
-      "net_to_turnover_pct": 4.2145731426646
+      }
     }
   ],
   "stocks": [
@@ -433,9 +693,9 @@
       "name": "明阳智能",
       "data_date": "2026-10-13",
       "close": 9.32,
-      "return_pct": -2.1,
-      "turnover_yuan": 478119677.0,
-      "turnover_pct": 2.28,
+      "return_pct": -2.1008,
+      "turnover_yuan": 478119677.48,
+      "turnover_pct": 2.2821,
       "day_net_yuan": -31487930.0,
       "windows": {
         "3": {
@@ -461,16 +721,17 @@
         }
       },
       "turnover_vs_prev20": 1.1689401415634921,
-      "net_to_turnover_pct": -6.585784169681852
+      "net_to_turnover_pct": -6.585784169681852,
+      "snapshot_source": "BaoStock未复权日线备用源"
     },
     {
       "code": "002202",
       "name": "金风科技",
       "data_date": "2026-10-13",
       "close": 15.87,
-      "return_pct": -1.18,
+      "return_pct": -1.1831,
       "turnover_yuan": 1063166672.16,
-      "turnover_pct": 2.01,
+      "turnover_pct": 2.0107,
       "day_net_yuan": -32933778.0,
       "windows": {
         "3": {
@@ -496,16 +757,17 @@
         }
       },
       "turnover_vs_prev20": 0.7072080166044994,
-      "net_to_turnover_pct": -3.097706019423046
+      "net_to_turnover_pct": -3.097706019423046,
+      "snapshot_source": "BaoStock未复权日线备用源"
     },
     {
       "code": "601939",
       "name": "建设银行",
       "data_date": "2026-10-13",
       "close": 11.37,
-      "return_pct": 0.53,
-      "turnover_yuan": 1314070229.0,
-      "turnover_pct": 1.21,
+      "return_pct": 0.5305,
+      "turnover_yuan": 1314070229.43,
+      "turnover_pct": 1.2058,
       "day_net_yuan": -94864329.0,
       "windows": {
         "3": {
@@ -531,16 +793,17 @@
         }
       },
       "turnover_vs_prev20": 1.185526499844604,
-      "net_to_turnover_pct": -7.219121695816153
+      "net_to_turnover_pct": -7.219121695816153,
+      "snapshot_source": "BaoStock未复权日线备用源"
     },
     {
       "code": "601689",
       "name": "拓普集团",
       "data_date": "2026-10-13",
       "close": 40.55,
-      "return_pct": -2.55,
-      "turnover_yuan": 943701193.0,
-      "turnover_pct": 1.35,
+      "return_pct": -2.5475,
+      "turnover_yuan": 943701193.48,
+      "turnover_pct": 1.3535,
       "day_net_yuan": -72519477.0,
       "windows": {
         "3": {
@@ -566,16 +829,17 @@
         }
       },
       "turnover_vs_prev20": 0.9280942094937962,
-      "net_to_turnover_pct": -7.684580409341497
+      "net_to_turnover_pct": -7.684580409341497,
+      "snapshot_source": "BaoStock未复权日线备用源"
     },
     {
       "code": "600802",
       "name": "福建水泥",
       "data_date": "2026-10-13",
       "close": 7.16,
-      "return_pct": 9.98,
-      "turnover_yuan": 692878286.0,
-      "turnover_pct": 21.55,
+      "return_pct": 9.9846,
+      "turnover_yuan": 692878286.09,
+      "turnover_pct": 21.5528,
       "day_net_yuan": 206857103.0,
       "windows": {
         "3": {
@@ -601,7 +865,8 @@
         }
       },
       "turnover_vs_prev20": 1.8990547225077756,
-      "net_to_turnover_pct": 29.85475330655693
+      "net_to_turnover_pct": 29.85475330655693,
+      "snapshot_source": "BaoStock未复权日线备用源"
     }
   ],
   "limit_history": [
@@ -8007,55 +8272,55 @@
       "dataset": "price_BK0486",
       "status": "cached",
       "rows": 45,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_BK0486",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "price_BK0433",
       "status": "cached",
       "rows": 45,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_BK0433",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "price_BK0464",
       "status": "cached",
       "rows": 45,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_BK0464",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "price_BK1036",
       "status": "cached",
       "rows": 45,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_BK1036",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "price_601615",
       "status": "cached",
-      "rows": 41,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "rows": 45,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_601615",
@@ -8066,32 +8331,32 @@
     {
       "dataset": "price_002202",
       "status": "cached",
-      "rows": 41,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "rows": 45,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_002202",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "price_601939",
       "status": "cached",
       "rows": 41,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_601939",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "price_601689",
       "status": "cached",
-      "rows": 41,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "rows": 45,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_601689",
@@ -8102,19 +8367,54 @@
     {
       "dataset": "price_600802",
       "status": "cached",
-      "rows": 41,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "rows": 45,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "flow_600802",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00"
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
+    },
+    {
+      "dataset": "etf_2026-09-30",
+      "status": "cached",
+      "rows": 920,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
+    },
+    {
+      "dataset": "etf_2026-10-08",
+      "status": "cached",
+      "rows": 920,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
+    },
+    {
+      "dataset": "etf_2026-10-09",
+      "status": "cached",
+      "rows": 920,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
+    },
+    {
+      "dataset": "etf_2026-10-12",
+      "status": "cached",
+      "rows": 920,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
+    },
+    {
+      "dataset": "etf_2026-10-13",
+      "status": "cached",
+      "rows": 921,
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00"
     },
     {
       "dataset": "limits_2026-09-30",
       "status": "ok",
       "rows": 52
+    },
+    {
+      "dataset": "failed_2026-09-30",
+      "status": "ok",
+      "rows": 12
     },
     {
       "dataset": "limits_2026-10-08",
@@ -8127,19 +8427,9 @@
       "rows": 32
     },
     {
-      "dataset": "failed_2026-09-30",
-      "status": "ok",
-      "rows": 12
-    },
-    {
       "dataset": "failed_2026-10-09",
       "status": "ok",
       "rows": 14
-    },
-    {
-      "dataset": "limits_2026-10-09",
-      "status": "ok",
-      "rows": 69
     },
     {
       "dataset": "limits_2026-10-12",
@@ -8147,15 +8437,14 @@
       "rows": 46
     },
     {
+      "dataset": "limits_2026-10-09",
+      "status": "ok",
+      "rows": 69
+    },
+    {
       "dataset": "failed_2026-10-12",
       "status": "ok",
       "rows": 25
-    },
-    {
-      "dataset": "etf_2026-09-30",
-      "status": "error",
-      "reason": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "retained": false
     },
     {
       "dataset": "limits_2026-10-13",
@@ -8168,30 +8457,6 @@
       "rows": 19
     },
     {
-      "dataset": "etf_2026-10-08",
-      "status": "error",
-      "reason": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "retained": false
-    },
-    {
-      "dataset": "etf_2026-10-13",
-      "status": "error",
-      "reason": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "retained": false
-    },
-    {
-      "dataset": "etf_2026-10-09",
-      "status": "error",
-      "reason": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "retained": false
-    },
-    {
-      "dataset": "etf_2026-10-12",
-      "status": "error",
-      "reason": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "retained": false
-    },
-    {
       "dataset": "lhb_2026-10-13",
       "status": "ok",
       "rows": 42
@@ -8199,15 +8464,37 @@
     {
       "dataset": "unlocks",
       "status": "ok",
-      "rows": 173
+      "rows": 169
     },
     {
-      "dataset": "ETF份额比较",
-      "status": "fallback",
-      "source": "上次已核验并提交的上交所ETF份额比较",
-      "date": "2026-10-13",
-      "rows": 920,
-      "note": "当日ETF官方份额源暂不可用；保留最近一次已核验比较，不将旧份额变化冒充为当日净申购"
+      "dataset": "baostock_price_601615",
+      "status": "ok",
+      "rows": 1,
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00"
+    },
+    {
+      "dataset": "baostock_price_002202",
+      "status": "ok",
+      "rows": 1,
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00"
+    },
+    {
+      "dataset": "baostock_price_601939",
+      "status": "ok",
+      "rows": 1,
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00"
+    },
+    {
+      "dataset": "baostock_price_601689",
+      "status": "ok",
+      "rows": 1,
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00"
+    },
+    {
+      "dataset": "baostock_price_600802",
+      "status": "ok",
+      "rows": 1,
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00"
     }
   ],
   "datasets": {
@@ -16146,7 +16433,7 @@
       ]
     },
     "unlocks": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -16164,48 +16451,6 @@
         },
         {
           "序号": 2,
-          "股票代码": "603529",
-          "股票简称": "爱玛科技",
-          "解禁时间": "2026-10-14T00:00:00.000",
-          "限售股类型": "股权激励限售股份",
-          "解禁数量": 24000.0,
-          "实际解禁数量": 24000.0,
-          "实际解禁市值": 555120.0,
-          "占解禁前流通市值比例": 2.82099e-05,
-          "解禁前一交易日收盘价": 23.13,
-          "解禁前20日涨跌幅": 10.01418695,
-          "解禁后20日涨跌幅": 0.0
-        },
-        {
-          "序号": 3,
-          "股票代码": "600237",
-          "股票简称": "铜峰电子",
-          "解禁时间": "2026-10-14T00:00:00.000",
-          "限售股类型": "股权激励限售股份",
-          "解禁数量": 39600.0,
-          "实际解禁数量": 39600.0,
-          "实际解禁市值": 357588.0,
-          "占解禁前流通市值比例": 6.3399e-05,
-          "解禁前一交易日收盘价": 9.03,
-          "解禁前20日涨跌幅": 8.40336134,
-          "解禁后20日涨跌幅": 0.0
-        },
-        {
-          "序号": 4,
-          "股票代码": "001309",
-          "股票简称": "德明利",
-          "解禁时间": "2026-10-14T00:00:00.000",
-          "限售股类型": "股权激励限售股份",
-          "解禁数量": 653268.0,
-          "实际解禁数量": 653268.0,
-          "实际解禁市值": 152720993.04,
-          "占解禁前流通市值比例": 0.0028160849,
-          "解禁前一交易日收盘价": 233.78,
-          "解禁前20日涨跌幅": -18.60276067,
-          "解禁后20日涨跌幅": 0.0
-        },
-        {
-          "序号": 5,
           "股票代码": "001316",
           "股票简称": "润贝航科",
           "解禁时间": "2026-10-14T00:00:00.000",
@@ -16219,7 +16464,7 @@
           "解禁后20日涨跌幅": 0.0
         },
         {
-          "序号": 6,
+          "序号": 3,
           "股票代码": "688293",
           "股票简称": "奥浦迈",
           "解禁时间": "2026-10-14T00:00:00.000",
@@ -16233,7 +16478,7 @@
           "解禁后20日涨跌幅": 0.0
         },
         {
-          "序号": 7,
+          "序号": 4,
           "股票代码": "920374",
           "股票简称": "云里物里",
           "解禁时间": "2026-10-14T00:00:00.000",
@@ -16247,7 +16492,7 @@
           "解禁后20日涨跌幅": 0.0
         },
         {
-          "序号": 8,
+          "序号": 5,
           "股票代码": "300547",
           "股票简称": "川环科技",
           "解禁时间": "2026-10-14T00:00:00.000",
@@ -16261,21 +16506,7 @@
           "解禁后20日涨跌幅": 0.0
         },
         {
-          "序号": 9,
-          "股票代码": "600875",
-          "股票简称": "东方电气",
-          "解禁时间": "2026-10-14T00:00:00.000",
-          "限售股类型": "定向增发机构配售股份",
-          "解禁数量": 33090668.0,
-          "实际解禁数量": 33090668.0,
-          "实际解禁市值": 759761737.28,
-          "占解禁前流通市值比例": 0.0146201097,
-          "解禁前一交易日收盘价": 22.96,
-          "解禁前20日涨跌幅": -8.1232493,
-          "解禁后20日涨跌幅": 0.0
-        },
-        {
-          "序号": 10,
+          "序号": 6,
           "股票代码": "300995",
           "股票简称": "奇德新材",
           "解禁时间": "2026-10-15T00:00:00.000",
@@ -16289,7 +16520,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 11,
+          "序号": 7,
           "股票代码": "603112",
           "股票简称": "华翔股份",
           "解禁时间": "2026-10-15T00:00:00.000",
@@ -16303,7 +16534,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 12,
+          "序号": 8,
           "股票代码": "300686",
           "股票简称": "智动力",
           "解禁时间": "2026-10-15T00:00:00.000",
@@ -16317,7 +16548,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 13,
+          "序号": 9,
           "股票代码": "605296",
           "股票简称": "神农集团",
           "解禁时间": "2026-10-15T00:00:00.000",
@@ -16331,7 +16562,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 14,
+          "序号": 10,
           "股票代码": "002206",
           "股票简称": "海利得",
           "解禁时间": "2026-10-15T00:00:00.000",
@@ -16345,7 +16576,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 15,
+          "序号": 11,
           "股票代码": "920072",
           "股票简称": "科莱瑞迪",
           "解禁时间": "2026-10-15T00:00:00.000",
@@ -16359,7 +16590,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 16,
+          "序号": 12,
           "股票代码": "920059",
           "股票简称": "双英集团",
           "解禁时间": "2026-10-15T00:00:00.000",
@@ -16373,7 +16604,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 17,
+          "序号": 13,
           "股票代码": "688261",
           "股票简称": "东微半导",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16387,7 +16618,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 18,
+          "序号": 14,
           "股票代码": "002857",
           "股票简称": "三晖电气",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16401,7 +16632,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 19,
+          "序号": 15,
           "股票代码": "920298",
           "股票简称": "腾信精密",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16415,7 +16646,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 20,
+          "序号": 16,
           "股票代码": "603293",
           "股票简称": "埃泰克",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16429,7 +16660,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 21,
+          "序号": 17,
           "股票代码": "002331",
           "股票简称": "皖通科技",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16443,7 +16674,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 22,
+          "序号": 18,
           "股票代码": "002938",
           "股票简称": "鹏鼎控股",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16457,7 +16688,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 23,
+          "序号": 19,
           "股票代码": "301666",
           "股票简称": "大普微",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16471,7 +16702,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 24,
+          "序号": 20,
           "股票代码": "301203",
           "股票简称": "国泰环保",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16485,7 +16716,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 25,
+          "序号": 21,
           "股票代码": "920117",
           "股票简称": "龙鑫智能",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16499,7 +16730,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 26,
+          "序号": 22,
           "股票代码": "002471",
           "股票简称": "中超控股",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16513,7 +16744,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 27,
+          "序号": 23,
           "股票代码": "920100",
           "股票简称": "三协电机",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16527,7 +16758,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 28,
+          "序号": 24,
           "股票代码": "920158",
           "股票简称": "长江能科",
           "解禁时间": "2026-10-16T00:00:00.000",
@@ -16541,7 +16772,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 29,
+          "序号": 25,
           "股票代码": "605099",
           "股票简称": "共创草坪",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16555,7 +16786,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 30,
+          "序号": 26,
           "股票代码": "000962",
           "股票简称": "东方钽业",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16569,7 +16800,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 31,
+          "序号": 27,
           "股票代码": "920924",
           "股票简称": "广脉科技",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16583,7 +16814,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 32,
+          "序号": 28,
           "股票代码": "001267",
           "股票简称": "汇绿生态",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16597,7 +16828,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 33,
+          "序号": 29,
           "股票代码": "301023",
           "股票简称": "奕帆传动",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16611,7 +16842,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 34,
+          "序号": 30,
           "股票代码": "600186",
           "股票简称": "莲花控股",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16625,7 +16856,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 35,
+          "序号": 31,
           "股票代码": "301513",
           "股票简称": "尚水智能",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16639,7 +16870,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 36,
+          "序号": 32,
           "股票代码": "002871",
           "股票简称": "伟隆股份",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16653,7 +16884,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 37,
+          "序号": 33,
           "股票代码": "920926",
           "股票简称": "鸿智科技",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16667,7 +16898,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 38,
+          "序号": 34,
           "股票代码": "688598",
           "股票简称": "金博股份",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16681,7 +16912,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 39,
+          "序号": 35,
           "股票代码": "689009",
           "股票简称": "九号公司",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16695,7 +16926,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 40,
+          "序号": 36,
           "股票代码": "688609",
           "股票简称": "九联科技",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16709,7 +16940,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 41,
+          "序号": 37,
           "股票代码": "688507",
           "股票简称": "索辰科技",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16723,7 +16954,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 42,
+          "序号": 38,
           "股票代码": "301517",
           "股票简称": "陕西华达",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16737,7 +16968,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 43,
+          "序号": 39,
           "股票代码": "301387",
           "股票简称": "光大同创",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16751,7 +16982,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 44,
+          "序号": 40,
           "股票代码": "301429",
           "股票简称": "森泰股份",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16765,7 +16996,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 45,
+          "序号": 41,
           "股票代码": "601026",
           "股票简称": "道生天合",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16779,7 +17010,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 46,
+          "序号": 42,
           "股票代码": "603193",
           "股票简称": "润本股份",
           "解禁时间": "2026-10-19T00:00:00.000",
@@ -16793,7 +17024,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 47,
+          "序号": 43,
           "股票代码": "688261",
           "股票简称": "东微半导",
           "解禁时间": "2026-10-20T00:00:00.000",
@@ -16807,7 +17038,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 48,
+          "序号": 44,
           "股票代码": "603225",
           "股票简称": "新凤鸣",
           "解禁时间": "2026-10-20T00:00:00.000",
@@ -16821,7 +17052,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 49,
+          "序号": 45,
           "股票代码": "300407",
           "股票简称": "凯发电气",
           "解禁时间": "2026-10-20T00:00:00.000",
@@ -16835,7 +17066,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 50,
+          "序号": 46,
           "股票代码": "688352",
           "股票简称": "颀中科技",
           "解禁时间": "2026-10-20T00:00:00.000",
@@ -16849,7 +17080,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 51,
+          "序号": 47,
           "股票代码": "002286",
           "股票简称": "保龄宝",
           "解禁时间": "2026-10-21T00:00:00.000",
@@ -16863,7 +17094,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 52,
+          "序号": 48,
           "股票代码": "001238",
           "股票简称": "浙江正特",
           "解禁时间": "2026-10-21T00:00:00.000",
@@ -16877,7 +17108,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 53,
+          "序号": 49,
           "股票代码": "001312",
           "股票简称": "福恩股份",
           "解禁时间": "2026-10-21T00:00:00.000",
@@ -16891,7 +17122,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 54,
+          "序号": 50,
           "股票代码": "688820",
           "股票简称": "盛合晶微",
           "解禁时间": "2026-10-21T00:00:00.000",
@@ -16905,7 +17136,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 55,
+          "序号": 51,
           "股票代码": "688146",
           "股票简称": "中船特气",
           "解禁时间": "2026-10-21T00:00:00.000",
@@ -16919,7 +17150,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 56,
+          "序号": 52,
           "股票代码": "920230",
           "股票简称": "欧康医药",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -16933,7 +17164,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 57,
+          "序号": 53,
           "股票代码": "688251",
           "股票简称": "井松智能",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -16947,7 +17178,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 58,
+          "序号": 54,
           "股票代码": "603162",
           "股票简称": "海通发展",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -16961,7 +17192,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 59,
+          "序号": 55,
           "股票代码": "920229",
           "股票简称": "世纪数码",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -16975,7 +17206,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 60,
+          "序号": 56,
           "股票代码": "300657",
           "股票简称": "弘信电子",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -16989,7 +17220,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 61,
+          "序号": 57,
           "股票代码": "605056",
           "股票简称": "咸亨国际",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -17003,7 +17234,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 62,
+          "序号": 58,
           "股票代码": "600648",
           "股票简称": "外高桥",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -17017,7 +17248,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 63,
+          "序号": 59,
           "股票代码": "001386",
           "股票简称": "马可波罗",
           "解禁时间": "2026-10-22T00:00:00.000",
@@ -17031,7 +17262,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 64,
+          "序号": 60,
           "股票代码": "603055",
           "股票简称": "台华新材",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17045,7 +17276,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 65,
+          "序号": 61,
           "股票代码": "600228",
           "股票简称": "返利科技",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17059,7 +17290,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 66,
+          "序号": 62,
           "股票代码": "920017",
           "股票简称": "星昊医药",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17073,7 +17304,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 67,
+          "序号": 63,
           "股票代码": "300739",
           "股票简称": "明阳电路",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17087,7 +17318,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 68,
+          "序号": 64,
           "股票代码": "002796",
           "股票简称": "世嘉科技",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17101,7 +17332,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 69,
+          "序号": 65,
           "股票代码": "603190",
           "股票简称": "亚通精工",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17115,7 +17346,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 70,
+          "序号": 66,
           "股票代码": "600479",
           "股票简称": "千金药业",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17129,7 +17360,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 71,
+          "序号": 67,
           "股票代码": "600459",
           "股票简称": "贵研铂业",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17143,7 +17374,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 72,
+          "序号": 68,
           "股票代码": "603273",
           "股票简称": "天元智能",
           "解禁时间": "2026-10-23T00:00:00.000",
@@ -17157,7 +17388,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 73,
+          "序号": 69,
           "股票代码": "600186",
           "股票简称": "莲花控股",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17171,7 +17402,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 74,
+          "序号": 70,
           "股票代码": "688808",
           "股票简称": "联讯仪器",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17185,7 +17416,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 75,
+          "序号": 71,
           "股票代码": "300323",
           "股票简称": "华灿光电",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17199,7 +17430,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 76,
+          "序号": 72,
           "股票代码": "002524",
           "股票简称": "光正眼科",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17213,7 +17444,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 77,
+          "序号": 73,
           "股票代码": "603175",
           "股票简称": "超颖电子",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17227,7 +17458,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 78,
+          "序号": 74,
           "股票代码": "603667",
           "股票简称": "五洲新春",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17241,7 +17472,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 79,
+          "序号": 75,
           "股票代码": "688368",
           "股票简称": "晶丰明源",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17255,7 +17486,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 80,
+          "序号": 76,
           "股票代码": "301489",
           "股票简称": "思泉新材",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17269,7 +17500,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 81,
+          "序号": 77,
           "股票代码": "301360",
           "股票简称": "荣旗科技",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17283,7 +17514,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 82,
+          "序号": 78,
           "股票代码": "920201",
           "股票简称": "百瑞吉",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17297,7 +17528,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 83,
+          "序号": 79,
           "股票代码": "002230",
           "股票简称": "科大讯飞",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17311,7 +17542,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 84,
+          "序号": 80,
           "股票代码": "301307",
           "股票简称": "美利信",
           "解禁时间": "2026-10-26T00:00:00.000",
@@ -17325,7 +17556,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 85,
+          "序号": 81,
           "股票代码": "601187",
           "股票简称": "厦门银行",
           "解禁时间": "2026-10-27T00:00:00.000",
@@ -17339,7 +17570,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 86,
+          "序号": 82,
           "股票代码": "920156",
           "股票简称": "海昌智能",
           "解禁时间": "2026-10-27T00:00:00.000",
@@ -17353,7 +17584,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 87,
+          "序号": 83,
           "股票代码": "600697",
           "股票简称": "欧亚集团",
           "解禁时间": "2026-10-27T00:00:00.000",
@@ -17367,7 +17598,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 88,
+          "序号": 84,
           "股票代码": "920176",
           "股票简称": "维琪科技",
           "解禁时间": "2026-10-27T00:00:00.000",
@@ -17381,7 +17612,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 89,
+          "序号": 85,
           "股票代码": "300848",
           "股票简称": "美瑞新材",
           "解禁时间": "2026-10-27T00:00:00.000",
@@ -17395,7 +17626,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 90,
+          "序号": 86,
           "股票代码": "002079",
           "股票简称": "苏州固锝",
           "解禁时间": "2026-10-27T00:00:00.000",
@@ -17409,7 +17640,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 91,
+          "序号": 87,
           "股票代码": "688337",
           "股票简称": "普源精电",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17423,7 +17654,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 92,
+          "序号": 88,
           "股票代码": "603477",
           "股票简称": "巨星农牧",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17437,7 +17668,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 93,
+          "序号": 89,
           "股票代码": "300895",
           "股票简称": "铜牛信息",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17451,7 +17682,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 94,
+          "序号": 90,
           "股票代码": "300782",
           "股票简称": "卓胜微",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17465,7 +17696,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 95,
+          "序号": 91,
           "股票代码": "920020",
           "股票简称": "泰凯英",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17479,7 +17710,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 96,
+          "序号": 92,
           "股票代码": "688759",
           "股票简称": "必贝特",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17493,7 +17724,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 97,
+          "序号": 93,
           "股票代码": "688062",
           "股票简称": "迈威生物",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17507,7 +17738,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 98,
+          "序号": 94,
           "股票代码": "688765",
           "股票简称": "禾元生物",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17521,7 +17752,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 99,
+          "序号": 95,
           "股票代码": "688783",
           "股票简称": "西安奕材",
           "解禁时间": "2026-10-28T00:00:00.000",
@@ -17535,7 +17766,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 100,
+          "序号": 96,
           "股票代码": "605319",
           "股票简称": "无锡振华",
           "解禁时间": "2026-10-29T00:00:00.000",
@@ -17549,7 +17780,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 101,
+          "序号": 97,
           "股票代码": "688726",
           "股票简称": "拉普拉斯",
           "解禁时间": "2026-10-29T00:00:00.000",
@@ -17563,7 +17794,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 102,
+          "序号": 98,
           "股票代码": "920065",
           "股票简称": "千岸科技",
           "解禁时间": "2026-10-29T00:00:00.000",
@@ -17577,7 +17808,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 103,
+          "序号": 99,
           "股票代码": "920088",
           "股票简称": "科力股份",
           "解禁时间": "2026-10-29T00:00:00.000",
@@ -17591,7 +17822,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 104,
+          "序号": 100,
           "股票代码": "920202",
           "股票简称": "安达股份",
           "解禁时间": "2026-10-29T00:00:00.000",
@@ -17605,7 +17836,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 105,
+          "序号": 101,
           "股票代码": "920058",
           "股票简称": "华洋赛车",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17619,7 +17850,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 106,
+          "序号": 102,
           "股票代码": "002157",
           "股票简称": "正邦科技",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17633,7 +17864,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 107,
+          "序号": 103,
           "股票代码": "920924",
           "股票简称": "广脉科技",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17647,7 +17878,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 108,
+          "序号": 104,
           "股票代码": "603162",
           "股票简称": "海通发展",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17661,7 +17892,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 109,
+          "序号": 105,
           "股票代码": "002116",
           "股票简称": "中国海诚",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17675,7 +17906,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 110,
+          "序号": 106,
           "股票代码": "002952",
           "股票简称": "亚世光电",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17689,7 +17920,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 111,
+          "序号": 107,
           "股票代码": "603617",
           "股票简称": "君禾股份",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17703,7 +17934,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 112,
+          "序号": 108,
           "股票代码": "001367",
           "股票简称": "海森药业",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17717,7 +17948,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 113,
+          "序号": 109,
           "股票代码": "300512",
           "股票简称": "中亚股份",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17731,7 +17962,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 114,
+          "序号": 110,
           "股票代码": "603639",
           "股票简称": "海利尔",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17745,7 +17976,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 115,
+          "序号": 111,
           "股票代码": "301599",
           "股票简称": "理奇智能",
           "解禁时间": "2026-10-30T00:00:00.000",
@@ -17759,7 +17990,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 116,
+          "序号": 112,
           "股票代码": "002575",
           "股票简称": "群兴玩具",
           "解禁时间": "2026-11-02T00:00:00.000",
@@ -17773,7 +18004,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 117,
+          "序号": 113,
           "股票代码": "920493",
           "股票简称": "并行科技",
           "解禁时间": "2026-11-02T00:00:00.000",
@@ -17787,7 +18018,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 118,
+          "序号": 114,
           "股票代码": "600367",
           "股票简称": "红星发展",
           "解禁时间": "2026-11-02T00:00:00.000",
@@ -17801,7 +18032,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 119,
+          "序号": 115,
           "股票代码": "920689",
           "股票简称": "克莱特",
           "解禁时间": "2026-11-02T00:00:00.000",
@@ -17815,7 +18046,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 120,
+          "序号": 116,
           "股票代码": "301555",
           "股票简称": "惠柏新材",
           "解禁时间": "2026-11-02T00:00:00.000",
@@ -17829,7 +18060,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 121,
+          "序号": 117,
           "股票代码": "603107",
           "股票简称": "上海汽配",
           "解禁时间": "2026-11-02T00:00:00.000",
@@ -17843,7 +18074,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 122,
+          "序号": 118,
           "股票代码": "920415",
           "股票简称": "恒拓开源",
           "解禁时间": "2026-11-03T00:00:00.000",
@@ -17857,7 +18088,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 123,
+          "序号": 119,
           "股票代码": "920009",
           "股票简称": "丹娜生物",
           "解禁时间": "2026-11-03T00:00:00.000",
@@ -17871,7 +18102,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 124,
+          "序号": 120,
           "股票代码": "001376",
           "股票简称": "百通能源",
           "解禁时间": "2026-11-03T00:00:00.000",
@@ -17885,7 +18116,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 125,
+          "序号": 121,
           "股票代码": "300535",
           "股票简称": "达威股份",
           "解禁时间": "2026-11-04T00:00:00.000",
@@ -17899,7 +18130,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 126,
+          "序号": 122,
           "股票代码": "002202",
           "股票简称": "金风科技",
           "解禁时间": "2026-11-04T00:00:00.000",
@@ -17913,7 +18144,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 127,
+          "序号": 123,
           "股票代码": "002340",
           "股票简称": "格林美",
           "解禁时间": "2026-11-05T00:00:00.000",
@@ -17927,7 +18158,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 128,
+          "序号": 124,
           "股票代码": "603629",
           "股票简称": "利通电子",
           "解禁时间": "2026-11-06T00:00:00.000",
@@ -17941,7 +18172,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 129,
+          "序号": 125,
           "股票代码": "002150",
           "股票简称": "正泰电源",
           "解禁时间": "2026-11-06T00:00:00.000",
@@ -17955,7 +18186,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 130,
+          "序号": 126,
           "股票代码": "603185",
           "股票简称": "弘元绿能",
           "解禁时间": "2026-11-06T00:00:00.000",
@@ -17969,7 +18200,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 131,
+          "序号": 127,
           "股票代码": "603062",
           "股票简称": "麦加芯彩",
           "解禁时间": "2026-11-06T00:00:00.000",
@@ -17983,7 +18214,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 132,
+          "序号": 128,
           "股票代码": "603334",
           "股票简称": "丰倍生物",
           "解禁时间": "2026-11-06T00:00:00.000",
@@ -17997,7 +18228,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 133,
+          "序号": 129,
           "股票代码": "603215",
           "股票简称": "比依股份",
           "解禁时间": "2026-11-06T00:00:00.000",
@@ -18011,7 +18242,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 134,
+          "序号": 130,
           "股票代码": "603376",
           "股票简称": "大明电子",
           "解禁时间": "2026-11-06T00:00:00.000",
@@ -18025,7 +18256,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 135,
+          "序号": 131,
           "股票代码": "002209",
           "股票简称": "达意隆",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18039,7 +18270,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 136,
+          "序号": 132,
           "股票代码": "000969",
           "股票简称": "安泰科技",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18053,7 +18284,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 137,
+          "序号": 133,
           "股票代码": "603867",
           "股票简称": "新化股份",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18067,7 +18298,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 138,
+          "序号": 134,
           "股票代码": "603162",
           "股票简称": "海通发展",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18081,7 +18312,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 139,
+          "序号": 135,
           "股票代码": "920871",
           "股票简称": "派特尔",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18095,7 +18326,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 140,
+          "序号": 136,
           "股票代码": "920200",
           "股票简称": "振宏股份",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18109,7 +18340,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 141,
+          "序号": 137,
           "股票代码": "603486",
           "股票简称": "科沃斯",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18123,7 +18354,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 142,
+          "序号": 138,
           "股票代码": "001326",
           "股票简称": "联域股份",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18137,7 +18368,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 143,
+          "序号": 139,
           "股票代码": "920157",
           "股票简称": "宇特光电",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18151,7 +18382,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 144,
+          "序号": 140,
           "股票代码": "920003",
           "股票简称": "中诚咨询",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18165,7 +18396,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 145,
+          "序号": 141,
           "股票代码": "603092",
           "股票简称": "德力佳",
           "解禁时间": "2026-11-09T00:00:00.000",
@@ -18179,7 +18410,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 146,
+          "序号": 142,
           "股票代码": "301382",
           "股票简称": "蜂助手",
           "解禁时间": "2026-11-10T00:00:00.000",
@@ -18193,7 +18424,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 147,
+          "序号": 143,
           "股票代码": "002903",
           "股票简称": "宇环数控",
           "解禁时间": "2026-11-10T00:00:00.000",
@@ -18207,7 +18438,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 148,
+          "序号": 144,
           "股票代码": "300791",
           "股票简称": "仙乐健康",
           "解禁时间": "2026-11-10T00:00:00.000",
@@ -18221,7 +18452,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 149,
+          "序号": 145,
           "股票代码": "000410",
           "股票简称": "沈阳机床",
           "解禁时间": "2026-11-10T00:00:00.000",
@@ -18235,7 +18466,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 150,
+          "序号": 146,
           "股票代码": "688469",
           "股票简称": "芯联集成",
           "解禁时间": "2026-11-10T00:00:00.000",
@@ -18249,7 +18480,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 151,
+          "序号": 147,
           "股票代码": "300627",
           "股票简称": "华测导航",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18263,7 +18494,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 152,
+          "序号": 148,
           "股票代码": "603407",
           "股票简称": "长裕集团",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18277,7 +18508,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 153,
+          "序号": 149,
           "股票代码": "301531",
           "股票简称": "春光集团",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18291,7 +18522,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 154,
+          "序号": 150,
           "股票代码": "300227",
           "股票简称": "光韵达",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18305,7 +18536,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 155,
+          "序号": 151,
           "股票代码": "002239",
           "股票简称": "奥特佳",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18319,7 +18550,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 156,
+          "序号": 152,
           "股票代码": "601117",
           "股票简称": "中国化学",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18333,7 +18564,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 157,
+          "序号": 153,
           "股票代码": "001216",
           "股票简称": "华瓷股份",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18347,7 +18578,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 158,
+          "序号": 154,
           "股票代码": "603906",
           "股票简称": "龙蟠科技",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18361,7 +18592,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 159,
+          "序号": 155,
           "股票代码": "688479",
           "股票简称": "友车科技",
           "解禁时间": "2026-11-11T00:00:00.000",
@@ -18375,7 +18606,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 160,
+          "序号": 156,
           "股票代码": "603350",
           "股票简称": "安乃达",
           "解禁时间": "2026-11-12T00:00:00.000",
@@ -18389,7 +18620,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 161,
+          "序号": 157,
           "股票代码": "920871",
           "股票简称": "派特尔",
           "解禁时间": "2026-11-12T00:00:00.000",
@@ -18403,7 +18634,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 162,
+          "序号": 158,
           "股票代码": "688535",
           "股票简称": "华海诚科",
           "解禁时间": "2026-11-12T00:00:00.000",
@@ -18417,7 +18648,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 163,
+          "序号": 159,
           "股票代码": "920021",
           "股票简称": "流金科技",
           "解禁时间": "2026-11-12T00:00:00.000",
@@ -18431,7 +18662,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 164,
+          "序号": 160,
           "股票代码": "300016",
           "股票简称": "北陆药业",
           "解禁时间": "2026-11-12T00:00:00.000",
@@ -18445,7 +18676,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 165,
+          "序号": 161,
           "股票代码": "600918",
           "股票简称": "中泰证券",
           "解禁时间": "2026-11-12T00:00:00.000",
@@ -18459,7 +18690,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 166,
+          "序号": 162,
           "股票代码": "600292",
           "股票简称": "电投水电",
           "解禁时间": "2026-11-12T00:00:00.000",
@@ -18473,7 +18704,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 167,
+          "序号": 163,
           "股票代码": "002982",
           "股票简称": "湘佳股份",
           "解禁时间": "2026-11-13T00:00:00.000",
@@ -18487,7 +18718,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 168,
+          "序号": 164,
           "股票代码": "603187",
           "股票简称": "海容冷链",
           "解禁时间": "2026-11-13T00:00:00.000",
@@ -18501,7 +18732,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 169,
+          "序号": 165,
           "股票代码": "603112",
           "股票简称": "华翔股份",
           "解禁时间": "2026-11-13T00:00:00.000",
@@ -18515,7 +18746,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 170,
+          "序号": 166,
           "股票代码": "601126",
           "股票简称": "四方股份",
           "解禁时间": "2026-11-13T00:00:00.000",
@@ -18529,7 +18760,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 171,
+          "序号": 167,
           "股票代码": "920068",
           "股票简称": "天工股份",
           "解禁时间": "2026-11-13T00:00:00.000",
@@ -18543,7 +18774,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 172,
+          "序号": 168,
           "股票代码": "688648",
           "股票简称": "中邮科技",
           "解禁时间": "2026-11-13T00:00:00.000",
@@ -18557,7 +18788,7 @@
           "解禁后20日涨跌幅": null
         },
         {
-          "序号": 173,
+          "序号": 169,
           "股票代码": "000998",
           "股票简称": "隆平高科",
           "解禁时间": "2026-11-13T00:00:00.000",
@@ -19118,7 +19349,7 @@
       ]
     },
     "flow_BK0486": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -19162,7 +19393,7 @@
         },
         {
           "date": "2026-08-28",
-          "net_yuan": 1056444128.0,
+          "net_yuan": 1056217056.0,
           "net_ratio_pct": 3.02
         },
         {
@@ -19172,7 +19403,7 @@
         },
         {
           "date": "2026-09-01",
-          "net_yuan": -465714432.0,
+          "net_yuan": -466266368.0,
           "net_ratio_pct": -0.61
         },
         {
@@ -19298,7 +19529,7 @@
       ]
     },
     "price_BK0486": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-04",
@@ -20526,7 +20757,7 @@
       "refresh_source": "BaoStock未复权日线备用源"
     },
     "price_BK0433": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-04",
@@ -21116,7 +21347,7 @@
       ]
     },
     "flow_BK0433": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -21125,7 +21356,7 @@
         },
         {
           "date": "2026-08-19",
-          "net_yuan": -1186317456.0,
+          "net_yuan": -1185671056.0,
           "net_ratio_pct": -2.99
         },
         {
@@ -21140,7 +21371,7 @@
         },
         {
           "date": "2026-08-24",
-          "net_yuan": 171438784.0,
+          "net_yuan": 171137216.0,
           "net_ratio_pct": 0.7
         },
         {
@@ -21160,18 +21391,18 @@
         },
         {
           "date": "2026-08-28",
-          "net_yuan": 447355664.0,
+          "net_yuan": 446626576.0,
           "net_ratio_pct": 1.25
         },
         {
           "date": "2026-08-31",
-          "net_yuan": -979401296.0,
+          "net_yuan": -978918160.0,
           "net_ratio_pct": -2.67
         },
         {
           "date": "2026-09-01",
-          "net_yuan": 2876480848.0,
-          "net_ratio_pct": 7.43
+          "net_yuan": 2879995664.0,
+          "net_ratio_pct": 7.44
         },
         {
           "date": "2026-09-02",
@@ -21296,7 +21527,7 @@
       ]
     },
     "price_BK0464": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-04",
@@ -21886,7 +22117,7 @@
       ]
     },
     "price_BK1036": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-04",
@@ -21925,7 +22156,7 @@
           "amplitude_pct": 5.43,
           "return_pct": 2.18,
           "change": 56.99,
-          "turnover_pct": 5.5
+          "turnover_pct": 5.49
         },
         {
           "date": "2026-08-07",
@@ -21951,7 +22182,7 @@
           "amplitude_pct": 2.79,
           "return_pct": 0.29,
           "change": 7.93,
-          "turnover_pct": 4.53
+          "turnover_pct": 4.52
         },
         {
           "date": "2026-08-11",
@@ -22042,7 +22273,7 @@
           "amplitude_pct": 6.09,
           "return_pct": -7.37,
           "change": -217.41,
-          "turnover_pct": 5.33
+          "turnover_pct": 5.32
         },
         {
           "date": "2026-08-20",
@@ -22172,7 +22403,7 @@
           "amplitude_pct": 1.67,
           "return_pct": -1.39,
           "change": -38.42,
-          "turnover_pct": 2.56
+          "turnover_pct": 2.55
         },
         {
           "date": "2026-09-03",
@@ -22198,7 +22429,7 @@
           "amplitude_pct": 5.83,
           "return_pct": -2.88,
           "change": -78.06,
-          "turnover_pct": 3.0
+          "turnover_pct": 2.99
         },
         {
           "date": "2026-09-07",
@@ -22211,7 +22442,7 @@
           "amplitude_pct": 2.83,
           "return_pct": 2.55,
           "change": 67.18,
-          "turnover_pct": 3.02
+          "turnover_pct": 3.01
         },
         {
           "date": "2026-09-08",
@@ -22237,7 +22468,7 @@
           "amplitude_pct": 3.06,
           "return_pct": -0.42,
           "change": -11.13,
-          "turnover_pct": 2.53
+          "turnover_pct": 2.52
         },
         {
           "date": "2026-09-10",
@@ -22328,7 +22559,7 @@
           "amplitude_pct": 3.78,
           "return_pct": 4.35,
           "change": 119.54,
-          "turnover_pct": 4.62
+          "turnover_pct": 4.61
         },
         {
           "date": "2026-09-21",
@@ -22380,7 +22611,7 @@
           "amplitude_pct": 1.98,
           "return_pct": -2.13,
           "change": -62.56,
-          "turnover_pct": 3.18
+          "turnover_pct": 3.17
         },
         {
           "date": "2026-09-28",
@@ -22476,7 +22707,7 @@
       ]
     },
     "flow_BK0464": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -22485,8 +22716,8 @@
         },
         {
           "date": "2026-08-19",
-          "net_yuan": 392501808.0,
-          "net_ratio_pct": 1.79
+          "net_yuan": 393459632.0,
+          "net_ratio_pct": 1.8
         },
         {
           "date": "2026-08-20",
@@ -22520,7 +22751,7 @@
         },
         {
           "date": "2026-08-28",
-          "net_yuan": 380052800.0,
+          "net_yuan": 379984256.0,
           "net_ratio_pct": 2.13
         },
         {
@@ -22530,7 +22761,7 @@
         },
         {
           "date": "2026-09-01",
-          "net_yuan": -438977456.0,
+          "net_yuan": -438773104.0,
           "net_ratio_pct": -2.38
         },
         {
@@ -22656,7 +22887,7 @@
       ]
     },
     "flow_BK1036": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:49:20.261212+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -22665,7 +22896,7 @@
         },
         {
           "date": "2026-08-19",
-          "net_yuan": -36357702400.0,
+          "net_yuan": -36357456640.0,
           "net_ratio_pct": -8.95
         },
         {
@@ -22680,7 +22911,7 @@
         },
         {
           "date": "2026-08-24",
-          "net_yuan": -18160994048.0,
+          "net_yuan": -18160260864.0,
           "net_ratio_pct": -6.46
         },
         {
@@ -22700,17 +22931,17 @@
         },
         {
           "date": "2026-08-28",
-          "net_yuan": -12830105856.0,
+          "net_yuan": -12830093568.0,
           "net_ratio_pct": -5.02
         },
         {
           "date": "2026-08-31",
-          "net_yuan": -1522741504.0,
+          "net_yuan": -1522659584.0,
           "net_ratio_pct": -0.59
         },
         {
           "date": "2026-09-01",
-          "net_yuan": -12103143936.0,
+          "net_yuan": -12103138560.0,
           "net_ratio_pct": -5.46
         },
         {
@@ -74721,16 +74952,71 @@
       ]
     },
     "price_601689": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
+        {
+          "date": "2026-08-04",
+          "open": 48.5,
+          "close": 49.75,
+          "high": 50.49,
+          "low": 47.6,
+          "volume_lots": 455524.0,
+          "turnover_yuan": 2237712410.0,
+          "amplitude_pct": 5.99,
+          "return_pct": 3.17,
+          "change": 1.53,
+          "turnover_pct": 2.62
+        },
+        {
+          "date": "2026-08-05",
+          "open": 49.5,
+          "close": 50.22,
+          "high": 50.51,
+          "low": 49.25,
+          "volume_lots": 349162.0,
+          "turnover_yuan": 1744529116.0,
+          "amplitude_pct": 2.53,
+          "return_pct": 0.94,
+          "change": 0.47,
+          "turnover_pct": 2.01
+        },
+        {
+          "date": "2026-08-06",
+          "open": 49.5,
+          "close": 49.77,
+          "high": 50.39,
+          "low": 49.3,
+          "volume_lots": 238238.0,
+          "turnover_yuan": 1186778366.0,
+          "amplitude_pct": 2.17,
+          "return_pct": -0.9,
+          "change": -0.45,
+          "turnover_pct": 1.37
+        },
+        {
+          "date": "2026-08-07",
+          "open": 50.11,
+          "close": 50.38,
+          "high": 50.5,
+          "low": 49.02,
+          "volume_lots": 246786.0,
+          "turnover_yuan": 1233062584.0,
+          "amplitude_pct": 2.97,
+          "return_pct": 1.23,
+          "change": 0.61,
+          "turnover_pct": 1.42
+        },
         {
           "date": "2026-08-10",
           "open": 50.5,
           "close": 49.48,
           "high": 50.6,
           "low": 49.13,
+          "volume_lots": 189578.0,
           "turnover_yuan": 940434191.0,
+          "amplitude_pct": 2.92,
           "return_pct": -1.79,
+          "change": -0.9,
           "turnover_pct": 1.09
         },
         {
@@ -74739,8 +75025,11 @@
           "close": 50.93,
           "high": 51.73,
           "low": 48.9,
+          "volume_lots": 359610.0,
           "turnover_yuan": 1817375289.0,
+          "amplitude_pct": 5.72,
           "return_pct": 2.93,
+          "change": 1.45,
           "turnover_pct": 2.07
         },
         {
@@ -74749,8 +75038,11 @@
           "close": 50.3,
           "high": 51.08,
           "low": 50.03,
+          "volume_lots": 229652.0,
           "turnover_yuan": 1159712696.0,
+          "amplitude_pct": 2.06,
           "return_pct": -1.24,
+          "change": -0.63,
           "turnover_pct": 1.32
         },
         {
@@ -74759,8 +75051,11 @@
           "close": 49.69,
           "high": 50.88,
           "low": 49.65,
+          "volume_lots": 206452.0,
           "turnover_yuan": 1039293709.0,
+          "amplitude_pct": 2.45,
           "return_pct": -1.21,
+          "change": -0.61,
           "turnover_pct": 1.19
         },
         {
@@ -74769,8 +75064,11 @@
           "close": 49.51,
           "high": 50.1,
           "low": 49.04,
+          "volume_lots": 164466.0,
           "turnover_yuan": 814111481.0,
+          "amplitude_pct": 2.13,
           "return_pct": -0.36,
+          "change": -0.18,
           "turnover_pct": 0.95
         },
         {
@@ -74779,8 +75077,11 @@
           "close": 50.31,
           "high": 50.39,
           "low": 49.35,
+          "volume_lots": 179729.0,
           "turnover_yuan": 897752461.0,
+          "amplitude_pct": 2.1,
           "return_pct": 1.62,
+          "change": 0.8,
           "turnover_pct": 1.03
         },
         {
@@ -74789,8 +75090,11 @@
           "close": 51.1,
           "high": 51.11,
           "low": 49.54,
+          "volume_lots": 287486.0,
           "turnover_yuan": 1450389378.0,
+          "amplitude_pct": 3.12,
           "return_pct": 1.57,
+          "change": 0.79,
           "turnover_pct": 1.65
         },
         {
@@ -74799,8 +75103,11 @@
           "close": 46.5,
           "high": 50.08,
           "low": 46.39,
+          "volume_lots": 363673.0,
           "turnover_yuan": 1735656096.0,
+          "amplitude_pct": 7.22,
           "return_pct": -9.0,
+          "change": -4.6,
           "turnover_pct": 2.09
         },
         {
@@ -74809,8 +75116,11 @@
           "close": 46.2,
           "high": 47.17,
           "low": 46.0,
+          "volume_lots": 168917.0,
           "turnover_yuan": 784008878.0,
+          "amplitude_pct": 2.52,
           "return_pct": -0.65,
+          "change": -0.3,
           "turnover_pct": 0.97
         },
         {
@@ -74819,8 +75129,11 @@
           "close": 46.92,
           "high": 46.92,
           "low": 45.75,
+          "volume_lots": 117439.0,
           "turnover_yuan": 545615955.0,
+          "amplitude_pct": 2.53,
           "return_pct": 1.56,
+          "change": 0.72,
           "turnover_pct": 0.68
         },
         {
@@ -74829,8 +75142,11 @@
           "close": 46.3,
           "high": 47.78,
           "low": 45.91,
+          "volume_lots": 153612.0,
           "turnover_yuan": 716635154.0,
+          "amplitude_pct": 3.99,
           "return_pct": -1.32,
+          "change": -0.62,
           "turnover_pct": 0.88
         },
         {
@@ -74839,8 +75155,11 @@
           "close": 46.8,
           "high": 47.18,
           "low": 45.48,
+          "volume_lots": 139840.0,
           "turnover_yuan": 648883896.0,
+          "amplitude_pct": 3.67,
           "return_pct": 1.08,
+          "change": 0.5,
           "turnover_pct": 0.8
         },
         {
@@ -74849,8 +75168,11 @@
           "close": 46.6,
           "high": 47.4,
           "low": 46.51,
+          "volume_lots": 109950.0,
           "turnover_yuan": 515186801.0,
+          "amplitude_pct": 1.9,
           "return_pct": -0.43,
+          "change": -0.2,
           "turnover_pct": 0.63
         },
         {
@@ -74859,8 +75181,11 @@
           "close": 47.43,
           "high": 47.5,
           "low": 46.35,
+          "volume_lots": 176487.0,
           "turnover_yuan": 829843713.0,
+          "amplitude_pct": 2.47,
           "return_pct": 1.78,
+          "change": 0.83,
           "turnover_pct": 1.02
         },
         {
@@ -74869,8 +75194,11 @@
           "close": 47.09,
           "high": 47.7,
           "low": 46.6,
+          "volume_lots": 251032.0,
           "turnover_yuan": 1185703662.0,
+          "amplitude_pct": 2.32,
           "return_pct": -0.72,
+          "change": -0.34,
           "turnover_pct": 1.44
         },
         {
@@ -74879,8 +75207,11 @@
           "close": 46.83,
           "high": 47.08,
           "low": 46.11,
+          "volume_lots": 179008.0,
           "turnover_yuan": 833963347.0,
+          "amplitude_pct": 2.06,
           "return_pct": -0.55,
+          "change": -0.26,
           "turnover_pct": 1.03
         },
         {
@@ -74889,8 +75220,11 @@
           "close": 46.48,
           "high": 47.57,
           "low": 46.35,
+          "volume_lots": 153540.0,
           "turnover_yuan": 719333842.0,
+          "amplitude_pct": 2.61,
           "return_pct": -0.75,
+          "change": -0.35,
           "turnover_pct": 0.88
         },
         {
@@ -74899,8 +75233,11 @@
           "close": 46.52,
           "high": 46.7,
           "low": 45.43,
+          "volume_lots": 171449.0,
           "turnover_yuan": 789253260.0,
+          "amplitude_pct": 2.73,
           "return_pct": 0.09,
+          "change": 0.04,
           "turnover_pct": 0.99
         },
         {
@@ -74909,8 +75246,11 @@
           "close": 47.83,
           "high": 48.69,
           "low": 46.75,
+          "volume_lots": 288304.0,
           "turnover_yuan": 1381115301.0,
+          "amplitude_pct": 4.17,
           "return_pct": 2.82,
+          "change": 1.31,
           "turnover_pct": 1.66
         },
         {
@@ -74919,8 +75259,11 @@
           "close": 45.82,
           "high": 48.82,
           "low": 45.7,
+          "volume_lots": 292662.0,
           "turnover_yuan": 1379760557.0,
+          "amplitude_pct": 6.52,
           "return_pct": -4.2,
+          "change": -2.01,
           "turnover_pct": 1.68
         },
         {
@@ -74929,8 +75272,11 @@
           "close": 47.06,
           "high": 47.75,
           "low": 45.9,
+          "volume_lots": 231769.0,
           "turnover_yuan": 1090298516.0,
+          "amplitude_pct": 4.04,
           "return_pct": 2.71,
+          "change": 1.24,
           "turnover_pct": 1.33
         },
         {
@@ -74939,8 +75285,11 @@
           "close": 46.25,
           "high": 46.88,
           "low": 46.02,
+          "volume_lots": 161349.0,
           "turnover_yuan": 747929006.0,
+          "amplitude_pct": 1.83,
           "return_pct": -1.72,
+          "change": -0.81,
           "turnover_pct": 0.93
         },
         {
@@ -74949,8 +75298,11 @@
           "close": 45.89,
           "high": 47.1,
           "low": 45.71,
+          "volume_lots": 143877.0,
           "turnover_yuan": 665347950.0,
+          "amplitude_pct": 3.01,
           "return_pct": -0.78,
+          "change": -0.36,
           "turnover_pct": 0.83
         },
         {
@@ -74959,8 +75311,11 @@
           "close": 44.32,
           "high": 45.63,
           "low": 44.26,
+          "volume_lots": 171133.0,
           "turnover_yuan": 765695968.0,
+          "amplitude_pct": 2.99,
           "return_pct": -3.42,
+          "change": -1.57,
           "turnover_pct": 0.98
         },
         {
@@ -74969,8 +75324,11 @@
           "close": 43.1,
           "high": 43.85,
           "low": 42.5,
+          "volume_lots": 195788.0,
           "turnover_yuan": 843968343.0,
+          "amplitude_pct": 3.05,
           "return_pct": -2.75,
+          "change": -1.22,
           "turnover_pct": 1.13
         },
         {
@@ -74979,8 +75337,11 @@
           "close": 43.13,
           "high": 43.97,
           "low": 42.66,
+          "volume_lots": 122323.0,
           "turnover_yuan": 529960821.0,
+          "amplitude_pct": 3.04,
           "return_pct": 0.07,
+          "change": 0.03,
           "turnover_pct": 0.7
         },
         {
@@ -74989,8 +75350,11 @@
           "close": 41.95,
           "high": 43.11,
           "low": 41.8,
+          "volume_lots": 189615.0,
           "turnover_yuan": 800132517.0,
+          "amplitude_pct": 3.04,
           "return_pct": -2.74,
+          "change": -1.18,
           "turnover_pct": 1.09
         },
         {
@@ -74999,8 +75363,11 @@
           "close": 41.93,
           "high": 42.18,
           "low": 41.01,
+          "volume_lots": 170971.0,
           "turnover_yuan": 711234666.0,
+          "amplitude_pct": 2.79,
           "return_pct": -0.05,
+          "change": -0.02,
           "turnover_pct": 0.98
         },
         {
@@ -75009,8 +75376,11 @@
           "close": 43.76,
           "high": 44.38,
           "low": 41.5,
+          "volume_lots": 301899.0,
           "turnover_yuan": 1308321931.0,
+          "amplitude_pct": 6.87,
           "return_pct": 4.36,
+          "change": 1.83,
           "turnover_pct": 1.74
         },
         {
@@ -75019,8 +75389,11 @@
           "close": 45.0,
           "high": 46.8,
           "low": 44.56,
+          "volume_lots": 301385.0,
           "turnover_yuan": 1364055536.0,
+          "amplitude_pct": 5.12,
           "return_pct": 2.83,
+          "change": 1.24,
           "turnover_pct": 1.73
         },
         {
@@ -75029,8 +75402,11 @@
           "close": 45.76,
           "high": 47.0,
           "low": 44.7,
+          "volume_lots": 267323.0,
           "turnover_yuan": 1229607943.0,
+          "amplitude_pct": 5.11,
           "return_pct": 1.69,
+          "change": 0.76,
           "turnover_pct": 1.54
         },
         {
@@ -75039,8 +75415,11 @@
           "close": 45.71,
           "high": 47.08,
           "low": 45.61,
+          "volume_lots": 228581.0,
           "turnover_yuan": 1055841593.0,
+          "amplitude_pct": 3.21,
           "return_pct": -0.11,
+          "change": -0.05,
           "turnover_pct": 1.32
         },
         {
@@ -75049,8 +75428,11 @@
           "close": 45.89,
           "high": 46.46,
           "low": 45.25,
+          "volume_lots": 162677.0,
           "turnover_yuan": 745158698.0,
+          "amplitude_pct": 2.65,
           "return_pct": 0.39,
+          "change": 0.18,
           "turnover_pct": 0.94
         },
         {
@@ -75059,8 +75441,11 @@
           "close": 46.44,
           "high": 47.84,
           "low": 45.26,
+          "volume_lots": 375157.0,
           "turnover_yuan": 1765757590.0,
+          "amplitude_pct": 5.62,
           "return_pct": 1.2,
+          "change": 0.55,
           "turnover_pct": 2.16
         },
         {
@@ -75069,8 +75454,11 @@
           "close": 46.5,
           "high": 47.0,
           "low": 45.58,
+          "volume_lots": 277867.0,
           "turnover_yuan": 1285350383.0,
+          "amplitude_pct": 3.06,
           "return_pct": 0.13,
+          "change": 0.06,
           "turnover_pct": 1.6
         },
         {
@@ -75079,8 +75467,11 @@
           "close": 47.35,
           "high": 47.35,
           "low": 44.6,
+          "volume_lots": 291816.0,
           "turnover_yuan": 1342819629.0,
+          "amplitude_pct": 5.91,
           "return_pct": 1.83,
+          "change": 0.85,
           "turnover_pct": 1.68
         },
         {
@@ -75089,8 +75480,11 @@
           "close": 46.52,
           "high": 47.8,
           "low": 46.36,
+          "volume_lots": 286517.0,
           "turnover_yuan": 1345225341.0,
+          "amplitude_pct": 3.04,
           "return_pct": -1.75,
+          "change": -0.83,
           "turnover_pct": 1.65
         },
         {
@@ -75099,8 +75493,11 @@
           "close": 42.88,
           "high": 46.0,
           "low": 42.84,
+          "volume_lots": 279247.0,
           "turnover_yuan": 1230197110.0,
+          "amplitude_pct": 6.79,
           "return_pct": -7.82,
+          "change": -3.64,
           "turnover_pct": 1.61
         },
         {
@@ -75109,8 +75506,11 @@
           "close": 43.05,
           "high": 43.33,
           "low": 41.37,
+          "volume_lots": 222234.0,
           "turnover_yuan": 941049269.0,
+          "amplitude_pct": 4.57,
           "return_pct": 0.4,
+          "change": 0.17,
           "turnover_pct": 1.28
         },
         {
@@ -75119,8 +75519,11 @@
           "close": 41.61,
           "high": 42.7,
           "low": 41.61,
+          "volume_lots": 135290.0,
           "turnover_yuan": 568370450.0,
+          "amplitude_pct": 2.53,
           "return_pct": -3.34,
+          "change": -1.44,
           "turnover_pct": 0.78
         },
         {
@@ -75129,14 +75532,18 @@
           "close": 40.55,
           "high": 41.16,
           "low": 39.33,
+          "volume_lots": 235210.0,
           "turnover_yuan": 943701193.0,
+          "amplitude_pct": 4.4,
           "return_pct": -2.55,
+          "change": -1.06,
           "turnover_pct": 1.35
         }
-      ]
+      ],
+      "refresh_source": "BaoStock未复权日线备用源"
     },
     "flow_601689": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -75313,7 +75720,9 @@
           "net_yuan": -72519477.0,
           "net_ratio_pct": -7.68
         }
-      ]
+      ],
+      "validated_at": "2026-10-14T12:50:04.002239+08:00",
+      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
     },
     "price_600547": {
       "fetched_at": "2026-09-18T10:18:08.103821+08:00",
@@ -95571,7 +95980,7 @@
       "refresh_source": "BaoStock未复权日线备用源"
     },
     "flow_600802": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -95748,19 +96157,76 @@
           "net_yuan": 206857103.0,
           "net_ratio_pct": 29.85
         }
-      ]
+      ],
+      "validated_at": "2026-10-14T12:50:04.002239+08:00",
+      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
     },
     "price_600802": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
+        {
+          "date": "2026-08-04",
+          "open": 4.47,
+          "close": 4.38,
+          "high": 4.5,
+          "low": 4.37,
+          "volume_lots": 68971.0,
+          "turnover_yuan": 30532407.0,
+          "amplitude_pct": 2.94,
+          "return_pct": -0.9,
+          "change": -0.04,
+          "turnover_pct": 1.51
+        },
+        {
+          "date": "2026-08-05",
+          "open": 4.45,
+          "close": 4.39,
+          "high": 4.46,
+          "low": 4.33,
+          "volume_lots": 60963.0,
+          "turnover_yuan": 26765780.0,
+          "amplitude_pct": 2.97,
+          "return_pct": 0.23,
+          "change": 0.01,
+          "turnover_pct": 1.33
+        },
+        {
+          "date": "2026-08-06",
+          "open": 4.39,
+          "close": 4.46,
+          "high": 4.48,
+          "low": 4.33,
+          "volume_lots": 64530.0,
+          "turnover_yuan": 28512830.0,
+          "amplitude_pct": 3.42,
+          "return_pct": 1.59,
+          "change": 0.07,
+          "turnover_pct": 1.41
+        },
+        {
+          "date": "2026-08-07",
+          "open": 4.44,
+          "close": 4.38,
+          "high": 4.47,
+          "low": 4.29,
+          "volume_lots": 59355.0,
+          "turnover_yuan": 25833118.0,
+          "amplitude_pct": 4.04,
+          "return_pct": -1.79,
+          "change": -0.08,
+          "turnover_pct": 1.3
+        },
         {
           "date": "2026-08-10",
           "open": 4.39,
           "close": 4.57,
           "high": 4.58,
           "low": 4.35,
+          "volume_lots": 74419.0,
           "turnover_yuan": 33551934.0,
+          "amplitude_pct": 5.25,
           "return_pct": 4.34,
+          "change": 0.19,
           "turnover_pct": 1.62
         },
         {
@@ -95769,8 +96235,11 @@
           "close": 4.54,
           "high": 4.59,
           "low": 4.46,
+          "volume_lots": 65723.0,
           "turnover_yuan": 29809739.0,
+          "amplitude_pct": 2.84,
           "return_pct": -0.66,
+          "change": -0.03,
           "turnover_pct": 1.43
         },
         {
@@ -95779,8 +96248,11 @@
           "close": 4.6,
           "high": 4.64,
           "low": 4.53,
+          "volume_lots": 51332.0,
           "turnover_yuan": 23507830.0,
+          "amplitude_pct": 2.42,
           "return_pct": 1.32,
+          "change": 0.06,
           "turnover_pct": 1.12
         },
         {
@@ -95789,8 +96261,11 @@
           "close": 4.52,
           "high": 4.62,
           "low": 4.5,
+          "volume_lots": 56377.0,
           "turnover_yuan": 25598739.0,
+          "amplitude_pct": 2.61,
           "return_pct": -1.74,
+          "change": -0.08,
           "turnover_pct": 1.23
         },
         {
@@ -95799,8 +96274,11 @@
           "close": 4.5,
           "high": 4.56,
           "low": 4.44,
+          "volume_lots": 50839.0,
           "turnover_yuan": 22780565.0,
+          "amplitude_pct": 2.65,
           "return_pct": -0.44,
+          "change": -0.02,
           "turnover_pct": 1.11
         },
         {
@@ -95809,8 +96287,11 @@
           "close": 4.61,
           "high": 4.62,
           "low": 4.47,
+          "volume_lots": 45437.0,
           "turnover_yuan": 20764454.0,
+          "amplitude_pct": 3.33,
           "return_pct": 2.44,
+          "change": 0.11,
           "turnover_pct": 0.99
         },
         {
@@ -95819,8 +96300,11 @@
           "close": 4.62,
           "high": 4.67,
           "low": 4.56,
+          "volume_lots": 57811.0,
           "turnover_yuan": 26672712.0,
+          "amplitude_pct": 2.39,
           "return_pct": 0.22,
+          "change": 0.01,
           "turnover_pct": 1.26
         },
         {
@@ -95829,8 +96313,11 @@
           "close": 4.48,
           "high": 4.62,
           "low": 4.46,
+          "volume_lots": 63512.0,
           "turnover_yuan": 28716265.0,
+          "amplitude_pct": 3.46,
           "return_pct": -3.03,
+          "change": -0.14,
           "turnover_pct": 1.39
         },
         {
@@ -95839,8 +96326,11 @@
           "close": 4.59,
           "high": 4.6,
           "low": 4.48,
+          "volume_lots": 53106.0,
           "turnover_yuan": 24206353.0,
+          "amplitude_pct": 2.68,
           "return_pct": 2.46,
+          "change": 0.11,
           "turnover_pct": 1.16
         },
         {
@@ -95849,8 +96339,11 @@
           "close": 4.6,
           "high": 4.65,
           "low": 4.49,
+          "volume_lots": 56777.0,
           "turnover_yuan": 25944550.0,
+          "amplitude_pct": 3.49,
           "return_pct": 0.22,
+          "change": 0.01,
           "turnover_pct": 1.24
         },
         {
@@ -95859,8 +96352,11 @@
           "close": 4.55,
           "high": 4.65,
           "low": 4.49,
+          "volume_lots": 65567.0,
           "turnover_yuan": 29933297.0,
+          "amplitude_pct": 3.48,
           "return_pct": -1.09,
+          "change": -0.05,
           "turnover_pct": 1.43
         },
         {
@@ -95869,8 +96365,11 @@
           "close": 4.68,
           "high": 4.69,
           "low": 4.52,
+          "volume_lots": 55230.0,
           "turnover_yuan": 25583878.0,
+          "amplitude_pct": 3.74,
           "return_pct": 2.86,
+          "change": 0.13,
           "turnover_pct": 1.21
         },
         {
@@ -95879,8 +96378,11 @@
           "close": 4.72,
           "high": 4.76,
           "low": 4.67,
+          "volume_lots": 60576.0,
           "turnover_yuan": 28570124.0,
+          "amplitude_pct": 1.92,
           "return_pct": 0.85,
+          "change": 0.04,
           "turnover_pct": 1.32
         },
         {
@@ -95889,8 +96391,11 @@
           "close": 4.71,
           "high": 4.73,
           "low": 4.66,
+          "volume_lots": 45956.0,
           "turnover_yuan": 21606184.0,
+          "amplitude_pct": 1.48,
           "return_pct": -0.21,
+          "change": -0.01,
           "turnover_pct": 1.0
         },
         {
@@ -95899,8 +96404,11 @@
           "close": 4.81,
           "high": 4.83,
           "low": 4.68,
+          "volume_lots": 55045.0,
           "turnover_yuan": 26278370.0,
+          "amplitude_pct": 3.18,
           "return_pct": 2.12,
+          "change": 0.1,
           "turnover_pct": 1.2
         },
         {
@@ -95909,8 +96417,11 @@
           "close": 4.77,
           "high": 4.88,
           "low": 4.75,
+          "volume_lots": 72062.0,
           "turnover_yuan": 34558221.0,
+          "amplitude_pct": 2.7,
           "return_pct": -0.83,
+          "change": -0.04,
           "turnover_pct": 1.57
         },
         {
@@ -95919,8 +96430,11 @@
           "close": 4.88,
           "high": 4.9,
           "low": 4.76,
+          "volume_lots": 69585.0,
           "turnover_yuan": 33799743.0,
+          "amplitude_pct": 2.94,
           "return_pct": 2.31,
+          "change": 0.11,
           "turnover_pct": 1.52
         },
         {
@@ -95929,8 +96443,11 @@
           "close": 4.85,
           "high": 4.9,
           "low": 4.76,
+          "volume_lots": 79219.0,
           "turnover_yuan": 38127146.0,
+          "amplitude_pct": 2.87,
           "return_pct": -0.61,
+          "change": -0.03,
           "turnover_pct": 1.73
         },
         {
@@ -95939,8 +96456,11 @@
           "close": 4.74,
           "high": 4.94,
           "low": 4.73,
+          "volume_lots": 60462.0,
           "turnover_yuan": 29063226.0,
+          "amplitude_pct": 4.33,
           "return_pct": -2.27,
+          "change": -0.11,
           "turnover_pct": 1.32
         },
         {
@@ -95949,8 +96469,11 @@
           "close": 5.21,
           "high": 5.21,
           "low": 4.74,
+          "volume_lots": 246098.0,
           "turnover_yuan": 126192109.0,
+          "amplitude_pct": 9.92,
           "return_pct": 9.92,
+          "change": 0.47,
           "turnover_pct": 5.37
         },
         {
@@ -95959,8 +96482,11 @@
           "close": 5.22,
           "high": 5.53,
           "low": 4.92,
+          "volume_lots": 551393.0,
           "turnover_yuan": 284920811.0,
+          "amplitude_pct": 11.71,
           "return_pct": 0.19,
+          "change": 0.01,
           "turnover_pct": 12.03
         },
         {
@@ -95969,8 +96495,11 @@
           "close": 5.2,
           "high": 5.26,
           "low": 5.08,
+          "volume_lots": 294891.0,
           "turnover_yuan": 152135604.0,
+          "amplitude_pct": 3.45,
           "return_pct": -0.38,
+          "change": -0.02,
           "turnover_pct": 6.44
         },
         {
@@ -95979,8 +96508,11 @@
           "close": 5.36,
           "high": 5.44,
           "low": 5.09,
+          "volume_lots": 380643.0,
           "turnover_yuan": 201349494.0,
+          "amplitude_pct": 6.73,
           "return_pct": 3.08,
+          "change": 0.16,
           "turnover_pct": 8.31
         },
         {
@@ -95989,8 +96521,11 @@
           "close": 5.61,
           "high": 5.88,
           "low": 5.25,
+          "volume_lots": 460295.0,
           "turnover_yuan": 255380355.0,
+          "amplitude_pct": 11.75,
           "return_pct": 4.66,
+          "change": 0.25,
           "turnover_pct": 10.04
         },
         {
@@ -95999,8 +96534,11 @@
           "close": 5.33,
           "high": 5.61,
           "low": 5.29,
+          "volume_lots": 343063.0,
           "turnover_yuan": 185638681.0,
+          "amplitude_pct": 5.7,
           "return_pct": -4.99,
+          "change": -0.28,
           "turnover_pct": 7.49
         },
         {
@@ -96009,8 +96547,11 @@
           "close": 5.86,
           "high": 5.86,
           "low": 5.22,
+          "volume_lots": 407910.0,
           "turnover_yuan": 224807763.0,
+          "amplitude_pct": 12.01,
           "return_pct": 9.94,
+          "change": 0.53,
           "turnover_pct": 8.9
         },
         {
@@ -96019,8 +96560,11 @@
           "close": 5.76,
           "high": 6.22,
           "low": 5.49,
+          "volume_lots": 660290.0,
           "turnover_yuan": 381664506.0,
+          "amplitude_pct": 12.46,
           "return_pct": -1.71,
+          "change": -0.1,
           "turnover_pct": 14.41
         },
         {
@@ -96029,8 +96573,11 @@
           "close": 6.02,
           "high": 6.3,
           "low": 5.57,
+          "volume_lots": 640047.0,
           "turnover_yuan": 381807194.0,
+          "amplitude_pct": 12.67,
           "return_pct": 4.51,
+          "change": 0.26,
           "turnover_pct": 13.97
         },
         {
@@ -96039,8 +96586,11 @@
           "close": 5.77,
           "high": 5.91,
           "low": 5.42,
+          "volume_lots": 564003.0,
           "turnover_yuan": 316234913.0,
+          "amplitude_pct": 8.14,
           "return_pct": -4.15,
+          "change": -0.25,
           "turnover_pct": 12.31
         },
         {
@@ -96049,8 +96599,11 @@
           "close": 5.74,
           "high": 6.0,
           "low": 5.53,
+          "volume_lots": 428990.0,
           "turnover_yuan": 248037109.0,
+          "amplitude_pct": 8.15,
           "return_pct": -0.52,
+          "change": -0.03,
           "turnover_pct": 9.36
         },
         {
@@ -96059,8 +96612,11 @@
           "close": 5.61,
           "high": 5.79,
           "low": 5.55,
+          "volume_lots": 335290.0,
           "turnover_yuan": 188290672.0,
+          "amplitude_pct": 4.18,
           "return_pct": -2.26,
+          "change": -0.13,
           "turnover_pct": 7.32
         },
         {
@@ -96069,8 +96625,11 @@
           "close": 5.47,
           "high": 5.6,
           "low": 5.4,
+          "volume_lots": 271364.0,
           "turnover_yuan": 149112290.0,
+          "amplitude_pct": 3.57,
           "return_pct": -2.5,
+          "change": -0.14,
           "turnover_pct": 5.92
         },
         {
@@ -96079,8 +96638,11 @@
           "close": 6.02,
           "high": 6.02,
           "low": 5.36,
+          "volume_lots": 367128.0,
           "turnover_yuan": 213775487.0,
+          "amplitude_pct": 12.07,
           "return_pct": 10.05,
+          "change": 0.55,
           "turnover_pct": 8.01
         },
         {
@@ -96089,8 +96651,11 @@
           "close": 6.62,
           "high": 6.62,
           "low": 5.53,
+          "volume_lots": 704784.0,
           "turnover_yuan": 418892407.0,
+          "amplitude_pct": 18.11,
           "return_pct": 9.97,
+          "change": 0.6,
           "turnover_pct": 15.38
         },
         {
@@ -96099,8 +96664,11 @@
           "close": 7.28,
           "high": 7.28,
           "low": 6.62,
+          "volume_lots": 856563.0,
           "turnover_yuan": 604124688.0,
+          "amplitude_pct": 9.97,
           "return_pct": 9.97,
+          "change": 0.66,
           "turnover_pct": 18.69
         },
         {
@@ -96109,8 +96677,11 @@
           "close": 6.94,
           "high": 7.28,
           "low": 6.55,
+          "volume_lots": 1079876.0,
           "turnover_yuan": 741719570.0,
+          "amplitude_pct": 10.03,
           "return_pct": -4.67,
+          "change": -0.34,
           "turnover_pct": 23.57
         },
         {
@@ -96119,8 +96690,11 @@
           "close": 7.24,
           "high": 7.49,
           "low": 6.25,
+          "volume_lots": 1113141.0,
           "turnover_yuan": 761625731.0,
+          "amplitude_pct": 17.87,
           "return_pct": 4.32,
+          "change": 0.3,
           "turnover_pct": 24.29
         },
         {
@@ -96129,8 +96703,11 @@
           "close": 7.14,
           "high": 7.84,
           "low": 6.7,
+          "volume_lots": 789455.0,
           "turnover_yuan": 572618337.0,
+          "amplitude_pct": 15.75,
           "return_pct": -1.38,
+          "change": -0.1,
           "turnover_pct": 17.23
         },
         {
@@ -96139,8 +96716,11 @@
           "close": 7.19,
           "high": 7.53,
           "low": 6.71,
+          "volume_lots": 714042.0,
           "turnover_yuan": 497924979.0,
+          "amplitude_pct": 11.48,
           "return_pct": 0.7,
+          "change": 0.05,
           "turnover_pct": 15.58
         },
         {
@@ -96149,8 +96729,11 @@
           "close": 6.51,
           "high": 7.34,
           "low": 6.47,
+          "volume_lots": 761159.0,
           "turnover_yuan": 517025457.0,
+          "amplitude_pct": 12.1,
           "return_pct": -9.46,
+          "change": -0.68,
           "turnover_pct": 16.61
         },
         {
@@ -96159,23 +96742,82 @@
           "close": 7.16,
           "high": 7.16,
           "low": 6.17,
+          "volume_lots": 987655.0,
           "turnover_yuan": 692878286.0,
+          "amplitude_pct": 15.21,
           "return_pct": 9.98,
+          "change": 0.65,
           "turnover_pct": 21.55
         }
-      ]
+      ],
+      "refresh_source": "BaoStock未复权日线备用源"
     },
     "price_601615": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
+        {
+          "date": "2026-08-04",
+          "open": 11.58,
+          "close": 11.64,
+          "high": 11.8,
+          "low": 11.48,
+          "volume_lots": 528091.0,
+          "turnover_yuan": 614262127.0,
+          "amplitude_pct": 2.75,
+          "return_pct": 0.09,
+          "change": 0.01,
+          "turnover_pct": 2.34
+        },
+        {
+          "date": "2026-08-05",
+          "open": 11.6,
+          "close": 11.68,
+          "high": 11.84,
+          "low": 11.57,
+          "volume_lots": 449852.0,
+          "turnover_yuan": 526152594.0,
+          "amplitude_pct": 2.32,
+          "return_pct": 0.34,
+          "change": 0.04,
+          "turnover_pct": 1.99
+        },
+        {
+          "date": "2026-08-06",
+          "open": 11.6,
+          "close": 11.48,
+          "high": 11.88,
+          "low": 11.38,
+          "volume_lots": 471188.0,
+          "turnover_yuan": 546727514.0,
+          "amplitude_pct": 4.28,
+          "return_pct": -1.71,
+          "change": -0.2,
+          "turnover_pct": 2.08
+        },
+        {
+          "date": "2026-08-07",
+          "open": 11.43,
+          "close": 11.6,
+          "high": 11.65,
+          "low": 11.32,
+          "volume_lots": 384262.0,
+          "turnover_yuan": 442124068.0,
+          "amplitude_pct": 2.87,
+          "return_pct": 1.05,
+          "change": 0.12,
+          "turnover_pct": 1.7
+        },
         {
           "date": "2026-08-10",
           "open": 11.61,
           "close": 11.69,
           "high": 11.77,
           "low": 11.43,
+          "volume_lots": 390579.0,
           "turnover_yuan": 452351277.0,
+          "amplitude_pct": 2.93,
           "return_pct": 0.78,
+          "change": 0.09,
           "turnover_pct": 1.73
         },
         {
@@ -96184,8 +96826,11 @@
           "close": 11.55,
           "high": 11.77,
           "low": 11.43,
+          "volume_lots": 409962.0,
           "turnover_yuan": 475505249.0,
+          "amplitude_pct": 2.91,
           "return_pct": -1.2,
+          "change": -0.14,
           "turnover_pct": 1.81
         },
         {
@@ -96194,8 +96839,11 @@
           "close": 11.9,
           "high": 11.95,
           "low": 11.5,
+          "volume_lots": 475453.0,
           "turnover_yuan": 555618185.0,
+          "amplitude_pct": 3.9,
           "return_pct": 3.03,
+          "change": 0.35,
           "turnover_pct": 2.1
         },
         {
@@ -96204,8 +96852,11 @@
           "close": 12.12,
           "high": 12.49,
           "low": 11.85,
+          "volume_lots": 1023060.0,
           "turnover_yuan": 1249470210.0,
+          "amplitude_pct": 5.38,
           "return_pct": 1.85,
+          "change": 0.22,
           "turnover_pct": 4.52
         },
         {
@@ -96214,8 +96865,11 @@
           "close": 11.65,
           "high": 12.19,
           "low": 11.51,
+          "volume_lots": 653608.0,
           "turnover_yuan": 766750613.0,
+          "amplitude_pct": 5.61,
           "return_pct": -3.88,
+          "change": -0.47,
           "turnover_pct": 2.89
         },
         {
@@ -96224,8 +96878,11 @@
           "close": 11.64,
           "high": 11.8,
           "low": 11.53,
+          "volume_lots": 391488.0,
           "turnover_yuan": 455162048.0,
+          "amplitude_pct": 2.32,
           "return_pct": -0.09,
+          "change": -0.01,
           "turnover_pct": 1.73
         },
         {
@@ -96234,8 +96891,11 @@
           "close": 11.48,
           "high": 11.84,
           "low": 11.33,
+          "volume_lots": 480696.0,
           "turnover_yuan": 553139639.0,
+          "amplitude_pct": 4.38,
           "return_pct": -1.37,
+          "change": -0.16,
           "turnover_pct": 2.13
         },
         {
@@ -96244,8 +96904,11 @@
           "close": 10.78,
           "high": 11.64,
           "low": 10.75,
+          "volume_lots": 596418.0,
           "turnover_yuan": 657942404.0,
+          "amplitude_pct": 7.75,
           "return_pct": -6.1,
+          "change": -0.7,
           "turnover_pct": 2.64
         },
         {
@@ -96254,8 +96917,11 @@
           "close": 10.75,
           "high": 10.92,
           "low": 10.67,
+          "volume_lots": 293125.0,
           "turnover_yuan": 316004781.0,
+          "amplitude_pct": 2.32,
           "return_pct": -0.28,
+          "change": -0.03,
           "turnover_pct": 1.3
         },
         {
@@ -96264,8 +96930,11 @@
           "close": 10.95,
           "high": 11.14,
           "low": 10.58,
+          "volume_lots": 370711.0,
           "turnover_yuan": 403619867.0,
+          "amplitude_pct": 5.21,
           "return_pct": 1.86,
+          "change": 0.2,
           "turnover_pct": 1.64
         },
         {
@@ -96274,8 +96943,11 @@
           "close": 10.6,
           "high": 11.0,
           "low": 10.47,
+          "volume_lots": 377567.0,
           "turnover_yuan": 401518583.0,
+          "amplitude_pct": 4.84,
           "return_pct": -3.2,
+          "change": -0.35,
           "turnover_pct": 1.67
         },
         {
@@ -96284,8 +96956,11 @@
           "close": 10.82,
           "high": 10.9,
           "low": 10.42,
+          "volume_lots": 308057.0,
           "turnover_yuan": 329995217.0,
+          "amplitude_pct": 4.53,
           "return_pct": 2.08,
+          "change": 0.22,
           "turnover_pct": 1.36
         },
         {
@@ -96294,8 +96969,11 @@
           "close": 10.94,
           "high": 11.08,
           "low": 10.77,
+          "volume_lots": 273885.0,
           "turnover_yuan": 300037469.0,
+          "amplitude_pct": 2.87,
           "return_pct": 1.11,
+          "change": 0.12,
           "turnover_pct": 1.21
         },
         {
@@ -96304,8 +96982,11 @@
           "close": 10.85,
           "high": 10.93,
           "low": 10.66,
+          "volume_lots": 294608.0,
           "turnover_yuan": 317264983.0,
+          "amplitude_pct": 2.47,
           "return_pct": -0.82,
+          "change": -0.09,
           "turnover_pct": 1.3
         },
         {
@@ -96314,8 +96995,11 @@
           "close": 10.6,
           "high": 10.84,
           "low": 10.58,
+          "volume_lots": 417232.0,
           "turnover_yuan": 445744626.0,
+          "amplitude_pct": 2.4,
           "return_pct": -2.3,
+          "change": -0.25,
           "turnover_pct": 1.84
         },
         {
@@ -96324,8 +97008,11 @@
           "close": 10.63,
           "high": 10.7,
           "low": 10.44,
+          "volume_lots": 312077.0,
           "turnover_yuan": 329912909.0,
+          "amplitude_pct": 2.45,
           "return_pct": 0.28,
+          "change": 0.03,
           "turnover_pct": 1.38
         },
         {
@@ -96334,8 +97021,11 @@
           "close": 10.22,
           "high": 10.64,
           "low": 10.21,
+          "volume_lots": 574954.0,
           "turnover_yuan": 595382191.0,
+          "amplitude_pct": 4.05,
           "return_pct": -3.86,
+          "change": -0.41,
           "turnover_pct": 2.54
         },
         {
@@ -96344,8 +97034,11 @@
           "close": 9.98,
           "high": 10.18,
           "low": 9.96,
+          "volume_lots": 400723.0,
           "turnover_yuan": 401867266.0,
+          "amplitude_pct": 2.15,
           "return_pct": -2.35,
+          "change": -0.24,
           "turnover_pct": 1.77
         },
         {
@@ -96354,8 +97047,11 @@
           "close": 9.18,
           "high": 10.04,
           "low": 9.12,
+          "volume_lots": 1183784.0,
           "turnover_yuan": 1123345642.0,
+          "amplitude_pct": 9.22,
           "return_pct": -8.02,
+          "change": -0.8,
           "turnover_pct": 5.23
         },
         {
@@ -96364,8 +97060,11 @@
           "close": 9.31,
           "high": 9.56,
           "low": 9.22,
+          "volume_lots": 650869.0,
           "turnover_yuan": 611743496.0,
+          "amplitude_pct": 3.7,
           "return_pct": 1.42,
+          "change": 0.13,
           "turnover_pct": 2.88
         },
         {
@@ -96374,8 +97073,11 @@
           "close": 9.35,
           "high": 9.48,
           "low": 9.25,
+          "volume_lots": 417558.0,
           "turnover_yuan": 391434949.0,
+          "amplitude_pct": 2.47,
           "return_pct": 0.43,
+          "change": 0.04,
           "turnover_pct": 1.85
         },
         {
@@ -96384,8 +97086,11 @@
           "close": 9.72,
           "high": 9.83,
           "low": 9.29,
+          "volume_lots": 631292.0,
           "turnover_yuan": 607341422.0,
+          "amplitude_pct": 5.78,
           "return_pct": 3.96,
+          "change": 0.37,
           "turnover_pct": 2.79
         },
         {
@@ -96394,8 +97099,11 @@
           "close": 9.61,
           "high": 9.71,
           "low": 9.57,
+          "volume_lots": 291408.0,
           "turnover_yuan": 280512089.0,
+          "amplitude_pct": 1.44,
           "return_pct": -1.13,
+          "change": -0.11,
           "turnover_pct": 1.29
         },
         {
@@ -96404,8 +97112,11 @@
           "close": 9.68,
           "high": 9.77,
           "low": 9.45,
+          "volume_lots": 308413.0,
           "turnover_yuan": 297227864.0,
+          "amplitude_pct": 3.33,
           "return_pct": 0.73,
+          "change": 0.07,
           "turnover_pct": 1.36
         },
         {
@@ -96414,8 +97125,11 @@
           "close": 9.66,
           "high": 9.73,
           "low": 9.47,
+          "volume_lots": 338474.0,
           "turnover_yuan": 324249311.0,
+          "amplitude_pct": 2.69,
           "return_pct": -0.21,
+          "change": -0.02,
           "turnover_pct": 1.5
         },
         {
@@ -96424,8 +97138,11 @@
           "close": 9.54,
           "high": 9.73,
           "low": 9.43,
+          "volume_lots": 282270.0,
           "turnover_yuan": 269011559.0,
+          "amplitude_pct": 3.11,
           "return_pct": -1.24,
+          "change": -0.12,
           "turnover_pct": 1.25
         },
         {
@@ -96434,8 +97151,11 @@
           "close": 9.82,
           "high": 10.0,
           "low": 9.42,
+          "volume_lots": 626180.0,
           "turnover_yuan": 612461656.0,
+          "amplitude_pct": 6.08,
           "return_pct": 2.94,
+          "change": 0.28,
           "turnover_pct": 2.77
         },
         {
@@ -96444,8 +97164,11 @@
           "close": 9.6,
           "high": 10.04,
           "low": 9.54,
+          "volume_lots": 576247.0,
           "turnover_yuan": 556946948.0,
+          "amplitude_pct": 5.09,
           "return_pct": -2.24,
+          "change": -0.22,
           "turnover_pct": 2.55
         },
         {
@@ -96454,8 +97177,11 @@
           "close": 9.56,
           "high": 9.66,
           "low": 9.32,
+          "volume_lots": 605501.0,
           "turnover_yuan": 573695588.0,
+          "amplitude_pct": 3.54,
           "return_pct": -0.42,
+          "change": -0.04,
           "turnover_pct": 2.68
         },
         {
@@ -96464,8 +97190,11 @@
           "close": 9.74,
           "high": 9.85,
           "low": 9.5,
+          "volume_lots": 454712.0,
           "turnover_yuan": 441263565.0,
+          "amplitude_pct": 3.66,
           "return_pct": 1.88,
+          "change": 0.18,
           "turnover_pct": 2.01
         },
         {
@@ -96474,8 +97203,11 @@
           "close": 9.78,
           "high": 9.9,
           "low": 9.7,
+          "volume_lots": 355295.0,
           "turnover_yuan": 348565583.0,
+          "amplitude_pct": 2.05,
           "return_pct": 0.41,
+          "change": 0.04,
           "turnover_pct": 1.57
         },
         {
@@ -96484,8 +97216,11 @@
           "close": 9.69,
           "high": 9.91,
           "low": 9.65,
+          "volume_lots": 325683.0,
           "turnover_yuan": 317073549.0,
+          "amplitude_pct": 2.66,
           "return_pct": -0.92,
+          "change": -0.09,
           "turnover_pct": 1.44
         },
         {
@@ -96494,8 +97229,11 @@
           "close": 9.72,
           "high": 9.78,
           "low": 9.62,
+          "volume_lots": 270972.0,
           "turnover_yuan": 263586860.0,
+          "amplitude_pct": 1.65,
           "return_pct": 0.31,
+          "change": 0.03,
           "turnover_pct": 1.2
         },
         {
@@ -96504,8 +97242,11 @@
           "close": 9.65,
           "high": 9.82,
           "low": 9.63,
+          "volume_lots": 333985.0,
           "turnover_yuan": 324978124.0,
+          "amplitude_pct": 1.95,
           "return_pct": -0.72,
+          "change": -0.07,
           "turnover_pct": 1.48
         },
         {
@@ -96514,8 +97255,11 @@
           "close": 9.51,
           "high": 9.86,
           "low": 9.39,
+          "volume_lots": 443139.0,
           "turnover_yuan": 424512842.0,
+          "amplitude_pct": 4.87,
           "return_pct": -1.45,
+          "change": -0.14,
           "turnover_pct": 1.96
         },
         {
@@ -96524,8 +97268,11 @@
           "close": 9.78,
           "high": 9.83,
           "low": 9.42,
+          "volume_lots": 501547.0,
           "turnover_yuan": 485962095.0,
+          "amplitude_pct": 4.31,
           "return_pct": 2.84,
+          "change": 0.27,
           "turnover_pct": 2.22
         },
         {
@@ -96534,8 +97281,11 @@
           "close": 9.77,
           "high": 9.93,
           "low": 9.67,
+          "volume_lots": 410140.0,
           "turnover_yuan": 402305622.0,
+          "amplitude_pct": 2.66,
           "return_pct": -0.1,
+          "change": -0.01,
           "turnover_pct": 1.81
         },
         {
@@ -96544,8 +97294,11 @@
           "close": 9.56,
           "high": 9.82,
           "low": 9.51,
+          "volume_lots": 392737.0,
           "turnover_yuan": 380175082.0,
+          "amplitude_pct": 3.17,
           "return_pct": -2.15,
+          "change": -0.21,
           "turnover_pct": 1.74
         },
         {
@@ -96554,8 +97307,11 @@
           "close": 9.5,
           "high": 9.56,
           "low": 9.31,
+          "volume_lots": 426041.0,
           "turnover_yuan": 402513898.0,
+          "amplitude_pct": 2.62,
           "return_pct": -0.63,
+          "change": -0.06,
           "turnover_pct": 1.88
         },
         {
@@ -96564,8 +97320,11 @@
           "close": 9.52,
           "high": 9.88,
           "low": 9.45,
+          "volume_lots": 492796.0,
           "turnover_yuan": 476577635.0,
+          "amplitude_pct": 4.53,
           "return_pct": 0.21,
+          "change": 0.02,
           "turnover_pct": 2.18
         },
         {
@@ -96574,23 +97333,82 @@
           "close": 9.32,
           "high": 9.43,
           "low": 9.12,
+          "volume_lots": 516106.0,
           "turnover_yuan": 478119677.0,
+          "amplitude_pct": 3.26,
           "return_pct": -2.1,
+          "change": -0.2,
           "turnover_pct": 2.28
         }
-      ]
+      ],
+      "refresh_source": "BaoStock未复权日线备用源"
     },
     "price_002202": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
+        {
+          "date": "2026-08-04",
+          "open": 19.4,
+          "close": 19.49,
+          "high": 19.58,
+          "low": 18.94,
+          "volume_lots": 1275987.0,
+          "turnover_yuan": 2455955127.74,
+          "amplitude_pct": 3.33,
+          "return_pct": 1.3,
+          "change": 0.25,
+          "turnover_pct": 3.79
+        },
+        {
+          "date": "2026-08-05",
+          "open": 19.5,
+          "close": 20.16,
+          "high": 20.35,
+          "low": 19.5,
+          "volume_lots": 1405974.0,
+          "turnover_yuan": 2814557450.37,
+          "amplitude_pct": 4.36,
+          "return_pct": 3.44,
+          "change": 0.67,
+          "turnover_pct": 4.18
+        },
+        {
+          "date": "2026-08-06",
+          "open": 20.1,
+          "close": 20.76,
+          "high": 21.58,
+          "low": 20.09,
+          "volume_lots": 1757665.0,
+          "turnover_yuan": 3662388849.74,
+          "amplitude_pct": 7.39,
+          "return_pct": 2.98,
+          "change": 0.6,
+          "turnover_pct": 5.23
+        },
+        {
+          "date": "2026-08-07",
+          "open": 20.43,
+          "close": 21.8,
+          "high": 21.88,
+          "low": 20.43,
+          "volume_lots": 1943990.0,
+          "turnover_yuan": 4166345051.75,
+          "amplitude_pct": 6.98,
+          "return_pct": 5.01,
+          "change": 1.04,
+          "turnover_pct": 5.78
+        },
         {
           "date": "2026-08-10",
           "open": 21.9,
           "close": 21.68,
           "high": 21.9,
           "low": 20.88,
+          "volume_lots": 1852180.0,
           "turnover_yuan": 3948754576.57,
+          "amplitude_pct": 4.68,
           "return_pct": -0.55,
+          "change": -0.12,
           "turnover_pct": 5.51
         },
         {
@@ -96599,8 +97417,11 @@
           "close": 19.92,
           "high": 20.34,
           "low": 19.76,
+          "volume_lots": 2266539.0,
           "turnover_yuan": 4545158379.74,
+          "amplitude_pct": 2.68,
           "return_pct": -8.12,
+          "change": -1.76,
           "turnover_pct": 6.74
         },
         {
@@ -96609,8 +97430,11 @@
           "close": 20.44,
           "high": 20.95,
           "low": 19.57,
+          "volume_lots": 1335640.0,
           "turnover_yuan": 2702207446.27,
+          "amplitude_pct": 6.93,
           "return_pct": 2.61,
+          "change": 0.52,
           "turnover_pct": 3.97
         },
         {
@@ -96619,8 +97443,11 @@
           "close": 20.93,
           "high": 21.41,
           "low": 20.62,
+          "volume_lots": 1498883.0,
           "turnover_yuan": 3159967164.38,
+          "amplitude_pct": 3.86,
           "return_pct": 2.4,
+          "change": 0.49,
           "turnover_pct": 4.46
         },
         {
@@ -96629,8 +97456,11 @@
           "close": 20.93,
           "high": 21.15,
           "low": 20.48,
+          "volume_lots": 920121.0,
           "turnover_yuan": 1911065705.73,
+          "amplitude_pct": 3.2,
           "return_pct": 0.0,
+          "change": 0.0,
           "turnover_pct": 2.74
         },
         {
@@ -96639,8 +97469,11 @@
           "close": 21.76,
           "high": 21.76,
           "low": 21.01,
+          "volume_lots": 1214202.0,
           "turnover_yuan": 2601055752.89,
+          "amplitude_pct": 3.58,
           "return_pct": 3.97,
+          "change": 0.83,
           "turnover_pct": 3.61
         },
         {
@@ -96649,8 +97482,11 @@
           "close": 22.01,
           "high": 22.18,
           "low": 21.3,
+          "volume_lots": 1461523.0,
           "turnover_yuan": 3179261115.12,
+          "amplitude_pct": 4.04,
           "return_pct": 1.15,
+          "change": 0.25,
           "turnover_pct": 4.35
         },
         {
@@ -96659,8 +97495,11 @@
           "close": 22.03,
           "high": 24.21,
           "low": 22.0,
+          "volume_lots": 4082222.0,
           "turnover_yuan": 9464301960.27,
+          "amplitude_pct": 10.04,
           "return_pct": 0.09,
+          "change": 0.02,
           "turnover_pct": 12.14
         },
         {
@@ -96669,8 +97508,11 @@
           "close": 19.84,
           "high": 21.53,
           "low": 19.83,
+          "volume_lots": 2693746.0,
           "turnover_yuan": 5475303844.16,
+          "amplitude_pct": 7.72,
           "return_pct": -9.94,
+          "change": -2.19,
           "turnover_pct": 8.01
         },
         {
@@ -96679,8 +97521,11 @@
           "close": 19.19,
           "high": 19.5,
           "low": 18.9,
+          "volume_lots": 1588410.0,
           "turnover_yuan": 3043127508.34,
+          "amplitude_pct": 3.02,
           "return_pct": -3.28,
+          "change": -0.65,
           "turnover_pct": 4.72
         },
         {
@@ -96689,8 +97534,11 @@
           "close": 18.3,
           "high": 19.1,
           "low": 18.0,
+          "volume_lots": 1346046.0,
           "turnover_yuan": 2477703260.43,
+          "amplitude_pct": 5.73,
           "return_pct": -4.64,
+          "change": -0.89,
           "turnover_pct": 4.0
         },
         {
@@ -96699,8 +97547,11 @@
           "close": 18.46,
           "high": 18.62,
           "low": 18.08,
+          "volume_lots": 811666.0,
           "turnover_yuan": 1496442634.99,
+          "amplitude_pct": 2.95,
           "return_pct": 0.87,
+          "change": 0.16,
           "turnover_pct": 2.41
         },
         {
@@ -96709,8 +97560,11 @@
           "close": 18.61,
           "high": 19.02,
           "low": 18.6,
+          "volume_lots": 1013218.0,
           "turnover_yuan": 1904017210.54,
+          "amplitude_pct": 2.28,
           "return_pct": 0.81,
+          "change": 0.15,
           "turnover_pct": 3.01
         },
         {
@@ -96719,8 +97573,11 @@
           "close": 18.74,
           "high": 18.76,
           "low": 18.35,
+          "volume_lots": 903370.0,
           "turnover_yuan": 1681094485.47,
+          "amplitude_pct": 2.2,
           "return_pct": 0.7,
+          "change": 0.13,
           "turnover_pct": 2.69
         },
         {
@@ -96729,8 +97586,11 @@
           "close": 18.41,
           "high": 18.67,
           "low": 18.38,
+          "volume_lots": 841335.0,
           "turnover_yuan": 1555110590.43,
+          "amplitude_pct": 1.55,
           "return_pct": -1.76,
+          "change": -0.33,
           "turnover_pct": 2.5
         },
         {
@@ -96739,8 +97599,11 @@
           "close": 18.34,
           "high": 18.37,
           "low": 18.05,
+          "volume_lots": 639341.0,
           "turnover_yuan": 1165371885.34,
+          "amplitude_pct": 1.74,
           "return_pct": -0.38,
+          "change": -0.07,
           "turnover_pct": 1.9
         },
         {
@@ -96749,8 +97612,11 @@
           "close": 18.19,
           "high": 18.48,
           "low": 18.16,
+          "volume_lots": 664417.0,
           "turnover_yuan": 1215631547.88,
+          "amplitude_pct": 1.74,
           "return_pct": -0.82,
+          "change": -0.15,
           "turnover_pct": 1.98
         },
         {
@@ -96759,8 +97625,11 @@
           "close": 17.8,
           "high": 18.06,
           "low": 17.77,
+          "volume_lots": 664213.0,
           "turnover_yuan": 1186999991.39,
+          "amplitude_pct": 1.59,
           "return_pct": -2.14,
+          "change": -0.39,
           "turnover_pct": 1.97
         },
         {
@@ -96769,8 +97638,11 @@
           "close": 17.7,
           "high": 18.01,
           "low": 17.63,
+          "volume_lots": 558467.0,
           "turnover_yuan": 992463562.64,
+          "amplitude_pct": 2.13,
           "return_pct": -0.56,
+          "change": -0.1,
           "turnover_pct": 1.66
         },
         {
@@ -96779,8 +97651,11 @@
           "close": 17.49,
           "high": 17.9,
           "low": 17.36,
+          "volume_lots": 790965.0,
           "turnover_yuan": 1398852918.31,
+          "amplitude_pct": 3.05,
           "return_pct": -1.19,
+          "change": -0.21,
           "turnover_pct": 2.35
         },
         {
@@ -96789,8 +97664,11 @@
           "close": 17.65,
           "high": 17.71,
           "low": 17.38,
+          "volume_lots": 508622.0,
           "turnover_yuan": 893477662.97,
+          "amplitude_pct": 1.89,
           "return_pct": 0.91,
+          "change": 0.16,
           "turnover_pct": 1.51
         },
         {
@@ -96799,8 +97677,11 @@
           "close": 17.75,
           "high": 17.84,
           "low": 17.56,
+          "volume_lots": 542429.0,
           "turnover_yuan": 961522178.66,
+          "amplitude_pct": 1.59,
           "return_pct": 0.57,
+          "change": 0.1,
           "turnover_pct": 1.61
         },
         {
@@ -96809,8 +97690,11 @@
           "close": 17.85,
           "high": 17.94,
           "low": 17.6,
+          "volume_lots": 566857.0,
           "turnover_yuan": 1007219238.08,
+          "amplitude_pct": 1.92,
           "return_pct": 0.56,
+          "change": 0.1,
           "turnover_pct": 1.69
         },
         {
@@ -96819,8 +97703,11 @@
           "close": 18.14,
           "high": 18.35,
           "low": 17.53,
+          "volume_lots": 970877.0,
           "turnover_yuan": 1749147497.26,
+          "amplitude_pct": 4.59,
           "return_pct": 1.62,
+          "change": 0.29,
           "turnover_pct": 2.89
         },
         {
@@ -96829,8 +97716,11 @@
           "close": 18.6,
           "high": 18.61,
           "low": 17.89,
+          "volume_lots": 1434485.0,
           "turnover_yuan": 2630225195.23,
+          "amplitude_pct": 3.97,
           "return_pct": 2.54,
+          "change": 0.46,
           "turnover_pct": 4.26
         },
         {
@@ -96839,8 +97729,11 @@
           "close": 19.31,
           "high": 19.36,
           "low": 18.33,
+          "volume_lots": 1531339.0,
           "turnover_yuan": 2892082338.55,
+          "amplitude_pct": 5.54,
           "return_pct": 3.82,
+          "change": 0.71,
           "turnover_pct": 4.55
         },
         {
@@ -96849,8 +97742,11 @@
           "close": 18.82,
           "high": 19.58,
           "low": 18.75,
+          "volume_lots": 1498645.0,
           "turnover_yuan": 2866238440.0,
+          "amplitude_pct": 4.3,
           "return_pct": -2.54,
+          "change": -0.49,
           "turnover_pct": 4.46
         },
         {
@@ -96859,8 +97755,11 @@
           "close": 18.23,
           "high": 19.05,
           "low": 18.16,
+          "volume_lots": 1388177.0,
           "turnover_yuan": 2559152130.94,
+          "amplitude_pct": 4.73,
           "return_pct": -3.13,
+          "change": -0.59,
           "turnover_pct": 4.13
         },
         {
@@ -96869,8 +97768,11 @@
           "close": 18.22,
           "high": 18.55,
           "low": 17.71,
+          "volume_lots": 1361685.0,
           "turnover_yuan": 2460751893.53,
+          "amplitude_pct": 4.61,
           "return_pct": -0.05,
+          "change": -0.01,
           "turnover_pct": 4.05
         },
         {
@@ -96879,8 +97781,11 @@
           "close": 18.2,
           "high": 18.38,
           "low": 18.02,
+          "volume_lots": 813650.0,
           "turnover_yuan": 1480804668.01,
+          "amplitude_pct": 1.98,
           "return_pct": -0.11,
+          "change": -0.02,
           "turnover_pct": 2.42
         },
         {
@@ -96889,8 +97794,11 @@
           "close": 18.13,
           "high": 18.25,
           "low": 18.1,
+          "volume_lots": 627296.0,
           "turnover_yuan": 1138860861.85,
+          "amplitude_pct": 0.82,
           "return_pct": -0.38,
+          "change": -0.07,
           "turnover_pct": 1.86
         },
         {
@@ -96899,8 +97807,11 @@
           "close": 17.97,
           "high": 18.24,
           "low": 17.92,
+          "volume_lots": 648513.0,
           "turnover_yuan": 1171776580.93,
+          "amplitude_pct": 1.77,
           "return_pct": -0.88,
+          "change": -0.16,
           "turnover_pct": 1.93
         },
         {
@@ -96909,8 +97820,11 @@
           "close": 17.83,
           "high": 18.05,
           "low": 17.75,
+          "volume_lots": 468738.0,
           "turnover_yuan": 837164400.49,
+          "amplitude_pct": 1.67,
           "return_pct": -0.78,
+          "change": -0.14,
           "turnover_pct": 1.39
         },
         {
@@ -96919,8 +97833,11 @@
           "close": 17.9,
           "high": 18.17,
           "low": 17.77,
+          "volume_lots": 703191.0,
           "turnover_yuan": 1265992230.47,
+          "amplitude_pct": 2.24,
           "return_pct": 0.39,
+          "change": 0.07,
           "turnover_pct": 2.09
         },
         {
@@ -96929,8 +97846,11 @@
           "close": 17.23,
           "high": 17.91,
           "low": 17.1,
+          "volume_lots": 667631.0,
           "turnover_yuan": 1161934423.37,
+          "amplitude_pct": 4.53,
           "return_pct": -3.74,
+          "change": -0.67,
           "turnover_pct": 1.98
         },
         {
@@ -96939,8 +97859,11 @@
           "close": 17.09,
           "high": 17.3,
           "low": 17.02,
+          "volume_lots": 471865.0,
           "turnover_yuan": 809381856.45,
+          "amplitude_pct": 1.63,
           "return_pct": -0.81,
+          "change": -0.14,
           "turnover_pct": 1.4
         },
         {
@@ -96949,8 +97872,11 @@
           "close": 17.22,
           "high": 17.35,
           "low": 17.05,
+          "volume_lots": 460066.0,
           "turnover_yuan": 792197113.45,
+          "amplitude_pct": 1.76,
           "return_pct": 0.76,
+          "change": 0.13,
           "turnover_pct": 1.37
         },
         {
@@ -96959,8 +97885,11 @@
           "close": 16.68,
           "high": 17.12,
           "low": 16.66,
+          "volume_lots": 650239.0,
           "turnover_yuan": 1095174703.1,
+          "amplitude_pct": 2.67,
           "return_pct": -3.14,
+          "change": -0.54,
           "turnover_pct": 1.93
         },
         {
@@ -96969,8 +97898,11 @@
           "close": 16.35,
           "high": 16.72,
           "low": 15.93,
+          "volume_lots": 802083.0,
           "turnover_yuan": 1300623015.01,
+          "amplitude_pct": 4.74,
           "return_pct": -1.98,
+          "change": -0.33,
           "turnover_pct": 2.38
         },
         {
@@ -96979,8 +97911,11 @@
           "close": 16.06,
           "high": 16.74,
           "low": 16.05,
+          "volume_lots": 604303.0,
           "turnover_yuan": 992863519.67,
+          "amplitude_pct": 4.22,
           "return_pct": -1.77,
+          "change": -0.29,
           "turnover_pct": 1.8
         },
         {
@@ -96989,14 +97924,18 @@
           "close": 15.87,
           "high": 16.03,
           "low": 15.47,
+          "volume_lots": 676337.0,
           "turnover_yuan": 1063166672.16,
+          "amplitude_pct": 3.49,
           "return_pct": -1.18,
+          "change": -0.19,
           "turnover_pct": 2.01
         }
-      ]
+      ],
+      "refresh_source": "BaoStock未复权日线备用源"
     },
     "flow_002202": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -97173,10 +98112,12 @@
           "net_yuan": -32933778.0,
           "net_ratio_pct": -3.1
         }
-      ]
+      ],
+      "validated_at": "2026-10-14T12:50:04.002239+08:00",
+      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
     },
     "flow_601615": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -97353,7 +98294,9 @@
           "net_yuan": -31487930.0,
           "net_ratio_pct": -6.59
         }
-      ]
+      ],
+      "validated_at": "2026-10-14T12:50:04.002239+08:00",
+      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
     },
     "price_600740": {
       "fetched_at": "2026-09-24T17:03:11.061122+08:00",
@@ -100807,7 +101750,7 @@
       ]
     },
     "flow_601939": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
         {
           "date": "2026-08-18",
@@ -100984,10 +101927,12 @@
           "net_yuan": -94864329.0,
           "net_ratio_pct": -7.22
         }
-      ]
+      ],
+      "validated_at": "2026-10-14T12:50:04.002239+08:00",
+      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
     },
     "price_601939": {
-      "fetched_at": "2026-10-14T07:05:42.411495+08:00",
+      "fetched_at": "2026-10-14T12:50:04.002239+08:00",
       "rows": [
         {
           "date": "2026-08-10",
@@ -101399,7 +102344,8 @@
           "return_pct": 0.53,
           "turnover_pct": 1.21
         }
-      ]
+      ],
+      "refresh_source": "BaoStock未复权日线备用源"
     },
     "limits_2026-09-28": {
       "fetched_at": "2026-10-12T13:53:50.649872+08:00",
@@ -104726,64 +105672,10 @@
       ]
     },
     "limits_2026-09-30": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
-          "代码": "600825",
-          "名称": "新华传媒",
-          "涨跌幅": 9.9893722534,
-          "最新价": 10.35,
-          "成交额": 144750256,
-          "流通市值": 10814589247.5,
-          "总市值": 10814589309.6,
-          "换手率": 1.3384720087,
-          "封板资金": 1988381638,
-          "首次封板时间": "092500",
-          "最后封板时间": "092500",
-          "炸板次数": 0,
-          "涨停统计": "7/7",
-          "连板数": 7,
-          "所属行业": "出版"
-        },
-        {
-          "序号": 2,
-          "代码": "600241",
-          "名称": "时代万恒",
-          "涨跌幅": 9.9547510147,
-          "最新价": 9.72,
-          "成交额": 74661264,
-          "流通市值": 2860616557.8,
-          "总市值": 2860616528.6400003,
-          "换手率": 2.6099710464,
-          "封板资金": 141936300,
-          "首次封板时间": "092500",
-          "最后封板时间": "092500",
-          "炸板次数": 0,
-          "涨停统计": "3/3",
-          "连板数": 3,
-          "所属行业": "电池"
-        },
-        {
-          "序号": 3,
-          "代码": "002242",
-          "名称": "九阳股份",
-          "涨跌幅": 10.0352115631,
-          "最新价": 12.5,
-          "成交额": 436662832,
-          "流通市值": 9522070312.5,
-          "总市值": 9537712600.0,
-          "换手率": 4.5894460678,
-          "封板资金": 164830000,
-          "首次封板时间": "092500",
-          "最后封板时间": "094930",
-          "炸板次数": 1,
-          "涨停统计": "3/3",
-          "连板数": 3,
-          "所属行业": "小家电"
-        },
-        {
-          "序号": 4,
           "代码": "002058",
           "名称": "紫竹高科",
           "涨跌幅": 10.0217866898,
@@ -104801,7 +105693,7 @@
           "所属行业": "电池"
         },
         {
-          "序号": 5,
+          "序号": 2,
           "代码": "605388",
           "名称": "均瑶健康",
           "涨跌幅": 9.9702377319,
@@ -104819,7 +105711,43 @@
           "所属行业": "饮料乳品"
         },
         {
-          "序号": 6,
+          "序号": 3,
+          "代码": "600241",
+          "名称": "时代万恒",
+          "涨跌幅": 9.9547510147,
+          "最新价": 9.72,
+          "成交额": 74661264,
+          "流通市值": 2860616557.8,
+          "总市值": 2860616528.6400003,
+          "换手率": 2.6099710464,
+          "封板资金": 141936300,
+          "首次封板时间": "092500",
+          "最后封板时间": "092500",
+          "炸板次数": 0,
+          "涨停统计": "3/3",
+          "连板数": 3,
+          "所属行业": "电池"
+        },
+        {
+          "序号": 4,
+          "代码": "002242",
+          "名称": "九阳股份",
+          "涨跌幅": 10.0352115631,
+          "最新价": 12.5,
+          "成交额": 436662832,
+          "流通市值": 9522070312.5,
+          "总市值": 9537712600.0,
+          "换手率": 4.5894460678,
+          "封板资金": 164830000,
+          "首次封板时间": "092500",
+          "最后封板时间": "094930",
+          "炸板次数": 1,
+          "涨停统计": "3/3",
+          "连板数": 3,
+          "所属行业": "小家电"
+        },
+        {
+          "序号": 5,
           "代码": "605303",
           "名称": "园林股份",
           "涨跌幅": 10.0191936493,
@@ -104835,6 +105763,24 @@
           "涨停统计": "2/2",
           "连板数": 2,
           "所属行业": "基础建设"
+        },
+        {
+          "序号": 6,
+          "代码": "600825",
+          "名称": "新华传媒",
+          "涨跌幅": 9.9893722534,
+          "最新价": 10.35,
+          "成交额": 144750256,
+          "流通市值": 10814589247.5,
+          "总市值": 10814589309.6,
+          "换手率": 1.3384720087,
+          "封板资金": 1988381638,
+          "首次封板时间": "092500",
+          "最后封板时间": "092500",
+          "炸板次数": 0,
+          "涨停统计": "7/7",
+          "连板数": 7,
+          "所属行业": "出版"
         },
         {
           "序号": 7,
@@ -105667,7 +106613,7 @@
       ]
     },
     "failed_2026-09-30": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -106613,46 +107559,28 @@
       ]
     },
     "limits_2026-10-08": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
-          "代码": "600812",
-          "名称": "华北制药",
-          "涨跌幅": 10.0401611328,
-          "最新价": 5.48,
-          "成交额": 494359008,
-          "流通市值": 9402202427.6,
-          "总市值": 9402202416.640001,
-          "换手率": 5.2652230263,
-          "封板资金": 20936707,
+          "代码": "600825",
+          "名称": "新华传媒",
+          "涨跌幅": 10.0483093262,
+          "最新价": 11.39,
+          "成交额": 64324547,
+          "流通市值": 11901272611.5,
+          "总市值": 11901272679.84,
+          "换手率": 0.5404846072,
+          "封板资金": 1775758428,
           "首次封板时间": "092500",
-          "最后封板时间": "094839",
-          "炸板次数": 2,
-          "涨停统计": "1/1",
-          "连板数": 1,
-          "所属行业": "化学制药"
+          "最后封板时间": "092500",
+          "炸板次数": 0,
+          "涨停统计": "8/8",
+          "连板数": 8,
+          "所属行业": "出版"
         },
         {
           "序号": 2,
-          "代码": "002058",
-          "名称": "紫竹高科",
-          "涨跌幅": 10.0,
-          "最新价": 22.22,
-          "成交额": 104419028,
-          "流通市值": 3185588787.04,
-          "总市值": 3187421937.04,
-          "换手率": 3.2953457832,
-          "封板资金": 142263550,
-          "首次封板时间": "092500",
-          "最后封板时间": "093042",
-          "炸板次数": 1,
-          "涨停统计": "3/3",
-          "连板数": 3,
-          "所属行业": "电池"
-        },
-        {
-          "序号": 3,
           "代码": "002242",
           "名称": "九阳股份",
           "涨跌幅": 10.0,
@@ -106670,22 +107598,40 @@
           "所属行业": "小家电"
         },
         {
-          "序号": 4,
-          "代码": "600825",
-          "名称": "新华传媒",
-          "涨跌幅": 10.0483093262,
-          "最新价": 11.39,
-          "成交额": 64324547,
-          "流通市值": 11901272611.5,
-          "总市值": 11901272679.84,
-          "换手率": 0.5404846072,
-          "封板资金": 1775758428,
+          "序号": 3,
+          "代码": "002058",
+          "名称": "紫竹高科",
+          "涨跌幅": 10.0,
+          "最新价": 22.22,
+          "成交额": 104419028,
+          "流通市值": 3185588787.04,
+          "总市值": 3187421937.04,
+          "换手率": 3.2953457832,
+          "封板资金": 142263550,
           "首次封板时间": "092500",
-          "最后封板时间": "092500",
-          "炸板次数": 0,
-          "涨停统计": "8/8",
-          "连板数": 8,
-          "所属行业": "出版"
+          "最后封板时间": "093042",
+          "炸板次数": 1,
+          "涨停统计": "3/3",
+          "连板数": 3,
+          "所属行业": "电池"
+        },
+        {
+          "序号": 4,
+          "代码": "600812",
+          "名称": "华北制药",
+          "涨跌幅": 10.0401611328,
+          "最新价": 5.48,
+          "成交额": 494359008,
+          "流通市值": 9402202427.6,
+          "总市值": 9402202416.640001,
+          "换手率": 5.2652230263,
+          "封板资金": 20936707,
+          "首次封板时间": "092500",
+          "最后封板时间": "094839",
+          "炸板次数": 2,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "化学制药"
         },
         {
           "序号": 5,
@@ -107392,7 +108338,7 @@
       ]
     },
     "failed_2026-10-08": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -108806,7 +109752,7 @@
       ]
     },
     "limits_2026-10-09": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -110053,7 +110999,7 @@
       ]
     },
     "failed_2026-10-09": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -111197,7 +112143,7 @@
       ]
     },
     "failed_2026-10-12": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -111652,7 +112598,7 @@
       ]
     },
     "limits_2026-10-12": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -111692,24 +112638,6 @@
         },
         {
           "序号": 3,
-          "代码": "605136",
-          "名称": "丽人丽妆",
-          "涨跌幅": 9.9576272964,
-          "最新价": 10.38,
-          "成交额": 42697922,
-          "流通市值": 4156759230.0000005,
-          "总市值": 4156759188.4800005,
-          "换手率": 1.0271925926,
-          "封板资金": 183524835,
-          "首次封板时间": "092501",
-          "最后封板时间": "092501",
-          "炸板次数": 0,
-          "涨停统计": "2/2",
-          "连板数": 2,
-          "所属行业": "互联网电"
-        },
-        {
-          "序号": 4,
           "代码": "603096",
           "名称": "新经典",
           "涨跌幅": 9.9826889038,
@@ -111725,6 +112653,24 @@
           "涨停统计": "2/2",
           "连板数": 2,
           "所属行业": "出版"
+        },
+        {
+          "序号": 4,
+          "代码": "605136",
+          "名称": "丽人丽妆",
+          "涨跌幅": 9.9576272964,
+          "最新价": 10.38,
+          "成交额": 42697922,
+          "流通市值": 4156759230.0000005,
+          "总市值": 4156759188.4800005,
+          "换手率": 1.0271925926,
+          "封板资金": 183524835,
+          "首次封板时间": "092501",
+          "最后封板时间": "092501",
+          "炸板次数": 0,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "互联网电"
         },
         {
           "序号": 5,
@@ -113354,7 +114300,7 @@
       ]
     },
     "failed_2026-10-13": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -113556,24 +114502,6 @@
         },
         {
           "序号": 12,
-          "代码": "002354",
-          "名称": "天娱数科",
-          "涨跌幅": 6.4383559227,
-          "最新价": 7.77,
-          "涨停价": 8.03,
-          "成交额": 2479976240,
-          "流通市值": 12641741662.83,
-          "总市值": 12856131852.48,
-          "换手率": 19.8533535004,
-          "涨速": 0.0,
-          "首次封板时间": "132209",
-          "炸板次数": 1,
-          "涨停统计": "0/0",
-          "振幅": 13.6986303329,
-          "所属行业": "广告营销"
-        },
-        {
-          "序号": 13,
           "代码": "002913",
           "名称": "奥士康",
           "涨跌幅": 6.7846961021,
@@ -113589,6 +114517,24 @@
           "涨停统计": "0/0",
           "振幅": 15.8626422882,
           "所属行业": "元件"
+        },
+        {
+          "序号": 13,
+          "代码": "002354",
+          "名称": "天娱数科",
+          "涨跌幅": 6.4383559227,
+          "最新价": 7.77,
+          "涨停价": 8.03,
+          "成交额": 2479976240,
+          "流通市值": 12641741662.83,
+          "总市值": 12856131852.48,
+          "换手率": 19.8533535004,
+          "涨速": 0.0,
+          "首次封板时间": "132209",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 13.6986303329,
+          "所属行业": "广告营销"
         },
         {
           "序号": 14,
@@ -113701,28 +114647,10 @@
       ]
     },
     "limits_2026-10-13": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
-          "代码": "000668",
-          "名称": "荣丰控股",
-          "涨跌幅": 10.0053501129,
-          "最新价": 20.56,
-          "成交额": 18497832,
-          "流通市值": 3019069258.3999996,
-          "总市值": 3089974098.64,
-          "换手率": 0.6126998067,
-          "封板资金": 87682232,
-          "首次封板时间": "092500",
-          "最后封板时间": "092500",
-          "炸板次数": 0,
-          "涨停统计": "1/1",
-          "连板数": 1,
-          "所属行业": "房地产开"
-        },
-        {
-          "序号": 2,
           "代码": "002343",
           "名称": "慈文传媒",
           "涨跌幅": 10.0149478912,
@@ -113738,6 +114666,24 @@
           "涨停统计": "3/3",
           "连板数": 3,
           "所属行业": "影视院线"
+        },
+        {
+          "序号": 2,
+          "代码": "603096",
+          "名称": "新经典",
+          "涨跌幅": 10.020986557,
+          "最新价": 20.97,
+          "成交额": 90108761,
+          "流通市值": 3234300065.2799997,
+          "总市值": 3234300065.2799997,
+          "换手率": 2.7860360146,
+          "封板资金": 216938172,
+          "首次封板时间": "092500",
+          "最后封板时间": "092500",
+          "炸板次数": 0,
+          "涨停统计": "3/3",
+          "连板数": 3,
+          "所属行业": "出版"
         },
         {
           "序号": 3,
@@ -113759,21 +114705,21 @@
         },
         {
           "序号": 4,
-          "代码": "603096",
-          "名称": "新经典",
-          "涨跌幅": 10.020986557,
-          "最新价": 20.97,
-          "成交额": 90108761,
-          "流通市值": 3234300065.2799997,
-          "总市值": 3234300065.2799997,
-          "换手率": 2.7860360146,
-          "封板资金": 216938172,
+          "代码": "000668",
+          "名称": "荣丰控股",
+          "涨跌幅": 10.0053501129,
+          "最新价": 20.56,
+          "成交额": 18497832,
+          "流通市值": 3019069258.3999996,
+          "总市值": 3089974098.64,
+          "换手率": 0.6126998067,
+          "封板资金": 87682232,
           "首次封板时间": "092500",
           "最后封板时间": "092500",
           "炸板次数": 0,
-          "涨停统计": "3/3",
-          "连板数": 3,
-          "所属行业": "出版"
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "房地产开"
         },
         {
           "序号": 5,
@@ -113993,24 +114939,6 @@
         },
         {
           "序号": 17,
-          "代码": "600847",
-          "名称": "万里股份",
-          "涨跌幅": 10.0392150879,
-          "最新价": 14.03,
-          "成交额": 75515922,
-          "流通市值": 2150622222.0,
-          "总市值": 2150622222.0,
-          "换手率": 3.5997817516,
-          "封板资金": 39925002,
-          "首次封板时间": "093434",
-          "最后封板时间": "093434",
-          "炸板次数": 0,
-          "涨停统计": "1/1",
-          "连板数": 1,
-          "所属行业": "电池"
-        },
-        {
-          "序号": 18,
           "代码": "603767",
           "名称": "中马传动",
           "涨跌幅": 10.0069980621,
@@ -114026,6 +114954,24 @@
           "涨停统计": "1/1",
           "连板数": 1,
           "所属行业": "汽车零部"
+        },
+        {
+          "序号": 18,
+          "代码": "600847",
+          "名称": "万里股份",
+          "涨跌幅": 10.0392150879,
+          "最新价": 14.03,
+          "成交额": 75515922,
+          "流通市值": 2150622222.0,
+          "总市值": 2150622222.0,
+          "换手率": 3.5997817516,
+          "封板资金": 39925002,
+          "首次封板时间": "093434",
+          "最后封板时间": "093434",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "电池"
         },
         {
           "序号": 19,
@@ -115088,7 +116034,7 @@
       ]
     },
     "lhb_2026-10-13": {
-      "fetched_at": "2026-10-14T07:05:51.076762+08:00",
+      "fetched_at": "2026-10-14T12:49:36.744556+08:00",
       "rows": [
         {
           "序号": 1,
@@ -115867,7 +116813,461 @@
       "url": "https://www.sse.com.cn/assortment/fund/etf/list/scale/"
     }
   ],
-  "sector_mode": "completed_history",
-  "sector_ranking_updated_at": "2026-10-13T23:18:39.390698+08:00",
-  "sector_ranking_source": "东方财富行业资金流排名（AKShare）；同花顺3日排行补充"
+  "live_limit_snapshot": {
+    "status": "ok",
+    "date": "2026-10-14",
+    "fetched_at": "2026-10-14T12:49:42.026828+08:00",
+    "source": "东方财富涨停/炸板专题池（AKShare，盘中实时快照）",
+    "limit_count": 43,
+    "failed_count": 11,
+    "seal_rate_pct": 79.62962962962963,
+    "highest_streak": 4,
+    "industry_distribution": [
+      {
+        "industry": "元件",
+        "count": 4
+      },
+      {
+        "industry": "出版",
+        "count": 4
+      },
+      {
+        "industry": "游戏Ⅱ",
+        "count": 4
+      },
+      {
+        "industry": "通用设备",
+        "count": 2
+      },
+      {
+        "industry": "房地产开",
+        "count": 2
+      },
+      {
+        "industry": "化学制品",
+        "count": 2
+      },
+      {
+        "industry": "化学原料",
+        "count": 2
+      },
+      {
+        "industry": "塑料",
+        "count": 2
+      },
+      {
+        "industry": "饮料乳品",
+        "count": 1
+      },
+      {
+        "industry": "饲料",
+        "count": 1
+      },
+      {
+        "industry": "家电零部",
+        "count": 1
+      },
+      {
+        "industry": "纺织制造",
+        "count": 1
+      },
+      {
+        "industry": "影视院线",
+        "count": 1
+      },
+      {
+        "industry": "铁路公路",
+        "count": 1
+      },
+      {
+        "industry": "渔业",
+        "count": 1
+      },
+      {
+        "industry": "电池",
+        "count": 1
+      },
+      {
+        "industry": "中药Ⅱ",
+        "count": 1
+      },
+      {
+        "industry": "化学制药",
+        "count": 1
+      },
+      {
+        "industry": "电力",
+        "count": 1
+      },
+      {
+        "industry": "煤炭开采",
+        "count": 1
+      }
+    ],
+    "leaders": [
+      {
+        "code": "002343",
+        "name": "慈文传媒",
+        "industry": "影视院线",
+        "streak": 4,
+        "last_price": 8.1,
+        "return_pct": 10.0543479919,
+        "turnover_yuan": 443291296,
+        "seal_amount_yuan": 344695872,
+        "first_seal_time": "093003",
+        "last_seal_time": "093003"
+      },
+      {
+        "code": "002696",
+        "name": "百洋股份",
+        "industry": "饲料",
+        "streak": 4,
+        "last_price": 9.75,
+        "return_pct": 10.0451469421,
+        "turnover_yuan": 28288065,
+        "seal_amount_yuan": 267130110,
+        "first_seal_time": "092500",
+        "last_seal_time": "092500"
+      },
+      {
+        "code": "603096",
+        "name": "新经典",
+        "industry": "出版",
+        "streak": 4,
+        "last_price": 23.07,
+        "return_pct": 10.0143060684,
+        "turnover_yuan": 732440048,
+        "seal_amount_yuan": 127726132,
+        "first_seal_time": "093044",
+        "last_seal_time": "094314"
+      },
+      {
+        "code": "603968",
+        "name": "醋化股份",
+        "industry": "化学制品",
+        "streak": 3,
+        "last_price": 15.8,
+        "return_pct": 10.0278549194,
+        "turnover_yuan": 581408400,
+        "seal_amount_yuan": 52756200,
+        "first_seal_time": "093009",
+        "last_seal_time": "103433"
+      },
+      {
+        "code": "000530",
+        "name": "冰山冷热",
+        "industry": "通用设备",
+        "streak": 2,
+        "last_price": 6.3,
+        "return_pct": 9.9476442337,
+        "turnover_yuan": 99789845,
+        "seal_amount_yuan": 593368914,
+        "first_seal_time": "092500",
+        "last_seal_time": "092500"
+      },
+      {
+        "code": "000823",
+        "name": "超声电子",
+        "industry": "元件",
+        "streak": 2,
+        "last_price": 24.55,
+        "return_pct": 9.9910392761,
+        "turnover_yuan": 695823184,
+        "seal_amount_yuan": 379730193,
+        "first_seal_time": "092500",
+        "last_seal_time": "093024"
+      },
+      {
+        "code": "002860",
+        "name": "星帅尔",
+        "industry": "家电零部",
+        "streak": 2,
+        "last_price": 20.23,
+        "return_pct": 10.005437851,
+        "turnover_yuan": 27711378,
+        "seal_amount_yuan": 292766213,
+        "first_seal_time": "092500",
+        "last_seal_time": "092500"
+      },
+      {
+        "code": "600391",
+        "name": "航发科技",
+        "industry": "航空装备",
+        "streak": 2,
+        "last_price": 42.66,
+        "return_pct": 10.0051574707,
+        "turnover_yuan": 723111792,
+        "seal_amount_yuan": 232701384,
+        "first_seal_time": "100608",
+        "last_seal_time": "100608"
+      },
+      {
+        "code": "605058",
+        "name": "澳弘电子",
+        "industry": "元件",
+        "streak": 2,
+        "last_price": 66.43,
+        "return_pct": 10.0016555786,
+        "turnover_yuan": 902741728,
+        "seal_amount_yuan": 108690175,
+        "first_seal_time": "095143",
+        "last_seal_time": "095143"
+      },
+      {
+        "code": "001318",
+        "name": "阳光乳业",
+        "industry": "饮料乳品",
+        "streak": 2,
+        "last_price": 15.43,
+        "return_pct": 9.9786167145,
+        "turnover_yuan": 597028736,
+        "seal_amount_yuan": 97647628,
+        "first_seal_time": "092500",
+        "last_seal_time": "100936"
+      },
+      {
+        "code": "601188",
+        "name": "龙江交通",
+        "industry": "铁路公路",
+        "streak": 2,
+        "last_price": 3.53,
+        "return_pct": 9.9688472748,
+        "turnover_yuan": 653370832,
+        "seal_amount_yuan": 79926860,
+        "first_seal_time": "093004",
+        "last_seal_time": "101655"
+      },
+      {
+        "code": "600202",
+        "name": "哈空调",
+        "industry": "通用设备",
+        "streak": 2,
+        "last_price": 6.15,
+        "return_pct": 10.0178890228,
+        "turnover_yuan": 140650789,
+        "seal_amount_yuan": 74311390,
+        "first_seal_time": "092500",
+        "last_seal_time": "092500"
+      },
+      {
+        "code": "002917",
+        "name": "金奥博",
+        "industry": "化学制品",
+        "streak": 2,
+        "last_price": 12.1,
+        "return_pct": 10.0,
+        "turnover_yuan": 270525104,
+        "seal_amount_yuan": 57575430,
+        "first_seal_time": "093018",
+        "last_seal_time": "093230"
+      },
+      {
+        "code": "600847",
+        "name": "万里股份",
+        "industry": "电池",
+        "streak": 2,
+        "last_price": 15.43,
+        "return_pct": 9.9786167145,
+        "turnover_yuan": 144903901,
+        "seal_amount_yuan": 55169965,
+        "first_seal_time": "093550",
+        "last_seal_time": "093550"
+      },
+      {
+        "code": "002813",
+        "name": "路畅科技",
+        "industry": "汽车零部",
+        "streak": 2,
+        "last_price": 29.02,
+        "return_pct": 10.0075817108,
+        "turnover_yuan": 287676080,
+        "seal_amount_yuan": 52157646,
+        "first_seal_time": "095615",
+        "last_seal_time": "095615"
+      },
+      {
+        "code": "000668",
+        "name": "荣丰控股",
+        "industry": "房地产开",
+        "streak": 2,
+        "last_price": 22.62,
+        "return_pct": 10.0194549561,
+        "turnover_yuan": 45561204,
+        "seal_amount_yuan": 51281802,
+        "first_seal_time": "092500",
+        "last_seal_time": "092500"
+      },
+      {
+        "code": "301052",
+        "name": "果麦文化",
+        "industry": "出版",
+        "streak": 1,
+        "last_price": 35.7,
+        "return_pct": 20.0,
+        "turnover_yuan": 968886560,
+        "seal_amount_yuan": 440289171,
+        "first_seal_time": "112224",
+        "last_seal_time": "112224"
+      },
+      {
+        "code": "002552",
+        "name": "宝鼎科技",
+        "industry": "元件",
+        "streak": 1,
+        "last_price": 45.8,
+        "return_pct": 9.9903945923,
+        "turnover_yuan": 201428400,
+        "seal_amount_yuan": 422289740,
+        "first_seal_time": "092500",
+        "last_seal_time": "092500"
+      },
+      {
+        "code": "603533",
+        "name": "掌阅科技",
+        "industry": "数字媒体",
+        "streak": 1,
+        "last_price": 29.92,
+        "return_pct": 10.0,
+        "turnover_yuan": 1833511968,
+        "seal_amount_yuan": 413868400,
+        "first_seal_time": "100525",
+        "last_seal_time": "100731"
+      },
+      {
+        "code": "603598",
+        "name": "引力传媒",
+        "industry": "广告营销",
+        "streak": 1,
+        "last_price": 21.91,
+        "return_pct": 9.9899597168,
+        "turnover_yuan": 820017568,
+        "seal_amount_yuan": 355502896,
+        "first_seal_time": "102756",
+        "last_seal_time": "102756"
+      },
+      {
+        "code": "605189",
+        "name": "富春染织",
+        "industry": "纺织制造",
+        "streak": 1,
+        "last_price": 16.23,
+        "return_pct": 10.0338983536,
+        "turnover_yuan": 87075346,
+        "seal_amount_yuan": 329061854,
+        "first_seal_time": "092501",
+        "last_seal_time": "092501"
+      },
+      {
+        "code": "002585",
+        "name": "双星新材",
+        "industry": "塑料",
+        "streak": 1,
+        "last_price": 10.73,
+        "return_pct": 10.051281929,
+        "turnover_yuan": 1007695264,
+        "seal_amount_yuan": 325616356,
+        "first_seal_time": "095230",
+        "last_seal_time": "102824"
+      },
+      {
+        "code": "300006",
+        "name": "莱美药业",
+        "industry": "化学制药",
+        "streak": 1,
+        "last_price": 7.9,
+        "return_pct": 20.0607891083,
+        "turnover_yuan": 1081409520,
+        "seal_amount_yuan": 324156204,
+        "first_seal_time": "093924",
+        "last_seal_time": "093924"
+      },
+      {
+        "code": "300299",
+        "name": "富春股份",
+        "industry": "游戏Ⅱ",
+        "streak": 1,
+        "last_price": 6.88,
+        "return_pct": 20.0698070526,
+        "turnover_yuan": 964559696,
+        "seal_amount_yuan": 300027993,
+        "first_seal_time": "102424",
+        "last_seal_time": "105051"
+      },
+      {
+        "code": "000601",
+        "name": "韶能股份",
+        "industry": "电力",
+        "streak": 1,
+        "last_price": 6.82,
+        "return_pct": 10.0,
+        "turnover_yuan": 992736848,
+        "seal_amount_yuan": 252608162,
+        "first_seal_time": "094657",
+        "last_seal_time": "104330"
+      },
+      {
+        "code": "600121",
+        "name": "郑州煤电",
+        "industry": "煤炭开采",
+        "streak": 1,
+        "last_price": 5.86,
+        "return_pct": 9.9437150955,
+        "turnover_yuan": 1079226864,
+        "seal_amount_yuan": 235449408,
+        "first_seal_time": "094719",
+        "last_seal_time": "095031"
+      },
+      {
+        "code": "603258",
+        "name": "电魂网络",
+        "industry": "游戏Ⅱ",
+        "streak": 1,
+        "last_price": 16.15,
+        "return_pct": 10.0136241913,
+        "turnover_yuan": 128114287,
+        "seal_amount_yuan": 210121238,
+        "first_seal_time": "093746",
+        "last_seal_time": "093746"
+      },
+      {
+        "code": "301132",
+        "name": "满坤科技",
+        "industry": "元件",
+        "streak": 1,
+        "last_price": 76.07,
+        "return_pct": 20.0031547546,
+        "turnover_yuan": 1198897216,
+        "seal_amount_yuan": 156377099,
+        "first_seal_time": "100024",
+        "last_seal_time": "104027"
+      },
+      {
+        "code": "601858",
+        "name": "中国科传",
+        "industry": "出版",
+        "streak": 1,
+        "last_price": 26.11,
+        "return_pct": 9.9831504822,
+        "turnover_yuan": 651259920,
+        "seal_amount_yuan": 142529268,
+        "first_seal_time": "110108",
+        "last_seal_time": "110108"
+      },
+      {
+        "code": "002886",
+        "name": "沃特股份",
+        "industry": "塑料",
+        "streak": 1,
+        "last_price": 23.25,
+        "return_pct": 9.9810791016,
+        "turnover_yuan": 450241808,
+        "seal_amount_yuan": 139830150,
+        "first_seal_time": "095906",
+        "last_seal_time": "095936"
+      }
+    ]
+  },
+  "sector_mode": "live_ranking",
+  "sector_ranking_updated_at": "2026-10-14T12:49:07.773628+08:00",
+  "sector_ranking_source": "同花顺行业资金流排名（AKShare备用）"
 }
