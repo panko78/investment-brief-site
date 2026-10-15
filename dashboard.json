@@ -1,18 +1,14 @@
 {
-  "updated_at": "2026-10-15 05:56",
+  "updated_at": "2026-10-15 10:28",
   "liquidity": {
     "status": "多源校验更新正常",
     "freshness": {
-      "margin_as_of": "2026-10-13",
+      "margin_as_of": "2026-10-14",
       "turnover_as_of": "2026-10-14",
       "sh_index_as_of": "2026-10-14",
-      "checked_at": "2026-10-15 05:55"
+      "checked_at": "2026-10-15 10:27"
     },
     "margin_series": [
-      {
-        "date": "2026-08-25",
-        "margin_balance": 26559.67
-      },
       {
         "date": "2026-08-26",
         "margin_balance": 26531.74
@@ -128,6 +124,10 @@
       {
         "date": "2026-10-13",
         "margin_balance": 25458.45
+      },
+      {
+        "date": "2026-10-14",
+        "margin_balance": 25350.91
       }
     ],
     "turnover_series": [
@@ -519,6 +519,11 @@
         "date": "2026-10-13",
         "margin_balance": 25458.45,
         "turnover": 16778.31
+      },
+      {
+        "date": "2026-10-14",
+        "margin_balance": 25350.91,
+        "turnover": 14158.97
       }
     ],
     "high_30d": {
@@ -1437,27 +1442,27 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-10-15T05:56:20.077442+08:00",
+    "checked_at": "2026-10-15T10:28:45.067079+08:00",
     "expected_market_date": "2026-10-14",
     "sh_index_as_of": "2026-10-14",
     "turnover_as_of": "2026-10-14",
-    "margin_as_of": "2026-10-13",
+    "margin_as_of": "2026-10-14",
     "modules": {
       "liquidity": {
         "status": "ok",
         "expected_date": "2026-10-14",
         "sh_index_as_of": "2026-10-14",
         "turnover_as_of": "2026-10-14",
-        "margin_as_of": "2026-10-13",
-        "checked_at": "2026-10-15 05:55"
+        "margin_as_of": "2026-10-14",
+        "checked_at": "2026-10-15 10:27"
       },
       "sectors": {
         "status": "ok",
-        "mode": "completed_ranking_fallback",
+        "mode": "live_ranking",
         "rows": 20,
         "usable_rows": 20,
-        "as_of": "2026-10-14",
-        "contract": "verified day/3/5/10 fund-flow; turnover/return intentionally unavailable"
+        "updated_at": "2026-10-15T10:27:34.417751+08:00",
+        "source": "同花顺行业资金流排名（AKShare备用）"
       },
       "stocks": {
         "status": "ok",
@@ -1469,12 +1474,12 @@
       "limits": {
         "status": "ok",
         "completed_as_of": "2026-10-14",
-        "live_required": false,
-        "live_date": null,
-        "live_fetched_at": null,
-        "live_limit_count": null,
-        "live_failed_count": null,
-        "live_age_minutes": null
+        "live_required": true,
+        "live_date": "2026-10-15",
+        "live_fetched_at": "2026-10-15T10:28:28.874934+08:00",
+        "live_limit_count": 27,
+        "live_failed_count": 5,
+        "live_age_minutes": 0.3
       },
       "etf": {
         "status": "ok",
@@ -1494,19 +1499,19 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-10-14",
-      "updated_at": "2026-10-15T05:56:19.581893+08:00",
-      "sector_mode": "completed_ranking_fallback",
+      "updated_at": "2026-10-15T10:28:44.596929+08:00",
+      "sector_mode": "live_ranking",
       "usable_sectors": 20,
       "usable_stocks": 5,
       "expected_stocks": 5,
       "incomplete_stocks": [],
       "limit_up_ok": true,
-      "live_limit_ok": false,
+      "live_limit_ok": true,
       "etf_comparison_ok": true,
       "etf_as_of": "2026-10-14",
       "etf_current_day_available": true,
       "etf_change_rows": 921,
-      "transient_request_errors": 0
+      "transient_request_errors": 1
     },
     "warnings": [
       "brief.json 仍为较早日期 2026-10-14；核心行情模块不受影响"
