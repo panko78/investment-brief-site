@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-03 01:07",
+  "updated_at": "2026-11-03 01:28",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "两融接口本次失败，保留上一成功数据和真实数据日",
     "freshness": {
       "margin_as_of": "2026-10-30",
       "turnover_as_of": "2026-11-02",
       "sh_index_as_of": "2026-11-02",
-      "checked_at": "2026-11-03 01:06"
+      "checked_at": "2026-11-03 01:28"
     },
     "margin_series": [
       {
@@ -237,19 +237,19 @@
       },
       {
         "date": "2026-10-28",
-        "turnover": 16301.89
+        "turnover": 16278.66
       },
       {
         "date": "2026-10-29",
-        "turnover": 15576.94
+        "turnover": 15558.65
       },
       {
         "date": "2026-10-30",
-        "turnover": 16763.64
+        "turnover": 16739.21
       },
       {
         "date": "2026-11-02",
-        "turnover": 17849.43
+        "turnover": 17829.39
       }
     ],
     "sh_index_series": [
@@ -299,7 +299,7 @@
       },
       {
         "date": "2026-09-30",
-        "sh_close": 3842.19
+        "sh_close": 3842.2
       },
       {
         "date": "2026-10-08",
@@ -347,7 +347,7 @@
       },
       {
         "date": "2026-10-23",
-        "sh_close": 3690.48
+        "sh_close": 3690.47
       },
       {
         "date": "2026-10-26",
@@ -508,17 +508,17 @@
       {
         "date": "2026-10-28",
         "margin_balance": 24120.41,
-        "turnover": 16301.89
+        "turnover": 16278.66
       },
       {
         "date": "2026-10-29",
         "margin_balance": 23849.6,
-        "turnover": 15576.94
+        "turnover": 15558.65
       },
       {
         "date": "2026-10-30",
         "margin_balance": 23431.31,
-        "turnover": 16763.64
+        "turnover": 16739.21
       }
     ],
     "high_30d": {
@@ -536,7 +536,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -620,8 +620,8 @@
         "关税预期落空",
         "制造业需求转弱"
       ],
-      "latest": 14341.5,
-      "month_change": -0.49,
+      "latest": 14357.5,
+      "month_change": -0.38,
       "trend": "震荡",
       "outlook": "未来1–4周更可能区间震荡，等待价格对20日均线和近月高低点作出方向选择。",
       "series": [
@@ -723,10 +723,10 @@
         },
         {
           "date": "2026-11-02",
-          "close": 14341.5
+          "close": 14357.5
         }
       ],
-      "momentum_5d": 0.06,
+      "momentum_5d": 0.17,
       "data_source": "LME 3个月铜",
       "source_note": "当前使用LME 3个月铜历史行情；若该接口为空会自动切换COMEX铜连续备用源。"
     },
@@ -743,8 +743,8 @@
         "LME和中国精炼镍高库存",
         "印尼追加配额"
       ],
-      "latest": 15570.0,
-      "month_change": -2.57,
+      "latest": 15555.0,
+      "month_change": -2.66,
       "trend": "震荡偏弱",
       "outlook": "未来1–4周偏弱震荡；需要重新站回20日均线才算明显改善。",
       "series": [
@@ -846,10 +846,10 @@
         },
         {
           "date": "2026-11-02",
-          "close": 15570.0
+          "close": 15555.0
         }
       ],
-      "momentum_5d": 0.35,
+      "momentum_5d": 0.26,
       "data_source": "LME/COMEX primary source"
     },
     "aluminum": {
@@ -989,8 +989,8 @@
         "中国出口增加",
         "挤仓缓解后多头平仓"
       ],
-      "latest": 3897.5,
-      "month_change": 0.93,
+      "latest": 3893.0,
+      "month_change": 0.82,
       "trend": "震荡",
       "outlook": "未来1–4周更可能区间震荡，等待价格对20日均线和近月高低点作出方向选择。",
       "series": [
@@ -1092,10 +1092,10 @@
         },
         {
           "date": "2026-11-02",
-          "close": 3897.5
+          "close": 3893.0
         }
       ],
-      "momentum_5d": 1.99,
+      "momentum_5d": 1.87,
       "data_source": "LME/COMEX primary source"
     },
     "gold": {
@@ -1113,8 +1113,8 @@
         "美元反弹",
         "高位获利了结"
       ],
-      "latest": 3979.3,
-      "month_change": -5.59,
+      "latest": 3978.5,
+      "month_change": -5.61,
       "trend": "弱势下行",
       "outlook": "未来1–4周技术面偏空；除非出现供给冲击或价格快速收复20日均线。",
       "series": [
@@ -1216,10 +1216,10 @@
         },
         {
           "date": "2026-11-02",
-          "close": 3979.3
+          "close": 3978.5
         }
       ],
-      "momentum_5d": -1.28,
+      "momentum_5d": -1.3,
       "data_source": "LME/COMEX primary source"
     },
     "silver": {
@@ -1236,8 +1236,8 @@
         "高波动和杠杆资金撤退",
         "工业需求走弱"
       ],
-      "latest": 51.015,
-      "month_change": -17.5,
+      "latest": 51.035,
+      "month_change": -17.47,
       "trend": "弱势下行",
       "outlook": "未来1–4周技术面偏空；除非出现供给冲击或价格快速收复20日均线。",
       "series": [
@@ -1339,10 +1339,10 @@
         },
         {
           "date": "2026-11-02",
-          "close": 51.015
+          "close": 51.035
         }
       ],
-      "momentum_5d": -5.57,
+      "momentum_5d": -5.53,
       "data_source": "LME/COMEX primary source"
     },
     "tungsten": {
@@ -1445,7 +1445,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-11-03T01:07:32.031279+08:00",
+    "checked_at": "2026-11-03T01:28:47.187064+08:00",
     "expected_market_date": "2026-11-02",
     "sh_index_as_of": "2026-11-02",
     "turnover_as_of": "2026-11-02",
@@ -1457,7 +1457,7 @@
         "sh_index_as_of": "2026-11-02",
         "turnover_as_of": "2026-11-02",
         "margin_as_of": "2026-10-30",
-        "checked_at": "2026-11-03 01:06"
+        "checked_at": "2026-11-03 01:28"
       },
       "sectors": {
         "status": "ok",
@@ -1502,7 +1502,7 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-11-02",
-      "updated_at": "2026-11-03T01:07:31.623371+08:00",
+      "updated_at": "2026-11-03T01:28:46.490905+08:00",
       "sector_mode": "completed_ranking_fallback",
       "usable_sectors": 20,
       "usable_stocks": 5,
@@ -1514,7 +1514,7 @@
       "etf_as_of": "2026-11-02",
       "etf_current_day_available": true,
       "etf_change_rows": 923,
-      "transient_request_errors": 0
+      "transient_request_errors": 5
     },
     "warnings": [
       "brief.json 仍为较早日期 2026-11-02；核心行情模块不受影响"
