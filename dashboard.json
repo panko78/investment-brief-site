@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-05 23:23",
+  "updated_at": "2026-11-05 23:31",
   "liquidity": {
-    "status": "两融接口本次失败，保留上一成功数据和真实数据日",
+    "status": "多源校验更新正常",
     "freshness": {
       "margin_as_of": "2026-11-04",
       "turnover_as_of": "2026-11-05",
       "sh_index_as_of": "2026-11-05",
-      "checked_at": "2026-11-05 23:22"
+      "checked_at": "2026-11-05 23:29"
     },
     "margin_series": [
       {
@@ -237,19 +237,19 @@
       },
       {
         "date": "2026-11-02",
-        "turnover": 17829.39
+        "turnover": 17849.43
       },
       {
         "date": "2026-11-03",
-        "turnover": 17025.43
+        "turnover": 17051.63
       },
       {
         "date": "2026-11-04",
-        "turnover": 20369.94
+        "turnover": 20396.77
       },
       {
         "date": "2026-11-05",
-        "turnover": 21173.86
+        "turnover": 21206.44
       }
     ],
     "sh_index_series": [
@@ -508,17 +508,17 @@
       {
         "date": "2026-11-02",
         "margin_balance": 23308.44,
-        "turnover": 17829.39
+        "turnover": 17849.43
       },
       {
         "date": "2026-11-03",
         "margin_balance": 22988.61,
-        "turnover": 17025.43
+        "turnover": 17051.63
       },
       {
         "date": "2026-11-04",
         "margin_balance": 23004.44,
-        "turnover": 20369.94
+        "turnover": 20396.77
       }
     ],
     "high_30d": {
@@ -536,7 +536,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -874,8 +874,8 @@
         "中国供应增长",
         "全球工业需求走弱"
       ],
-      "latest": 3071.0,
-      "month_change": -1.54,
+      "latest": 3062.5,
+      "month_change": -1.81,
       "trend": "震荡",
       "outlook": "未来1–4周更可能区间震荡，等待价格对20日均线和近月高低点作出方向选择。",
       "series": [
@@ -981,10 +981,10 @@
         },
         {
           "date": "2026-11-05",
-          "close": 3071.0
+          "close": 3062.5
         }
       ],
-      "momentum_5d": 0.1,
+      "momentum_5d": -0.18,
       "data_source": "LME/COMEX primary source"
     },
     "zinc": {
@@ -1256,8 +1256,8 @@
         "高波动和杠杆资金撤退",
         "工业需求走弱"
       ],
-      "latest": 52.435,
-      "month_change": -14.53,
+      "latest": 52.115,
+      "month_change": -15.05,
       "trend": "震荡偏弱",
       "outlook": "未来1–4周偏弱震荡；需要重新站回20日均线才算明显改善。",
       "series": [
@@ -1363,10 +1363,10 @@
         },
         {
           "date": "2026-11-05",
-          "close": 52.435
+          "close": 52.115
         }
       ],
-      "momentum_5d": 0.42,
+      "momentum_5d": -0.19,
       "data_source": "LME/COMEX primary source"
     },
     "tungsten": {
@@ -1473,7 +1473,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-11-05T23:23:36.784780+08:00",
+    "checked_at": "2026-11-05T23:31:41.603526+08:00",
     "expected_market_date": "2026-11-05",
     "sh_index_as_of": "2026-11-05",
     "turnover_as_of": "2026-11-05",
@@ -1485,15 +1485,14 @@
         "sh_index_as_of": "2026-11-05",
         "turnover_as_of": "2026-11-05",
         "margin_as_of": "2026-11-04",
-        "checked_at": "2026-11-05 23:22"
+        "checked_at": "2026-11-05 23:29"
       },
       "sectors": {
         "status": "ok",
-        "mode": "completed_ranking_fallback",
-        "rows": 20,
-        "usable_rows": 20,
-        "as_of": "2026-11-05",
-        "contract": "verified day/3/5/10 fund-flow; turnover/return intentionally unavailable"
+        "mode": "completed_history",
+        "rows": 12,
+        "usable_rows": 12,
+        "as_of": "2026-11-05"
       },
       "stocks": {
         "status": "ok",
@@ -1507,10 +1506,10 @@
         "completed_as_of": "2026-11-05",
         "live_required": false,
         "live_date": "2026-11-05",
-        "live_fetched_at": "2026-11-05T23:23:10.148036+08:00",
+        "live_fetched_at": "2026-11-05T23:31:00.728954+08:00",
         "live_limit_count": 84,
         "live_failed_count": 48,
-        "live_age_minutes": 0.4
+        "live_age_minutes": 0.7
       },
       "etf": {
         "status": "ok",
@@ -1530,9 +1529,9 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-11-05",
-      "updated_at": "2026-11-05T23:23:36.039908+08:00",
-      "sector_mode": "completed_ranking_fallback",
-      "usable_sectors": 20,
+      "updated_at": "2026-11-05T23:31:41.074868+08:00",
+      "sector_mode": "completed_history",
+      "usable_sectors": 12,
       "usable_stocks": 5,
       "expected_stocks": 5,
       "incomplete_stocks": [],
@@ -1542,7 +1541,7 @@
       "etf_as_of": "2026-11-05",
       "etf_current_day_available": true,
       "etf_change_rows": 923,
-      "transient_request_errors": 5
+      "transient_request_errors": 0
     },
     "warnings": [],
     "problems": [],
