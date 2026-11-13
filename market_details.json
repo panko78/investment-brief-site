@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-13T14:36:50.518676+08:00",
-  "data_date": "2026-11-12",
+  "updated_at": "2026-11-13T16:44:00.701256+08:00",
+  "data_date": "2026-11-13",
   "benchmark": "上证指数000001；未复权收盘收益，超额为百分点差",
-  "sector_scope": "动态行业资金榜：仅展示当前排名中当日、3日、5日、10日资金与收益率均完整的行业，并按当日净流入排序；缺失窗口不以旧值回填。",
+  "sector_scope": "动态行业资金榜；历史行业板块映射暂不可用，仅展示最近完成交易日中3/5/10日窗口完整的行业。",
   "limit_scope": "盘中优先显示当日东方财富涨停/炸板专题池实时快照；完整交易日历史仍保存在 limit_history。接口口径不含ST及科创板，北交所覆盖未单独验证。",
   "etf_scope": "上交所ETF官方份额；若最新交易日尚未发布，则显示最近两个已核验统计日并明确日期。份额单位为份，差值不是人民币净申购金额",
   "sectors": [
@@ -10,65 +10,31 @@
       "code": null,
       "name": "银行",
       "data_date": "2026-11-13",
-      "return_pct": 1.37,
+      "return_pct": 1.43,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 6275000000.0,
+      "day_net_yuan": 6179000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": 1487000000.0,
           "inflow_days": null,
-          "return_pct": 1.08,
+          "return_pct": 1.14,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": 2467000000.0,
           "inflow_days": null,
-          "return_pct": 3.1,
+          "return_pct": 3.14,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": 1620000000.0,
           "inflow_days": null,
-          "return_pct": 1.61,
-          "excess_pct_point": null,
-          "observed_flow_days": 10
-        }
-      }
-    },
-    {
-      "code": null,
-      "name": "白酒",
-      "data_date": "2026-11-13",
-      "return_pct": 1.12,
-      "turnover_yuan": null,
-      "turnover_pct": null,
-      "day_net_yuan": 1170000000.0,
-      "net_to_turnover_pct": null,
-      "turnover_vs_prev20": null,
-      "windows": {
-        "3": {
-          "net_yuan": -46000000.0,
-          "inflow_days": null,
-          "return_pct": -0.69,
-          "excess_pct_point": null,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": -71000000.0,
-          "inflow_days": null,
-          "return_pct": -3.1,
-          "excess_pct_point": null,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": 2757000000.0,
-          "inflow_days": null,
-          "return_pct": 9.42,
+          "return_pct": 1.67,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -78,31 +44,65 @@
       "code": null,
       "name": "白色家电",
       "data_date": "2026-11-13",
-      "return_pct": -1.84,
+      "return_pct": -1.58,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 1055000000.0000001,
+      "day_net_yuan": 1243000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": 523000000.00000006,
           "inflow_days": null,
-          "return_pct": -0.86,
+          "return_pct": -0.6,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": 118000000.0,
           "inflow_days": null,
-          "return_pct": -1.99,
+          "return_pct": -1.76,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": 1076000000.0,
           "inflow_days": null,
-          "return_pct": -1.35,
+          "return_pct": -1.12,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "白酒",
+      "data_date": "2026-11-13",
+      "return_pct": 0.89,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 1026000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": -46000000.0,
+          "inflow_days": null,
+          "return_pct": -0.93,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -71000000.0,
+          "inflow_days": null,
+          "return_pct": -3.34,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": 2757000000.0,
+          "inflow_days": null,
+          "return_pct": 9.16,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -112,31 +112,31 @@
       "code": null,
       "name": "电力",
       "data_date": "2026-11-13",
-      "return_pct": -0.9,
+      "return_pct": -0.93,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 884000000.0,
+      "day_net_yuan": 760000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -593000000.0,
           "inflow_days": null,
-          "return_pct": -2.06,
+          "return_pct": -2.08,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": 1932999999.9999998,
           "inflow_days": null,
-          "return_pct": -1.7,
+          "return_pct": -1.78,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": -1184000000.0,
           "inflow_days": null,
-          "return_pct": 1.11,
+          "return_pct": 1.08,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -146,17 +146,17 @@
       "code": null,
       "name": "煤炭开采加工",
       "data_date": "2026-11-13",
-      "return_pct": -0.56,
+      "return_pct": -0.53,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 548000000.0,
+      "day_net_yuan": 501000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -1507000000.0,
           "inflow_days": null,
-          "return_pct": -2.96,
+          "return_pct": -2.93,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
@@ -170,7 +170,7 @@
         "10": {
           "net_yuan": 119000000.0,
           "inflow_days": null,
-          "return_pct": -3.0,
+          "return_pct": -3.01,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -180,31 +180,31 @@
       "code": null,
       "name": "保险",
       "data_date": "2026-11-13",
-      "return_pct": 1.14,
+      "return_pct": 1.2,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 548000000.0,
+      "day_net_yuan": 484000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -284000000.0,
           "inflow_days": null,
-          "return_pct": -1.28,
+          "return_pct": -1.22,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": -252999999.99999997,
           "inflow_days": null,
-          "return_pct": -1.88,
+          "return_pct": -1.9,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": -335000000.0,
           "inflow_days": null,
-          "return_pct": 0.23,
+          "return_pct": 0.29,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -214,31 +214,31 @@
       "code": null,
       "name": "通信服务",
       "data_date": "2026-11-13",
-      "return_pct": -0.69,
+      "return_pct": -0.56,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 484000000.0,
+      "day_net_yuan": 420000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -59000000.0,
           "inflow_days": null,
-          "return_pct": 1.29,
+          "return_pct": 1.42,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": -79000000.0,
           "inflow_days": null,
-          "return_pct": -1.36,
+          "return_pct": -1.22,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": -482000000.0,
           "inflow_days": null,
-          "return_pct": 1.56,
+          "return_pct": 1.7,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -248,31 +248,31 @@
       "code": null,
       "name": "养殖业",
       "data_date": "2026-11-13",
-      "return_pct": 0.66,
+      "return_pct": 0.87,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 407000000.0,
+      "day_net_yuan": 363000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -256000000.0,
           "inflow_days": null,
-          "return_pct": 0.73,
+          "return_pct": 0.94,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": 342000000.0,
           "inflow_days": null,
-          "return_pct": 0.79,
+          "return_pct": 0.99,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": -91000000.0,
           "inflow_days": null,
-          "return_pct": 5.24,
+          "return_pct": 5.47,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -282,31 +282,31 @@
       "code": null,
       "name": "石油加工贸易",
       "data_date": "2026-11-13",
-      "return_pct": -0.84,
+      "return_pct": -0.69,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 273000000.0,
+      "day_net_yuan": 250999999.99999997,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -964000000.0,
           "inflow_days": null,
-          "return_pct": -0.96,
+          "return_pct": -0.8,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": 132000000.0,
           "inflow_days": null,
-          "return_pct": -2.62,
+          "return_pct": -2.52,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": 320000000.0,
           "inflow_days": null,
-          "return_pct": -0.91,
+          "return_pct": -0.8,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -316,65 +316,31 @@
       "code": null,
       "name": "轨交设备",
       "data_date": "2026-11-13",
-      "return_pct": -0.95,
+      "return_pct": -0.93,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 169000000.0,
+      "day_net_yuan": 146000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -32000000.0,
           "inflow_days": null,
-          "return_pct": 0.49,
+          "return_pct": 0.51,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": 495000000.0,
           "inflow_days": null,
-          "return_pct": -0.82,
+          "return_pct": -0.83,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": 189000000.0,
           "inflow_days": null,
-          "return_pct": -0.05,
-          "excess_pct_point": null,
-          "observed_flow_days": 10
-        }
-      }
-    },
-    {
-      "code": null,
-      "name": "影视院线",
-      "data_date": "2026-11-13",
-      "return_pct": 4.19,
-      "turnover_yuan": null,
-      "turnover_pct": null,
-      "day_net_yuan": 169000000.0,
-      "net_to_turnover_pct": null,
-      "turnover_vs_prev20": null,
-      "windows": {
-        "3": {
-          "net_yuan": 521000000.0,
-          "inflow_days": null,
-          "return_pct": 9.08,
-          "excess_pct_point": null,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": -691000000.0,
-          "inflow_days": null,
-          "return_pct": 8.57,
-          "excess_pct_point": null,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": -911000000.0,
-          "inflow_days": null,
-          "return_pct": 19.28,
+          "return_pct": -0.02,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -384,31 +350,65 @@
       "code": null,
       "name": "公路铁路运输",
       "data_date": "2026-11-13",
-      "return_pct": -0.76,
+      "return_pct": -0.73,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 75000000.0,
+      "day_net_yuan": 110000000.00000001,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -549000000.0,
           "inflow_days": null,
-          "return_pct": -0.68,
+          "return_pct": -0.65,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": 217000000.0,
           "inflow_days": null,
-          "return_pct": 0.87,
+          "return_pct": 0.83,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": -18000000.0,
           "inflow_days": null,
-          "return_pct": 2.04,
+          "return_pct": 2.07,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "影视院线",
+      "data_date": "2026-11-13",
+      "return_pct": 4.37,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": 20000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 521000000.0,
+          "inflow_days": null,
+          "return_pct": 9.27,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -691000000.0,
+          "inflow_days": null,
+          "return_pct": 8.68,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -911000000.0,
+          "inflow_days": null,
+          "return_pct": 19.49,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -418,31 +418,31 @@
       "code": null,
       "name": "环保设备",
       "data_date": "2026-11-13",
-      "return_pct": -1.86,
+      "return_pct": -1.8,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": 20000000.0,
+      "day_net_yuan": 18000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": -35000000.0,
           "inflow_days": null,
-          "return_pct": -0.53,
+          "return_pct": -0.47,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": -92000000.0,
           "inflow_days": null,
-          "return_pct": -2.49,
+          "return_pct": -2.47,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": -139000000.0,
           "inflow_days": null,
-          "return_pct": 1.25,
+          "return_pct": 1.32,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -452,167 +452,31 @@
       "code": null,
       "name": "橡胶制品",
       "data_date": "2026-11-13",
-      "return_pct": -2.06,
+      "return_pct": -2.09,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": -1000000.0,
+      "day_net_yuan": -6000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": 9000000.0,
           "inflow_days": null,
-          "return_pct": -1.69,
+          "return_pct": -1.72,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": -72000000.0,
           "inflow_days": null,
-          "return_pct": -3.73,
+          "return_pct": -3.77,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": -49000000.0,
           "inflow_days": null,
-          "return_pct": -1.62,
-          "excess_pct_point": null,
-          "observed_flow_days": 10
-        }
-      }
-    },
-    {
-      "code": null,
-      "name": "汽车整车",
-      "data_date": "2026-11-13",
-      "return_pct": -0.61,
-      "turnover_yuan": null,
-      "turnover_pct": null,
-      "day_net_yuan": -30000000.0,
-      "net_to_turnover_pct": null,
-      "turnover_vs_prev20": null,
-      "windows": {
-        "3": {
-          "net_yuan": 50000000.0,
-          "inflow_days": null,
-          "return_pct": -2.91,
-          "excess_pct_point": null,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": -395000000.0,
-          "inflow_days": null,
-          "return_pct": -4.97,
-          "excess_pct_point": null,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": -379000000.0,
-          "inflow_days": null,
-          "return_pct": -2.28,
-          "excess_pct_point": null,
-          "observed_flow_days": 10
-        }
-      }
-    },
-    {
-      "code": null,
-      "name": "证券",
-      "data_date": "2026-11-13",
-      "return_pct": -0.75,
-      "turnover_yuan": null,
-      "turnover_pct": null,
-      "day_net_yuan": -36000000.0,
-      "net_to_turnover_pct": null,
-      "turnover_vs_prev20": null,
-      "windows": {
-        "3": {
-          "net_yuan": -1024000000.0,
-          "inflow_days": null,
-          "return_pct": -2.0,
-          "excess_pct_point": null,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": -797000000.0,
-          "inflow_days": null,
-          "return_pct": -3.47,
-          "excess_pct_point": null,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": -644000000.0,
-          "inflow_days": null,
-          "return_pct": 0.43,
-          "excess_pct_point": null,
-          "observed_flow_days": 10
-        }
-      }
-    },
-    {
-      "code": null,
-      "name": "黑色家电",
-      "data_date": "2026-11-13",
-      "return_pct": 0.47,
-      "turnover_yuan": null,
-      "turnover_pct": null,
-      "day_net_yuan": -42000000.0,
-      "net_to_turnover_pct": null,
-      "turnover_vs_prev20": null,
-      "windows": {
-        "3": {
-          "net_yuan": 120000000.0,
-          "inflow_days": null,
-          "return_pct": 3.67,
-          "excess_pct_point": null,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": 4000000.0,
-          "inflow_days": null,
-          "return_pct": 3.12,
-          "excess_pct_point": null,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": -119000000.0,
-          "inflow_days": null,
-          "return_pct": 7.88,
-          "excess_pct_point": null,
-          "observed_flow_days": 10
-        }
-      }
-    },
-    {
-      "code": null,
-      "name": "多元金融",
-      "data_date": "2026-11-13",
-      "return_pct": -1.15,
-      "turnover_yuan": null,
-      "turnover_pct": null,
-      "day_net_yuan": -62000000.0,
-      "net_to_turnover_pct": null,
-      "turnover_vs_prev20": null,
-      "windows": {
-        "3": {
-          "net_yuan": -50000000.0,
-          "inflow_days": null,
-          "return_pct": -1.67,
-          "excess_pct_point": null,
-          "observed_flow_days": 3
-        },
-        "5": {
-          "net_yuan": -131000000.0,
-          "inflow_days": null,
-          "return_pct": -3.37,
-          "excess_pct_point": null,
-          "observed_flow_days": 5
-        },
-        "10": {
-          "net_yuan": -219000000.0,
-          "inflow_days": null,
-          "return_pct": -0.65,
+          "return_pct": -1.65,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -622,31 +486,31 @@
       "code": null,
       "name": "机场航运",
       "data_date": "2026-11-13",
-      "return_pct": -0.88,
+      "return_pct": -0.74,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": -69000000.0,
+      "day_net_yuan": -22000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
           "net_yuan": 582000000.0,
           "inflow_days": null,
-          "return_pct": -1.23,
+          "return_pct": -1.08,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
           "net_yuan": -112000000.00000001,
           "inflow_days": null,
-          "return_pct": -3.07,
+          "return_pct": -2.88,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
           "net_yuan": 107000000.0,
           "inflow_days": null,
-          "return_pct": 5.2,
+          "return_pct": 5.35,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -654,33 +518,169 @@
     },
     {
       "code": null,
-      "name": "小家电",
+      "name": "黑色家电",
       "data_date": "2026-11-13",
-      "return_pct": -1.15,
+      "return_pct": 0.65,
       "turnover_yuan": null,
       "turnover_pct": null,
-      "day_net_yuan": -90000000.0,
+      "day_net_yuan": -54000000.0,
       "net_to_turnover_pct": null,
       "turnover_vs_prev20": null,
       "windows": {
         "3": {
-          "net_yuan": -182000000.0,
+          "net_yuan": 120000000.0,
           "inflow_days": null,
-          "return_pct": -1.1,
+          "return_pct": 3.86,
           "excess_pct_point": null,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -26000000.0,
+          "net_yuan": 4000000.0,
           "inflow_days": null,
-          "return_pct": -1.98,
+          "return_pct": 3.23,
           "excess_pct_point": null,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -206000000.0,
+          "net_yuan": -119000000.0,
           "inflow_days": null,
-          "return_pct": 2.01,
+          "return_pct": 8.07,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "多元金融",
+      "data_date": "2026-11-13",
+      "return_pct": -1.02,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": -63000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": -50000000.0,
+          "inflow_days": null,
+          "return_pct": -1.54,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -131000000.0,
+          "inflow_days": null,
+          "return_pct": -3.3,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -219000000.0,
+          "inflow_days": null,
+          "return_pct": -0.58,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "证券",
+      "data_date": "2026-11-13",
+      "return_pct": -0.9,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": -129000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": -1024000000.0,
+          "inflow_days": null,
+          "return_pct": -2.15,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -797000000.0,
+          "inflow_days": null,
+          "return_pct": -3.68,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -644000000.0,
+          "inflow_days": null,
+          "return_pct": 0.28,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "汽车服务及其他",
+      "data_date": "2026-11-13",
+      "return_pct": -2.01,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": -131000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": 191000000.0,
+          "inflow_days": null,
+          "return_pct": -0.45,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -36000000.0,
+          "inflow_days": null,
+          "return_pct": -1.94,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": -93000000.0,
+          "inflow_days": null,
+          "return_pct": 2.53,
+          "excess_pct_point": null,
+          "observed_flow_days": 10
+        }
+      }
+    },
+    {
+      "code": null,
+      "name": "物流",
+      "data_date": "2026-11-13",
+      "return_pct": -1.8,
+      "turnover_yuan": null,
+      "turnover_pct": null,
+      "day_net_yuan": -137000000.0,
+      "net_to_turnover_pct": null,
+      "turnover_vs_prev20": null,
+      "windows": {
+        "3": {
+          "net_yuan": -281000000.0,
+          "inflow_days": null,
+          "return_pct": -1.19,
+          "excess_pct_point": null,
+          "observed_flow_days": 3
+        },
+        "5": {
+          "net_yuan": -36000000.0,
+          "inflow_days": null,
+          "return_pct": -2.42,
+          "excess_pct_point": null,
+          "observed_flow_days": 5
+        },
+        "10": {
+          "net_yuan": 39000000.0,
+          "inflow_days": null,
+          "return_pct": -1.12,
           "excess_pct_point": null,
           "observed_flow_days": 10
         }
@@ -691,191 +691,180 @@
     {
       "code": "601615",
       "name": "明阳智能",
-      "data_date": "2026-11-12",
-      "close": 7.88,
-      "return_pct": -3.9024,
-      "turnover_yuan": 400912378.0,
-      "turnover_pct": 2.2043,
-      "day_net_yuan": -61204229.0,
+      "data_date": "2026-11-13",
+      "close": 7.92,
+      "return_pct": 0.51,
+      "turnover_yuan": 520804147.0,
+      "turnover_pct": 2.86,
+      "day_net_yuan": 45084000.0,
       "windows": {
         "3": {
-          "net_yuan": -115298262.0,
-          "inflow_days": 0,
-          "return_pct": -5.741626794258369,
-          "excess_pct_point": -5.606136913658821,
+          "net_yuan": -68475167.0,
+          "inflow_days": 1,
+          "return_pct": -4.693140794223838,
+          "excess_pct_point": -3.891496563769548,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -105839041.0,
-          "inflow_days": 1,
-          "return_pct": -7.83625730994153,
-          "excess_pct_point": -6.912657547345691,
+          "net_yuan": -51350455.0,
+          "inflow_days": 2,
+          "return_pct": -5.1497005988023865,
+          "excess_pct_point": -4.743307929764417,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -172087368.0,
-          "inflow_days": 2,
-          "return_pct": -5.966587112171851,
-          "excess_pct_point": -6.087087847500195,
+          "net_yuan": -112819238.0,
+          "inflow_days": 3,
+          "return_pct": -2.822085889570558,
+          "excess_pct_point": -3.8037420070692107,
           "observed_flow_days": 10
         }
       },
-      "turnover_vs_prev20": 1.0818503939905437,
-      "net_to_turnover_pct": -15.266235805770009,
-      "snapshot_source": "BaoStock未复权日线备用源"
+      "turnover_vs_prev20": 1.397145729091845,
+      "net_to_turnover_pct": 8.656613097207154
     },
     {
       "code": "002202",
       "name": "金风科技",
-      "data_date": "2026-11-12",
-      "close": 14.66,
-      "return_pct": -2.4617,
-      "turnover_yuan": 1074983324.93,
-      "turnover_pct": 2.1474,
-      "day_net_yuan": -131980654.0,
+      "data_date": "2026-11-13",
+      "close": 14.31,
+      "return_pct": -2.39,
+      "turnover_yuan": 846107022.95,
+      "turnover_pct": 1.73,
+      "day_net_yuan": -62669680.0,
       "windows": {
         "3": {
-          "net_yuan": -262893535.0,
+          "net_yuan": -279406217.0,
           "inflow_days": 0,
-          "return_pct": -3.4255599472990728,
-          "excess_pct_point": -3.290070066699524,
+          "return_pct": -5.85526315789473,
+          "excess_pct_point": -5.053618927440439,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": -381768898.0,
+          "net_yuan": -376417931.0,
           "inflow_days": 0,
-          "return_pct": -4.928664072632937,
-          "excess_pct_point": -4.005064310037098,
+          "return_pct": -5.419695968274951,
+          "excess_pct_point": -5.0133032992369815,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": -339225805.0,
+          "net_yuan": -364785598.0,
           "inflow_days": 2,
-          "return_pct": -1.6107382550335614,
-          "excess_pct_point": -1.7312389903619052,
+          "return_pct": -0.5559416261292527,
+          "excess_pct_point": -1.5375977436279054,
           "observed_flow_days": 10
         }
       },
-      "turnover_vs_prev20": 0.9152687117453508,
-      "net_to_turnover_pct": -12.277460583734563,
-      "snapshot_source": "BaoStock未复权日线备用源"
+      "turnover_vs_prev20": 0.7174130751000302,
+      "net_to_turnover_pct": -7.406826595233616
     },
     {
       "code": "601939",
       "name": "建设银行",
-      "data_date": "2026-11-12",
-      "close": 12.01,
-      "return_pct": 0.755,
-      "turnover_yuan": 1399961238.12,
-      "turnover_pct": 1.2231,
-      "day_net_yuan": 115272891.0,
+      "data_date": "2026-11-13",
+      "close": 12.11,
+      "return_pct": 0.83,
+      "turnover_yuan": 1542319057.0,
+      "turnover_pct": 1.33,
+      "day_net_yuan": 52655880.0,
       "windows": {
         "3": {
-          "net_yuan": 182598559.0,
-          "inflow_days": 2,
-          "return_pct": -1.0708401976935789,
-          "excess_pct_point": -0.9353503170940303,
+          "net_yuan": 265883522.0,
+          "inflow_days": 3,
+          "return_pct": 0.6650041562759723,
+          "excess_pct_point": 1.4666483867302627,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": 173178309.0,
+          "net_yuan": 225596605.0,
           "inflow_days": 3,
-          "return_pct": 3.0017152658662116,
-          "excess_pct_point": 3.925315028462051,
+          "return_pct": 1.6792611251049472,
+          "excess_pct_point": 2.0856537941429165,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": 5476952.0,
+          "net_yuan": 57459622.0,
           "inflow_days": 6,
-          "return_pct": -0.2491694352159457,
-          "excess_pct_point": -0.3696701705442895,
+          "return_pct": 1.085141903171949,
+          "excess_pct_point": 0.10348578567329625,
           "observed_flow_days": 10
         }
       },
-      "turnover_vs_prev20": 0.916547011087492,
-      "net_to_turnover_pct": 8.234005904669198,
-      "snapshot_source": "BaoStock未复权日线备用源"
+      "turnover_vs_prev20": 1.0046895495030044,
+      "net_to_turnover_pct": 3.414071800579457
     },
     {
       "code": "601689",
       "name": "拓普集团",
-      "data_date": "2026-11-12",
-      "close": 50.55,
-      "return_pct": -1.3659,
-      "turnover_yuan": 2357344615.03,
-      "turnover_pct": 2.6594,
-      "day_net_yuan": 10959085.0,
+      "data_date": "2026-11-13",
+      "close": 50.28,
+      "return_pct": -0.53,
+      "turnover_yuan": 1360917260.0,
+      "turnover_pct": 1.54,
+      "day_net_yuan": -40771621.0,
       "windows": {
         "3": {
-          "net_yuan": 563717226.0,
-          "inflow_days": 3,
-          "return_pct": 8.244111349036398,
-          "excess_pct_point": 8.379601229635947,
+          "net_yuan": 382068904.0,
+          "inflow_days": 2,
+          "return_pct": 3.8413878562577386,
+          "excess_pct_point": 4.643032086712029,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": 654416687.0,
+          "net_yuan": 685245487.0,
           "inflow_days": 4,
-          "return_pct": 10.395282812841234,
-          "excess_pct_point": 11.318882575437073,
+          "return_pct": 12.458063073137993,
+          "excess_pct_point": 12.864455742175963,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": 551592293.0,
+          "net_yuan": 596810004.0,
           "inflow_days": 6,
-          "return_pct": 13.646582733812963,
-          "excess_pct_point": 13.526081998484619,
+          "return_pct": 16.713091922005585,
+          "excess_pct_point": 15.731435804506933,
           "observed_flow_days": 10
         }
       },
-      "turnover_vs_prev20": 1.7264593211915418,
-      "net_to_turnover_pct": 0.4648910867874954,
-      "snapshot_source": "BaoStock未复权日线备用源"
+      "turnover_vs_prev20": 0.9429826703375666,
+      "net_to_turnover_pct": -2.9958927113614533
     },
     {
       "code": "600802",
       "name": "福建水泥",
-      "data_date": "2026-11-12",
-      "close": 8.59,
-      "return_pct": 9.9872,
-      "turnover_yuan": 1688330803.04,
-      "turnover_pct": 43.7484,
-      "day_net_yuan": 79303820.0,
+      "data_date": "2026-11-13",
+      "close": 7.73,
+      "return_pct": -10.01,
+      "turnover_yuan": 1090056868.0,
+      "turnover_pct": 30.58,
+      "day_net_yuan": -468116308.0,
       "windows": {
         "3": {
-          "net_yuan": 84882613.0,
-          "inflow_days": 2,
-          "return_pct": 17.349726775956277,
-          "excess_pct_point": 17.485216656555828,
+          "net_yuan": -410937061.0,
+          "inflow_days": 1,
+          "return_pct": -0.2580645161290307,
+          "excess_pct_point": 0.5435797143252596,
           "observed_flow_days": 3
         },
         "5": {
-          "net_yuan": 64138917.0,
+          "net_yuan": -384595666.0,
           "inflow_days": 2,
-          "return_pct": 11.558441558441546,
-          "excess_pct_point": 12.482041321037386,
+          "return_pct": 5.745554035567735,
+          "excess_pct_point": 6.151946704605704,
           "observed_flow_days": 5
         },
         "10": {
-          "net_yuan": 151530787.0,
+          "net_yuan": -296152323.0,
           "inflow_days": 4,
-          "return_pct": 18.31955922865014,
-          "excess_pct_point": 18.199058493321793,
+          "return_pct": 13.509544787077843,
+          "excess_pct_point": 12.527888669579191,
           "observed_flow_days": 10
         }
       },
-      "turnover_vs_prev20": 3.1004712856159173,
-      "net_to_turnover_pct": 4.697173081192667,
-      "snapshot_source": "BaoStock未复权日线备用源"
+      "turnover_vs_prev20": 1.7996997285839014,
+      "net_to_turnover_pct": -42.94420976943012
     }
   ],
   "limit_history": [
-    {
-      "date": "2026-11-06",
-      "limit_count": 32,
-      "failed_count": 14,
-      "seal_rate_pct": 69.56521739130434
-    },
     {
       "date": "2026-11-09",
       "limit_count": 54,
@@ -899,6 +888,12 @@
       "limit_count": 37,
       "failed_count": 35,
       "seal_rate_pct": 51.388888888888886
+    },
+    {
+      "date": "2026-11-13",
+      "limit_count": 37,
+      "failed_count": 21,
+      "seal_rate_pct": 63.793103448275865
     }
   ],
   "etf_comparison_dates": [
@@ -8301,147 +8296,130 @@
   ],
   "availability": [
     {
-      "dataset": "price_BK0486",
-      "status": "cached",
-      "rows": 45,
-      "fetched_at": "2026-11-13T07:51:26.061941+08:00"
-    },
-    {
       "dataset": "flow_BK0486",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_BK0433",
-      "status": "cached",
-      "rows": 45,
-      "fetched_at": "2026-11-13T07:51:26.061941+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_BK0433",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_BK0464",
-      "status": "cached",
-      "rows": 45,
-      "fetched_at": "2026-11-13T07:51:26.061941+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_BK0464",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_BK1036",
-      "status": "cached",
-      "rows": 45,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_BK1036",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_601615",
-      "status": "cached",
-      "rows": 42,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_601615",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_002202",
-      "status": "cached",
-      "rows": 45,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_002202",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_601939",
-      "status": "cached",
-      "rows": 45,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_601939",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_601689",
-      "status": "cached",
-      "rows": 42,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_601689",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "price_600802",
-      "status": "cached",
-      "rows": 42,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "flow_600802",
       "status": "cached",
       "rows": 35,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
-    },
-    {
-      "dataset": "etf_2026-11-06",
-      "status": "cached",
-      "rows": 923,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "etf_2026-11-09",
       "status": "cached",
       "rows": 923,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "etf_2026-11-10",
       "status": "cached",
       "rows": 923,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "etf_2026-11-11",
       "status": "cached",
       "rows": 924,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
       "dataset": "etf_2026-11-12",
       "status": "cached",
       "rows": 924,
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00"
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00"
     },
     {
-      "dataset": "failed_2026-11-06",
-      "status": "ok",
-      "rows": 14
+      "dataset": "price_BK0433",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
+    },
+    {
+      "dataset": "price_BK1036",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
+    },
+    {
+      "dataset": "price_BK0486",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
+    },
+    {
+      "dataset": "price_BK0464",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
+    },
+    {
+      "dataset": "price_601939",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
+    },
+    {
+      "dataset": "price_601615",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
+    },
+    {
+      "dataset": "price_002202",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
+    },
+    {
+      "dataset": "price_601689",
+      "status": "error",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
+      "retained": true
     },
     {
       "dataset": "failed_2026-11-09",
@@ -8454,14 +8432,14 @@
       "rows": 54
     },
     {
-      "dataset": "limits_2026-11-06",
-      "status": "ok",
-      "rows": 32
-    },
-    {
       "dataset": "limits_2026-11-10",
       "status": "ok",
       "rows": 93
+    },
+    {
+      "dataset": "failed_2026-11-10",
+      "status": "ok",
+      "rows": 19
     },
     {
       "dataset": "limits_2026-11-11",
@@ -8470,11 +8448,6 @@
     },
     {
       "dataset": "failed_2026-11-11",
-      "status": "ok",
-      "rows": 19
-    },
-    {
-      "dataset": "failed_2026-11-10",
       "status": "ok",
       "rows": 19
     },
@@ -8489,45 +8462,36 @@
       "rows": 35
     },
     {
-      "dataset": "unlocks",
+      "dataset": "limits_2026-11-13",
       "status": "ok",
-      "rows": 141
+      "rows": 37
     },
     {
-      "dataset": "lhb_2026-11-12",
+      "dataset": "price_600802",
       "status": "error",
-      "reason": "ReadTimeout: HTTPSConnectionPool(host='datacenter-web.eastmoney.com', port=443): Read timed out. (read timeout=20)",
+      "reason": "ConnectionError: Failed to perform, curl: (56) Connection closed abruptly. See https://curl.se/libcurl/c/libcurl-errors.html first for more details.",
       "retained": true
     },
     {
-      "dataset": "baostock_price_601615",
+      "dataset": "failed_2026-11-13",
       "status": "ok",
-      "rows": 1,
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00"
+      "rows": 21
     },
     {
-      "dataset": "baostock_price_002202",
+      "dataset": "lhb_2026-11-13",
       "status": "ok",
-      "rows": 1,
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00"
+      "rows": 34
     },
     {
-      "dataset": "baostock_price_601939",
-      "status": "ok",
-      "rows": 1,
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00"
+      "dataset": "etf_2026-11-13",
+      "status": "error",
+      "reason": "KeyError: \"None of [Index(['序号', '基金代码', '基金简称', 'ETF类型', '统计日期', '基金份额'], dtype='str')] are in the [columns]\"",
+      "retained": false
     },
     {
-      "dataset": "baostock_price_601689",
+      "dataset": "unlocks",
       "status": "ok",
-      "rows": 1,
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00"
-    },
-    {
-      "dataset": "baostock_price_600802",
-      "status": "ok",
-      "rows": 1,
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00"
+      "rows": 141
     }
   ],
   "datasets": {
@@ -16466,7 +16430,7 @@
       ]
     },
     "unlocks": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
@@ -16476,11 +16440,11 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 3900.0,
           "实际解禁数量": 3900.0,
-          "实际解禁市值": 86346.0,
-          "占解禁前流通市值比例": 3.71003e-05,
-          "解禁前一交易日收盘价": 22.14,
+          "实际解禁市值": 86970.0,
+          "占解禁前流通市值比例": 3.7099e-05,
+          "解禁前一交易日收盘价": 22.3,
           "解禁前20日涨跌幅": -10.0,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": 0.72
         },
         {
           "序号": 2,
@@ -16490,11 +16454,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 112000.0,
           "实际解禁数量": 112000.0,
-          "实际解禁市值": 1508640.0,
-          "占解禁前流通市值比例": 0.0007101607,
-          "解禁前一交易日收盘价": 13.47,
+          "实际解禁市值": 1357440.0,
+          "占解禁前流通市值比例": 0.0007096567,
+          "解禁前一交易日收盘价": 12.12,
           "解禁前20日涨跌幅": 10.04901961,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -10.02
         },
         {
           "序号": 3,
@@ -16504,11 +16468,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 240347.0,
           "实际解禁数量": 240347.0,
-          "实际解禁市值": 8320813.140000001,
-          "占解禁前流通市值比例": 0.0012916413,
-          "解禁前一交易日收盘价": 34.62,
+          "实际解禁市值": 7953082.23,
+          "占解禁前流通市值比例": 0.0012899751,
+          "解禁前一交易日收盘价": 33.09,
           "解禁前20日涨跌幅": -8.16976127,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -4.42
         },
         {
           "序号": 4,
@@ -16518,11 +16482,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 259000.0,
           "实际解禁数量": 259000.0,
-          "实际解禁市值": 5138560.0,
-          "占解禁前流通市值比例": 0.0007409337,
-          "解禁前一交易日收盘价": 19.84,
+          "实际解禁市值": 4908050.0,
+          "占解禁前流通市值比例": 0.0007403851,
+          "解禁前一交易日收盘价": 18.95,
           "解禁前20日涨跌幅": -2.36220472,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -4.49
         },
         {
           "序号": 5,
@@ -16532,11 +16496,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 706700.0,
           "实际解禁数量": 706700.0,
-          "实际解禁市值": 7059933.0,
-          "占解禁前流通市值比例": 0.0005198176,
-          "解禁前一交易日收盘价": 9.99,
+          "实际解禁市值": 6734851.0,
+          "占解禁前流通市值比例": 0.0005195475,
+          "解禁前一交易日收盘价": 9.53,
           "解禁前20日涨跌幅": -6.02069614,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -4.6
         },
         {
           "序号": 6,
@@ -16546,11 +16510,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1198848.0,
           "实际解禁数量": 1198848.0,
-          "实际解禁市值": 16879779.84,
-          "占解禁前流通市值比例": 0.0092154342,
-          "解禁前一交易日收盘价": 14.08,
+          "实际解禁市值": 16723929.6,
+          "占解禁前流通市值比例": 0.0091312854,
+          "解禁前一交易日收盘价": 13.95,
           "解禁前20日涨跌幅": 15.98023064,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -0.92
         },
         {
           "序号": 7,
@@ -16560,11 +16524,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1414087.0,
           "实际解禁数量": 1414087.0,
-          "实际解禁市值": 20730515.42,
-          "占解禁前流通市值比例": 0.0004204082,
-          "解禁前一交易日收盘价": 14.66,
+          "实际解禁市值": 20235584.97,
+          "占解禁前流通市值比例": 0.0004202315,
+          "解禁前一交易日收盘价": 14.31,
           "解禁前20日涨跌幅": -0.94594595,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -2.39
         },
         {
           "序号": 8,
@@ -16574,11 +16538,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 2005272.0,
           "实际解禁数量": 2005272.0,
-          "实际解禁市值": 20052720.0,
-          "占解禁前流通市值比例": 0.0052444348,
-          "解禁前一交易日收盘价": 10.0,
+          "实际解禁市值": 19872245.52,
+          "占解禁前流通市值比例": 0.0052170742,
+          "解禁前一交易日收盘价": 9.91,
           "解禁前20日涨跌幅": -5.57129367,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -0.9
         },
         {
           "序号": 9,
@@ -16588,11 +16552,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 6250000.0,
           "实际解禁数量": 6175000.0,
-          "实际解禁市值": 48041500.0,
-          "占解禁前流通市值比例": 0.0135332239,
-          "解禁前一交易日收盘价": 7.78,
+          "实际解禁市值": 46683000.0,
+          "占解禁前流通市值比例": 0.0133525212,
+          "解禁前一交易日收盘价": 7.56,
           "解禁前20日涨跌幅": -12.38738739,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -2.83
         },
         {
           "序号": 10,
@@ -16602,11 +16566,11 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 7311600.0,
           "实际解禁数量": 7311600.0,
-          "实际解禁市值": 225709091.99999997,
-          "占解禁前流通市值比例": 0.0088547329,
-          "解禁前一交易日收盘价": 30.87,
+          "实际解禁市值": 216423360.0,
+          "占解禁前流通市值比例": 0.0087770148,
+          "解禁前一交易日收盘价": 29.6,
           "解禁前20日涨跌幅": 1.0805501,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -4.11
         },
         {
           "序号": 11,
@@ -16616,11 +16580,11 @@
           "限售股类型": "公开发行战略配售股份",
           "解禁数量": 15250000.0,
           "实际解禁数量": 15250000.0,
-          "实际解禁市值": 196725000.0,
-          "占解禁前流通市值比例": 0.0878038753,
-          "解禁前一交易日收盘价": 12.9,
+          "实际解禁市值": 180407500.0,
+          "占解禁前流通市值比例": 0.0807166414,
+          "解禁前一交易日收盘价": 11.83,
           "解禁前20日涨跌幅": -4.86725664,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -8.29
         },
         {
           "序号": 12,
@@ -16630,11 +16594,11 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 66471076.0,
           "实际解禁数量": 66471076.0,
-          "实际解禁市值": 2379664520.7999997,
-          "占解禁前流通市值比例": 0.9560204901,
-          "解禁前一交易日收盘价": 35.8,
+          "实际解禁市值": 2375011545.48,
+          "占解禁前流通市值比例": 0.4887579118,
+          "解禁前一交易日收盘价": 35.73,
           "解禁前20日涨跌幅": 18.93687708,
-          "解禁后20日涨跌幅": 0.0
+          "解禁后20日涨跌幅": -0.2
         },
         {
           "序号": 13,
@@ -16644,9 +16608,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 241200.0,
           "实际解禁数量": 241200.0,
-          "实际解禁市值": 2368584.0,
+          "实际解禁市值": 2303460.0,
           "占解禁前流通市值比例": 0.0004278599,
-          "解禁前一交易日收盘价": 9.82,
+          "解禁前一交易日收盘价": 9.55,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16658,9 +16622,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 422800.0,
           "实际解禁数量": 422800.0,
-          "实际解禁市值": 5331508.0,
+          "实际解禁市值": 5179299.999999999,
           "占解禁前流通市值比例": 0.0080177399,
-          "解禁前一交易日收盘价": 12.61,
+          "解禁前一交易日收盘价": 12.25,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16672,9 +16636,9 @@
           "限售股类型": "公开发行战略配售股份",
           "解禁数量": 500000.0,
           "实际解禁数量": 500000.0,
-          "实际解禁市值": 35150000.0,
+          "实际解禁市值": 32745000.0,
           "占解禁前流通市值比例": 0.0259669926,
-          "解禁前一交易日收盘价": 70.3,
+          "解禁前一交易日收盘价": 65.49,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16686,9 +16650,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 638001.0,
           "实际解禁数量": 638001.0,
-          "实际解禁市值": 6360869.97,
+          "实际解禁市值": 6246029.79,
           "占解禁前流通市值比例": 0.0135033103,
-          "解禁前一交易日收盘价": 9.97,
+          "解禁前一交易日收盘价": 9.79,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16700,9 +16664,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 715874.0,
           "实际解禁数量": 715874.0,
-          "实际解禁市值": 71150716.86,
+          "实际解禁市值": 65581217.14,
           "占解禁前流通市值比例": 0.0046989001,
-          "解禁前一交易日收盘价": 99.39,
+          "解禁前一交易日收盘价": 91.61,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16714,9 +16678,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1066000.0,
           "实际解禁数量": 1066000.0,
-          "实际解禁市值": 5660460.000000001,
+          "实际解禁市值": 5607160.0,
           "占解禁前流通市值比例": 0.0004095516,
-          "解禁前一交易日收盘价": 5.31,
+          "解禁前一交易日收盘价": 5.26,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16728,9 +16692,9 @@
           "限售股类型": "股权激励期权行权",
           "解禁数量": 1795000.0,
           "实际解禁数量": 1795000.0,
-          "实际解禁市值": 24771000.0,
+          "实际解禁市值": 24537650.0,
           "占解禁前流通市值比例": 0.0006907056,
-          "解禁前一交易日收盘价": 13.8,
+          "解禁前一交易日收盘价": 13.67,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16742,9 +16706,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 2110436.0,
           "实际解禁数量": 2110436.0,
-          "实际解禁市值": 10995371.56,
+          "实际解禁市值": 10784327.96,
           "占解禁前流通市值比例": 0.0068900678,
-          "解禁前一交易日收盘价": 5.21,
+          "解禁前一交易日收盘价": 5.11,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16756,9 +16720,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 2455800.0,
           "实际解禁数量": 2455800.0,
-          "实际解禁市值": 115054230.0,
+          "实际解禁市值": 110928486.0,
           "占解禁前流通市值比例": 0.005255608,
-          "解禁前一交易日收盘价": 46.85,
+          "解禁前一交易日收盘价": 45.17,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16770,9 +16734,9 @@
           "限售股类型": "首发机构配售股份",
           "解禁数量": 3073153.0,
           "实际解禁数量": 3073153.0,
-          "实际解禁市值": 120529060.66,
+          "实际解禁市值": 132575820.42,
           "占解禁前流通市值比例": 0.0639704709,
-          "解禁前一交易日收盘价": 39.22,
+          "解禁前一交易日收盘价": 43.14,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16784,9 +16748,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 5376344.0,
           "实际解禁数量": 5376344.0,
-          "实际解禁市值": 42419354.160000004,
+          "实际解禁市值": 43655913.28,
           "占解禁前流通市值比例": 0.006750141,
-          "解禁前一交易日收盘价": 7.89,
+          "解禁前一交易日收盘价": 8.12,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16798,9 +16762,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 13500000.0,
           "实际解禁数量": 13500000.0,
-          "实际解禁市值": 60615000.0,
+          "实际解禁市值": 58725000.0,
           "占解禁前流通市值比例": 0.006606842,
-          "解禁前一交易日收盘价": 4.49,
+          "解禁前一交易日收盘价": 4.35,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16812,9 +16776,9 @@
           "限售股类型": "公开发行原股东限售股份",
           "解禁数量": 13762200.0,
           "实际解禁数量": 13762200.0,
-          "实际解禁市值": 239187036.0,
+          "实际解禁市值": 239049414.0,
           "占解禁前流通市值比例": 0.8994901961,
-          "解禁前一交易日收盘价": 17.38,
+          "解禁前一交易日收盘价": 17.37,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16826,9 +16790,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 17754442.0,
           "实际解禁数量": 17754442.0,
-          "实际解禁市值": 623891091.88,
+          "实际解禁市值": 642888344.8199999,
           "占解禁前流通市值比例": 0.2445931269,
-          "解禁前一交易日收盘价": 35.14,
+          "解禁前一交易日收盘价": 36.21,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16840,9 +16804,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 41654792.0,
           "实际解禁数量": 41654792.0,
-          "实际解禁市值": 613575086.16,
+          "实际解禁市值": 601078648.56,
           "占解禁前流通市值比例": 0.0547701063,
-          "解禁前一交易日收盘价": 14.73,
+          "解禁前一交易日收盘价": 14.43,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16854,9 +16818,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 46500000.0,
           "实际解禁数量": 46500000.0,
-          "实际解禁市值": 2823015000.0,
+          "实际解禁市值": 2877420000.0,
           "占解禁前流通市值比例": 2.940227824,
-          "解禁前一交易日收盘价": 60.71,
+          "解禁前一交易日收盘价": 61.88,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16868,9 +16832,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 123748664.00000001,
           "实际解禁数量": 123748664.00000001,
-          "实际解禁市值": 1452809315.36,
+          "实际解禁市值": 1409497282.9599998,
           "占解禁前流通市值比例": 0.3781269619,
-          "解禁前一交易日收盘价": 11.74,
+          "解禁前一交易日收盘价": 11.39,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16882,9 +16846,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 152477763.0,
           "实际解禁数量": 152477763.0,
-          "实际解禁市值": 1204574327.7,
-          "占解禁前流通市值比例": 0.1159482147,
-          "解禁前一交易日收盘价": 7.9,
+          "实际解禁市值": 1192376106.6599998,
+          "占解禁前流通市值比例": 0.1159483028,
+          "解禁前一交易日收盘价": 7.82,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16896,9 +16860,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 251502000.0,
           "实际解禁数量": 251502000.0,
-          "实际解禁市值": 1063853460.0,
+          "实际解禁市值": 1073913540.0,
           "占解禁前流通市值比例": 0.0081154785,
-          "解禁前一交易日收盘价": 4.23,
+          "解禁前一交易日收盘价": 4.27,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16910,9 +16874,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1615725.0,
           "实际解禁数量": 1615725.0,
-          "实际解禁市值": 20245034.25,
+          "实际解禁市值": 19792631.25,
           "占解禁前流通市值比例": 0.000767473,
-          "解禁前一交易日收盘价": 12.53,
+          "解禁前一交易日收盘价": 12.25,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16924,9 +16888,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 108068403.0,
           "实际解禁数量": 108068403.0,
-          "实际解禁市值": 1336806145.11,
+          "实际解禁市值": 1290336731.82,
           "占解禁前流通市值比例": 0.3415437488,
-          "解禁前一交易日收盘价": 12.37,
+          "解禁前一交易日收盘价": 11.94,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16938,9 +16902,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 396300.0,
           "实际解禁数量": 396300.0,
-          "实际解禁市值": 3495366.0,
+          "实际解禁市值": 3364587.0,
           "占解禁前流通市值比例": 0.0002215033,
-          "解禁前一交易日收盘价": 8.82,
+          "解禁前一交易日收盘价": 8.49,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16952,9 +16916,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1989026.0,
           "实际解禁数量": 1989026.0,
-          "实际解禁市值": 25678325.66,
+          "实际解禁市值": 25877228.26,
           "占解禁前流通市值比例": 0.0035112131,
-          "解禁前一交易日收盘价": 12.91,
+          "解禁前一交易日收盘价": 13.01,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16966,9 +16930,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 2611110.0,
           "实际解禁数量": 2611110.0,
-          "实际解禁市值": 29244432.0,
+          "实际解禁市值": 27912765.9,
           "占解禁前流通市值比例": 0.0064338979,
-          "解禁前一交易日收盘价": 11.2,
+          "解禁前一交易日收盘价": 10.69,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16980,9 +16944,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 5073750.0,
           "实际解禁数量": 5073750.0,
-          "实际解禁市值": 105128100.0,
+          "实际解禁市值": 106802437.5,
           "占解禁前流通市值比例": 0.0016517583,
-          "解禁前一交易日收盘价": 20.72,
+          "解禁前一交易日收盘价": 21.05,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -16994,9 +16958,9 @@
           "限售股类型": "首发机构配售股份",
           "解禁数量": 5694354.0,
           "实际解禁数量": 5694354.0,
-          "实际解禁市值": 169463975.04,
+          "实际解禁市值": 164851548.29999998,
           "占解禁前流通市值比例": 0.0990225203,
-          "解禁前一交易日收盘价": 29.76,
+          "解禁前一交易日收盘价": 28.95,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17008,9 +16972,9 @@
           "限售股类型": "公开发行原股东限售股份,公开发行战略配售股份",
           "解禁数量": 87792000.0,
           "实际解禁数量": 87792000.0,
-          "实际解禁市值": 1527580799.9999998,
+          "实际解禁市值": 1498609440.0,
           "占解禁前流通市值比例": 3.4444444444,
-          "解禁前一交易日收盘价": 17.4,
+          "解禁前一交易日收盘价": 17.07,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17022,9 +16986,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 196665000.0,
           "实际解禁数量": 196665000.0,
-          "实际解禁市值": 1406154750.0,
+          "实际解禁市值": 1384521600.0,
           "占解禁前流通市值比例": 0.742579753,
-          "解禁前一交易日收盘价": 7.15,
+          "解禁前一交易日收盘价": 7.04,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17036,9 +17000,9 @@
           "限售股类型": "首发原股东限售股份,首发战略配售股份",
           "解禁数量": 228264566.0,
           "实际解禁数量": 228264566.0,
-          "实际解禁市值": 7726755559.1,
+          "实际解禁市值": 7802082865.88,
           "占解禁前流通市值比例": 4.224911729,
-          "解禁前一交易日收盘价": 33.85,
+          "解禁前一交易日收盘价": 34.18,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17050,9 +17014,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 405405403.0,
           "实际解禁数量": 405405403.0,
-          "实际解禁市值": 7163513471.01,
+          "实际解禁市值": 7078378336.379999,
           "占解禁前流通市值比例": 1.6201051612,
-          "解禁前一交易日收盘价": 17.67,
+          "解禁前一交易日收盘价": 17.46,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17064,9 +17028,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 42000.0,
           "实际解禁数量": 42000.0,
-          "实际解禁市值": 943319.9999999999,
+          "实际解禁市值": 925680.0,
           "占解禁前流通市值比例": 0.0002590118,
-          "解禁前一交易日收盘价": 22.46,
+          "解禁前一交易日收盘价": 22.04,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17078,9 +17042,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 229500.0,
           "实际解禁数量": 229500.0,
-          "实际解禁市值": 7311870.0,
+          "实际解禁市值": 7105320.0,
           "占解禁前流通市值比例": 0.0052563016,
-          "解禁前一交易日收盘价": 31.86,
+          "解禁前一交易日收盘价": 30.96,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17092,9 +17056,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 409200.0,
           "实际解禁数量": 409200.0,
-          "实际解禁市值": 2569776.0,
+          "实际解禁市值": 2447016.0,
           "占解禁前流通市值比例": 0.0037895305,
-          "解禁前一交易日收盘价": 6.28,
+          "解禁前一交易日收盘价": 5.98,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17106,9 +17070,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 39562378.0,
           "实际解禁数量": 39562378.0,
-          "实际解禁市值": 2003043198.1399999,
+          "实际解禁市值": 1997504465.22,
           "占解禁前流通市值比例": 0.9607584368,
-          "解禁前一交易日收盘价": 50.63,
+          "解禁前一交易日收盘价": 50.49,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17120,9 +17084,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 214500.0,
           "实际解禁数量": 214500.0,
-          "实际解禁市值": 5321745.0,
+          "实际解禁市值": 4824105.0,
           "占解禁前流通市值比例": 0.0002177266,
-          "解禁前一交易日收盘价": 24.81,
+          "解禁前一交易日收盘价": 22.49,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17134,9 +17098,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 422640.0,
           "实际解禁数量": 422640.0,
-          "实际解禁市值": 6914390.399999999,
+          "实际解禁市值": 6681938.4,
           "占解禁前流通市值比例": 0.0084917071,
-          "解禁前一交易日收盘价": 16.36,
+          "解禁前一交易日收盘价": 15.81,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17148,9 +17112,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1345500.0,
           "实际解禁数量": 1345500.0,
-          "实际解禁市值": 31686525.0,
+          "实际解禁市值": 31054140.000000004,
           "占解禁前流通市值比例": 0.0008638109,
-          "解禁前一交易日收盘价": 23.55,
+          "解禁前一交易日收盘价": 23.08,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17162,9 +17126,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 2265317.0,
           "实际解禁数量": 2265317.0,
-          "实际解禁市值": 85311838.22000001,
+          "实际解禁市值": 86648375.25000001,
           "占解禁前流通市值比例": 0.0029745376,
-          "解禁前一交易日收盘价": 37.66,
+          "解禁前一交易日收盘价": 38.25,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17176,9 +17140,9 @@
           "限售股类型": "首发战略配售股份",
           "解禁数量": 4625000.0,
           "实际解禁数量": 4625000.0,
-          "实际解禁市值": 63455000.0,
+          "实际解禁市值": 62252500.0,
           "占解禁前流通市值比例": 0.0198567458,
-          "解禁前一交易日收盘价": 13.72,
+          "解禁前一交易日收盘价": 13.46,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17190,9 +17154,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 22758620.0,
           "实际解禁数量": 22758620.0,
-          "实际解禁市值": 235096544.60000002,
+          "实际解禁市值": 231682751.60000002,
           "占解禁前流通市值比例": 0.1544090881,
-          "解禁前一交易日收盘价": 10.33,
+          "解禁前一交易日收盘价": 10.18,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17204,9 +17168,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 60840000.0,
           "实际解禁数量": 60840000.0,
-          "实际解禁市值": 595623600.0,
+          "实际解禁市值": 580413600.0,
           "占解禁前流通市值比例": 0.3000316335,
-          "解禁前一交易日收盘价": 9.79,
+          "解禁前一交易日收盘价": 9.54,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17218,9 +17182,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 253312.0,
           "实际解禁数量": 253312.0,
-          "实际解禁市值": 2338069.76,
+          "实际解禁市值": 2302606.08,
           "占解禁前流通市值比例": 0.004908932,
-          "解禁前一交易日收盘价": 9.23,
+          "解禁前一交易日收盘价": 9.09,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17232,9 +17196,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 507960.0,
           "实际解禁数量": 507960.0,
-          "实际解禁市值": 2676949.2,
+          "实际解禁市值": 2641392.0,
           "占解禁前流通市值比例": 0.0003938241,
-          "解禁前一交易日收盘价": 5.27,
+          "解禁前一交易日收盘价": 5.2,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17246,9 +17210,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 689700.0,
           "实际解禁数量": 689700.0,
-          "实际解禁市值": 5696922.0,
+          "实际解禁市值": 5669334.0,
           "占解禁前流通市值比例": 0.0011678821,
-          "解禁前一交易日收盘价": 8.26,
+          "解禁前一交易日收盘价": 8.22,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17260,9 +17224,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 870450.0,
           "实际解禁数量": 870450.0,
-          "实际解禁市值": 16625595.0,
+          "实际解禁市值": 16199074.5,
           "占解禁前流通市值比例": 0.005266942,
-          "解禁前一交易日收盘价": 19.1,
+          "解禁前一交易日收盘价": 18.61,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17274,9 +17238,9 @@
           "限售股类型": "首发机构配售股份",
           "解禁数量": 1112458.0,
           "实际解禁数量": 1112458.0,
-          "实际解禁市值": 40571343.26,
+          "实际解禁市值": 38891531.68,
           "占解禁前流通市值比例": 0.0311721665,
-          "解禁前一交易日收盘价": 36.47,
+          "解禁前一交易日收盘价": 34.96,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17288,9 +17252,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1980000.0,
           "实际解禁数量": 1980000.0,
-          "实际解禁市值": 11899800.0,
+          "实际解禁市值": 11919600.0,
           "占解禁前流通市值比例": 0.0051198996,
-          "解禁前一交易日收盘价": 6.01,
+          "解禁前一交易日收盘价": 6.02,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17302,9 +17266,9 @@
           "限售股类型": "首发机构配售股份",
           "解禁数量": 2231830.0,
           "实际解禁数量": 2231830.0,
-          "实际解禁市值": 95924053.39999999,
+          "实际解禁市值": 94071634.5,
           "占解禁前流通市值比例": 0.0640299577,
-          "解禁前一交易日收盘价": 42.98,
+          "解禁前一交易日收盘价": 42.15,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17316,9 +17280,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 17805040.0,
           "实际解禁数量": 17805040.0,
-          "实际解禁市值": 609822620.0,
+          "实际解禁市值": 591127328.0,
           "占解禁前流通市值比例": 0.1899577313,
-          "解禁前一交易日收盘价": 34.25,
+          "解禁前一交易日收盘价": 33.2,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17330,9 +17294,9 @@
           "限售股类型": "公开发行原股东限售股份,公开发行战略配售股份",
           "解禁数量": 46965000.0,
           "实际解禁数量": 46965000.0,
-          "实际解禁市值": 1364802900.0,
+          "实际解禁市值": 1309853850.0,
           "占解禁前流通市值比例": 3.2389208425,
-          "解禁前一交易日收盘价": 29.06,
+          "解禁前一交易日收盘价": 27.89,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17344,9 +17308,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 105050656.0,
           "实际解禁数量": 105050656.0,
-          "实际解禁市值": 1669254923.8400002,
+          "实际解禁市值": 1626184154.8799999,
           "占解禁前流通市值比例": 1.9210637722,
-          "解禁前一交易日收盘价": 15.89,
+          "解禁前一交易日收盘价": 15.48,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17358,9 +17322,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 114334080.0,
           "实际解禁数量": 114334080.0,
-          "实际解禁市值": 795765196.8,
+          "实际解禁市值": 783188448.0000001,
           "占解禁前流通市值比例": 1.5446966611,
-          "解禁前一交易日收盘价": 6.96,
+          "解禁前一交易日收盘价": 6.85,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17372,9 +17336,9 @@
           "限售股类型": "其他类型",
           "解禁数量": 190800000.0,
           "实际解禁数量": 190800000.0,
-          "实际解禁市值": 3461112000.0,
+          "实际解禁市值": 3048984000.0,
           "占解禁前流通市值比例": 0.6838709677,
-          "解禁前一交易日收盘价": 18.14,
+          "解禁前一交易日收盘价": 15.98,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17386,9 +17350,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 17500.0,
           "实际解禁数量": 17500.0,
-          "实际解禁市值": 271950.0,
+          "实际解禁市值": 261625.0,
           "占解禁前流通市值比例": 0.0002551385,
-          "解禁前一交易日收盘价": 15.54,
+          "解禁前一交易日收盘价": 14.95,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17400,9 +17364,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 129600.0,
           "实际解禁数量": 129600.0,
-          "实际解禁市值": 2120256.0,
+          "实际解禁市值": 2048976.0,
           "占解禁前流通市值比例": 0.0026039306,
-          "解禁前一交易日收盘价": 16.36,
+          "解禁前一交易日收盘价": 15.81,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17414,9 +17378,9 @@
           "限售股类型": "首发原股东限售股份,首发战略配售股份",
           "解禁数量": 81560207.0,
           "实际解禁数量": 81560207.0,
-          "实际解禁市值": 5219037645.93,
+          "实际解禁市值": 4697052321.13,
           "占解禁前流通市值比例": 2.1626476903,
-          "解禁前一交易日收盘价": 63.99,
+          "解禁前一交易日收盘价": 57.59,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17428,9 +17392,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 112285000.0,
           "实际解禁数量": 112285000.0,
-          "实际解禁市值": 2299596800.0,
+          "实际解禁市值": 2261419900.0,
           "占解禁前流通市值比例": 0.9029641881,
-          "解禁前一交易日收盘价": 20.48,
+          "解禁前一交易日收盘价": 20.14,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17442,9 +17406,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 92500.0,
           "实际解禁数量": 92500.0,
-          "实际解禁市值": 3993225.0,
+          "实际解禁市值": 4125500.0,
           "占解禁前流通市值比例": 0.000198663,
-          "解禁前一交易日收盘价": 43.17,
+          "解禁前一交易日收盘价": 44.6,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17456,9 +17420,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 175000.0,
           "实际解禁数量": 175000.0,
-          "实际解禁市值": 2250500.0,
+          "实际解禁市值": 2220750.0,
           "占解禁前流通市值比例": 0.0009613021,
-          "解禁前一交易日收盘价": 12.86,
+          "解禁前一交易日收盘价": 12.69,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17470,9 +17434,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 325319.9999999999,
           "实际解禁数量": 325319.9999999999,
-          "实际解禁市值": 10312644.0,
+          "实际解禁市值": 10123958.4,
           "占解禁前流通市值比例": 0.0084786977,
-          "解禁前一交易日收盘价": 31.7,
+          "解禁前一交易日收盘价": 31.12,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17484,9 +17448,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1142470.0,
           "实际解禁数量": 1142470.0,
-          "实际解禁市值": 17753983.8,
+          "实际解禁市值": 17079926.5,
           "占解禁前流通市值比例": 0.0166564602,
-          "解禁前一交易日收盘价": 15.54,
+          "解禁前一交易日收盘价": 14.95,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17498,9 +17462,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1200000.0,
           "实际解禁数量": 1200000.0,
-          "实际解禁市值": 3024000.0,
+          "实际解禁市值": 2928000.0,
           "占解禁前流通市值比例": 0.0006517789,
-          "解禁前一交易日收盘价": 2.52,
+          "解禁前一交易日收盘价": 2.44,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17512,9 +17476,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 19582877.0,
           "实际解禁数量": 19582877.0,
-          "实际解禁市值": 661313756.29,
+          "实际解禁市值": 606873358.23,
           "占解禁前流通市值比例": 0.157888869,
-          "解禁前一交易日收盘价": 33.77,
+          "解禁前一交易日收盘价": 30.99,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17526,9 +17490,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 47000.0,
           "实际解禁数量": 47000.0,
-          "实际解禁市值": 4854160.0,
+          "实际解禁市值": 4442440.0,
           "占解禁前流通市值比例": 5.97942e-05,
-          "解禁前一交易日收盘价": 103.28,
+          "解禁前一交易日收盘价": 94.52,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17540,9 +17504,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 240000.0,
           "实际解禁数量": 240000.0,
-          "实际解禁市值": 1298400.0,
+          "实际解禁市值": 1274400.0,
           "占解禁前流通市值比例": 0.0007002723,
-          "解禁前一交易日收盘价": 5.41,
+          "解禁前一交易日收盘价": 5.31,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17554,9 +17518,9 @@
           "限售股类型": "首发机构配售股份",
           "解禁数量": 1146590.0,
           "实际解禁数量": 1146590.0,
-          "实际解禁市值": 207911164.70000002,
+          "实际解禁市值": 198933365.0,
           "占解禁前流通市值比例": 0.0645729115,
-          "解禁前一交易日收盘价": 181.33,
+          "解禁前一交易日收盘价": 173.5,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17568,9 +17532,9 @@
           "限售股类型": "股权激励期权行权",
           "解禁数量": 2034800.0,
           "实际解禁数量": 2034800.0,
-          "实际解禁市值": 14447080.0,
+          "实际解禁市值": 14040120.0,
           "占解禁前流通市值比例": 0.0002889287,
-          "解禁前一交易日收盘价": 7.1,
+          "解禁前一交易日收盘价": 6.9,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17582,9 +17546,9 @@
           "限售股类型": "公开发行原股东限售股份,公开发行战略配售股份",
           "解禁数量": 63926906.0,
           "实际解禁数量": 63926906.0,
-          "实际解禁市值": 757533836.1,
+          "实际解禁市值": 747944800.2,
           "占解禁前流通市值比例": 0.8347575062,
-          "解禁前一交易日收盘价": 11.85,
+          "解禁前一交易日收盘价": 11.7,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17596,9 +17560,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 68400.0,
           "实际解禁数量": 68400.0,
-          "实际解禁市值": 703152.0,
+          "实际解禁市值": 692891.9999999999,
           "占解禁前流通市值比例": 4.11058e-05,
-          "解禁前一交易日收盘价": 10.28,
+          "解禁前一交易日收盘价": 10.13,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17610,9 +17574,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 136893.0,
           "实际解禁数量": 136893.0,
-          "实际解禁市值": 1256677.74,
+          "实际解禁市值": 1229299.14,
           "占解禁前流通市值比例": 0.0001348041,
-          "解禁前一交易日收盘价": 9.18,
+          "解禁前一交易日收盘价": 8.98,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17624,9 +17588,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 347064.0,
           "实际解禁数量": 347064.0,
-          "实际解禁市值": 5323961.76,
+          "实际解禁市值": 5282314.08,
           "占解禁前流通市值比例": 0.0003342858,
-          "解禁前一交易日收盘价": 15.34,
+          "解禁前一交易日收盘价": 15.22,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17638,9 +17602,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1112400.0,
           "实际解禁数量": 1112400.0,
-          "实际解禁市值": 19678356.0,
+          "实际解禁市值": 19077660.0,
           "占解禁前流通市值比例": 0.0038566996,
-          "解禁前一交易日收盘价": 17.69,
+          "解禁前一交易日收盘价": 17.15,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17652,9 +17616,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1207200.0,
           "实际解禁数量": 1207200.0,
-          "实际解禁市值": 7074192.0,
+          "实际解禁市值": 6965544.0,
           "占解禁前流通市值比例": 0.0014176438,
-          "解禁前一交易日收盘价": 5.86,
+          "解禁前一交易日收盘价": 5.77,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17666,9 +17630,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1595021.9999999998,
           "实际解禁数量": 1595021.9999999998,
-          "实际解禁市值": 33048855.84,
+          "实际解禁市值": 33575213.1,
           "占解禁前流通市值比例": 0.0005192591,
-          "解禁前一交易日收盘价": 20.72,
+          "解禁前一交易日收盘价": 21.05,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17680,9 +17644,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1996500.0,
           "实际解禁数量": 1996500.0,
-          "实际解禁市值": 36735600.0,
+          "实际解禁市值": 37254690.0,
           "占解禁前流通市值比例": 0.0059502433,
-          "解禁前一交易日收盘价": 18.4,
+          "解禁前一交易日收盘价": 18.66,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17694,9 +17658,9 @@
           "限售股类型": "首发战略配售股份",
           "解禁数量": 4000000.0,
           "实际解禁数量": 4000000.0,
-          "实际解禁市值": 165280000.0,
+          "实际解禁市值": 159200000.0,
           "占解禁前流通市值比例": 0.0136423724,
-          "解禁前一交易日收盘价": 41.32,
+          "解禁前一交易日收盘价": 39.8,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17708,9 +17672,9 @@
           "限售股类型": "公开发行原股东限售股份",
           "解禁数量": 4440000.0,
           "实际解禁数量": 4440000.0,
-          "实际解禁市值": 30946800.0,
+          "实际解禁市值": 30547199.999999996,
           "占解禁前流通市值比例": 0.0654728962,
-          "解禁前一交易日收盘价": 6.97,
+          "解禁前一交易日收盘价": 6.88,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17722,9 +17686,9 @@
           "限售股类型": "公开发行原股东限售股份",
           "解禁数量": 6453672.0,
           "实际解禁数量": 6453672.0,
-          "实际解禁市值": 94739904.96000001,
+          "实际解禁市值": 92158436.16,
           "占解禁前流通市值比例": 0.3537247121,
-          "解禁前一交易日收盘价": 14.68,
+          "解禁前一交易日收盘价": 14.28,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17736,9 +17700,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 10481400.000000002,
           "实际解禁数量": 10481400.000000002,
-          "实际解禁市值": 139821876.0,
+          "实际解禁市值": 140450760.0,
           "占解禁前流通市值比例": 0.0317336944,
-          "解禁前一交易日收盘价": 13.34,
+          "解禁前一交易日收盘价": 13.4,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17750,9 +17714,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 13935000.0,
           "实际解禁数量": 13935000.0,
-          "实际解禁市值": 224074800.0,
+          "实际解禁市值": 217386000.0,
           "占解禁前流通市值比例": 0.5734567901,
-          "解禁前一交易日收盘价": 16.08,
+          "解禁前一交易日收盘价": 15.6,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17764,9 +17728,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 22060119.0,
           "实际解禁数量": 22060119.0,
-          "实际解禁市值": 206703315.03,
+          "实际解禁市值": 202070690.04000002,
           "占解禁前流通市值比例": 0.0394810889,
-          "解禁前一交易日收盘价": 9.37,
+          "解禁前一交易日收盘价": 9.16,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17778,9 +17742,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 28508550.0,
           "实际解禁数量": 28508550.0,
-          "实际解禁市值": 1957111957.5000002,
+          "实际解禁市值": 1918910500.5,
           "占解禁前流通市值比例": 0.0507796717,
-          "解禁前一交易日收盘价": 68.65,
+          "解禁前一交易日收盘价": 67.31,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17792,9 +17756,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 47250000.0,
           "实际解禁数量": 47250000.0,
-          "实际解禁市值": 5005665000.0,
+          "实际解禁市值": 4850685000.0,
           "占解禁前流通市值比例": 0.3913043478,
-          "解禁前一交易日收盘价": 105.94,
+          "解禁前一交易日收盘价": 102.66,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17806,9 +17770,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 50698248.0,
           "实际解禁数量": 50698248.0,
-          "实际解禁市值": 2365073269.2,
+          "实际解禁市值": 2245932386.4,
           "占解禁前流通市值比例": 1.0611211855,
-          "解禁前一交易日收盘价": 46.65,
+          "解禁前一交易日收盘价": 44.3,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17820,9 +17784,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 86190000.0,
           "实际解禁数量": 86190000.0,
-          "实际解禁市值": 1477296600.0,
+          "实际解禁市值": 1483329900.0,
           "占解禁前流通市值比例": 2.1111095136,
-          "解禁前一交易日收盘价": 17.14,
+          "解禁前一交易日收盘价": 17.21,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17834,9 +17798,9 @@
           "限售股类型": "其他类型",
           "解禁数量": 100000000.0,
           "实际解禁数量": 100000000.0,
-          "实际解禁市值": 935000000.0,
+          "实际解禁市值": 932000000.0,
           "占解禁前流通市值比例": 0.1531141861,
-          "解禁前一交易日收盘价": 9.35,
+          "解禁前一交易日收盘价": 9.32,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17848,9 +17812,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 420000.0,
           "实际解禁数量": 420000.0,
-          "实际解禁市值": 4578000.0,
+          "实际解禁市值": 4494000.0,
           "占解禁前流通市值比例": 0.0008802534,
-          "解禁前一交易日收盘价": 10.9,
+          "解禁前一交易日收盘价": 10.7,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17862,9 +17826,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 3459409.0,
           "实际解禁数量": 3459409.0,
-          "实际解禁市值": 246794238.06,
+          "实际解禁市值": 231711214.82,
           "占解禁前流通市值比例": 0.0067455268,
-          "解禁前一交易日收盘价": 71.34,
+          "解禁前一交易日收盘价": 66.98,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17876,9 +17840,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 7310222.0,
           "实际解禁数量": 7310222.0,
-          "实际解禁市值": 186410661.0,
+          "实际解禁市值": 178442519.02,
           "占解禁前流通市值比例": 0.0387244172,
-          "解禁前一交易日收盘价": 25.5,
+          "解禁前一交易日收盘价": 24.41,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17890,9 +17854,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 32028000.0,
           "实际解禁数量": 32028000.0,
-          "实际解禁市值": 190886879.99999997,
+          "实际解禁市值": 188965200.0,
           "占解禁前流通市值比例": 0.0095645013,
-          "解禁前一交易日收盘价": 5.96,
+          "解禁前一交易日收盘价": 5.9,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17904,9 +17868,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 53900701.0,
           "实际解禁数量": 53900701.0,
-          "实际解禁市值": 1415432408.26,
+          "实际解禁市值": 1369616812.41,
           "占解禁前流通市值比例": 2.6923424383,
-          "解禁前一交易日收盘价": 26.26,
+          "解禁前一交易日收盘价": 25.41,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17918,9 +17882,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 167248800.0,
           "实际解禁数量": 167248800.0,
-          "实际解禁市值": 3901914503.9999995,
+          "实际解禁市值": 3833342496.0,
           "占解禁前流通市值比例": 2.8426076374,
-          "解禁前一交易日收盘价": 23.33,
+          "解禁前一交易日收盘价": 22.92,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17932,9 +17896,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 111000.0,
           "实际解禁数量": 111000.0,
-          "实际解禁市值": 1888110.0,
+          "实际解禁市值": 1823730.0,
           "占解禁前流通市值比例": 0.0002200058,
-          "解禁前一交易日收盘价": 17.01,
+          "解禁前一交易日收盘价": 16.43,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17946,9 +17910,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1250700.0,
           "实际解禁数量": 1250700.0,
-          "实际解禁市值": 45300354.0,
+          "实际解禁市值": 43661937.0,
           "占解禁前流通市值比例": 0.0010433332,
-          "解禁前一交易日收盘价": 36.22,
+          "解禁前一交易日收盘价": 34.91,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17960,9 +17924,9 @@
           "限售股类型": "公开发行原股东限售股份,公开发行战略配售股份",
           "解禁数量": 53683200.0,
           "实际解禁数量": 53683200.0,
-          "实际解禁市值": 1147209984.0,
+          "实际解禁市值": 1127347200.0,
           "占解禁前流通市值比例": 3.4113161507,
-          "解禁前一交易日收盘价": 21.37,
+          "解禁前一交易日收盘价": 21.0,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17974,9 +17938,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 93418892.0,
           "实际解禁数量": 93418892.0,
-          "实际解禁市值": 4115102192.6,
+          "实际解禁市值": 4044103834.68,
           "占解禁前流通市值比例": 0.949116202,
-          "解禁前一交易日收盘价": 44.05,
+          "解禁前一交易日收盘价": 43.29,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -17988,9 +17952,9 @@
           "限售股类型": "首发原股东限售股份,首发战略配售股份",
           "解禁数量": 435818850.0,
           "实际解禁数量": 435818850.0,
-          "实际解禁市值": 25050867498.0,
+          "实际解禁市值": 24301259076.0,
           "占解禁前流通市值比例": 2.5086380651,
-          "解禁前一交易日收盘价": 57.48,
+          "解禁前一交易日收盘价": 55.76,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18002,9 +17966,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 135274.0,
           "实际解禁数量": 135274.0,
-          "实际解禁市值": 1713921.5799999998,
+          "实际解禁市值": 1686866.78,
           "占解禁前流通市值比例": 0.0004505867,
-          "解禁前一交易日收盘价": 12.67,
+          "解禁前一交易日收盘价": 12.47,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18016,9 +17980,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 75000.0,
           "实际解禁数量": 75000.0,
-          "实际解禁市值": 1776000.0,
+          "实际解禁市值": 1734000.0,
           "占解禁前流通市值比例": 0.001150261,
-          "解禁前一交易日收盘价": 23.68,
+          "解禁前一交易日收盘价": 23.12,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18030,9 +17994,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 318000.0,
           "实际解禁数量": 318000.0,
-          "实际解禁市值": 2912880.0,
+          "实际解禁市值": 2833380.0,
           "占解禁前流通市值比例": 0.0028017525,
-          "解禁前一交易日收盘价": 9.16,
+          "解禁前一交易日收盘价": 8.91,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18044,9 +18008,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 365880.0,
           "实际解禁数量": 365880.0,
-          "实际解禁市值": 6680968.800000001,
+          "实际解禁市值": 6439488.0,
           "占解禁前流通市值比例": 0.0016176773,
-          "解禁前一交易日收盘价": 18.26,
+          "解禁前一交易日收盘价": 17.6,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18058,9 +18022,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1068051.0,
           "实际解禁数量": 1068051.0,
-          "实际解禁市值": 20816313.99,
+          "实际解禁市值": 19812346.05,
           "占解禁前流通市值比例": 0.0093975176,
-          "解禁前一交易日收盘价": 19.49,
+          "解禁前一交易日收盘价": 18.55,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18072,9 +18036,9 @@
           "限售股类型": "首发战略配售股份",
           "解禁数量": 1600400.0,
           "实际解禁数量": 1600400.0,
-          "实际解禁市值": 56862212.0,
+          "实际解禁市值": 55981992.0,
           "占解禁前流通市值比例": 0.0112116836,
-          "解禁前一交易日收盘价": 35.53,
+          "解禁前一交易日收盘价": 34.98,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18086,9 +18050,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 3198000.0,
           "实际解禁数量": 3198000.0,
-          "实际解禁市值": 32523660.0,
+          "实际解禁市值": 31820100.000000004,
           "占解禁前流通市值比例": 0.0106703439,
-          "解禁前一交易日收盘价": 10.17,
+          "解禁前一交易日收盘价": 9.95,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18100,9 +18064,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 7303920.000000001,
           "实际解禁数量": 7303920.000000001,
-          "实际解禁市值": 45430382.4,
+          "实际解禁市值": 45941656.8,
           "占解禁前流通市值比例": 0.0077525002,
-          "解禁前一交易日收盘价": 6.22,
+          "解禁前一交易日收盘价": 6.29,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18114,9 +18078,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 35324653.0,
           "实际解禁数量": 35324653.0,
-          "实际解禁市值": 1242014799.48,
+          "实际解禁市值": 1234243375.82,
           "占解禁前流通市值比例": 1.0930152591,
-          "解禁前一交易日收盘价": 35.16,
+          "解禁前一交易日收盘价": 34.94,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18128,9 +18092,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 36956227.0,
           "实际解禁数量": 36956227.0,
-          "实际解禁市值": 2125722177.0400002,
+          "实际解禁市值": 2008570937.4499998,
           "占解禁前流通市值比例": 0.5390138799,
-          "解禁前一交易日收盘价": 57.52,
+          "解禁前一交易日收盘价": 54.35,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18142,9 +18106,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 44448617.00000001,
           "实际解禁数量": 44448617.00000001,
-          "实际解禁市值": 2089084999.0,
+          "实际解禁市值": 2217097015.96,
           "占解禁前流通市值比例": 0.5684739551,
-          "解禁前一交易日收盘价": 47.0,
+          "解禁前一交易日收盘价": 49.88,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18156,9 +18120,9 @@
           "限售股类型": "首发原股东限售股份,首发战略配售股份",
           "解禁数量": 185906357.0,
           "实际解禁数量": 185906357.0,
-          "实际解禁市值": 70685315058.54001,
+          "实际解禁市值": 69157164804.0,
           "占解禁前流通市值比例": 3.319756375,
-          "解禁前一交易日收盘价": 380.22,
+          "解禁前一交易日收盘价": 372.0,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18170,9 +18134,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 244800000.0,
           "实际解禁数量": 244800000.0,
-          "实际解禁市值": 3390480000.0,
+          "实际解禁市值": 3343968000.0,
           "占解禁前流通市值比例": 1.3007438895,
-          "解禁前一交易日收盘价": 13.85,
+          "解禁前一交易日收盘价": 13.66,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18184,9 +18148,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 168000.0,
           "实际解禁数量": 168000.0,
-          "实际解禁市值": 11124960.000000002,
+          "实际解禁市值": 10446240.0,
           "占解禁前流通市值比例": 0.0004657308,
-          "解禁前一交易日收盘价": 66.22,
+          "解禁前一交易日收盘价": 62.18,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18198,9 +18162,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 9824000.0,
           "实际解禁数量": 9824000.0,
-          "实际解禁市值": 61694720.0,
+          "实际解禁市值": 60712320.0,
           "占解禁前流通市值比例": 0.011836573,
-          "解禁前一交易日收盘价": 6.28,
+          "解禁前一交易日收盘价": 6.18,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18212,9 +18176,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 10015000.0,
           "实际解禁数量": 10015000.0,
-          "实际解禁市值": 44366450.00000001,
+          "实际解禁市值": 43164650.0,
           "占解禁前流通市值比例": 0.0340320752,
-          "解禁前一交易日收盘价": 4.43,
+          "解禁前一交易日收盘价": 4.31,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18226,9 +18190,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 11759601.0,
           "实际解禁数量": 11759601.0,
-          "实际解禁市值": 139586463.87,
+          "实际解禁市值": 131825127.21,
           "占解禁前流通市值比例": 0.0411872434,
-          "解禁前一交易日收盘价": 11.87,
+          "解禁前一交易日收盘价": 11.21,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18240,9 +18204,9 @@
           "限售股类型": "追加承诺限售股份上市流通",
           "解禁数量": 49992533.0,
           "实际解禁数量": 49992533.0,
-          "实际解禁市值": 2875070572.83,
+          "实际解禁市值": 2824578114.5,
           "占解禁前流通市值比例": 1.4074639219,
-          "解禁前一交易日收盘价": 57.51,
+          "解禁前一交易日收盘价": 56.5,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18254,9 +18218,9 @@
           "限售股类型": "首发原股东限售股份",
           "解禁数量": 210526316.0,
           "实际解禁数量": 210526316.0,
-          "实际解禁市值": 3250526319.04,
+          "实际解禁市值": 3301052634.88,
           "占解禁前流通市值比例": 2.9999999858,
-          "解禁前一交易日收盘价": 15.44,
+          "解禁前一交易日收盘价": 15.68,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18268,9 +18232,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 2899690.0,
           "实际解禁数量": 2899690.0,
-          "实际解禁市值": 21602690.5,
+          "实际解禁市值": 21283724.6,
           "占解禁前流通市值比例": 0.0062870824,
-          "解禁前一交易日收盘价": 7.45,
+          "解禁前一交易日收盘价": 7.34,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18282,9 +18246,9 @@
           "限售股类型": "首发机构配售股份",
           "解禁数量": 5300030.0,
           "实际解禁数量": 5300030.0,
-          "实际解禁市值": 107855610.5,
+          "实际解禁市值": 103933588.3,
           "占解禁前流通市值比例": 0.0647232739,
-          "解禁前一交易日收盘价": 20.35,
+          "解禁前一交易日收盘价": 19.61,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18296,9 +18260,9 @@
           "限售股类型": "首发原股东限售股份,追加承诺限售股份上市流通",
           "解禁数量": 73836000.0,
           "实际解禁数量": 73836000.0,
-          "实际解禁市值": 1839993120.0,
+          "实际解禁市值": 1790523000.0,
           "占解禁前流通市值比例": 1.0456246438,
-          "解禁前一交易日收盘价": 24.92,
+          "解禁前一交易日收盘价": 24.25,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18310,9 +18274,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 75000.0,
           "实际解禁数量": 75000.0,
-          "实际解禁市值": 1999500.0,
+          "实际解禁市值": 1974750.0,
           "占解禁前流通市值比例": 0.0006697887,
-          "解禁前一交易日收盘价": 26.66,
+          "解禁前一交易日收盘价": 26.33,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18324,9 +18288,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 285000.0,
           "实际解禁数量": 285000.0,
-          "实际解禁市值": 10681800.0,
+          "实际解禁市值": 10325550.0,
           "占解禁前流通市值比例": 0.0010658097,
-          "解禁前一交易日收盘价": 37.48,
+          "解禁前一交易日收盘价": 36.23,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18338,9 +18302,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 3508403.0,
           "实际解禁数量": 3508403.0,
-          "实际解禁市值": 48030037.07,
+          "实际解禁市值": 47609028.71,
           "占解禁前流通市值比例": 0.0109128918,
-          "解禁前一交易日收盘价": 13.69,
+          "解禁前一交易日收盘价": 13.57,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18352,9 +18316,9 @@
           "限售股类型": "其他类型",
           "解禁数量": 40000000.0,
           "实际解禁数量": 40000000.0,
-          "实际解禁市值": 142400000.0,
+          "实际解禁市值": 140800000.0,
           "占解禁前流通市值比例": 0.0763473703,
-          "解禁前一交易日收盘价": 3.56,
+          "解禁前一交易日收盘价": 3.52,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18366,9 +18330,9 @@
           "限售股类型": "首发原股东限售股份,首发战略配售股份",
           "解禁数量": 202368462.0,
           "实际解禁数量": 202368462.0,
-          "实际解禁市值": 16023534821.16,
+          "实际解禁市值": 14776945095.240002,
           "占解禁前流通市值比例": 5.2416880783,
-          "解禁前一交易日收盘价": 79.18,
+          "解禁前一交易日收盘价": 73.02,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18380,9 +18344,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 943396226.0,
           "实际解禁数量": 943396226.0,
-          "实际解禁市值": 4773584903.56,
+          "实际解禁市值": 4801886790.34,
           "占解禁前流通市值比例": 0.1752411079,
-          "解禁前一交易日收盘价": 5.06,
+          "解禁前一交易日收盘价": 5.09,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18394,9 +18358,9 @@
           "限售股类型": "其他类型",
           "解禁数量": 1400000000.0,
           "实际解禁数量": 1400000000.0,
-          "实际解禁市值": 3990000000.0,
+          "实际解禁市值": 4060000000.0,
           "占解禁前流通市值比例": 0.1797622797,
-          "解禁前一交易日收盘价": 2.85,
+          "解禁前一交易日收盘价": 2.9,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18408,9 +18372,9 @@
           "限售股类型": "公开发行战略配售股份",
           "解禁数量": 1181345.0,
           "实际解禁数量": 1181345.0,
-          "实际解禁市值": 34826050.6,
+          "实际解禁市值": 33018592.749999996,
           "占解禁前流通市值比例": 0.0310690399,
-          "解禁前一交易日收盘价": 29.48,
+          "解禁前一交易日收盘价": 27.95,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18422,9 +18386,9 @@
           "限售股类型": "股权激励限售股份",
           "解禁数量": 1716050.0,
           "实际解禁数量": 1716050.0,
-          "实际解禁市值": 53180389.5,
+          "实际解禁市值": 56475205.5,
           "占解禁前流通市值比例": 0.0232680941,
-          "解禁前一交易日收盘价": 30.99,
+          "解禁前一交易日收盘价": 32.91,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         },
@@ -18436,9 +18400,9 @@
           "限售股类型": "定向增发机构配售股份",
           "解禁数量": 17937706.0,
           "实际解禁数量": 17937706.0,
-          "实际解禁市值": 200364176.02,
+          "实际解禁市值": 196417880.7,
           "占解禁前流通市值比例": 0.0479477273,
-          "解禁前一交易日收盘价": 11.17,
+          "解禁前一交易日收盘价": 10.95,
           "解禁前20日涨跌幅": null,
           "解禁后20日涨跌幅": null
         }
@@ -18990,13 +18954,8 @@
       ]
     },
     "flow_BK0486": {
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": 201251216.0,
-          "net_ratio_pct": 0.55
-        },
         {
           "date": "2026-09-18",
           "net_yuan": -565062080.0,
@@ -19166,6 +19125,11 @@
           "date": "2026-11-12",
           "net_yuan": -3776353280.0,
           "net_ratio_pct": -3.47
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": -2095680512.0,
+          "net_ratio_pct": -2.5
         }
       ]
     },
@@ -20988,13 +20952,8 @@
       ]
     },
     "flow_BK0433": {
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": 185648480.0,
-          "net_ratio_pct": 0.56
-        },
         {
           "date": "2026-09-18",
           "net_yuan": -435331952.0,
@@ -21164,6 +21123,11 @@
           "date": "2026-11-12",
           "net_yuan": 433372496.0,
           "net_ratio_pct": 1.83
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": -1039807104.0,
+          "net_ratio_pct": -4.19
         }
       ]
     },
@@ -22348,13 +22312,8 @@
       ]
     },
     "flow_BK0464": {
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": -259182976.0,
-          "net_ratio_pct": -1.96
-        },
         {
           "date": "2026-09-18",
           "net_yuan": -287843360.0,
@@ -22524,17 +22483,17 @@
           "date": "2026-11-12",
           "net_yuan": 15731888.0,
           "net_ratio_pct": 0.14
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": 364221472.0,
+          "net_ratio_pct": 2.9
         }
       ]
     },
     "flow_BK1036": {
-      "fetched_at": "2026-11-13T14:35:48.648892+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": -4754800128.0,
-          "net_ratio_pct": -2.07
-        },
         {
           "date": "2026-09-18",
           "net_yuan": 18220373248.0,
@@ -22704,6 +22663,11 @@
           "date": "2026-11-12",
           "net_yuan": 2352556544.0,
           "net_ratio_pct": 0.8
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": -7527586816.0,
+          "net_ratio_pct": -3.25
         }
       ]
     },
@@ -74845,7 +74809,7 @@
       ]
     },
     "price_601689": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:58.398977+08:00",
       "rows": [
         {
           "date": "2026-09-08",
@@ -75266,18 +75230,19 @@
           "turnover_yuan": 2357344615.0,
           "return_pct": -1.37,
           "turnover_pct": 2.66
+        },
+        {
+          "date": "2026-11-13",
+          "close": 50.28,
+          "return_pct": -0.53,
+          "turnover_yuan": 1360917260.0,
+          "turnover_pct": 1.54
         }
-      ],
-      "refresh_source": "BaoStock未复权日线备用源"
+      ]
     },
     "flow_601689": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": 132009175.0,
-          "net_ratio_pct": 10.09
-        },
         {
           "date": "2026-09-18",
           "net_yuan": -22992667.0,
@@ -75447,10 +75412,13 @@
           "date": "2026-11-12",
           "net_yuan": 10959085.0,
           "net_ratio_pct": 0.46
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": -40771621.0,
+          "net_ratio_pct": -3.0
         }
-      ],
-      "validated_at": "2026-11-13T14:36:50.518676+08:00",
-      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
+      ]
     },
     "price_600547": {
       "fetched_at": "2026-09-18T10:18:08.103821+08:00",
@@ -95864,13 +95832,8 @@
       "refresh_source": "BaoStock未复权日线备用源"
     },
     "flow_600802": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": -13143304.0,
-          "net_ratio_pct": -4.16
-        },
         {
           "date": "2026-09-18",
           "net_yuan": -2757944.0,
@@ -96040,13 +96003,16 @@
           "date": "2026-11-12",
           "net_yuan": 79303820.0,
           "net_ratio_pct": 4.7
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": -468116308.0,
+          "net_ratio_pct": -42.94
         }
-      ],
-      "validated_at": "2026-11-13T14:36:50.518676+08:00",
-      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
+      ]
     },
     "price_600802": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:44:00.701133+08:00",
       "rows": [
         {
           "date": "2026-09-08",
@@ -96467,12 +96433,18 @@
           "turnover_yuan": 1688330803.0,
           "return_pct": 9.99,
           "turnover_pct": 43.75
+        },
+        {
+          "date": "2026-11-13",
+          "close": 7.73,
+          "return_pct": -10.01,
+          "turnover_yuan": 1090056868.0,
+          "turnover_pct": 30.58
         }
-      ],
-      "refresh_source": "BaoStock未复权日线备用源"
+      ]
     },
     "price_601615": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:51.611511+08:00",
       "rows": [
         {
           "date": "2026-09-08",
@@ -96893,26 +96865,19 @@
           "turnover_yuan": 400912378.0,
           "return_pct": -3.9,
           "turnover_pct": 2.2
+        },
+        {
+          "date": "2026-11-13",
+          "close": 7.92,
+          "return_pct": 0.51,
+          "turnover_yuan": 520804147.0,
+          "turnover_pct": 2.86
         }
-      ],
-      "refresh_source": "BaoStock未复权日线备用源"
+      ]
     },
     "price_002202": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:53.894143+08:00",
       "rows": [
-        {
-          "date": "2026-09-03",
-          "open": 17.99,
-          "close": 17.7,
-          "high": 18.01,
-          "low": 17.63,
-          "volume_lots": 558467.0,
-          "turnover_yuan": 992463562.64,
-          "amplitude_pct": 2.13,
-          "return_pct": -0.56,
-          "change": -0.1,
-          "turnover_pct": 1.66
-        },
         {
           "date": "2026-09-04",
           "open": 17.82,
@@ -97484,18 +97449,19 @@
           "return_pct": -2.46,
           "change": -0.37,
           "turnover_pct": 2.15
+        },
+        {
+          "date": "2026-11-13",
+          "close": 14.31,
+          "return_pct": -2.39,
+          "turnover_yuan": 846107022.95,
+          "turnover_pct": 1.73
         }
-      ],
-      "refresh_source": "BaoStock未复权日线备用源"
+      ]
     },
     "flow_002202": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": -63079538.0,
-          "net_ratio_pct": -2.56
-        },
         {
           "date": "2026-09-18",
           "net_yuan": -97210173.0,
@@ -97665,19 +97631,17 @@
           "date": "2026-11-12",
           "net_yuan": -131980654.0,
           "net_ratio_pct": -12.28
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": -62669680.0,
+          "net_ratio_pct": -7.41
         }
-      ],
-      "validated_at": "2026-11-13T14:36:50.518676+08:00",
-      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
+      ]
     },
     "flow_601615": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": 34092586.0,
-          "net_ratio_pct": 5.94
-        },
         {
           "date": "2026-09-18",
           "net_yuan": 12618999.0,
@@ -97847,10 +97811,13 @@
           "date": "2026-11-12",
           "net_yuan": -61204229.0,
           "net_ratio_pct": -15.27
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": 45084000.0,
+          "net_ratio_pct": 8.66
         }
-      ],
-      "validated_at": "2026-11-13T14:36:50.518676+08:00",
-      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
+      ]
     },
     "price_600740": {
       "fetched_at": "2026-09-24T17:03:11.061122+08:00",
@@ -101304,13 +101271,8 @@
       ]
     },
     "flow_601939": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:04.034040+08:00",
       "rows": [
-        {
-          "date": "2026-09-17",
-          "net_yuan": 11641248.0,
-          "net_ratio_pct": 1.3
-        },
         {
           "date": "2026-09-18",
           "net_yuan": 16510205.0,
@@ -101480,27 +101442,17 @@
           "date": "2026-11-12",
           "net_yuan": 115272891.0,
           "net_ratio_pct": 8.23
+        },
+        {
+          "date": "2026-11-13",
+          "net_yuan": 52655880.0,
+          "net_ratio_pct": 3.41
         }
-      ],
-      "validated_at": "2026-11-13T14:36:50.518676+08:00",
-      "validation": "same-session row + complete 3/5/10 flow windows; values unchanged"
+      ]
     },
     "price_601939": {
-      "fetched_at": "2026-11-13T14:36:50.518676+08:00",
+      "fetched_at": "2026-11-13T16:43:56.105947+08:00",
       "rows": [
-        {
-          "date": "2026-09-03",
-          "open": 11.09,
-          "close": 10.95,
-          "high": 11.23,
-          "low": 10.92,
-          "volume_lots": 1206089.0,
-          "turnover_yuan": 1334099925.0,
-          "amplitude_pct": 2.78,
-          "return_pct": -1.71,
-          "change": -0.19,
-          "turnover_pct": 1.26
-        },
         {
           "date": "2026-09-04",
           "open": 10.94,
@@ -102072,9 +102024,15 @@
           "return_pct": 0.76,
           "change": 0.09,
           "turnover_pct": 1.22
+        },
+        {
+          "date": "2026-11-13",
+          "close": 12.11,
+          "return_pct": 0.83,
+          "turnover_yuan": 1542319057.0,
+          "turnover_pct": 1.33
         }
-      ],
-      "refresh_source": "BaoStock未复权日线备用源"
+      ]
     },
     "limits_2026-09-28": {
       "fetched_at": "2026-10-12T13:53:50.649872+08:00",
@@ -163168,7 +163126,7 @@
       ]
     },
     "failed_2026-11-09": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
@@ -163190,24 +163148,6 @@
         },
         {
           "序号": 2,
-          "代码": "600156",
-          "名称": "华升股份",
-          "涨跌幅": 4.1018390656,
-          "最新价": 7.36,
-          "涨停价": 7.78,
-          "成交额": 502253632,
-          "流通市值": 2959534766.7200003,
-          "总市值": 2959534781.44,
-          "换手率": 16.6710777283,
-          "涨速": 0.0,
-          "首次封板时间": "092502",
-          "炸板次数": 2,
-          "涨停统计": "2/1",
-          "振幅": 10.8910884857,
-          "所属行业": "纺织制造"
-        },
-        {
-          "序号": 3,
           "代码": "603887",
           "名称": "城地香江",
           "涨跌幅": -2.5608193874,
@@ -163225,25 +163165,25 @@
           "所属行业": "IT服务Ⅱ"
         },
         {
-          "序号": 4,
-          "代码": "002865",
-          "名称": "钧达股份",
-          "涨跌幅": -0.3139717579,
-          "最新价": 44.45,
-          "涨停价": 49.05,
-          "成交额": 2720000560,
-          "流通市值": 10171113541.400002,
-          "总市值": 13835775833.6,
-          "换手率": 25.0946960449,
+          "序号": 3,
+          "代码": "600156",
+          "名称": "华升股份",
+          "涨跌幅": 4.1018390656,
+          "最新价": 7.36,
+          "涨停价": 7.78,
+          "成交额": 502253632,
+          "流通市值": 2959534766.7200003,
+          "总市值": 2959534781.44,
+          "换手率": 16.6710777283,
           "涨速": 0.0,
-          "首次封板时间": "093000",
-          "炸板次数": 3,
-          "涨停统计": "0/0",
-          "振幅": 10.9890108109,
-          "所属行业": "光伏设备"
+          "首次封板时间": "092502",
+          "炸板次数": 2,
+          "涨停统计": "2/1",
+          "振幅": 10.8910884857,
+          "所属行业": "纺织制造"
         },
         {
-          "序号": 5,
+          "序号": 4,
           "代码": "002943",
           "名称": "宇晶股份",
           "涨跌幅": -2.8811912537,
@@ -163259,6 +163199,24 @@
           "涨停统计": "0/0",
           "振幅": 13.7261257172,
           "所属行业": "通用设备"
+        },
+        {
+          "序号": 5,
+          "代码": "002865",
+          "名称": "钧达股份",
+          "涨跌幅": -0.3139717579,
+          "最新价": 44.45,
+          "涨停价": 49.05,
+          "成交额": 2720000560,
+          "流通市值": 10171113541.400002,
+          "总市值": 13835775833.6,
+          "换手率": 25.0946960449,
+          "涨速": 0.0,
+          "首次封板时间": "093000",
+          "炸板次数": 3,
+          "涨停统计": "0/0",
+          "振幅": 10.9890108109,
+          "所属行业": "光伏设备"
         },
         {
           "序号": 6,
@@ -163965,7 +163923,7 @@
       ]
     },
     "limits_2026-11-09": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
@@ -164185,21 +164143,21 @@
         },
         {
           "序号": 13,
-          "代码": "001379",
-          "名称": "腾达科技",
-          "涨跌幅": 9.9930610657,
-          "最新价": 15.85,
-          "成交额": 45627211,
-          "流通市值": 1066680036.25,
-          "总市值": 3170000000.0,
-          "换手率": 4.3418936729,
-          "封板资金": 19343942,
-          "首次封板时间": "093251",
-          "最后封板时间": "093251",
+          "代码": "002811",
+          "名称": "郑中设计",
+          "涨跌幅": 9.9805259705,
+          "最新价": 22.59,
+          "成交额": 118383025,
+          "流通市值": 6394399698.51,
+          "总市值": 6957042300.0,
+          "换手率": 1.8851437569,
+          "封板资金": 72749965,
+          "首次封板时间": "093257",
+          "最后封板时间": "093257",
           "炸板次数": 0,
-          "涨停统计": "1/1",
+          "涨停统计": "6/3",
           "连板数": 1,
-          "所属行业": "通用设备"
+          "所属行业": "装修装饰"
         },
         {
           "序号": 14,
@@ -164221,7 +164179,7 @@
         },
         {
           "序号": 15,
-          "代码": "002347",
+          "代码": "603703",
           "名称": "泰尔股份",
           "涨跌幅": 10.0628929138,
           "最新价": 7.0,
@@ -164474,7 +164432,7 @@
         {
           "序号": 29,
           "代码": "603920",
-          "名称": "世运电路",
+          "名称": "金固股份",
           "涨跌幅": 9.9901733398,
           "最新价": 33.58,
           "成交额": 671740432,
@@ -164491,24 +164449,6 @@
         },
         {
           "序号": 30,
-          "代码": "002488",
-          "名称": "金固股份",
-          "涨跌幅": 10.0,
-          "最新价": 7.48,
-          "成交额": 457314080,
-          "流通市值": 6882228312.52,
-          "总市值": 7445884258.56,
-          "换手率": 6.7592868805,
-          "封板资金": 63434888,
-          "首次封板时间": "094506",
-          "最后封板时间": "095745",
-          "炸板次数": 1,
-          "涨停统计": "1/1",
-          "连板数": 1,
-          "所属行业": "汽车零部"
-        },
-        {
-          "序号": 31,
           "代码": "600776",
           "名称": "东方通信",
           "涨跌幅": 9.9909992218,
@@ -164526,7 +164466,7 @@
           "所属行业": "通信设备"
         },
         {
-          "序号": 32,
+          "序号": 31,
           "代码": "002124",
           "名称": "天邦食品",
           "涨跌幅": 10.0,
@@ -164542,6 +164482,24 @@
           "涨停统计": "1/1",
           "连板数": 1,
           "所属行业": "养殖业"
+        },
+        {
+          "序号": 32,
+          "代码": "600121",
+          "名称": "郑州煤电",
+          "涨跌幅": 10.0,
+          "最新价": 4.73,
+          "成交额": 687387392,
+          "流通市值": 5763088939.740001,
+          "总市值": 5763088911.360001,
+          "换手率": 12.1770267487,
+          "封板资金": 66068947,
+          "首次封板时间": "095335",
+          "最后封板时间": "103753",
+          "炸板次数": 2,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "煤炭开采"
         },
         {
           "序号": 33,
@@ -165771,7 +165729,7 @@
       ]
     },
     "limits_2026-11-10": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
@@ -165847,24 +165805,6 @@
         },
         {
           "序号": 5,
-          "代码": "002708",
-          "名称": "光洋股份",
-          "涨跌幅": 10.0136547089,
-          "最新价": 24.17,
-          "成交额": 383005696,
-          "流通市值": 12317765583.67,
-          "总市值": 13585907886.560001,
-          "换手率": 3.1443297863,
-          "封板资金": 265338743,
-          "首次封板时间": "093012",
-          "最后封板时间": "093012",
-          "炸板次数": 0,
-          "涨停统计": "12/6",
-          "连板数": 2,
-          "所属行业": "汽车零部"
-        },
-        {
-          "序号": 6,
           "代码": "002347",
           "名称": "泰尔股份",
           "涨跌幅": 10.0,
@@ -165880,6 +165820,24 @@
           "涨停统计": "2/2",
           "连板数": 2,
           "所属行业": "通用设备"
+        },
+        {
+          "序号": 6,
+          "代码": "002708",
+          "名称": "光洋股份",
+          "涨跌幅": 10.0136547089,
+          "最新价": 24.17,
+          "成交额": 383005696,
+          "流通市值": 12317765583.67,
+          "总市值": 13585907886.560001,
+          "换手率": 3.1443297863,
+          "封板资金": 265338743,
+          "首次封板时间": "093012",
+          "最后封板时间": "093012",
+          "炸板次数": 0,
+          "涨停统计": "12/6",
+          "连板数": 2,
+          "所属行业": "汽车零部"
         },
         {
           "序号": 7,
@@ -167450,28 +167408,10 @@
       ]
     },
     "failed_2026-11-10": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
-          "代码": "002889",
-          "名称": "东方嘉盛",
-          "涨跌幅": 2.8048779964,
-          "最新价": 16.86,
-          "涨停价": 18.04,
-          "成交额": 1271966048,
-          "流通市值": 4236657580.44,
-          "总市值": 6367473577.92,
-          "换手率": 29.0166110992,
-          "涨速": 0.0,
-          "首次封板时间": "092500",
-          "炸板次数": 3,
-          "涨停统计": "3/2",
-          "振幅": 9.5731706619,
-          "所属行业": "物流"
-        },
-        {
-          "序号": 2,
           "代码": "002037",
           "名称": "保利联合",
           "涨跌幅": 0.4149377942,
@@ -167487,6 +167427,24 @@
           "涨停统计": "2/1",
           "振幅": 9.8201942444,
           "所属行业": "化学制品"
+        },
+        {
+          "序号": 2,
+          "代码": "002889",
+          "名称": "东方嘉盛",
+          "涨跌幅": 2.8048779964,
+          "最新价": 16.86,
+          "涨停价": 18.04,
+          "成交额": 1271966048,
+          "流通市值": 4236657580.44,
+          "总市值": 6367473577.92,
+          "换手率": 29.0166110992,
+          "涨速": 0.0,
+          "首次封板时间": "092500",
+          "炸板次数": 3,
+          "涨停统计": "3/2",
+          "振幅": 9.5731706619,
+          "所属行业": "物流"
         },
         {
           "序号": 3,
@@ -168468,64 +168426,10 @@
       ]
     },
     "limits_2026-11-11": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
-          "代码": "002160",
-          "名称": "常铝股份",
-          "涨跌幅": 10.0,
-          "最新价": 4.4,
-          "成交额": 540990000,
-          "流通市值": 4535209751.6,
-          "总市值": 4544237139.200001,
-          "换手率": 11.9453468323,
-          "封板资金": 53945320,
-          "首次封板时间": "092500",
-          "最后封板时间": "094533",
-          "炸板次数": 5,
-          "涨停统计": "2/2",
-          "连板数": 2,
-          "所属行业": "工业金属"
-        },
-        {
-          "序号": 2,
-          "代码": "002076",
-          "名称": "星光股份",
-          "涨跌幅": 9.9009904861,
-          "最新价": 2.22,
-          "成交额": 249808760,
-          "流通市值": 2314781195.0400004,
-          "总市值": 2462256381.1200004,
-          "换手率": 10.7920436859,
-          "封板资金": 54375348,
-          "首次封板时间": "092500",
-          "最后封板时间": "093257",
-          "炸板次数": 1,
-          "涨停统计": "1/1",
-          "连板数": 1,
-          "所属行业": "照明设备"
-        },
-        {
-          "序号": 3,
-          "代码": "002861",
-          "名称": "瀛通通讯",
-          "涨跌幅": 9.9846391678,
-          "最新价": 14.32,
-          "成交额": 38122704,
-          "流通市值": 2033500186.96,
-          "总市值": 2667586335.84,
-          "换手率": 1.8747332096,
-          "封板资金": 63447624,
-          "首次封板时间": "092500",
-          "最后封板时间": "092500",
-          "炸板次数": 0,
-          "涨停统计": "2/2",
-          "连板数": 2,
-          "所属行业": "消费电子"
-        },
-        {
-          "序号": 4,
           "代码": "600715",
           "名称": "文投控股",
           "涨跌幅": 10.1754379272,
@@ -168543,7 +168447,7 @@
           "所属行业": "游戏Ⅱ"
         },
         {
-          "序号": 5,
+          "序号": 2,
           "代码": "002623",
           "名称": "亚玛顿",
           "涨跌幅": 9.9952850342,
@@ -168561,7 +168465,43 @@
           "所属行业": "光伏设备"
         },
         {
-          "序号": 6,
+          "序号": 3,
+          "代码": "002160",
+          "名称": "常铝股份",
+          "涨跌幅": 10.0,
+          "最新价": 4.4,
+          "成交额": 540990000,
+          "流通市值": 4535209751.6,
+          "总市值": 4544237139.200001,
+          "换手率": 11.9453468323,
+          "封板资金": 53945320,
+          "首次封板时间": "092500",
+          "最后封板时间": "094533",
+          "炸板次数": 5,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "工业金属"
+        },
+        {
+          "序号": 4,
+          "代码": "002861",
+          "名称": "瀛通通讯",
+          "涨跌幅": 9.9846391678,
+          "最新价": 14.32,
+          "成交额": 38122704,
+          "流通市值": 2033500186.96,
+          "总市值": 2667586335.84,
+          "换手率": 1.8747332096,
+          "封板资金": 63447624,
+          "首次封板时间": "092500",
+          "最后封板时间": "092500",
+          "炸板次数": 0,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "消费电子"
+        },
+        {
+          "序号": 5,
           "代码": "002209",
           "名称": "达 意 隆",
           "涨跌幅": 10.0078802109,
@@ -168577,6 +168517,24 @@
           "涨停统计": "2/2",
           "连板数": 2,
           "所属行业": "专用设备"
+        },
+        {
+          "序号": 6,
+          "代码": "002076",
+          "名称": "星光股份",
+          "涨跌幅": 9.9009904861,
+          "最新价": 2.22,
+          "成交额": 249808760,
+          "流通市值": 2314781195.0400004,
+          "总市值": 2462256381.1200004,
+          "换手率": 10.7920436859,
+          "封板资金": 54375348,
+          "首次封板时间": "092500",
+          "最后封板时间": "093257",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "照明设备"
         },
         {
           "序号": 7,
@@ -170003,7 +169961,7 @@
       ]
     },
     "failed_2026-11-11": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
@@ -171313,64 +171271,28 @@
       ]
     },
     "limits_2026-11-12": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
-          "代码": "002086",
-          "名称": "东方海洋",
-          "涨跌幅": 10.0213222504,
-          "最新价": 5.16,
-          "成交额": 2851430016,
-          "流通市值": 8157811753.2,
-          "总市值": 10108163919.36,
-          "换手率": 35.1421051025,
-          "封板资金": 11813133,
-          "首次封板时间": "092500",
-          "最后封板时间": "150000",
-          "炸板次数": 26,
-          "涨停统计": "17/9",
-          "连板数": 1,
-          "所属行业": "农产品加"
-        },
-        {
-          "序号": 2,
-          "代码": "603725",
-          "名称": "天安新材",
-          "涨跌幅": 10.0334453583,
-          "最新价": 13.16,
-          "成交额": 238894772,
-          "流通市值": 4011927068.8,
-          "总市值": 4011927068.8,
-          "换手率": 5.9636259079,
-          "封板资金": 56779188,
-          "首次封板时间": "092500",
-          "最后封板时间": "144836",
-          "炸板次数": 1,
-          "涨停统计": "2/2",
-          "连板数": 2,
-          "所属行业": "家居用品"
-        },
-        {
-          "序号": 3,
-          "代码": "000573",
-          "名称": "粤宏远Ａ",
-          "涨跌幅": 10.1265821457,
-          "最新价": 4.35,
-          "成交额": 27012921,
-          "流通市值": 2751635212.6499996,
-          "总市值": 2776520644.7999997,
-          "换手率": 0.9817042947,
-          "封板资金": 65491133,
+          "代码": "002623",
+          "名称": "亚玛顿",
+          "涨跌幅": 9.9871416092,
+          "最新价": 25.66,
+          "成交额": 38862070,
+          "流通市值": 4943043301.08,
+          "总市值": 4953984083.58,
+          "换手率": 0.7861972451,
+          "封板资金": 170182252,
           "首次封板时间": "092500",
           "最后封板时间": "092500",
           "炸板次数": 0,
-          "涨停统计": "1/1",
-          "连板数": 1,
-          "所属行业": "房地产开"
+          "涨停统计": "8/5",
+          "连板数": 4,
+          "所属行业": "光伏设备"
         },
         {
-          "序号": 4,
+          "序号": 2,
           "代码": "002148",
           "名称": "北纬科技",
           "涨跌幅": 10.0456619263,
@@ -171388,22 +171310,58 @@
           "所属行业": "通信服务"
         },
         {
-          "序号": 5,
-          "代码": "002623",
-          "名称": "亚玛顿",
-          "涨跌幅": 9.9871416092,
-          "最新价": 25.66,
-          "成交额": 38862070,
-          "流通市值": 4943043301.08,
-          "总市值": 4953984083.58,
-          "换手率": 0.7861972451,
-          "封板资金": 170182252,
+          "序号": 3,
+          "代码": "603725",
+          "名称": "天安新材",
+          "涨跌幅": 10.0334453583,
+          "最新价": 13.16,
+          "成交额": 238894772,
+          "流通市值": 4011927068.8,
+          "总市值": 4011927068.8,
+          "换手率": 5.9636259079,
+          "封板资金": 56779188,
+          "首次封板时间": "092500",
+          "最后封板时间": "144836",
+          "炸板次数": 1,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "家居用品"
+        },
+        {
+          "序号": 4,
+          "代码": "000573",
+          "名称": "粤宏远Ａ",
+          "涨跌幅": 10.1265821457,
+          "最新价": 4.35,
+          "成交额": 27012921,
+          "流通市值": 2751635212.6499996,
+          "总市值": 2776520644.7999997,
+          "换手率": 0.9817042947,
+          "封板资金": 65491133,
           "首次封板时间": "092500",
           "最后封板时间": "092500",
           "炸板次数": 0,
-          "涨停统计": "8/5",
-          "连板数": 4,
-          "所属行业": "光伏设备"
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "房地产开"
+        },
+        {
+          "序号": 5,
+          "代码": "002086",
+          "名称": "东方海洋",
+          "涨跌幅": 10.0213222504,
+          "最新价": 5.16,
+          "成交额": 2851430016,
+          "流通市值": 8157811753.2,
+          "总市值": 10108163919.36,
+          "换手率": 35.1421051025,
+          "封板资金": 11813133,
+          "首次封板时间": "092500",
+          "最后封板时间": "150000",
+          "炸板次数": 26,
+          "涨停统计": "17/9",
+          "连板数": 1,
+          "所属行业": "农产品加"
         },
         {
           "序号": 6,
@@ -171984,7 +171942,7 @@
       ]
     },
     "failed_2026-11-12": {
-      "fetched_at": "2026-11-13T14:36:07.678009+08:00",
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
       "rows": [
         {
           "序号": 1,
@@ -173414,6 +173372,1677 @@
           "上榜日期": "2026-11-12T00:00:00.000"
         }
       ]
+    },
+    "limits_2026-11-13": {
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
+      "rows": [
+        {
+          "序号": 1,
+          "代码": "001358",
+          "名称": "兴欣新材",
+          "涨跌幅": 9.9917430878,
+          "最新价": 26.64,
+          "成交额": 41239093,
+          "流通市值": 1358008845.1200001,
+          "总市值": 3282048000.0,
+          "换手率": 3.0367321968,
+          "封板资金": 495554243,
+          "首次封板时间": "092500",
+          "最后封板时间": "092500",
+          "炸板次数": 0,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "化学制品"
+        },
+        {
+          "序号": 2,
+          "代码": "002187",
+          "名称": "广百股份",
+          "涨跌幅": 9.9369087219,
+          "最新价": 6.97,
+          "成交额": 778638368,
+          "流通市值": 4885235592.01,
+          "总市值": 4885235640.8,
+          "换手率": 16.0777168274,
+          "封板资金": 16093730,
+          "首次封板时间": "092500",
+          "最后封板时间": "094206",
+          "炸板次数": 5,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "一般零售"
+        },
+        {
+          "序号": 3,
+          "代码": "002685",
+          "名称": "华东重机",
+          "涨跌幅": 9.9206352234,
+          "最新价": 5.54,
+          "成交额": 618358384,
+          "流通市值": 5582044810.64,
+          "总市值": 5582606145.6,
+          "换手率": 11.0886306763,
+          "封板资金": 73746264,
+          "首次封板时间": "092500",
+          "最后封板时间": "132457",
+          "炸板次数": 2,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "工程机械"
+        },
+        {
+          "序号": 4,
+          "代码": "600467",
+          "名称": "好当家",
+          "涨跌幅": 10.0806455612,
+          "最新价": 2.73,
+          "成交额": 741462992,
+          "流通市值": 3988514449.92,
+          "总市值": 3988514449.92,
+          "换手率": 18.6863193512,
+          "封板资金": 19659276,
+          "首次封板时间": "092502",
+          "最后封板时间": "101529",
+          "炸板次数": 5,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "渔业"
+        },
+        {
+          "序号": 5,
+          "代码": "002148",
+          "名称": "北纬科技",
+          "涨跌幅": 9.9585065842,
+          "最新价": 7.95,
+          "成交额": 415508816,
+          "流通市值": 3585661557.4500003,
+          "总市值": 4442073057.6,
+          "换手率": 11.6436386108,
+          "封板资金": 177857781,
+          "首次封板时间": "093000",
+          "最后封板时间": "093000",
+          "炸板次数": 0,
+          "涨停统计": "3/3",
+          "连板数": 3,
+          "所属行业": "通信服务"
+        },
+        {
+          "序号": 6,
+          "代码": "002819",
+          "名称": "东方中科",
+          "涨跌幅": 9.9847946167,
+          "最新价": 21.7,
+          "成交额": 187972515,
+          "流通市值": 5125507146.2,
+          "总市值": 6468056156.8,
+          "换手率": 3.6920075417,
+          "封板资金": 47262600,
+          "首次封板时间": "093018",
+          "最后封板时间": "093018",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "通用设备"
+        },
+        {
+          "序号": 7,
+          "代码": "605255",
+          "名称": "天普股份",
+          "涨跌幅": 9.9985103607,
+          "最新价": 73.82,
+          "成交额": 179347569,
+          "流通市值": 9897785600.0,
+          "总市值": 9897785600.0,
+          "换手率": 1.8338171244,
+          "封板资金": 22773470,
+          "首次封板时间": "093034",
+          "最后封板时间": "094043",
+          "炸板次数": 2,
+          "涨停统计": "4/4",
+          "连板数": 4,
+          "所属行业": "汽车零部"
+        },
+        {
+          "序号": 8,
+          "代码": "600715",
+          "名称": "文投控股",
+          "涨跌幅": 10.0323629379,
+          "最新价": 3.4,
+          "成交额": 1044631824,
+          "流通市值": 9732065619.4,
+          "总市值": 13803501913.6,
+          "换手率": 10.8994541168,
+          "封板资金": 245942923,
+          "首次封板时间": "093040",
+          "最后封板时间": "093040",
+          "炸板次数": 0,
+          "涨停统计": "18/10",
+          "连板数": 1,
+          "所属行业": "游戏Ⅱ"
+        },
+        {
+          "序号": 9,
+          "代码": "603396",
+          "名称": "金辰股份",
+          "涨跌幅": 9.9968862534,
+          "最新价": 35.32,
+          "成交额": 694389120,
+          "流通市值": 4892790522.96,
+          "总市值": 4892790522.96,
+          "换手率": 14.2865371704,
+          "封板资金": 42550074,
+          "首次封板时间": "093044",
+          "最后封板时间": "093253",
+          "炸板次数": 1,
+          "涨停统计": "3/3",
+          "连板数": 3,
+          "所属行业": "光伏设备"
+        },
+        {
+          "序号": 10,
+          "代码": "002905",
+          "名称": "金逸影视",
+          "涨跌幅": 10.0,
+          "最新价": 9.9,
+          "成交额": 80203714,
+          "流通市值": 3459456000.0,
+          "总市值": 3725568000.0,
+          "换手率": 2.361269474,
+          "封板资金": 83301570,
+          "首次封板时间": "093212",
+          "最后封板时间": "093212",
+          "炸板次数": 0,
+          "涨停统计": "4/2",
+          "连板数": 1,
+          "所属行业": "影视院线"
+        },
+        {
+          "序号": 11,
+          "代码": "603103",
+          "名称": "横店影视",
+          "涨跌幅": 10.0284900665,
+          "最新价": 19.31,
+          "成交额": 133280426,
+          "流通市值": 12246402000.0,
+          "总市值": 12246402000.0,
+          "换手率": 1.1077144146,
+          "封板资金": 90661898,
+          "首次封板时间": "093305",
+          "最后封板时间": "093305",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "影视院线"
+        },
+        {
+          "序号": 12,
+          "代码": "603928",
+          "名称": "兴业股份",
+          "涨跌幅": 10.027598381,
+          "最新价": 11.96,
+          "成交额": 146621695,
+          "流通市值": 4074819840.0000005,
+          "总市值": 4074819840.0000005,
+          "换手率": 3.6455805302,
+          "封板资金": 45403401,
+          "首次封板时间": "093352",
+          "最后封板时间": "093431",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "塑料"
+        },
+        {
+          "序号": 13,
+          "代码": "002425",
+          "名称": "凯撒文化",
+          "涨跌幅": 10.0,
+          "最新价": 3.96,
+          "成交额": 484826720,
+          "流通市值": 3643936255.08,
+          "总市值": 3788393685.12,
+          "换手率": 13.6963729858,
+          "封板资金": 149670180,
+          "首次封板时间": "093509",
+          "最后封板时间": "093509",
+          "炸板次数": 0,
+          "涨停统计": "4/3",
+          "连板数": 1,
+          "所属行业": "游戏Ⅱ"
+        },
+        {
+          "序号": 14,
+          "代码": "000665",
+          "名称": "湖北广电",
+          "涨跌幅": 10.0961532593,
+          "最新价": 4.58,
+          "成交额": 244592936,
+          "流通市值": 5208008592.4,
+          "总市值": 5208144655.04,
+          "换手率": 4.7233958244,
+          "封板资金": 36914552,
+          "首次封板时间": "093618",
+          "最后封板时间": "093618",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "电视广播"
+        },
+        {
+          "序号": 15,
+          "代码": "002205",
+          "名称": "国统股份",
+          "涨跌幅": 10.042552948,
+          "最新价": 12.93,
+          "成交额": 370907552,
+          "流通市值": 2402952938.04,
+          "总市值": 2402952938.04,
+          "换手率": 15.767165184,
+          "封板资金": 7349412,
+          "首次封板时间": "093654",
+          "最后封板时间": "144624",
+          "炸板次数": 16,
+          "涨停统计": "2/2",
+          "连板数": 2,
+          "所属行业": "水泥"
+        },
+        {
+          "序号": 16,
+          "代码": "603767",
+          "名称": "中马传动",
+          "涨跌幅": 9.9814014435,
+          "最新价": 17.74,
+          "成交额": 377697712,
+          "流通市值": 5475122809.999999,
+          "总市值": 5475122880.959999,
+          "换手率": 6.9574522972,
+          "封板资金": 52564684,
+          "首次封板时间": "094137",
+          "最后封板时间": "095316",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "汽车零部"
+        },
+        {
+          "序号": 17,
+          "代码": "000766",
+          "名称": "通化金马",
+          "涨跌幅": 10.0,
+          "最新价": 16.5,
+          "成交额": 809536848,
+          "流通市值": 15932623674.0,
+          "总市值": 15947162616.0,
+          "换手率": 5.1948299408,
+          "封板资金": 29404650,
+          "首次封板时间": "094324",
+          "最后封板时间": "143442",
+          "炸板次数": 6,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "化学制药"
+        },
+        {
+          "序号": 18,
+          "代码": "600410",
+          "名称": "华胜天成",
+          "涨跌幅": 10.0,
+          "最新价": 14.3,
+          "成交额": 2510163568,
+          "流通市值": 15679873966.900002,
+          "总市值": 15679874038.400002,
+          "换手率": 16.3179569244,
+          "封板资金": 166211760,
+          "首次封板时间": "095006",
+          "最后封板时间": "135630",
+          "炸板次数": 3,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "IT服务Ⅱ"
+        },
+        {
+          "序号": 19,
+          "代码": "002853",
+          "名称": "皮阿诺",
+          "涨跌幅": 10.0050535202,
+          "最新价": 21.77,
+          "成交额": 103423430,
+          "流通市值": 2801903800.7799997,
+          "总市值": 3982080187.96,
+          "换手率": 3.7703330517,
+          "封板资金": 36584485,
+          "首次封板时间": "095600",
+          "最后封板时间": "105651",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "家居用品"
+        },
+        {
+          "序号": 20,
+          "代码": "002042",
+          "名称": "华孚时尚",
+          "涨跌幅": 10.0303945541,
+          "最新价": 3.62,
+          "成交额": 460664080,
+          "流通市值": 6156466505.1,
+          "总市值": 6156466523.2,
+          "换手率": 7.544948101,
+          "封板资金": 5777520,
+          "首次封板时间": "095627",
+          "最后封板时间": "145351",
+          "炸板次数": 5,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "纺织制造"
+        },
+        {
+          "序号": 21,
+          "代码": "600977",
+          "名称": "中国电影",
+          "涨跌幅": 10.0,
+          "最新价": 17.05,
+          "成交额": 1898578336,
+          "流通市值": 31832350000.0,
+          "总市值": 31832350000.0,
+          "换手率": 6.0693922043,
+          "封板资金": 28775881,
+          "首次封板时间": "100816",
+          "最后封板时间": "132913",
+          "炸板次数": 5,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "影视院线"
+        },
+        {
+          "序号": 22,
+          "代码": "300528",
+          "名称": "幸福蓝海",
+          "涨跌幅": 20.0133419037,
+          "最新价": 17.99,
+          "成交额": 1035916912,
+          "流通市值": 6703218891.459999,
+          "总市值": 6703218783.5199995,
+          "换手率": 16.3031139374,
+          "封板资金": 10924967,
+          "首次封板时间": "100903",
+          "最后封板时间": "111221",
+          "炸板次数": 2,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "影视院线"
+        },
+        {
+          "序号": 23,
+          "代码": "002548",
+          "名称": "金新农",
+          "涨跌幅": 10.0574712753,
+          "最新价": 3.83,
+          "成交额": 136818300,
+          "流通市值": 3081125814.36,
+          "总市值": 3171905133.12,
+          "换手率": 4.5411572456,
+          "封板资金": 23725701,
+          "首次封板时间": "101754",
+          "最后封板时间": "101845",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "饲料"
+        },
+        {
+          "序号": 24,
+          "代码": "002124",
+          "名称": "天邦食品",
+          "涨跌幅": 10.0,
+          "最新价": 2.31,
+          "成交额": 787236304,
+          "流通市值": 4556187746.88,
+          "总市值": 5132667170.400001,
+          "换手率": 17.7512149811,
+          "封板资金": 16942787,
+          "首次封板时间": "102051",
+          "最后封板时间": "141212",
+          "炸板次数": 5,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "养殖业"
+        },
+        {
+          "序号": 25,
+          "代码": "300237",
+          "名称": "美晨科技",
+          "涨跌幅": 19.8529415131,
+          "最新价": 3.26,
+          "成交额": 633942944,
+          "流通市值": 4700598661.799999,
+          "总市值": 4700642665.28,
+          "换手率": 14.3126621246,
+          "封板资金": 40616340,
+          "首次封板时间": "103815",
+          "最后封板时间": "105939",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "汽车零部"
+        },
+        {
+          "序号": 26,
+          "代码": "002739",
+          "名称": "儒意电影",
+          "涨跌幅": 9.9562358856,
+          "最新价": 10.05,
+          "成交额": 1559258016,
+          "流通市值": 21104120102.4,
+          "总市值": 21223375975.2,
+          "换手率": 7.5746159554,
+          "封板资金": 9351525,
+          "首次封板时间": "103833",
+          "最后封板时间": "104215",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "影视院线"
+        },
+        {
+          "序号": 27,
+          "代码": "600651",
+          "名称": "飞乐音响",
+          "涨跌幅": 9.9787683487,
+          "最新价": 5.18,
+          "成交额": 242114459,
+          "流通市值": 12986405117.699999,
+          "总市值": 12986405122.88,
+          "换手率": 1.9163615704,
+          "封板资金": 41205346,
+          "首次封板时间": "103854",
+          "最后封板时间": "134015",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "汽车零部"
+        },
+        {
+          "序号": 28,
+          "代码": "603166",
+          "名称": "福达股份",
+          "涨跌幅": 10.0371751785,
+          "最新价": 11.84,
+          "成交额": 313459104,
+          "流通市值": 7610286107.84,
+          "总市值": 7636452567.04,
+          "换手率": 4.2346448898,
+          "封板资金": 39038611,
+          "首次封板时间": "104828",
+          "最后封板时间": "104828",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "汽车零部"
+        },
+        {
+          "序号": 29,
+          "代码": "002748",
+          "名称": "世龙实业",
+          "涨跌幅": 10.0355234146,
+          "最新价": 12.39,
+          "成交额": 342804128,
+          "流通市值": 2973600000.0,
+          "总市值": 2973600000.0,
+          "换手率": 11.788602829,
+          "封板资金": 16150365,
+          "首次封板时间": "105239",
+          "最后封板时间": "141424",
+          "炸板次数": 1,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "化学原料"
+        },
+        {
+          "序号": 30,
+          "代码": "603686",
+          "名称": "福龙马",
+          "涨跌幅": 10.0323629379,
+          "最新价": 13.6,
+          "成交额": 701179328,
+          "流通市值": 5649853494.4,
+          "总市值": 5649853440.0,
+          "换手率": 12.7318029404,
+          "封板资金": 22697040,
+          "首次封板时间": "105621",
+          "最后封板时间": "142903",
+          "炸板次数": 2,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "环境治理"
+        },
+        {
+          "序号": 31,
+          "代码": "001393",
+          "名称": "维通利",
+          "涨跌幅": 9.9948997498,
+          "最新价": 43.14,
+          "成交额": 397028432,
+          "流通市值": 2072453408.34,
+          "总市值": 10756240028.76,
+          "换手率": 19.6777839661,
+          "封板资金": 17755000,
+          "首次封板时间": "110439",
+          "最后封板时间": "143954",
+          "炸板次数": 2,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "电网设备"
+        },
+        {
+          "序号": 32,
+          "代码": "605318",
+          "名称": "法狮龙",
+          "涨跌幅": 10.0,
+          "最新价": 84.26,
+          "成交额": 345987680,
+          "流通市值": 10593927899.28,
+          "总市值": 10593927899.28,
+          "换手率": 3.3167765141,
+          "封板资金": 88523556,
+          "首次封板时间": "110601",
+          "最后封板时间": "110601",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "装修建材"
+        },
+        {
+          "序号": 33,
+          "代码": "000595",
+          "名称": "新能股份",
+          "涨跌幅": 9.9403572083,
+          "最新价": 5.53,
+          "成交额": 331174176,
+          "流通市值": 6296769703.9800005,
+          "总市值": 6296769715.04,
+          "换手率": 5.516898632,
+          "封板资金": 72258298,
+          "首次封板时间": "111703",
+          "最后封板时间": "111703",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "电力"
+        },
+        {
+          "序号": 34,
+          "代码": "002520",
+          "名称": "日发精机",
+          "涨跌幅": 10.0,
+          "最新价": 7.7,
+          "成交额": 1503111200,
+          "流通市值": 5430988416.7,
+          "总市值": 5776887793.6,
+          "换手率": 28.87342453,
+          "封板资金": 43672090,
+          "首次封板时间": "112127",
+          "最后封板时间": "140527",
+          "炸板次数": 7,
+          "涨停统计": "3/2",
+          "连板数": 1,
+          "所属行业": "通用设备"
+        },
+        {
+          "序号": 35,
+          "代码": "603286",
+          "名称": "日盈电子",
+          "涨跌幅": 9.9983053207,
+          "最新价": 64.91,
+          "成交额": 670562304,
+          "流通市值": 7586954785.11,
+          "总市值": 7658969184.61,
+          "换手率": 9.1529464722,
+          "封板资金": 16519595,
+          "首次封板时间": "130013",
+          "最后封板时间": "130431",
+          "炸板次数": 1,
+          "涨停统计": "5/3",
+          "连板数": 1,
+          "所属行业": "汽车零部"
+        },
+        {
+          "序号": 36,
+          "代码": "603636",
+          "名称": "南威软件",
+          "涨跌幅": 9.9537038803,
+          "最新价": 9.5,
+          "成交额": 849228784,
+          "流通市值": 5513424968.5,
+          "总市值": 5513425016.0,
+          "换手率": 15.8913087845,
+          "封板资金": 29064898,
+          "首次封板时间": "133630",
+          "最后封板时间": "142206",
+          "炸板次数": 3,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "IT服务Ⅱ"
+        },
+        {
+          "序号": 37,
+          "代码": "000819",
+          "名称": "岳阳兴长",
+          "涨跌幅": 10.0429182053,
+          "最新价": 12.82,
+          "成交额": 332943840,
+          "流通市值": 4692377758.92,
+          "总市值": 4692377835.84,
+          "换手率": 7.3998346329,
+          "封板资金": 42372792,
+          "首次封板时间": "141939",
+          "最后封板时间": "141939",
+          "炸板次数": 0,
+          "涨停统计": "1/1",
+          "连板数": 1,
+          "所属行业": "炼化及贸"
+        }
+      ]
+    },
+    "failed_2026-11-13": {
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
+      "rows": [
+        {
+          "序号": 1,
+          "代码": "002843",
+          "名称": "泰嘉股份",
+          "涨跌幅": 4.0221915245,
+          "最新价": 15.0,
+          "涨停价": 15.86,
+          "成交额": 789610576,
+          "流通市值": 3756470430.0,
+          "总市值": 3837038430.0,
+          "换手率": 20.5850486755,
+          "涨速": 0.0,
+          "首次封板时间": "092500",
+          "炸板次数": 4,
+          "涨停统计": "0/0",
+          "振幅": 9.2233009338,
+          "所属行业": "通用设备"
+        },
+        {
+          "序号": 2,
+          "代码": "603725",
+          "名称": "天安新材",
+          "涨跌幅": -5.9270515442,
+          "最新价": 12.38,
+          "涨停价": 14.48,
+          "成交额": 808881520,
+          "流通市值": 3774138078.4,
+          "总市值": 3774138078.4,
+          "换手率": 19.5527038574,
+          "涨速": 0.0,
+          "首次封板时间": "092501",
+          "炸板次数": 2,
+          "涨停统计": "3/2",
+          "振幅": 16.5653495789,
+          "所属行业": "家居用品"
+        },
+        {
+          "序号": 3,
+          "代码": "605169",
+          "名称": "洪通燃气",
+          "涨跌幅": 5.682656765,
+          "最新价": 14.32,
+          "涨停价": 14.91,
+          "成交额": 419859392,
+          "流通市值": 4040530770.4,
+          "总市值": 4198050741.76,
+          "换手率": 10.4680767059,
+          "涨速": 0.0,
+          "首次封板时间": "093019",
+          "炸板次数": 1,
+          "涨停统计": "2/1",
+          "振幅": 9.6678962708,
+          "所属行业": "燃气Ⅱ"
+        },
+        {
+          "序号": 4,
+          "代码": "600853",
+          "名称": "龙建股份",
+          "涨跌幅": -0.7125890851,
+          "最新价": 4.18,
+          "涨停价": 4.63,
+          "成交额": 1029951488,
+          "流通市值": 4237284893.6,
+          "总市值": 4237284927.0399995,
+          "换手率": 22.9976444244,
+          "涨速": 0.0,
+          "首次封板时间": "093027",
+          "炸板次数": 2,
+          "涨停统计": "2/1",
+          "振幅": 10.6888360977,
+          "所属行业": "基础建设"
+        },
+        {
+          "序号": 5,
+          "代码": "603687",
+          "名称": "大胜达",
+          "涨跌幅": 1.9736840725,
+          "最新价": 13.95,
+          "涨停价": 15.05,
+          "成交额": 1017967952,
+          "流通市值": 7672944502.799999,
+          "总市值": 7672944614.4,
+          "换手率": 12.7144622803,
+          "涨速": 0.0,
+          "首次封板时间": "093036",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 8.5526313782,
+          "所属行业": "包装印刷"
+        },
+        {
+          "序号": 6,
+          "代码": "603297",
+          "名称": "永新光学",
+          "涨跌幅": 3.1130139828,
+          "最新价": 115.6,
+          "涨停价": 123.32,
+          "成交额": 642437872,
+          "流通市值": 12800283960.0,
+          "总市值": 12800283960.0,
+          "换手率": 4.8299851418,
+          "涨速": 0.0,
+          "首次封板时间": "093135",
+          "炸板次数": 3,
+          "涨停统计": "0/0",
+          "振幅": 8.803853035,
+          "所属行业": "光学光电"
+        },
+        {
+          "序号": 7,
+          "代码": "000802",
+          "名称": "北京文化",
+          "涨跌幅": 6.5822787285,
+          "最新价": 4.21,
+          "涨停价": 4.35,
+          "成交额": 847123216,
+          "流通市值": 3012440261.05,
+          "总市值": 3013940077.7599998,
+          "换手率": 27.717168808,
+          "涨速": 0.0,
+          "首次封板时间": "093833",
+          "炸板次数": 3,
+          "涨停统计": "0/0",
+          "振幅": 10.3797464371,
+          "所属行业": "影视院线"
+        },
+        {
+          "序号": 8,
+          "代码": "600857",
+          "名称": "宁波中百",
+          "涨跌幅": 8.6666669846,
+          "最新价": 16.3,
+          "涨停价": 16.5,
+          "成交额": 411332224,
+          "流通市值": 3656414679.7000003,
+          "总市值": 3656414679.7000003,
+          "换手率": 11.6545248032,
+          "涨速": 0.0,
+          "首次封板时间": "094246",
+          "炸板次数": 1,
+          "涨停统计": "2/1",
+          "振幅": 11.2666664124,
+          "所属行业": "一般零售"
+        },
+        {
+          "序号": 9,
+          "代码": "300324",
+          "名称": "旋极信息",
+          "涨跌幅": 17.5757579803,
+          "最新价": 3.88,
+          "涨停价": 3.96,
+          "成交额": 1386492080,
+          "流通市值": 6634735390.24,
+          "总市值": 6703051496.96,
+          "换手率": 20.86287117,
+          "涨速": 0.0,
+          "首次封板时间": "095130",
+          "炸板次数": 3,
+          "涨停统计": "0/0",
+          "振幅": 11.2121210098,
+          "所属行业": "计算机设"
+        },
+        {
+          "序号": 10,
+          "代码": "603353",
+          "名称": "和顺石油",
+          "涨跌幅": 7.5644507408,
+          "最新价": 31.71,
+          "涨停价": 32.43,
+          "成交额": 684001984,
+          "流通市值": 5403954780.0,
+          "总市值": 5403954780.0,
+          "换手率": 12.7345876694,
+          "涨速": 0.0,
+          "首次封板时间": "095333",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 8.2428770065,
+          "所属行业": "炼化及贸"
+        },
+        {
+          "序号": 11,
+          "代码": "000026",
+          "名称": "飞亚达",
+          "涨跌幅": 1.1092851162,
+          "最新价": 24.61,
+          "涨停价": 26.77,
+          "成交额": 1662065040,
+          "流通市值": 8968814725.59,
+          "总市值": 9985852040.0,
+          "换手率": 17.864440918,
+          "涨速": 0.0,
+          "首次封板时间": "095533",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 11.1750211716,
+          "所属行业": "饰品"
+        },
+        {
+          "序号": 12,
+          "代码": "603118",
+          "名称": "共进股份",
+          "涨跌幅": 5.2755908966,
+          "最新价": 13.37,
+          "涨停价": 13.97,
+          "成交额": 1522304288,
+          "流通市值": 10525885548.22,
+          "总市值": 10525885468.0,
+          "换手率": 14.3561563492,
+          "涨速": 0.0,
+          "首次封板时间": "100325",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 8.6614179611,
+          "所属行业": "通信设备"
+        },
+        {
+          "序号": 13,
+          "代码": "002931",
+          "名称": "锋龙股份",
+          "涨跌幅": 2.6501767635,
+          "最新价": 58.1,
+          "涨停价": 62.26,
+          "成交额": 3155430608,
+          "流通市值": 11769657349.800001,
+          "总市值": 12695190233.6,
+          "换手率": 26.0727367401,
+          "涨速": 0.0,
+          "首次封板时间": "100412",
+          "炸板次数": 3,
+          "涨停统计": "5/3",
+          "振幅": 11.5017671585,
+          "所属行业": "通用设备"
+        },
+        {
+          "序号": 14,
+          "代码": "000700",
+          "名称": "模塑科技",
+          "涨跌幅": 6.5426559448,
+          "最新价": 16.61,
+          "涨停价": 17.15,
+          "成交额": 2244074304,
+          "流通市值": 15248235611.289999,
+          "总市值": 15248235661.119999,
+          "换手率": 14.6003713608,
+          "涨速": 0.0,
+          "首次封板时间": "103927",
+          "炸板次数": 4,
+          "涨停统计": "0/0",
+          "振幅": 10.0064144135,
+          "所属行业": "汽车零部"
+        },
+        {
+          "序号": 15,
+          "代码": "605288",
+          "名称": "凯迪股份",
+          "涨跌幅": 5.2353782654,
+          "最新价": 73.77,
+          "涨停价": 77.11,
+          "成交额": 286646784,
+          "流通市值": 7250003248.29,
+          "总市值": 7293634072.17,
+          "换手率": 3.9235589504,
+          "涨速": 0.0,
+          "首次封板时间": "104619",
+          "炸板次数": 2,
+          "涨停统计": "0/0",
+          "振幅": 10.6847362518,
+          "所属行业": "自动化设"
+        },
+        {
+          "序号": 16,
+          "代码": "301218",
+          "名称": "华是科技",
+          "涨跌幅": 15.3117771149,
+          "最新价": 99.86,
+          "涨停价": 103.92,
+          "成交额": 2356708528,
+          "流通市值": 7160277657.46,
+          "总市值": 11388034400.0,
+          "换手率": 33.0035247803,
+          "涨速": 0.0,
+          "首次封板时间": "110021",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 19.2378768921,
+          "所属行业": "IT服务Ⅱ"
+        },
+        {
+          "序号": 17,
+          "代码": "603219",
+          "名称": "富佳股份",
+          "涨跌幅": 4.8701295853,
+          "最新价": 12.92,
+          "涨停价": 13.55,
+          "成交额": 245509920,
+          "流通市值": 7253288000.0,
+          "总市值": 7253288000.0,
+          "换手率": 3.3425555229,
+          "涨速": 0.0,
+          "首次封板时间": "110603",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 10.4707794189,
+          "所属行业": "小家电"
+        },
+        {
+          "序号": 18,
+          "代码": "001330",
+          "名称": "博纳影业",
+          "涨跌幅": 7.2784810066,
+          "最新价": 6.78,
+          "涨停价": 6.95,
+          "成交额": 1499660384,
+          "流通市值": 7884104843.16,
+          "总市值": 9319238765.76,
+          "换手率": 19.2325248718,
+          "涨速": 0.0,
+          "首次封板时间": "111715",
+          "炸板次数": 4,
+          "涨停统计": "0/0",
+          "振幅": 9.8101263046,
+          "所属行业": "影视院线"
+        },
+        {
+          "序号": 19,
+          "代码": "600405",
+          "名称": "动力源",
+          "涨跌幅": 8.2725067139,
+          "最新价": 4.45,
+          "涨停价": 4.52,
+          "成交额": 163764730,
+          "流通市值": 2727091666.6,
+          "总市值": 2727091648.8,
+          "换手率": 6.0632867813,
+          "涨速": 0.0,
+          "首次封板时间": "131442",
+          "炸板次数": 2,
+          "涨停统计": "0/0",
+          "振幅": 9.9756689072,
+          "所属行业": "其他电源"
+        },
+        {
+          "序号": 20,
+          "代码": "600665",
+          "名称": "天地源",
+          "涨跌幅": 7.2664356232,
+          "最新价": 3.1,
+          "涨停价": 3.18,
+          "成交额": 83711072,
+          "流通市值": 2678779815.1,
+          "总市值": 2678779836.8,
+          "换手率": 3.2181885242,
+          "涨速": 0.0,
+          "首次封板时间": "133736",
+          "炸板次数": 1,
+          "涨停统计": "0/0",
+          "振幅": 11.764705658,
+          "所属行业": "房地产开"
+        },
+        {
+          "序号": 21,
+          "代码": "000151",
+          "名称": "中成股份",
+          "涨跌幅": 3.3966035843,
+          "最新价": 10.35,
+          "涨停价": 11.01,
+          "成交额": 364365344,
+          "流通市值": 3187124093.25,
+          "总市值": 3631880080.7999997,
+          "换手率": 11.3992795944,
+          "涨速": 0.0,
+          "首次封板时间": "134506",
+          "炸板次数": 3,
+          "涨停统计": "0/0",
+          "振幅": 14.7852153778,
+          "所属行业": "贸易Ⅱ"
+        }
+      ]
+    },
+    "lhb_2026-11-13": {
+      "fetched_at": "2026-11-13T16:43:24.531882+08:00",
+      "rows": [
+        {
+          "序号": 1,
+          "代码": "002623",
+          "名称": "亚玛顿",
+          "收盘价": 26.25,
+          "涨跌幅": 2.2993,
+          "买方机构数": 2,
+          "卖方机构数": 1,
+          "机构买入总额": 54755106.2,
+          "机构卖出总额": 27029560.4,
+          "机构买入净额": 27725545.8,
+          "市场总成交额": 1195838713,
+          "机构净买额占总成交额比": 2.3185021106,
+          "换手率": 24.21,
+          "流通市值": 50.57,
+          "上榜原因": "日振幅值达到15%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 2,
+          "代码": "000530",
+          "名称": "冰山冷热",
+          "收盘价": 10.33,
+          "涨跌幅": -5.6621,
+          "买方机构数": 2,
+          "卖方机构数": 2,
+          "机构买入总额": 93643091.72,
+          "机构卖出总额": 76287884.57,
+          "机构买入净额": 17355207.15,
+          "市场总成交额": 1943038049,
+          "机构净买额占总成交额比": 0.8931995521,
+          "换手率": 31.9,
+          "流通市值": 61.99,
+          "上榜原因": "日换手率达到20%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 3,
+          "代码": "920157",
+          "名称": "宇特光电",
+          "收盘价": 61.0,
+          "涨跌幅": 3.0754,
+          "买方机构数": 1,
+          "卖方机构数": 1,
+          "机构买入总额": 48327084.1,
+          "机构卖出总额": 35251700.89,
+          "机构买入净额": 13075383.21,
+          "市场总成交额": 1201050900,
+          "机构净买额占总成交额比": 1.0886618719,
+          "换手率": 44.4224,
+          "流通市值": 7.82,
+          "上榜原因": "北交所股票连续3个交易日内日收盘价涨跌幅偏离值累计达到+40%(-40%)",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 4,
+          "代码": "920157",
+          "名称": "宇特光电",
+          "收盘价": 61.0,
+          "涨跌幅": 3.0754,
+          "买方机构数": 1,
+          "卖方机构数": 2,
+          "机构买入总额": 28101429.65,
+          "机构卖出总额": 21100227.67,
+          "机构买入净额": 7001201.98,
+          "市场总成交额": 341376000,
+          "机构净买额占总成交额比": 2.0508770329,
+          "换手率": 44.4224,
+          "流通市值": 7.82,
+          "上榜原因": "当日换手率达到20%的前5只股票",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 5,
+          "代码": "920085",
+          "名称": "森峰激光",
+          "收盘价": 31.42,
+          "涨跌幅": 1.3222,
+          "买方机构数": 3,
+          "卖方机构数": 0,
+          "机构买入总额": 8673816.35,
+          "机构卖出总额": 1742218.19,
+          "机构买入净额": 6931598.16,
+          "市场总成交额": 167786500,
+          "机构净买额占总成交额比": 4.1312013541,
+          "换手率": 28.1865,
+          "流通市值": 5.85,
+          "上榜原因": "当日换手率达到20%的前5只股票",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 6,
+          "代码": "001358",
+          "名称": "兴欣新材",
+          "收盘价": 26.64,
+          "涨跌幅": 9.9917,
+          "买方机构数": 1,
+          "卖方机构数": 2,
+          "机构买入总额": 10411366.0,
+          "机构卖出总额": 4305682.0,
+          "机构买入净额": 6105684.0,
+          "市场总成交额": 109816031,
+          "机构净买额占总成交额比": 5.5599204819,
+          "换手率": 3.0367,
+          "流通市值": 13.58,
+          "上榜原因": "连续三个交易日内，涨幅偏离值累计达到20%的证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 7,
+          "代码": "920021",
+          "名称": "流金科技",
+          "收盘价": 9.45,
+          "涨跌幅": 4.8835,
+          "买方机构数": 1,
+          "卖方机构数": 0,
+          "机构买入总额": 9643122.49,
+          "机构卖出总额": 4322448.11,
+          "机构买入净额": 5320674.38,
+          "市场总成交额": 617831100,
+          "机构净买额占总成交额比": 0.8611859099,
+          "换手率": 26.352,
+          "流通市值": 23.39,
+          "上榜原因": "当日换手率达到20%的前5只股票",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 8,
+          "代码": "300528",
+          "名称": "幸福蓝海",
+          "收盘价": 17.99,
+          "涨跌幅": 20.0133,
+          "买方机构数": 1,
+          "卖方机构数": 3,
+          "机构买入总额": 68617417.0,
+          "机构卖出总额": 63458145.0,
+          "机构买入净额": 5159272.0,
+          "市场总成交额": 1035916918,
+          "机构净买额占总成交额比": 0.498039168,
+          "换手率": 16.3031,
+          "流通市值": 67.03,
+          "上榜原因": "日涨幅达到15%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 9,
+          "代码": "301697",
+          "名称": "贝特利",
+          "收盘价": 29.8,
+          "涨跌幅": -11.2303,
+          "买方机构数": 2,
+          "卖方机构数": 1,
+          "机构买入总额": 27102648.0,
+          "机构卖出总额": 25307440.13,
+          "机构买入净额": 1795207.87,
+          "市场总成交额": 710027406,
+          "机构净买额占总成交额比": 0.2528364194,
+          "换手率": 52.2141,
+          "流通市值": 13.11,
+          "上榜原因": "日换手率达到30%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 10,
+          "代码": "920202",
+          "名称": "安达股份",
+          "收盘价": 14.05,
+          "涨跌幅": 13.3065,
+          "买方机构数": 1,
+          "卖方机构数": 1,
+          "机构买入总额": 4554063.75,
+          "机构卖出总额": 4401036.67,
+          "机构买入净额": 153027.08,
+          "市场总成交额": 143730800,
+          "机构净买额占总成交额比": 0.1064678413,
+          "换手率": 43.8722,
+          "流通市值": 3.34,
+          "上榜原因": "当日换手率达到20%的前5只股票",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 11,
+          "代码": "002124",
+          "名称": "天邦食品",
+          "收盘价": 2.31,
+          "涨跌幅": 10.0,
+          "买方机构数": 0,
+          "卖方机构数": 3,
+          "机构买入总额": 17708093.65,
+          "机构卖出总额": 22555046.5,
+          "机构买入净额": -4846952.85,
+          "市场总成交额": 787236302,
+          "机构净买额占总成交额比": -0.6156922436,
+          "换手率": 17.7512,
+          "流通市值": 45.56,
+          "上榜原因": "日涨幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 12,
+          "代码": "300237",
+          "名称": "美晨科技",
+          "收盘价": 3.26,
+          "涨跌幅": 19.8529,
+          "买方机构数": 0,
+          "卖方机构数": 3,
+          "机构买入总额": 20489147.2,
+          "机构卖出总额": 28283173.0,
+          "机构买入净额": -7794025.8,
+          "市场总成交额": 633942939,
+          "机构净买额占总成交额比": -1.2294522615,
+          "换手率": 14.3127,
+          "流通市值": 47.01,
+          "上榜原因": "日涨幅达到15%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 13,
+          "代码": "000995",
+          "名称": "皇台酒业",
+          "收盘价": 18.37,
+          "涨跌幅": 0.2729,
+          "买方机构数": 1,
+          "卖方机构数": 2,
+          "机构买入总额": 33153127.0,
+          "机构卖出总额": 43035611.0,
+          "机构买入净额": -9882484.0,
+          "市场总成交额": 1271840560,
+          "机构净买额占总成交额比": -0.7770222393,
+          "换手率": 38.9083,
+          "流通市值": 32.59,
+          "上榜原因": "日振幅值达到15%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 14,
+          "代码": "000995",
+          "名称": "皇台酒业",
+          "收盘价": 18.37,
+          "涨跌幅": 0.2729,
+          "买方机构数": 1,
+          "卖方机构数": 2,
+          "机构买入总额": 33153127.0,
+          "机构卖出总额": 43035611.0,
+          "机构买入净额": -9882484.0,
+          "市场总成交额": 1271840560,
+          "机构净买额占总成交额比": -0.7770222393,
+          "换手率": 38.9083,
+          "流通市值": 32.59,
+          "上榜原因": "日换手率达到20%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 15,
+          "代码": "002520",
+          "名称": "日发精机",
+          "收盘价": 7.7,
+          "涨跌幅": 10.0,
+          "买方机构数": 1,
+          "卖方机构数": 3,
+          "机构买入总额": 70030874.53,
+          "机构卖出总额": 83353419.04,
+          "机构买入净额": -13322544.51,
+          "市场总成交额": 1503111205,
+          "机构净买额占总成交额比": -0.8863312618,
+          "换手率": 28.8734,
+          "流通市值": 54.31,
+          "上榜原因": "日涨幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 16,
+          "代码": "002310",
+          "名称": "东方新能",
+          "收盘价": 2.73,
+          "涨跌幅": -9.901,
+          "买方机构数": 0,
+          "卖方机构数": 1,
+          "机构买入总额": 4388293.0,
+          "机构卖出总额": 17757688.0,
+          "机构买入净额": -13369395.0,
+          "市场总成交额": 1613847514,
+          "机构净买额占总成交额比": -0.8284174858,
+          "换手率": 13.1782,
+          "流通市值": 120.09,
+          "上榜原因": "日跌幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 17,
+          "代码": "301520",
+          "名称": "万邦医药",
+          "收盘价": 58.05,
+          "涨跌幅": -11.4011,
+          "买方机构数": 0,
+          "卖方机构数": 2,
+          "机构买入总额": 4324273.0,
+          "机构卖出总额": 17936027.73,
+          "机构买入净额": -13611754.73,
+          "市场总成交额": 683748585,
+          "机构净买额占总成交额比": -1.9907543545,
+          "换手率": 32.2114,
+          "流通市值": 20.28,
+          "上榜原因": "日换手率达到30%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 18,
+          "代码": "002164",
+          "名称": "宁波东力",
+          "收盘价": 23.71,
+          "涨跌幅": 0.8078,
+          "买方机构数": 3,
+          "卖方机构数": 3,
+          "机构买入总额": 536993996.84,
+          "机构卖出总额": 552365124.15,
+          "机构买入净额": -15371127.31,
+          "市场总成交额": 6268458268,
+          "机构净买额占总成交额比": -0.2452138413,
+          "换手率": 20.3272,
+          "流通市值": 113.75,
+          "上榜原因": "连续三个交易日内，涨幅偏离值累计达到20%的证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 19,
+          "代码": "000766",
+          "名称": "通化金马",
+          "收盘价": 16.5,
+          "涨跌幅": 10.0,
+          "买方机构数": 1,
+          "卖方机构数": 2,
+          "机构买入总额": 31701938.0,
+          "机构卖出总额": 47837983.12,
+          "机构买入净额": -16136045.12,
+          "市场总成交额": 809536846,
+          "机构净买额占总成交额比": -1.9932440629,
+          "换手率": 5.1948,
+          "流通市值": 159.33,
+          "上榜原因": "日涨幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 20,
+          "代码": "002739",
+          "名称": "儒意电影",
+          "收盘价": 10.05,
+          "涨跌幅": 9.9562,
+          "买方机构数": 1,
+          "卖方机构数": 3,
+          "机构买入总额": 89834071.36,
+          "机构卖出总额": 106526856.0,
+          "机构买入净额": -16692784.64,
+          "市场总成交额": 1559258009,
+          "机构净买额占总成交额比": -1.0705594933,
+          "换手率": 7.5746,
+          "流通市值": 211.04,
+          "上榜原因": "日涨幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 21,
+          "代码": "002205",
+          "名称": "国统股份",
+          "收盘价": 12.93,
+          "涨跌幅": 10.0426,
+          "买方机构数": 1,
+          "卖方机构数": 3,
+          "机构买入总额": 25883523.53,
+          "机构卖出总额": 43997844.86,
+          "机构买入净额": -18114321.33,
+          "市场总成交额": 512618268,
+          "机构净买额占总成交额比": -3.5336862654,
+          "换手率": 15.7672,
+          "流通市值": 24.03,
+          "上榜原因": "连续三个交易日内，涨幅偏离值累计达到20%的证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 22,
+          "代码": "003033",
+          "名称": "征和工业",
+          "收盘价": 76.0,
+          "涨跌幅": -7.3171,
+          "买方机构数": 1,
+          "卖方机构数": 1,
+          "机构买入总额": 12135917.0,
+          "机构卖出总额": 31786725.0,
+          "机构买入净额": -19650808.0,
+          "市场总成交额": 320426831,
+          "机构净买额占总成交额比": -6.1326974207,
+          "换手率": 4.989,
+          "流通市值": 61.54,
+          "上榜原因": "日振幅值达到15%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 23,
+          "代码": "000678",
+          "名称": "襄阳轴承",
+          "收盘价": 19.75,
+          "涨跌幅": -9.9818,
+          "买方机构数": 1,
+          "卖方机构数": 1,
+          "机构买入总额": 89075007.47,
+          "机构卖出总额": 115170732.11,
+          "机构买入净额": -26095724.64,
+          "市场总成交额": 2720515752,
+          "机构净买额占总成交额比": -0.959219759,
+          "换手率": 28.6122,
+          "流通市值": 90.77,
+          "上榜原因": "日跌幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 24,
+          "代码": "002187",
+          "名称": "广百股份",
+          "收盘价": 6.97,
+          "涨跌幅": 9.9369,
+          "买方机构数": 0,
+          "卖方机构数": 2,
+          "机构买入总额": 1228211.0,
+          "机构卖出总额": 28689512.0,
+          "机构买入净额": -27461301.0,
+          "市场总成交额": 970552765,
+          "机构净买额占总成交额比": -2.8294495663,
+          "换手率": 16.0777,
+          "流通市值": 48.85,
+          "上榜原因": "连续三个交易日内，涨幅偏离值累计达到20%的证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 25,
+          "代码": "002187",
+          "名称": "广百股份",
+          "收盘价": 6.97,
+          "涨跌幅": 9.9369,
+          "买方机构数": 0,
+          "卖方机构数": 2,
+          "机构买入总额": 370565.0,
+          "机构卖出总额": 28170369.0,
+          "机构买入净额": -27799804.0,
+          "市场总成交额": 778638369,
+          "机构净买额占总成交额比": -3.5703100575,
+          "换手率": 16.0777,
+          "流通市值": 48.85,
+          "上榜原因": "日涨幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 26,
+          "代码": "000573",
+          "名称": "粤宏远A",
+          "收盘价": 3.92,
+          "涨跌幅": -9.8851,
+          "买方机构数": 1,
+          "卖方机构数": 3,
+          "机构买入总额": 8033541.41,
+          "机构卖出总额": 38739220.0,
+          "机构买入净额": -30705678.59,
+          "市场总成交额": 382717721,
+          "机构净买额占总成交额比": -8.0230616209,
+          "换手率": 14.4917,
+          "流通市值": 24.8,
+          "上榜原因": "日振幅值达到15%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 27,
+          "代码": "301218",
+          "名称": "华是科技",
+          "收盘价": 99.86,
+          "涨跌幅": 15.3118,
+          "买方机构数": 4,
+          "卖方机构数": 4,
+          "机构买入总额": 384991101.45,
+          "机构卖出总额": 423267539.46,
+          "机构买入净额": -38276438.01,
+          "市场总成交额": 2356708521,
+          "机构净买额占总成交额比": -1.624148157,
+          "换手率": 33.0035,
+          "流通市值": 71.6,
+          "上榜原因": "日涨幅达到15%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 28,
+          "代码": "301218",
+          "名称": "华是科技",
+          "收盘价": 99.86,
+          "涨跌幅": 15.3118,
+          "买方机构数": 4,
+          "卖方机构数": 4,
+          "机构买入总额": 384991101.45,
+          "机构卖出总额": 423267539.46,
+          "机构买入净额": -38276438.01,
+          "市场总成交额": 2356708521,
+          "机构净买额占总成交额比": -1.624148157,
+          "换手率": 33.0035,
+          "流通市值": 71.6,
+          "上榜原因": "日换手率达到30%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 29,
+          "代码": "002172",
+          "名称": "澳洋健康",
+          "收盘价": 5.99,
+          "涨跌幅": -10.0601,
+          "买方机构数": 1,
+          "卖方机构数": 1,
+          "机构买入总额": 20058609.0,
+          "机构卖出总额": 58883596.0,
+          "机构买入净额": -38824987.0,
+          "市场总成交额": 1399565070,
+          "机构净买额占总成交额比": -2.7740751632,
+          "换手率": 29.9563,
+          "流通市值": 45.83,
+          "上榜原因": "日跌幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 30,
+          "代码": "301052",
+          "名称": "果麦文化",
+          "收盘价": 46.09,
+          "涨跌幅": 5.0365,
+          "买方机构数": 1,
+          "卖方机构数": 3,
+          "机构买入总额": 25658604.0,
+          "机构卖出总额": 71436761.22,
+          "机构买入净额": -45778157.22,
+          "市场总成交额": 1545890948,
+          "机构净买额占总成交额比": -2.9612798548,
+          "换手率": 42.0737,
+          "流通市值": 36.98,
+          "上榜原因": "日换手率达到30%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 31,
+          "代码": "002086",
+          "名称": "东方海洋",
+          "收盘价": 4.82,
+          "涨跌幅": -6.5891,
+          "买方机构数": 0,
+          "卖方机构数": 1,
+          "机构买入总额": 0.0,
+          "机构卖出总额": 58686086.93,
+          "机构买入净额": -58686086.93,
+          "市场总成交额": 2939440423,
+          "机构净买额占总成交额比": -1.9965054053,
+          "换手率": 38.7362,
+          "流通市值": 76.2,
+          "上榜原因": "日换手率达到20%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 32,
+          "代码": "002343",
+          "名称": "慈文传媒",
+          "收盘价": 9.6,
+          "涨跌幅": -4.3825,
+          "买方机构数": 0,
+          "卖方机构数": 3,
+          "机构买入总额": 20976713.0,
+          "机构卖出总额": 84508701.0,
+          "机构买入净额": -63531988.0,
+          "市场总成交额": 1365448053,
+          "机构净买额占总成交额比": -4.6528308316,
+          "换手率": 29.9937,
+          "流通市值": 45.47,
+          "上榜原因": "日换手率达到20%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 33,
+          "代码": "300862",
+          "名称": "蓝盾光电",
+          "收盘价": 33.44,
+          "涨跌幅": 3.5615,
+          "买方机构数": 1,
+          "卖方机构数": 4,
+          "机构买入总额": 63857065.22,
+          "机构卖出总额": 172983669.53,
+          "机构买入净额": -109126604.31,
+          "市场总成交额": 1917089767,
+          "机构净买额占总成交额比": -5.692305399,
+          "换手率": 39.5648,
+          "流通市值": 50.65,
+          "上榜原因": "日换手率达到30%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        },
+        {
+          "序号": 34,
+          "代码": "002463",
+          "名称": "沪电股份",
+          "收盘价": 82.2,
+          "涨跌幅": -9.9967,
+          "买方机构数": 3,
+          "卖方机构数": 4,
+          "机构买入总额": 477561804.61,
+          "机构卖出总额": 598482341.41,
+          "机构买入净额": -120920536.8,
+          "市场总成交额": 7588717536,
+          "机构净买额占总成交额比": -1.5934251898,
+          "换手率": 4.6085,
+          "流通市值": 1588.59,
+          "上榜原因": "日跌幅偏离值达到7%的前5只证券",
+          "上榜日期": "2026-11-13T00:00:00.000"
+        }
+      ]
     }
   },
   "sources": [
@@ -173432,12 +175061,16 @@
     {
       "name": "上交所ETF份额",
       "url": "https://www.sse.com.cn/assortment/fund/etf/list/scale/"
+    },
+    {
+      "name": "东财实时快照备用源",
+      "url": "https://push2.eastmoney.com/api/qt/stock/get"
     }
   ],
   "live_limit_snapshot": {
     "status": "ok",
     "date": "2026-11-13",
-    "fetched_at": "2026-11-13T14:36:31.445842+08:00",
+    "fetched_at": "2026-11-13T16:43:38.047008+08:00",
     "source": "东方财富涨停/炸板专题池（AKShare，盘中实时快照）",
     "limit_count": 37,
     "failed_count": 21,
@@ -173533,8 +175166,8 @@
         "streak": 4,
         "last_price": 73.82,
         "return_pct": 9.9985103607,
-        "turnover_yuan": 177775203,
-        "seal_amount_yuan": 25165238,
+        "turnover_yuan": 179347569,
+        "seal_amount_yuan": 22773470,
         "first_seal_time": "093034",
         "last_seal_time": "094043"
       },
@@ -173545,8 +175178,8 @@
         "streak": 3,
         "last_price": 7.95,
         "return_pct": 9.9585065842,
-        "turnover_yuan": 405689600,
-        "seal_amount_yuan": 257423933,
+        "turnover_yuan": 415508816,
+        "seal_amount_yuan": 177857781,
         "first_seal_time": "093000",
         "last_seal_time": "093000"
       },
@@ -173557,8 +175190,8 @@
         "streak": 3,
         "last_price": 35.32,
         "return_pct": 9.9968862534,
-        "turnover_yuan": 686777664,
-        "seal_amount_yuan": 58571226,
+        "turnover_yuan": 694389120,
+        "seal_amount_yuan": 42550074,
         "first_seal_time": "093044",
         "last_seal_time": "093253"
       },
@@ -173569,22 +175202,10 @@
         "streak": 2,
         "last_price": 26.64,
         "return_pct": 9.9917430878,
-        "turnover_yuan": 40120213,
-        "seal_amount_yuan": 516719723,
+        "turnover_yuan": 41239093,
+        "seal_amount_yuan": 495554243,
         "first_seal_time": "092500",
         "last_seal_time": "092500"
-      },
-      {
-        "code": "002187",
-        "name": "广百股份",
-        "industry": "一般零售",
-        "streak": 2,
-        "last_price": 6.97,
-        "return_pct": 9.9369087219,
-        "turnover_yuan": 770624960,
-        "seal_amount_yuan": 36034203,
-        "first_seal_time": "092500",
-        "last_seal_time": "094206"
       },
       {
         "code": "600467",
@@ -173593,10 +175214,22 @@
         "streak": 2,
         "last_price": 2.73,
         "return_pct": 10.0806455612,
-        "turnover_yuan": 727046960,
-        "seal_amount_yuan": 31440864,
+        "turnover_yuan": 741462992,
+        "seal_amount_yuan": 19659276,
         "first_seal_time": "092502",
         "last_seal_time": "101529"
+      },
+      {
+        "code": "002187",
+        "name": "广百股份",
+        "industry": "一般零售",
+        "streak": 2,
+        "last_price": 6.97,
+        "return_pct": 9.9369087219,
+        "turnover_yuan": 778638368,
+        "seal_amount_yuan": 16093730,
+        "first_seal_time": "092500",
+        "last_seal_time": "094206"
       },
       {
         "code": "002205",
@@ -173605,10 +175238,10 @@
         "streak": 2,
         "last_price": 12.93,
         "return_pct": 10.042552948,
-        "turnover_yuan": 354455552,
-        "seal_amount_yuan": 462894,
+        "turnover_yuan": 370907552,
+        "seal_amount_yuan": 7349412,
         "first_seal_time": "093654",
-        "last_seal_time": "143548"
+        "last_seal_time": "144624"
       },
       {
         "code": "600715",
@@ -173617,8 +175250,8 @@
         "streak": 1,
         "last_price": 3.4,
         "return_pct": 10.0323629379,
-        "turnover_yuan": 1021827680,
-        "seal_amount_yuan": 540175863,
+        "turnover_yuan": 1044631824,
+        "seal_amount_yuan": 245942923,
         "first_seal_time": "093040",
         "last_seal_time": "093040"
       },
@@ -173629,8 +175262,8 @@
         "streak": 1,
         "last_price": 14.3,
         "return_pct": 10.0,
-        "turnover_yuan": 2472095536,
-        "seal_amount_yuan": 376379088,
+        "turnover_yuan": 2510163568,
+        "seal_amount_yuan": 166211760,
         "first_seal_time": "095006",
         "last_seal_time": "135630"
       },
@@ -173641,46 +175274,10 @@
         "streak": 1,
         "last_price": 3.96,
         "return_pct": 10.0,
-        "turnover_yuan": 482083616,
-        "seal_amount_yuan": 238357944,
+        "turnover_yuan": 484826720,
+        "seal_amount_yuan": 149670180,
         "first_seal_time": "093509",
         "last_seal_time": "093509"
-      },
-      {
-        "code": "002739",
-        "name": "儒意电影",
-        "industry": "影视院线",
-        "streak": 1,
-        "last_price": 10.05,
-        "return_pct": 9.9562358856,
-        "turnover_yuan": 1452097376,
-        "seal_amount_yuan": 236208667,
-        "first_seal_time": "103833",
-        "last_seal_time": "104215"
-      },
-      {
-        "code": "002905",
-        "name": "金逸影视",
-        "industry": "影视院线",
-        "streak": 1,
-        "last_price": 9.9,
-        "return_pct": 10.0,
-        "turnover_yuan": 77574274,
-        "seal_amount_yuan": 140763942,
-        "first_seal_time": "093212",
-        "last_seal_time": "093212"
-      },
-      {
-        "code": "000595",
-        "name": "新能股份",
-        "industry": "电力",
-        "streak": 1,
-        "last_price": 5.53,
-        "return_pct": 9.9403572083,
-        "turnover_yuan": 322749232,
-        "seal_amount_yuan": 134771077,
-        "first_seal_time": "111703",
-        "last_seal_time": "111703"
       },
       {
         "code": "603103",
@@ -173689,34 +175286,10 @@
         "streak": 1,
         "last_price": 19.31,
         "return_pct": 10.0284900665,
-        "turnover_yuan": 129794971,
-        "seal_amount_yuan": 134184707,
+        "turnover_yuan": 133280426,
+        "seal_amount_yuan": 90661898,
         "first_seal_time": "093305",
         "last_seal_time": "093305"
-      },
-      {
-        "code": "000819",
-        "name": "岳阳兴长",
-        "industry": "炼化及贸",
-        "streak": 1,
-        "last_price": 12.82,
-        "return_pct": 10.0429182053,
-        "turnover_yuan": 308688288,
-        "seal_amount_yuan": 121851779,
-        "first_seal_time": "141939",
-        "last_seal_time": "141939"
-      },
-      {
-        "code": "002685",
-        "name": "华东重机",
-        "industry": "工程机械",
-        "streak": 1,
-        "last_price": 5.54,
-        "return_pct": 9.9206352234,
-        "turnover_yuan": 612012864,
-        "seal_amount_yuan": 118934936,
-        "first_seal_time": "092500",
-        "last_seal_time": "132457"
       },
       {
         "code": "605318",
@@ -173725,10 +175298,46 @@
         "streak": 1,
         "last_price": 84.26,
         "return_pct": 10.0,
-        "turnover_yuan": 343316640,
-        "seal_amount_yuan": 102165250,
+        "turnover_yuan": 345987680,
+        "seal_amount_yuan": 88523556,
         "first_seal_time": "110601",
         "last_seal_time": "110601"
+      },
+      {
+        "code": "002905",
+        "name": "金逸影视",
+        "industry": "影视院线",
+        "streak": 1,
+        "last_price": 9.9,
+        "return_pct": 10.0,
+        "turnover_yuan": 80203714,
+        "seal_amount_yuan": 83301570,
+        "first_seal_time": "093212",
+        "last_seal_time": "093212"
+      },
+      {
+        "code": "002685",
+        "name": "华东重机",
+        "industry": "工程机械",
+        "streak": 1,
+        "last_price": 5.54,
+        "return_pct": 9.9206352234,
+        "turnover_yuan": 618358384,
+        "seal_amount_yuan": 73746264,
+        "first_seal_time": "092500",
+        "last_seal_time": "132457"
+      },
+      {
+        "code": "000595",
+        "name": "新能股份",
+        "industry": "电力",
+        "streak": 1,
+        "last_price": 5.53,
+        "return_pct": 9.9403572083,
+        "turnover_yuan": 331174176,
+        "seal_amount_yuan": 72258298,
+        "first_seal_time": "111703",
+        "last_seal_time": "111703"
       },
       {
         "code": "603767",
@@ -173737,46 +175346,10 @@
         "streak": 1,
         "last_price": 17.74,
         "return_pct": 9.9814014435,
-        "turnover_yuan": 366411520,
-        "seal_amount_yuan": 86582908,
+        "turnover_yuan": 377697712,
+        "seal_amount_yuan": 52564684,
         "first_seal_time": "094137",
         "last_seal_time": "095316"
-      },
-      {
-        "code": "603686",
-        "name": "福龙马",
-        "industry": "环境治理",
-        "streak": 1,
-        "last_price": 13.6,
-        "return_pct": 10.0323629379,
-        "turnover_yuan": 681096208,
-        "seal_amount_yuan": 84578672,
-        "first_seal_time": "105621",
-        "last_seal_time": "142903"
-      },
-      {
-        "code": "002853",
-        "name": "皮阿诺",
-        "industry": "家居用品",
-        "streak": 1,
-        "last_price": 21.77,
-        "return_pct": 10.0050535202,
-        "turnover_yuan": 100251541,
-        "seal_amount_yuan": 71827938,
-        "first_seal_time": "095600",
-        "last_seal_time": "105651"
-      },
-      {
-        "code": "000766",
-        "name": "通化金马",
-        "industry": "化学制药",
-        "streak": 1,
-        "last_price": 16.5,
-        "return_pct": 10.0,
-        "turnover_yuan": 791365392,
-        "seal_amount_yuan": 70030950,
-        "first_seal_time": "094324",
-        "last_seal_time": "143442"
       },
       {
         "code": "002819",
@@ -173785,8 +175358,8 @@
         "streak": 1,
         "last_price": 21.7,
         "return_pct": 9.9847946167,
-        "turnover_yuan": 183669405,
-        "seal_amount_yuan": 68969413,
+        "turnover_yuan": 187972515,
+        "seal_amount_yuan": 47262600,
         "first_seal_time": "093018",
         "last_seal_time": "093018"
       },
@@ -173797,22 +175370,34 @@
         "streak": 1,
         "last_price": 11.96,
         "return_pct": 10.027598381,
-        "turnover_yuan": 143814683,
-        "seal_amount_yuan": 65520121,
+        "turnover_yuan": 146621695,
+        "seal_amount_yuan": 45403401,
         "first_seal_time": "093352",
         "last_seal_time": "093431"
       },
       {
-        "code": "600977",
-        "name": "中国电影",
-        "industry": "影视院线",
+        "code": "002520",
+        "name": "日发精机",
+        "industry": "通用设备",
         "streak": 1,
-        "last_price": 17.05,
+        "last_price": 7.7,
         "return_pct": 10.0,
-        "turnover_yuan": 1859689328,
-        "seal_amount_yuan": 65105680,
-        "first_seal_time": "100816",
-        "last_seal_time": "132913"
+        "turnover_yuan": 1503111200,
+        "seal_amount_yuan": 43672090,
+        "first_seal_time": "112127",
+        "last_seal_time": "140527"
+      },
+      {
+        "code": "000819",
+        "name": "岳阳兴长",
+        "industry": "炼化及贸",
+        "streak": 1,
+        "last_price": 12.82,
+        "return_pct": 10.0429182053,
+        "turnover_yuan": 332943840,
+        "seal_amount_yuan": 42372792,
+        "first_seal_time": "141939",
+        "last_seal_time": "141939"
       },
       {
         "code": "600651",
@@ -173821,22 +175406,10 @@
         "streak": 1,
         "last_price": 5.18,
         "return_pct": 9.9787683487,
-        "turnover_yuan": 236052305,
-        "seal_amount_yuan": 60939592,
+        "turnover_yuan": 242114459,
+        "seal_amount_yuan": 41205346,
         "first_seal_time": "103854",
         "last_seal_time": "134015"
-      },
-      {
-        "code": "603636",
-        "name": "南威软件",
-        "industry": "IT服务Ⅱ",
-        "streak": 1,
-        "last_price": 9.5,
-        "return_pct": 9.9537038803,
-        "turnover_yuan": 795583984,
-        "seal_amount_yuan": 60701741,
-        "first_seal_time": "133630",
-        "last_seal_time": "142206"
       },
       {
         "code": "300237",
@@ -173845,8 +175418,8 @@
         "streak": 1,
         "last_price": 3.26,
         "return_pct": 19.8529415131,
-        "turnover_yuan": 630639584,
-        "seal_amount_yuan": 60359552,
+        "turnover_yuan": 633942944,
+        "seal_amount_yuan": 40616340,
         "first_seal_time": "103815",
         "last_seal_time": "105939"
       },
@@ -173857,22 +175430,10 @@
         "streak": 1,
         "last_price": 11.84,
         "return_pct": 10.0371751785,
-        "turnover_yuan": 304129184,
-        "seal_amount_yuan": 52159699,
+        "turnover_yuan": 313459104,
+        "seal_amount_yuan": 39038611,
         "first_seal_time": "104828",
         "last_seal_time": "104828"
-      },
-      {
-        "code": "002520",
-        "name": "日发精机",
-        "industry": "通用设备",
-        "streak": 1,
-        "last_price": 7.7,
-        "return_pct": 10.0,
-        "turnover_yuan": 1491531952,
-        "seal_amount_yuan": 50170890,
-        "first_seal_time": "112127",
-        "last_seal_time": "140527"
       },
       {
         "code": "000665",
@@ -173881,14 +175442,86 @@
         "streak": 1,
         "last_price": 4.58,
         "return_pct": 10.0961532593,
-        "turnover_yuan": 234740898,
-        "seal_amount_yuan": 50091212,
+        "turnover_yuan": 244592936,
+        "seal_amount_yuan": 36914552,
         "first_seal_time": "093618",
         "last_seal_time": "093618"
+      },
+      {
+        "code": "002853",
+        "name": "皮阿诺",
+        "industry": "家居用品",
+        "streak": 1,
+        "last_price": 21.77,
+        "return_pct": 10.0050535202,
+        "turnover_yuan": 103423430,
+        "seal_amount_yuan": 36584485,
+        "first_seal_time": "095600",
+        "last_seal_time": "105651"
+      },
+      {
+        "code": "000766",
+        "name": "通化金马",
+        "industry": "化学制药",
+        "streak": 1,
+        "last_price": 16.5,
+        "return_pct": 10.0,
+        "turnover_yuan": 809536848,
+        "seal_amount_yuan": 29404650,
+        "first_seal_time": "094324",
+        "last_seal_time": "143442"
+      },
+      {
+        "code": "603636",
+        "name": "南威软件",
+        "industry": "IT服务Ⅱ",
+        "streak": 1,
+        "last_price": 9.5,
+        "return_pct": 9.9537038803,
+        "turnover_yuan": 849228784,
+        "seal_amount_yuan": 29064898,
+        "first_seal_time": "133630",
+        "last_seal_time": "142206"
+      },
+      {
+        "code": "600977",
+        "name": "中国电影",
+        "industry": "影视院线",
+        "streak": 1,
+        "last_price": 17.05,
+        "return_pct": 10.0,
+        "turnover_yuan": 1898578336,
+        "seal_amount_yuan": 28775881,
+        "first_seal_time": "100816",
+        "last_seal_time": "132913"
+      },
+      {
+        "code": "002548",
+        "name": "金新农",
+        "industry": "饲料",
+        "streak": 1,
+        "last_price": 3.83,
+        "return_pct": 10.0574712753,
+        "turnover_yuan": 136818300,
+        "seal_amount_yuan": 23725701,
+        "first_seal_time": "101754",
+        "last_seal_time": "101845"
+      },
+      {
+        "code": "603686",
+        "name": "福龙马",
+        "industry": "环境治理",
+        "streak": 1,
+        "last_price": 13.6,
+        "return_pct": 10.0323629379,
+        "turnover_yuan": 701179328,
+        "seal_amount_yuan": 22697040,
+        "first_seal_time": "105621",
+        "last_seal_time": "142903"
       }
     ]
   },
-  "sector_mode": "live_ranking",
-  "sector_ranking_updated_at": "2026-11-13T14:35:42.149371+08:00",
+  "sector_mode": "completed_ranking_fallback",
+  "sector_ranking_updated_at": "2026-11-13T16:42:53.828397+08:00",
   "sector_ranking_source": "同花顺行业资金流排名（AKShare备用）"
 }
