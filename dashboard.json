@@ -1,18 +1,14 @@
 {
-  "updated_at": "2026-11-14 07:51",
+  "updated_at": "2026-11-16 16:35",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "成交额主源和备用源均失败，保留上一成功数据和真实数据日",
     "freshness": {
-      "margin_as_of": "2026-11-12",
-      "turnover_as_of": "2026-11-13",
-      "sh_index_as_of": "2026-11-13",
-      "checked_at": "2026-11-14 07:50"
+      "margin_as_of": "2026-11-13",
+      "turnover_as_of": "2026-11-16",
+      "sh_index_as_of": "2026-11-16",
+      "checked_at": "2026-11-16 16:33"
     },
     "margin_series": [
-      {
-        "date": "2026-09-24",
-        "margin_balance": 26373.02
-      },
       {
         "date": "2026-09-28",
         "margin_balance": 26106.94
@@ -128,13 +124,13 @@
       {
         "date": "2026-11-12",
         "margin_balance": 23028.65
+      },
+      {
+        "date": "2026-11-13",
+        "margin_balance": 22865.24
       }
     ],
     "turnover_series": [
-      {
-        "date": "2026-09-28",
-        "turnover": 17024.53
-      },
       {
         "date": "2026-09-29",
         "turnover": 14088.52
@@ -250,13 +246,13 @@
       {
         "date": "2026-11-13",
         "turnover": 16567.48
+      },
+      {
+        "date": "2026-11-16",
+        "turnover": 14840.9
       }
     ],
     "sh_index_series": [
-      {
-        "date": "2026-09-28",
-        "sh_close": 3823.62
-      },
       {
         "date": "2026-09-29",
         "sh_close": 3830.45
@@ -372,14 +368,13 @@
       {
         "date": "2026-11-13",
         "sh_close": 3634.35
+      },
+      {
+        "date": "2026-11-16",
+        "sh_close": 3602.57
       }
     ],
     "series": [
-      {
-        "date": "2026-09-28",
-        "margin_balance": 26106.94,
-        "turnover": 17024.53
-      },
       {
         "date": "2026-09-29",
         "margin_balance": 26089.9,
@@ -519,12 +514,17 @@
         "date": "2026-11-12",
         "margin_balance": 23028.65,
         "turnover": 19336.82
+      },
+      {
+        "date": "2026-11-13",
+        "margin_balance": 22865.24,
+        "turnover": 16567.48
       }
     ],
     "high_30d": {
       "margin_balance": {
-        "date": "2026-09-24",
-        "margin_balance": 26373.02
+        "date": "2026-09-28",
+        "margin_balance": 26106.94
       },
       "turnover": {
         "date": "2026-11-05",
@@ -536,7 +536,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：交易所官方成交额",
+    "turnover_source": "优先交易所官方汇总；历史失败切东方财富；收盘日最终备用：腾讯行情A股指数成交额备用源",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -1457,44 +1457,44 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-11-14T07:51:00.848651+08:00",
-    "expected_market_date": "2026-11-13",
-    "sh_index_as_of": "2026-11-13",
-    "turnover_as_of": "2026-11-13",
-    "margin_as_of": "2026-11-12",
+    "checked_at": "2026-11-16T16:35:14.585870+08:00",
+    "expected_market_date": "2026-11-16",
+    "sh_index_as_of": "2026-11-16",
+    "turnover_as_of": "2026-11-16",
+    "margin_as_of": "2026-11-13",
     "modules": {
       "liquidity": {
         "status": "ok",
-        "expected_date": "2026-11-13",
-        "sh_index_as_of": "2026-11-13",
-        "turnover_as_of": "2026-11-13",
-        "margin_as_of": "2026-11-12",
-        "checked_at": "2026-11-14 07:50"
+        "expected_date": "2026-11-16",
+        "sh_index_as_of": "2026-11-16",
+        "turnover_as_of": "2026-11-16",
+        "margin_as_of": "2026-11-13",
+        "checked_at": "2026-11-16 16:33"
       },
       "sectors": {
         "status": "ok",
         "mode": "completed_ranking_fallback",
         "rows": 20,
         "usable_rows": 20,
-        "as_of": "2026-11-13",
+        "as_of": "2026-11-16",
         "contract": "verified day/3/5/10 fund-flow; turnover/return intentionally unavailable"
       },
       "stocks": {
         "status": "ok",
-        "expected_date": "2026-11-13",
+        "expected_date": "2026-11-16",
         "usable": 5,
         "expected": 5,
         "incomplete": []
       },
       "limits": {
         "status": "ok",
-        "completed_as_of": "2026-11-13",
+        "completed_as_of": "2026-11-16",
         "live_required": false,
-        "live_date": null,
-        "live_fetched_at": null,
-        "live_limit_count": null,
-        "live_failed_count": null,
-        "live_age_minutes": null
+        "live_date": "2026-11-16",
+        "live_fetched_at": "2026-11-16T16:33:53.662004+08:00",
+        "live_limit_count": 32,
+        "live_failed_count": 16,
+        "live_age_minutes": 1.3
       },
       "etf": {
         "status": "ok",
@@ -1503,7 +1503,7 @@
           "2026-11-13"
         ],
         "rows": 924,
-        "current_day_available": true
+        "current_day_available": false
       },
       "brief": {
         "status": "degraded",
@@ -1513,24 +1513,27 @@
     },
     "market_details": {
       "status": "ok",
-      "data_date": "2026-11-13",
-      "updated_at": "2026-11-14T07:51:00.336216+08:00",
+      "data_date": "2026-11-16",
+      "updated_at": "2026-11-16T16:34:13.182139+08:00",
       "sector_mode": "completed_ranking_fallback",
       "usable_sectors": 20,
       "usable_stocks": 5,
       "expected_stocks": 5,
       "incomplete_stocks": [],
       "limit_up_ok": true,
-      "live_limit_ok": false,
+      "live_limit_ok": true,
       "etf_comparison_ok": true,
       "etf_as_of": "2026-11-13",
-      "etf_current_day_available": true,
+      "etf_current_day_available": false,
       "etf_change_rows": 924,
-      "transient_request_errors": 0
+      "transient_request_errors": 10
     },
-    "warnings": [],
+    "warnings": [
+      "上交所ETF份额尚未发布到 2026-11-16；当前使用最近已核验统计日 2026-11-13",
+      "brief.json 仍为较早日期 2026-11-13；核心行情模块不受影响"
+    ],
     "problems": [],
-    "publish_status": "ok",
+    "publish_status": "degraded",
     "note": "所有核心模块分别校验实际日期与抓取时间；关键模块失败时禁止用旧缓存伪装成功。盘中涨停使用当日实时快照，完整交易日历史独立保存。"
   }
 }
