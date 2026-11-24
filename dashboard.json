@@ -1,18 +1,14 @@
 {
-  "updated_at": "2026-11-24 03:31",
+  "updated_at": "2026-11-24 17:50",
   "liquidity": {
-    "status": "成交额主源和备用源均失败，保留上一成功数据和真实数据日",
+    "status": "多源校验更新正常",
     "freshness": {
-      "margin_as_of": "2026-11-20",
-      "turnover_as_of": "2026-11-23",
-      "sh_index_as_of": "2026-11-23",
-      "checked_at": "2026-11-24 03:31"
+      "margin_as_of": "2026-11-23",
+      "turnover_as_of": "2026-11-24",
+      "sh_index_as_of": "2026-11-24",
+      "checked_at": "2026-11-24 17:48"
     },
     "margin_series": [
-      {
-        "date": "2026-10-12",
-        "margin_balance": 25550.15
-      },
       {
         "date": "2026-10-13",
         "margin_balance": 25458.45
@@ -128,13 +124,13 @@
       {
         "date": "2026-11-20",
         "margin_balance": 21797.96
+      },
+      {
+        "date": "2026-11-23",
+        "margin_balance": 21711.34
       }
     ],
     "turnover_series": [
-      {
-        "date": "2026-10-13",
-        "turnover": 16754.31
-      },
       {
         "date": "2026-10-14",
         "turnover": 14139.27
@@ -250,13 +246,13 @@
       {
         "date": "2026-11-23",
         "turnover": 15523.59
+      },
+      {
+        "date": "2026-11-24",
+        "turnover": 16546.99
       }
     ],
     "sh_index_series": [
-      {
-        "date": "2026-10-13",
-        "sh_close": 3800.86
-      },
       {
         "date": "2026-10-14",
         "sh_close": 3767.23
@@ -372,14 +368,13 @@
       {
         "date": "2026-11-23",
         "sh_close": 3538.95
+      },
+      {
+        "date": "2026-11-24",
+        "sh_close": 3548.37
       }
     ],
     "series": [
-      {
-        "date": "2026-10-13",
-        "margin_balance": 25458.45,
-        "turnover": 16754.31
-      },
       {
         "date": "2026-10-14",
         "margin_balance": 25350.91,
@@ -519,24 +514,29 @@
         "date": "2026-11-20",
         "margin_balance": 21797.96,
         "turnover": 14217.61
+      },
+      {
+        "date": "2026-11-23",
+        "margin_balance": 21711.34,
+        "turnover": 15523.59
       }
     ],
     "high_30d": {
       "margin_balance": {
-        "date": "2026-10-12",
-        "margin_balance": 25550.15
+        "date": "2026-10-13",
+        "margin_balance": 25458.45
       },
       "turnover": {
         "date": "2026-11-05",
         "turnover": 21173.86
       },
       "sh_index": {
-        "date": "2026-10-13",
-        "sh_close": 3800.86
+        "date": "2026-10-14",
+        "sh_close": 3767.23
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：上一成功数据",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -1349,7 +1349,7 @@
       "name": "钨",
       "symbol": "中国APT（88.5% WO₃）现货/长协参考",
       "unit": "元/吨",
-      "latest": 570000,
+      "latest": 580000,
       "month_change": -10.09,
       "trend": "高位回落",
       "outlook": "未来1–4周重点看矿端供应约束与下游硬质合金订单的拉锯。若APT重新站上近期高点且钨精矿同步走强，趋势转强；若下游继续压价而APT跌破近月低点，则回落风险增加。",
@@ -1465,6 +1465,10 @@
           "close": 570000
         },
         {
+          "date": "2026-11-24",
+          "close": 580000
+        },
+        {
           "date": "2027-01-01",
           "close": 570000
         }
@@ -1473,44 +1477,44 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-11-24T03:31:59.705630+08:00",
-    "expected_market_date": "2026-11-23",
-    "sh_index_as_of": "2026-11-23",
-    "turnover_as_of": "2026-11-23",
-    "margin_as_of": "2026-11-20",
+    "checked_at": "2026-11-24T17:50:22.755284+08:00",
+    "expected_market_date": "2026-11-24",
+    "sh_index_as_of": "2026-11-24",
+    "turnover_as_of": "2026-11-24",
+    "margin_as_of": "2026-11-23",
     "modules": {
       "liquidity": {
         "status": "ok",
-        "expected_date": "2026-11-23",
-        "sh_index_as_of": "2026-11-23",
-        "turnover_as_of": "2026-11-23",
-        "margin_as_of": "2026-11-20",
-        "checked_at": "2026-11-24 03:31"
+        "expected_date": "2026-11-24",
+        "sh_index_as_of": "2026-11-24",
+        "turnover_as_of": "2026-11-24",
+        "margin_as_of": "2026-11-23",
+        "checked_at": "2026-11-24 17:48"
       },
       "sectors": {
         "status": "ok",
         "mode": "completed_ranking_fallback",
         "rows": 20,
         "usable_rows": 20,
-        "as_of": "2026-11-23",
+        "as_of": "2026-11-24",
         "contract": "verified day/3/5/10 fund-flow; turnover/return intentionally unavailable"
       },
       "stocks": {
         "status": "ok",
-        "expected_date": "2026-11-23",
+        "expected_date": "2026-11-24",
         "usable": 5,
         "expected": 5,
         "incomplete": []
       },
       "limits": {
         "status": "ok",
-        "completed_as_of": "2026-11-23",
+        "completed_as_of": "2026-11-24",
         "live_required": false,
-        "live_date": null,
-        "live_fetched_at": null,
-        "live_limit_count": null,
-        "live_failed_count": null,
-        "live_age_minutes": null
+        "live_date": "2026-11-24",
+        "live_fetched_at": "2026-11-24T17:49:40.107411+08:00",
+        "live_limit_count": 55,
+        "live_failed_count": 68,
+        "live_age_minutes": 0.7
       },
       "etf": {
         "status": "ok",
@@ -1519,7 +1523,7 @@
           "2026-11-23"
         ],
         "rows": 927,
-        "current_day_available": true
+        "current_day_available": false
       },
       "brief": {
         "status": "degraded",
@@ -1529,22 +1533,23 @@
     },
     "market_details": {
       "status": "ok",
-      "data_date": "2026-11-23",
-      "updated_at": "2026-11-24T03:31:59.054842+08:00",
+      "data_date": "2026-11-24",
+      "updated_at": "2026-11-24T17:50:22.228881+08:00",
       "sector_mode": "completed_ranking_fallback",
       "usable_sectors": 20,
       "usable_stocks": 5,
       "expected_stocks": 5,
       "incomplete_stocks": [],
       "limit_up_ok": true,
-      "live_limit_ok": false,
+      "live_limit_ok": true,
       "etf_comparison_ok": true,
       "etf_as_of": "2026-11-23",
-      "etf_current_day_available": true,
+      "etf_current_day_available": false,
       "etf_change_rows": 927,
-      "transient_request_errors": 0
+      "transient_request_errors": 2
     },
     "warnings": [
+      "上交所ETF份额尚未发布到 2026-11-24；当前使用最近已核验统计日 2026-11-23",
       "brief.json 仍为较早日期 2026-11-23；核心行情模块不受影响"
     ],
     "problems": [],
