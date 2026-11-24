@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-24 19:39",
+  "updated_at": "2026-11-24 22:14",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "成交额主源和备用源均失败，保留上一成功数据和真实数据日",
     "freshness": {
       "margin_as_of": "2026-11-23",
       "turnover_as_of": "2026-11-24",
       "sh_index_as_of": "2026-11-24",
-      "checked_at": "2026-11-24 19:37"
+      "checked_at": "2026-11-24 22:12"
     },
     "margin_series": [
       {
@@ -536,7 +536,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：上一成功数据",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -1477,7 +1477,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-11-24T19:39:55.457732+08:00",
+    "checked_at": "2026-11-24T22:14:07.115444+08:00",
     "expected_market_date": "2026-11-24",
     "sh_index_as_of": "2026-11-24",
     "turnover_as_of": "2026-11-24",
@@ -1489,7 +1489,7 @@
         "sh_index_as_of": "2026-11-24",
         "turnover_as_of": "2026-11-24",
         "margin_as_of": "2026-11-23",
-        "checked_at": "2026-11-24 19:37"
+        "checked_at": "2026-11-24 22:12"
       },
       "sectors": {
         "status": "ok",
@@ -1511,19 +1511,19 @@
         "completed_as_of": "2026-11-24",
         "live_required": false,
         "live_date": "2026-11-24",
-        "live_fetched_at": "2026-11-24T19:38:27.990409+08:00",
+        "live_fetched_at": "2026-11-24T22:13:47.594680+08:00",
         "live_limit_count": 55,
         "live_failed_count": 68,
-        "live_age_minutes": 1.5
+        "live_age_minutes": 0.3
       },
       "etf": {
         "status": "ok",
         "comparison_dates": [
-          "2026-11-20",
-          "2026-11-23"
+          "2026-11-23",
+          "2026-11-24"
         ],
-        "rows": 927,
-        "current_day_available": false
+        "rows": 936,
+        "current_day_available": true
       },
       "brief": {
         "status": "ok",
@@ -1534,7 +1534,7 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-11-24",
-      "updated_at": "2026-11-24T19:38:18.663843+08:00",
+      "updated_at": "2026-11-24T22:14:06.635392+08:00",
       "sector_mode": "completed_ranking_fallback",
       "usable_sectors": 20,
       "usable_stocks": 5,
@@ -1543,16 +1543,14 @@
       "limit_up_ok": true,
       "live_limit_ok": true,
       "etf_comparison_ok": true,
-      "etf_as_of": "2026-11-23",
-      "etf_current_day_available": false,
-      "etf_change_rows": 927,
-      "transient_request_errors": 1
+      "etf_as_of": "2026-11-24",
+      "etf_current_day_available": true,
+      "etf_change_rows": 936,
+      "transient_request_errors": 0
     },
-    "warnings": [
-      "上交所ETF份额尚未发布到 2026-11-24；当前使用最近已核验统计日 2026-11-23"
-    ],
+    "warnings": [],
     "problems": [],
-    "publish_status": "degraded",
+    "publish_status": "ok",
     "note": "所有核心模块分别校验实际日期与抓取时间；关键模块失败时禁止用旧缓存伪装成功。盘中涨停使用当日实时快照，完整交易日历史独立保存。"
   }
 }
