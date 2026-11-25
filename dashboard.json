@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-11-25 21:30",
+  "updated_at": "2026-11-25 23:53",
   "liquidity": {
-    "status": "多源校验更新正常",
+    "status": "成交额主源和备用源均失败，保留上一成功数据和真实数据日",
     "freshness": {
       "margin_as_of": "2026-11-24",
       "turnover_as_of": "2026-11-25",
       "sh_index_as_of": "2026-11-25",
-      "checked_at": "2026-11-25 21:30"
+      "checked_at": "2026-11-25 23:52"
     },
     "margin_series": [
       {
@@ -536,7 +536,7 @@
       }
     },
     "margin_source": "上交所+深交所+北交所融资融券汇总（增量更新）",
-    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：东方财富上证A股指数+深证A股指数成交额备用源",
+    "turnover_source": "优先交易所官方汇总；失败切东方财富上证A股指数000002+深证A股指数399107；当前：上一成功数据",
     "sh_index_source": "上证指数000001：东方财富主源，新浪备用，Yahoo历史第三备用，腾讯收盘快照第四备用",
     "source": "各序列独立记录真实数据日期"
   },
@@ -620,8 +620,8 @@
         "关税预期落空",
         "制造业需求转弱"
       ],
-      "latest": 11826.6981,
-      "month_change": -18.43,
+      "latest": 11780.401,
+      "month_change": -18.75,
       "trend": "弱势下行",
       "outlook": "未来1–4周技术面偏空；除非出现供给冲击或价格快速收复20日均线。",
       "series": [
@@ -723,10 +723,14 @@
         },
         {
           "date": "2026-11-24",
-          "close": 11826.6981
+          "close": 11909.3714
+        },
+        {
+          "date": "2026-11-25",
+          "close": 11780.401
         }
       ],
-      "momentum_5d": -10.52,
+      "momentum_5d": -5.63,
       "data_source": "COMEX铜连续备用（HG00Y，已折算美元/吨）",
       "source_note": "LME 3个月铜历史接口无数据时，自动切换东方财富 COMEX 铜连续 HG00Y；原始美元/磅已按 1 吨=2204.6226 磅折算为美元/吨。"
     },
@@ -1481,7 +1485,7 @@
     }
   },
   "data_quality": {
-    "checked_at": "2026-11-25T21:30:55.461783+08:00",
+    "checked_at": "2026-11-25T23:53:29.820999+08:00",
     "expected_market_date": "2026-11-25",
     "sh_index_as_of": "2026-11-25",
     "turnover_as_of": "2026-11-25",
@@ -1493,7 +1497,7 @@
         "sh_index_as_of": "2026-11-25",
         "turnover_as_of": "2026-11-25",
         "margin_as_of": "2026-11-24",
-        "checked_at": "2026-11-25 21:30"
+        "checked_at": "2026-11-25 23:52"
       },
       "sectors": {
         "status": "ok",
@@ -1515,7 +1519,7 @@
         "completed_as_of": "2026-11-25",
         "live_required": false,
         "live_date": "2026-11-25",
-        "live_fetched_at": "2026-11-25T21:30:33.241817+08:00",
+        "live_fetched_at": "2026-11-25T23:53:07.885847+08:00",
         "live_limit_count": 51,
         "live_failed_count": 30,
         "live_age_minutes": 0.4
@@ -1523,11 +1527,11 @@
       "etf": {
         "status": "ok",
         "comparison_dates": [
-          "2026-11-23",
-          "2026-11-24"
+          "2026-11-24",
+          "2026-11-25"
         ],
-        "rows": 936,
-        "current_day_available": false
+        "rows": 938,
+        "current_day_available": true
       },
       "brief": {
         "status": "ok",
@@ -1538,7 +1542,7 @@
     "market_details": {
       "status": "ok",
       "data_date": "2026-11-25",
-      "updated_at": "2026-11-25T21:30:54.910443+08:00",
+      "updated_at": "2026-11-25T23:53:29.245375+08:00",
       "sector_mode": "completed_ranking_fallback",
       "usable_sectors": 20,
       "usable_stocks": 5,
@@ -1547,16 +1551,14 @@
       "limit_up_ok": true,
       "live_limit_ok": true,
       "etf_comparison_ok": true,
-      "etf_as_of": "2026-11-24",
-      "etf_current_day_available": false,
-      "etf_change_rows": 936,
-      "transient_request_errors": 1
+      "etf_as_of": "2026-11-25",
+      "etf_current_day_available": true,
+      "etf_change_rows": 938,
+      "transient_request_errors": 0
     },
-    "warnings": [
-      "上交所ETF份额尚未发布到 2026-11-25；当前使用最近已核验统计日 2026-11-24"
-    ],
+    "warnings": [],
     "problems": [],
-    "publish_status": "degraded",
+    "publish_status": "ok",
     "note": "所有核心模块分别校验实际日期与抓取时间；关键模块失败时禁止用旧缓存伪装成功。盘中涨停使用当日实时快照，完整交易日历史独立保存。"
   }
 }
